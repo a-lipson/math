@@ -1,0 +1,107 @@
+\documentclass[../hw7]{subfiles}
+
+\begin{document}
+\subsection*{3}
+(a) Gasoline is stored in a cylindrical tank of radius 3 meters and length 12 meters lying under ground in a gas station. The tank is buried on its side with the highest part of the tank 2.5 meters below ground. The tank is initially half-full. Suppose that the filler cap of each car is 0.7 meters above the ground. Express the work done in pumping all the gasoline as an integral. The density of gasoline is 750 kilograms per cubic meter.
+
+(b) Show that the work done is the weight of the gasoline times the distance its center of mass travels vertically. Note that you only need the $y$-coordinate of its center of mass. What are the $x$ and $z$ coordinates of the center of mass of the gasoline?
+
+% optional, recreate diagram used in homework.
+
+\begin{figure*}[ht]
+\centering
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.3]
+        \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+        \draw[->] (0,-4) -- (0,7) node[above] {$y$};
+
+        \draw (0,0) circle (3);
+        %\draw[gray] (4,2) circle (3); %giving up on trying 3D
+
+        \draw[thick] (0.1,6.2) -- (-0.1,6.2) node[left] {6.2};
+        \draw[thick] (3,0.1) -- (3,-0.1) node[below right] {3};
+
+        \path[name path=B] (-3,0) -- (3,0);
+        \path[name path=A] (-3,0) arc(0:180:-3) (3,0);
+        \tikzfillbetween[of=A and B, on layer=bg]{gray, opacity=0.3};
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.3]
+        \draw[->] (0,-4) -- (0,7) node[above] {$y$};
+        \draw[->] (-1,0) -- (13,0) node[right] {$z$};
+
+        \draw[thick] (0.1,6.2) -- (-0.1,6.2) node[left] {6.2};
+        \draw[thick] (0.1,3) -- (-0.1,3) node[left] {3};
+        \draw[thick] (12,0.1) -- (12,-0.1) node[below right] {12};
+
+        \draw (0,-3) rectangle (12,3);
+
+        \path[name path=B] (0,0) -- (12,0);
+        \path[name path=A] (0,-3) -- (12,-3);
+        \tikzfillbetween[of=A and B, on layer=bg]{gray,opacity=0.3}
+    \end{tikzpicture}
+\end{minipage}
+\caption{Note that from the origin, the height of the spout is $3+2.5+0.7=6.2$ feet.}
+\end{figure*}
+
+For (a), we start with the cross sectional area of each part of gas in the tank. 
+
+We model the rectangular areas by their depth of 12 meters times the width of the circular side of the tank at height $y$.
+
+So, the minute change is volume $\Delta V$ is given by the area at $y$ times $\Delta y$, or $12\cdot2\sqrt{9-y^2}\Delta y$.
+
+Then, the force is given by the volume times the density of 750 kilos per cubic meter times the gravitational constant $g$, $750\cdot g\cdot24\sqrt{9-y^2}\Delta y=18000g\sqrt{9-y^2} \Delta y$.
+
+Next, the height that each slice travel is $6.2-y$.
+
+So, we express the work done to pump all the gasoline from the tank as the integral from the base of the tank at $y=-3$ to the middle of the tank at $y=0$,
+\[\int_{-3}^{0} 18000g\sqrt{9-y^2}(6.2-y)dy.\]
+
+Then, we integrate,
+\begin{align*}
+    &\int_{-3}^{0} 18000g\sqrt{9-y^2}(6.2-y)dy \\
+    =& 18000g\left[ 6.2\int_{-3}^{0}\sqrt{9-y^2} - \int_{-3}^{0}y\sqrt{9-y^2} \right] \\
+\end{align*}
+We note that the second integral is just the area of a circle with radius 3 in the second quadrant, equivalent to $\frac{9\pi}{4}$.
+
+For the latter integral, we make the substitution $u(y)=9-y^2$, so that $dy=-\frac{1}{2y}du$.
+\begin{align*}
+    =& 18000g\left[ 6.2\cdot\frac{9\pi}{4} - \int_{u(-3)}^{u(0)} \frac{-1}{2} \sqrt{u}\,du\right] \\
+    =& 18000g\left( 6.2\cdot\frac{9\pi}{4} + \frac{1}{2} \left[ \frac{2}{3}u^{\frac{3}{2}} \right] \Bigg\vert_{0}^{9} \right) \\
+    =& 18000g\left( 6.2\cdot9\cdot\frac{\pi}{4} + 9 \right) \\
+    =& 18000g\left( 55.8\left( \frac{\pi}{4}+1 \right) \right) \\
+    =& 1004400g\left( 1+\frac{\pi}{4} \right). \\
+\end{align*}
+
+With $g=9.8$, then $1004400g\left( 1+\frac{\pi}{4} \right) \approx 1.76\cdot10^7$ joules.
+
+
+For (b), we are only concerned with the distance that the gasoline moves vertically, as we are computing work done against gravity. The center of mass of the gasoline will lie in the middle of the tank due to symmetry, and may move laterally to the pump. We are only concerned with vertical movement.
+
+The total mass of the gasoline is given by the integral of the density times each bit of volume, \[\int\rho\,dV.\]
+
+The total weight of the gasoline is given by the integral of the mass times the gravitational constant $g$, \[\int\rho g\,dV.\]
+
+The mass moment of the gasoline about the vertical axis $y$ is given by the integral of the density $\rho$ times the bits of volume, \[\int y\rho g\,dV.\]
+
+We define $\overline{y}$ as center of mass of the gasoline, which is given by the moment about vertical axis $y$ divided by the total mass of the gasoline, \[\frac{\int y \rho g\,dV}{\int \rho\,dV}.\]
+
+We define the distance that a portion of gas travels as the vertical linear difference between the destination height $a$ and the current height $y$, such that $h(y)=a-y$.
+
+The total work done is the integral of all the pieces of weight times the distance that the pieces moved.
+
+We claim that the total work is equivalent to the distance that the center of mass $\overline{y}$ traveled times the total weight of the gasoline.
+
+So,
+\begin{align*}
+    h(\overline{y})\cdot\int\rho g\,dV &= \int h(y) \rho g \, dV \\
+    \left(a-\frac{\int y\rho\,dV}{\int \rho\,dV}\right) \int\rho g\,dV &= \int(a-y)\rho g\,dV \\
+    \int a\rho g\,dV-\int\rho gy\,dV &= \int a\rho g\,dV-\int\rho gy\,dV. \\
+\end{align*} 
+
+Thus, we see that the statement holds in general. In our case, $\rho=750$ kilograms per cubic meter, $a=6.2$ meters, and $g=9.8$ meters per second per second.
+
+\end{document}

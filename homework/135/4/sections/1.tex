@@ -1,0 +1,40 @@
+\documentclass[../hw4]{subfiles}
+
+\begin{document}
+
+Show that $\sum_{k=0}^{\infty}\frac{\sin{k}}{2^k}$ converges.
+
+We will demonstrate convergence of the given series via the stronger property of absolute convergence given by a comparison test with a geometric series. 
+\[\sum\frac{\sin{k}}{2^k}\leq\sum\Bigg|\frac{\sin{k}}{2^k}\Bigg|\leq\sum\frac{1}{2^k}=\sum{\left( \frac{1}{2} \right)}^k,\] which converges since $\big|\frac{1}{2}\big|<1$.
+
+Since $\sum\Big|\frac{\sin{k}}{2^k}\Big|$ converges, $\sum\frac{\sin{k}}{2^k}$ converges absolutely and therefore also converges.
+
+We will use Euler's formula, \[e^{i\theta}=\cos{\theta}+i\sin{\theta}.\]
+
+The equality provides that, \[\sum\frac{\cos{k}}{2^k}+i\sum\frac{\sin{k}}{2^k}=\sum\frac{e^{ik}}{2^k}.\]
+
+We note that the value of series series at hand is the imaginary part of $\sum\frac{e^{ik}}{2^k}$.
+
+The latter term can be recognized as a particular form of the geometric series,
+\[\sum\frac{e^{ik}}{2^k}=\sum{\left( \frac{e^i}{2} \right)}^k.\]
+
+Since $e^i$ is a complex number of the form $re^{i\theta}$ with $r=1$, we know that the norm of $e^i$ is one. Thus, \[\Bigg|\frac{e^i}{2}\Bigg|=\frac{1}{2}<1.\]
+So, the series converges. 
+
+We will now consider the value of the geometric series with $\frac{e^i}{2}$ given by the identity $\sum x^k = \frac{1}{1-x}$.
+
+Using Euler's identity,
+\begin{align*}
+    \frac{1}{1-e^i/2} &= \frac{2}{2-e^i} \\
+    &= \frac{2}{2-\cos{1}-i\sin{1}} \\
+    &= \frac{2(2-\cos{1}+i\sin{1})}{{(2-\cos{1})}^2-{(i\sin{1})}^2} \\
+    &= \frac{4-2\cos{1}+2i\sin{1}}{{(2-\cos{1})}^2+\sin{1}}. \\
+\end{align*}
+
+Since we are concerned with $\sum\frac{\sin{k}}{2^k}$, we will consider the imaginary part of this value as noted above.
+\begin{align*}
+    \text{Im}\left[ \frac{4-2\cos{1}+2i\sin{1}}{{(2-\cos{1})}^2+\sin{1}} \right] &= \frac{2\sin{1}}{{(2-\cos{1})}^2+\sin{1}}
+    &\approx 0.566.
+\end{align*}
+
+\end{document}

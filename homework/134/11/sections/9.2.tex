@@ -1,0 +1,324 @@
+\documentclass[../hw11]{subfiles}
+
+\begin{document}
+
+\subsection*{23}
+When an object of mass m moves through air or a viscous medium, it is acted on by a frictional force that acts in the direction opposite to its motion. 
+This frictional force depends on the velocity of the object and (within close approximation) is given by 
+\[F(v) = -\alpha v - \beta v^2,\] 
+where $\alpha$ and $\beta$ are positive constants. 
+
+\begin{enumerate}[label= (\alph*)]
+    \item From Newton's second law, $F = ma$, we have 
+    \[m \frac{dv}{dv} = -\alpha v- \beta v^2.\]
+    Solve this differential equation to find $v(t)$.
+    \item Find $v$ if the object has initial velocity $v(0)=v_0$.
+    \item What happens to $v(t)$ as $t\to\infty$?
+\end{enumerate}
+
+For (a), we begin by solving the %first order nonlinear nonhomogeneous differential equation
+differential equation.
+
+First, we will compute the partial fraction decomposition of the structure $\frac{1}{x(1+ax)}$,
+\begin{align*}
+    \frac{1}{x(1+ax)}&=\frac{A}{x}+\frac{B}{1+ax} \\
+    1&=A(1+ax)+B(x) \\
+    x=0 &\implies A=1 \\
+    x=-\frac{1}{a} &\implies B=-a \\
+    \frac{1}{x(1+ax)}&=\frac{1}{x}-\frac{a}{1+ax}.
+\end{align*} 
+
+We will also isolate $x$ in $A=\frac{x}{1+ax}$,
+\begin{align*}
+    \frac{x}{1+ax}&=A \\
+    x&=A(1+ax) \\
+    x&=A+axA \\
+    x-axA&=A \\
+    x(1-aA)&=A \\
+    x&=\frac{A}{1-aA}. \\
+\end{align*}
+
+These two algebraic reductions will aid us in solving the differential equation.
+
+We proceed using the partial fraction decomposition for with the substitution $a=\frac{\beta}{\alpha}$ and the simplification where $A=ce^{-\frac{\alpha}{m}t}$.
+\begin{align*}
+    m\frac{dv}{dt}&=-\alpha-\beta v^2\\
+    m\frac{dv}{dt}&=-\alpha\cdot v\left( 1+\frac{\beta}{\alpha}v\right)\\
+    \int \frac{dv}{v\left( 1+\frac{\beta}{\alpha}v \right)} &= \int \frac{-\alpha}{m}\,dt \\
+    \int \frac{1}{v}+\frac{-\frac{\beta}{\alpha}}{1+\frac{\beta}{\alpha}v}\, dv &= -\frac{\alpha}{m}\int dt \\
+    \ln{|v|}-\ln{\bigg|1+\frac{\beta}{\alpha}v\bigg|}&=c_0-\frac{\alpha}{m}t \\
+    \ln{\Bigg|\frac{v}{1+\frac{\beta}{\alpha}v}\Bigg|}&=c_0-\frac{\alpha}{m}t \\
+    \Bigg|\frac{v}{1+\frac{\beta}{\alpha}v}\Bigg|&=e^{c_0-\frac{\alpha}{m}t} \\
+    \frac{v}{1+\frac{\beta}{\alpha}v}&=ce^{-\frac{\alpha}{m}t} \\
+    v&=\frac{ce^{-\frac{\alpha}{m}t}}{1-\frac{\beta}{\alpha}ce^{-\frac{\alpha}{m}t}} \\
+    &=\frac{1}{ce^{\frac{\alpha}{m}t}-\frac{\beta}{\alpha}} \\
+    v(t)&=\frac{\alpha}{ce^{\frac{\alpha}{m}t}-\beta}. \\
+\end{align*}
+
+So, the solution to the differential equation is \[v(t)=\frac{\alpha}{ce^{\frac{\alpha}{m}t}-\beta}.\]
+
+For (b), we consider the initial condition $v(0)=v_0$.
+\begin{align*}
+    v(0)&=\frac{\alpha}{ce^{\frac{\alpha}{m}(0)}-\beta} \\
+    v_0&=\frac{\alpha}{c-\beta} \\
+    c-\beta&=\frac{\alpha}{v_0} \\
+    c = \frac{\alpha}{v_0}+\beta. \\
+\end{align*}
+
+Thus the solution becomes,
+\begin{align*}
+    v(t)&=\frac{\alpha}{\left( \frac{a}{v_0}+\beta \right)e^{\frac{\alpha}{m}t}-\beta} \\
+    &=\frac{\alpha v_0}{(\alpha+\beta v_0)e^{\frac{\alpha}{m}t}-\beta v_0}. \\
+\end{align*}
+
+For (c), we consider the terminal behavior of $v(t)$ by taking the limit as $t$ exceeds any number. We will show that,
+\[\lim\limits_{t\to\infty}v(t)=0.\]
+
+We will consider the limit,
+\[\lim\limits_{t\to\infty}\frac{\alpha v_0}{(\alpha+\beta v_0)e^{\frac{\alpha}{m}t}-\beta v_0}.\]
+
+We notice that the mass of an object $m$, and the given constant $\alpha$ are both positive. So, $\frac{\alpha}{m}$, the coefficient of the exponent term in the denominator is positive. Thus, as $t$ grows without bound, $e^{\frac{\alpha}{m}t}$ will grow as well. As the numerator is constant, an increasing denominator suggest that $v$ will decrease to zero as $t$ grows large.
+
+Thus the terminal behavior of $v(t)$ is that it tends to zero; the object will come to a stop in the viscous medium.
+
+
+\subsection*{24}
+A descending parachutist is acted on by two forces: a constant downward force mg and the upward force of air resistance, which (within close approximation) is of the form $-\beta v^2$ where $\beta$ is a positive constant. We will take the downward direction as positive.
+
+\begin{enumerate}[label= (\alph*)]
+    \item Express $t$ in terms of the velocity $v$, the initial velocity $v_0$, and the \textit{terminal velocity} $v_c=\sqrt{\frac{mg}{\beta}}$.
+    \item Express $v$ as a function of $t$.
+    \item Express the acceleration $a$ as a function of $t$. Verify that the acceleration never changes sign and in time tends to zero.
+    \item Show that, in time, $v$ tends to $v_c$.
+\end{enumerate}
+
+First we set up the equation to model the force on the parachutist,
+\[F(v)=mg-\beta v^2.\]
+ 
+For (a), we note that the force $F(v)$ is the mass $m$ times the acceleration, which is the change in velocity $\frac{dv}{dt}$.
+
+So, we begin by setting up the differential equation and isolating $\int dt = t$.
+\begin{align*}
+    m\frac{dv}{dt}&=mg-\beta v^2 \\
+    \frac{dv}{dt}&=g-\frac{\beta}{m} v^2 \\
+    \int \frac{dv}{g-\frac{\beta}{m} v^2} &= \int dt \\
+    \frac{1}{g} \int \frac{dv}{1-\frac{\beta}{mg} v^2} &= t. \\
+\end{align*}
+We notice that $\frac{\beta}{mg}=\frac{1}{{v_c}^2}$. So, the equation becomes,
+\begin{align*}
+    t &= \frac{1}{g}\int \frac{dv}{1-\frac{v^2}{{v_c}^2}} \\
+    &= \frac{{v_c^2}}{g} \int \frac{dv}{{v_c}^2-v^2}.
+\end{align*}
+
+Thus, we have expressed $t$ in terms of $v$ and $v_c$. We note that the initial velocity $v_0$ will arise as the constant resulting from the evaluation of the integral $\int dv$.
+
+For (b), we first reduce the partial fraction of a difference of squares to later simplify the computations,
+\begin{align*}
+    \frac{1}{a^2-x^2}&=\frac{1}{(a+x)(a-x)} \\
+    &=\frac{A}{a+x}+\frac{B}{a-x} \\
+    1&=A(a-x)+B(a+x) \\
+    x=-a &\implies A=\frac{1}{2a} \\
+    x=a &\implies B=\frac{1}{2a} \\
+    \frac{1}{a^2-x^2}&=\frac{1}{2a}\left( \frac{1}{a+x}+\frac{1}{a-x} \right) 
+\end{align*}
+
+We will also perform an algebraic simplification of $\frac{a+x}{a-x}=A$.
+\begin{align*}
+    \frac{a+x}{a-x}&=A\\
+    a+x&=A(a-x)\\
+    a+x&=aA-Ax\\
+    Ax+x&=aA-a \\
+    x(A+1)&=a(A-1) \\
+    x=a\frac{A+1}{A-1}. \\
+\end{align*}
+
+We will use the equation given in (a) and employ the partial fraction decomposition and simplification above where $a=v_c$, $x=v$, and $A=ce^{\frac{2g}{v_c}t}$.
+\begin{align*}
+    \frac{{v_c^2}}{g} \int \frac{dv}{{v_c}^2-v^2} &= t \\
+    \int \frac{dv}{{v_c}^2-v^2} &= \frac{g}{{v_c}^2}t \\
+    \frac{1}{2v_c} \int \left( \frac{1}{v_c+v}+\frac{1}{v_c-v} \right) \,dv &= \frac{g}{{v_c}^2}t \\
+    \ln{|v_c+v|}-\ln{|v_c-v|} + c_0&= \frac{2g}{v_c}t \\
+    \ln{\bigg|\frac{v_c+v}{v_c-v}\bigg|} &= c_1 + \frac{2g}{v_c}t\\
+    \bigg|\frac{v_c+v}{v_c-v}\bigg| &= e^{c_1} e^{\frac{2g}{v_c}t} \\
+    \frac{v_c+v}{v_c-v} &= c_2 e^{\frac{2g}{v_c}t} \\
+    v(t)&=v_c\cdot\frac{c_2 e^{\frac{2g}{v_c}t}-1}{c_2 e^{\frac{2g}{v_c}t}+1}. \\
+\end{align*}
+
+
+\def\idtanh#1{\frac{e^{2#1}-1}{e^{2#1}+1}}
+
+We can further simplify this solution with the hyperbolic tangent identity,\footnote{From \url{https://en.wikipedia.org/wiki/Hyperbolic_functions}.}
+\[\tanh{x}=\frac{e^{2x}-1}{e^{2x}+1}.\]
+
+We rewrite $v(t)$ as
+\[v(t)=v_c\cdot\frac{e^{\frac{2g}{v_c}t+c}-1}{e^{\frac{2g}{v_c}t+c}+1}.\]
+
+We then make the substitution $2x=\frac{2g}{v_c}t+c$, such that
+\[v(t)=v_c\tanh{\frac{\frac{2g}{v_c}t+c}{2}}=v_c\tanh{\left( \frac{g}{v_c}t+\frac{c}{2} \right)}.\]
+
+% We will also use the sum of arguments identity,\footnote{From \url{https://en.wikipedia.org/wiki/Hyperbolic_functions}.}
+% \[\tanh{(x+y)}=\frac{\tanh{x}+\tanh{y}}{1+\tanh{x}\tanh{y}}.\]
+
+% We will show that \[\tanh{\left( b+\frac{c}{2} \right)}=\frac{e^{2b+c}-1}{e^{2b+c}+1}.\]
+
+% We begin with the given sum of arguments identity. We will simplify the numerator first, 
+% \begin{align*}
+%     \tanh{x}+\tanh{y} &= \idtanh{x}+\idtanh{y} \\
+%     &= \frac{\left(e^{2x}-1\right)\left(e^{2y}+1\right)+\left(e^{2y}-1\right)\left(e^{2x}+1\right)}{\left( e^{2x}+1 \right)\left( e^{2y}+1 \right)} \\
+%     &= \frac{\left( e^{2x+2y}+e^{2x}-e^{2y}-1 \right)+\left( e^{2x+2y}-e^{2x}+e^{2y}-1 \right)}{e^{2x+2y}+e^{2x}+e^{2y}+1} \\
+%     &= \frac{2e^{2x+2y}-2}{e^{2x+2y}+e^{2x}+e^{2y}+1}. \\
+% \end{align*}
+
+% Then, we continue with the denominator, 
+% \begin{align*}
+%     1+\tanh{x}\tanh{y}&=1+\idtanh{x}\cdot\idtanh{y}\\
+%     &=1+\frac{e^{2x+2y}-e^{2x}-e^{2y}+1}{e^{2x+2y}+e^{2x}+e^{2y}+1}. \\
+% \end{align*}
+
+% We notice that the numerator and denominator both share the common factor of the reciprocal of $e^{2x+2y}+e^{2x}+e^{2y}+1$; we recombine the terms and simplify, yielding,
+% \begin{align*}
+%     & \frac{2e^{2x+2y}-2}{e^{2x+2y}+e^{2x}+e^{2y}+1+e^{2x+2y}-e^{2x}-e^{2y}+1} \\
+%     =& \frac{2e^{2x+2y}-2}{2e^{2x+2y}+2} \\
+%     =& \frac{e^{2(x+y)}-1}{e^{2(x+y)}+1} \\
+%     =& \tanh{(x+y)}. \\
+% \end{align*}
+
+For (c), we note that acceleration $a=\frac{dv}{dt}$. We replace $v(t)$ in the original differential equation, recalling that $v_c=\sqrt{\frac{mg}{\beta}}$.
+\begin{align*}
+    a(t)&=\frac{dv}{dt} \\
+    &=g-\frac{\beta}{m} v^2 \\
+    &=g-\frac{\beta}{m} {\left( v_c\tanh{\left( \frac{g}{v_c}t+\frac{c}{2} \right)} \right)}^2 \\
+    &=g-\frac{\beta}{m}\left( \frac{mg}{\beta} \right)\tanh^2{\left( \frac{g}{v_c}t+\frac{c}{2} \right)} \\
+    &=g\left( 1- \tanh^2{\left( \frac{g}{v_c}t+\frac{c}{2} \right)}\right) \\
+    &=g\sech^2{\left( \frac{g}{v_c}t+\frac{c}{2} \right)}. \\
+\end{align*}
+
+We can verify this result by differentiating $v(t)$ as well.
+\begin{align*}
+    a(t)&=\frac{dv}{dt} \\
+    &= \frac{d}{dt}\left[v_c\tanh{\left( \frac{g}{v_c}t+\frac{c}{2} \right)}\right] \\
+    &= v_c\sech^2{\left(\frac{g}{v_c}t+\frac{c}{2}\right)}\left(\frac{g}{v_c}\right) \\
+    &=g\sech^2{\left( \frac{g}{v_c}t+\frac{c}{2} \right)}. \\
+\end{align*}
+
+We note that the range of the hyperbolic secant is the interval is bounded below by a horizontal asymptote at zero. Thus, the acceleration $a(t)$, being the product of the gravitational constant $g$ and the square of the hyperbolic secant function, is always positive.
+
+Lastly, given that \[\lim\limits_{x\to\infty} \sech{x} = 0,\]
+we see that as $t$ exceeds any given number, then \[\lim\limits_{t\to\infty} a(t) = 0.\]
+
+So, the acceleration tends toward zero in time.
+
+For (d), we observe the limit as the time $t$ exceeds any number of the velocity function $v(t)$,
+\[\lim\limits_{t\to\infty} v_c\tanh{\left( \frac{g}{v_c}t+\frac{c}{2} \right)}.\] 
+
+We know that the end behavior of the hyperbolic tangent is that it approaches its vertical bound of one. Thus, 
+\[\lim\limits_{t\to\infty} v_c\tanh{\left( \frac{g}{v_c}t+\frac{c}{2} \right)} = v_c.\] 
+
+So, the velocity function approaches the terminal velocity in time.
+
+\subsection*{27}
+
+A rescue package of mass 100 kilograms is dropped from a plane flying at a height of 4000 meters. 
+As the object falls, the air resistance is equal to twice its velocity. 
+After 10 seconds, the package’s parachute opens and the air resistance is now four times the square of its velocity.
+
+\begin{enumerate}[label= (\alph*)]
+    \item What is the velocity of the package the instant the
+    parachute opens?
+    \item What is the velocity of the package $t$ seconds after the
+    parachute opens?
+    \item What is the terminal velocity of the package?
+\end{enumerate}
+
+We note that it is possible to set up a single differential equation and thereby single solution function for the behavior of the package's fall using the Heaviside step function.
+
+For (a), we begin with the differential equation of the package in free fall to determine the package's velocity at the ten second mark.
+
+The air resistance in free fall is given by the term $-2v$. The term is negated as it opposes the positive downwards direction of motion.
+
+Thus, we model the force being applied to the package as $F=mg-2v$, and arrive at the differential equation for velocity as a function of time as,
+\[m\frac{dv}{dt}=mg-2v.\]
+
+We find the general solution to this equation by rearranging the terms to the form $v'+\frac{2}{m}v=g$ and then using the method of an integrating factor as in 9.1.2.
+\begin{align*}
+    v&=e^{-\int\frac{2}{m}\,dt}\left[ \int e^{\int\frac{2}{m}\,dt}g\,dt \right]\\
+    v&=e^{-\frac{2}{m}t}\left[ \int g e^{\frac{2}{m}t} \right] \\
+    v&=e^{-\frac{2}{m}t}\left( \frac{mg}{2} e^{\frac{2}{m}t} + c \right) \\
+    v&=\frac{mg}{2}+ce^{-\frac{2}{m}t}. \\
+\end{align*}
+
+We know that the package started with no vertical velocity. Thus, we consider,
+\begin{align*}
+    v(0)&=0\\
+    &=\frac{mg}{2}+ce^{-\frac{2}{m}(0)} \\
+    c&=-\frac{mg}{2}. \\
+\end{align*}
+
+So, the equation for the velocity of the package becomes,
+\[v(t)=\frac{mg}{2}\left( 1-e^{-\frac{2}{m}t} \right).\]
+
+We then solve for the velocity at the time $t=10$ seconds given that the mass $m=100$kg and the gravitational constant $g$ in standard units is 9.8m/s$^2$.
+\begin{align*}
+    v(10)&=\frac{100\cdot9.8}{2}\left( 1-e^{-\frac{2}{100}(10)} \right)\\
+    &= 490\left( 1-e^{-\frac{1}{5}} \right) \\
+    &\approx 88.8. \\
+\end{align*}
+
+So, the velocity of the package after ten seconds when the parachute opens is about 88.8 meters per seconds.
+
+For (b), we consider the differential equation where the upwards negative air resistance force is $-4v^2$.
+
+We will solve the equation $m\frac{dv}{dt}=mg-4v^2$ using separation of variables, noting that the initial velocity is given by the solution to (a) when the parachute first opens.
+
+So,
+\begin{align}
+    \frac{dv}{dt}&=g-\frac{4}{g}v^2\\
+    \frac{dv}{dv}&=\frac{4}{m}\left( \frac{mg}{4}-v^2 \right).\\
+\end{align}
+
+We will let $k^2=\frac{mg}{4}$, so $\frac{dv}{dt}=\frac{4}{m}\left( k^2-v^2 \right)$.
+
+We proceed in a similar manner to the previous problem, following the given partial fraction decomposition and algebraic simplifications,
+\begin{align*}
+    \int \frac{dv}{k^2-v^2}&=\int \frac{4}{m}\,dt\\
+    \frac{1}{2k}\int \left( \frac{1}{k+v} +\frac{1}{k-v}\right)\,dv&=\frac{4}{m}t+c_0\\
+    \ln{\bigg|\frac{k+v}{k-v}\bigg|}&=\frac{8k}{m}t+c_1\\
+    \Bigg|\frac{k+v}{k-v}\Bigg|&=e^{\frac{8k}{m}t+c_1}\\
+    \frac{k+v}{k-v}&=c_2e^{\frac{8k}{m}t}\\
+    v&=k\left( \frac{c_2e^{\frac{8k}{m}t}-1}{c_2e^{\frac{8k}{m}t}+1} \right)\\
+    v&=\frac{\sqrt{mg}}{2}\left( \frac{c_2e^{4\sqrt{\frac{m}{g}}t}-1}{c_2e^{4\sqrt{\frac{m}{g}}t}+1} \right)\\
+\end{align*}
+
+We will then solve for $c_2$ with the initial velocity $v_0$ of the second equation, $v(0)=v_0\approx88.8$ meters per second, recalling the values of the constants $m$ and $g$.
+\begin{align*}
+    v(0)&=v_0\\
+    &=\frac{\sqrt{mg}}{2}\left( \frac{c_2e^{4\sqrt{\frac{m}{g}}(0)}-1}{c_2e^{4\sqrt{\frac{m}{g}}(0)}+1} \right)\\
+    v_0&=\frac{\sqrt{mg}}{2}\left( \frac{c_2-1}{c_2+1} \right)\\
+    2v_0(c_2+1)&=\sqrt{mg}(c_2-1) \\
+    2 c_2 v_0 + 2 v_0 &= c_2\sqrt{mg} - \sqrt{mg} \\
+    2 c_2 v_0 - c_2\sqrt{mg} &= - 2 v_0 - \sqrt{mg} \\
+    c_2(2v_0-\sqrt{mg})&=-(2v_0+\sqrt{mg}) \\
+    c_2&=\frac{2v_0+\sqrt{mg}}{2v_0-\sqrt{mg}} \\
+    &\approx\frac{2\cdot88.8+\sqrt{100\cdot9.8}}{2\cdot88.8+\sqrt{100\cdot9.8}} \\
+    &\approx\frac{177.9+99.0}{177.9-99} \\
+    &\approx\frac{276.9}{78.9} \\
+    &\approx3.51. \\
+\end{align*}
+
+So,
+\begin{align*}
+    v(t)&=\frac{\sqrt{mg}}{2}\left( \frac{3.51e^{4\sqrt{\frac{m}{g}}t}-1}{3.51e^{4\sqrt{\frac{m}{g}}t}+1} \right)\\
+    &= \frac{\sqrt{100\cdot9.8}}{2}\left( \frac{3.51e^{4\sqrt{\frac{100}{9.8}}t}-1}{3.51e^{4\sqrt{\frac{100}{9.8}}t}+1} \right)\\
+    &= 49.5\left( \frac{3.51e^{12.78t}-1}{3.51e^{12.78t}+1} \right). \\
+\end{align*}
+
+For (c), we note that the terminal velocity can be found as $t$ gets very large. 
+
+We can express $v(t)$ in terms of the hyperbolic tangent as before, noting that it approaches one as $t$ gets very large. 
+\[v(t)=49.5\tanh{\left( \frac{12.78t+\ln{3.51}}{2} \right)}.\]
+
+So, \[\lim\limits_{t\to\infty} v(t) = 49.5.\]
+
+Thus, the terminal velocity of the package is 49.5 meters per second.
+
+\end{document}

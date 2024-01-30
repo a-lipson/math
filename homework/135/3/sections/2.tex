@@ -1,0 +1,37 @@
+\documentclass[../hw3]{subfiles}
+
+\begin{document}
+
+\subsection*{12.5.45}
+
+Show that 
+
+(a) If $\sum a_k$ converges absolutely, then $\sum a^2_k$ converges.
+
+Since $\sum a_k$ converges absolutely, then $\sum |a_k|$ converges. 
+
+So, by (12.2.5), as $k\to\infty$, then $|a_k|\to 0$.
+
+Thus, there exists an $K$, such that, for all $k\geq K$, $|a_k|<1$.
+
+So,
+\begin{align*}
+    |a_k|&<1 \\
+    |a_k|\cdot|a_k|&<|a_k| \\
+    a_k^2&<|a_k| \quad \forall k \geq K. \\
+\end{align*}
+
+Thus, \[\sum_{k=K}^{\infty} a_k^2 < \sum_{k=K}^{\infty} |a_k|.\]
+
+Then, by the series comparison theorem (12.3.6), since $\sum |a_k|$ converges, $\sum a_k^2$ also converges.
+
+
+(b) Show by example that the converse of (a) is false.
+
+Let $a_k=\frac{1}{k}$.
+
+Then, with $a_k^2 = \frac{1}{k^2}$, $\sum a_k^2$ converges as the $p$-series with $p=2>1$.
+
+But, with $|a_k|=\big|\frac{1}{k}\big|$, which is the same as $\frac{1}{k}$ for positive $k$, we get $\sum a_k$, which is the harmonic series, which diverges. Since $\sum a_k$ diverges, it is not absolutely convergent. Therefore, the converse of (a) is false. 
+
+\end{document}

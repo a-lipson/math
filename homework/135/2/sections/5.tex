@@ -1,0 +1,39 @@
+\documentclass[../root file]{subfiles}
+
+\begin{document}
+
+Let the series $\sum a_k$ and $\sum b_k$ be defined such that, for all $k$, $a_k, b_k >0$.
+
+Suppose that $\frac{a_k}{b_k}\to\infty$ as $k\to\infty$.
+
+So, $a_k > b_k$ for all sufficiently large $k$.
+
+(a) Since $\sum b_k$ diverges and $a_k>b_k$ for all sufficiently large $k$, then, by the Basic Comparison Theorem, $\sum a_k$ diverges as well.
+
+(b) Since $\sum a_k$ converges and $a_k>b_k$ for all sufficiently large $k$, then, by the Basic Comparison Theorem, $\sum b_k$ must converge as well.
+
+(c) Let $a_k = \frac{1}{k}$, the harmonic series. This series diverges.
+
+First, Let $b_k = \frac{1}{k^2}$, the $p$-series with $p=2>1$, which converges.
+
+Then, $\frac{a_k}{b_k}=\frac{1/k}{1/k^2}=k$.
+
+So, $\lim\limits_{k\to\infty}\frac{a_k}{b_k}=\lim\limits_{k\to\infty}k=\infty$.
+
+Next, let $a_k=\frac{1}{\sqrt{k}}$, the $p$-series with $p=\frac{1}{2}<1$, which diverges, and $b_k$ be the harmonic series. 
+
+Then, $\frac{a_k}{b_k}=\frac{1/\sqrt{k}}{1/k}=\sqrt{k}$, which tends to infinity as $k$ tends to infinity.
+
+So, if $\sum a_k$ diverges and $\frac{a_k}{b_k}\to\infty$ as $k\to\infty$, then $b_k$ can either converge or diverge.
+
+(d) First, note that $a_k$ can diverge when $b_k$ converges as in the first example in (c). 
+
+So, we will consider an $a_k$ and $b_k$ which converge. We will choose the 2 and 3 $p$-series respectively, 
+
+\[a_k=\frac{1}{k^2}, \quad b_k=\frac{1}{k^3}.\]
+
+Then, \[\frac{a_k}{b_k}=\frac{1/k^2}{1/k^3}=k,\] which we have already seen tends toward infinity as $k$ tends toward infinity.
+
+Thus, $a_k$ can either diverge or converge when $b_k$ converges.
+
+\end{document}

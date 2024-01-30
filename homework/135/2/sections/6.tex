@@ -1,0 +1,52 @@
+\documentclass[../root file]{subfiles}
+
+\begin{document}
+
+(a) We will show that $\int_{2}^{\infty}\frac{dx}{x{(\ln{x})}^p}$ converges iff $p>1$.
+
+We make the substitution $u=\ln{x}$, which produces, $\int_{\ln{2}}^{\infty}\frac{du}{u^p}$.
+
+We note that this converges where $p>1$ by the $p$-series convergence theorem (11.7.1).
+
+(b) By the integral test theorem (12.3.2), $\sum_{k=2}^{\infty} \frac{1}{k{(\ln{k})}^p}$ converges when $\int_{2}^{\infty} \frac{dx}{x{(\ln{x})}^p}$ converges. 
+
+With $p=2$, the series $\sum_{k=2}^{\infty} \frac{1}{k\ln^2{k}}$ will converge by part (a).
+
+We note that a series can be represented as the sum of its $n^{\text{th}}$ partial sum and the remainder at the $n^{\text{th}}$ index.
+
+So, we will write, \[\sum_{k=2}^{\infty} \frac{1}{k\ln^2{k}} = \sum_{k=2}^{n} \frac{1}{k\ln^2{k}} + \sum_{k=n+1}^{\infty} \frac{1}{k\ln^2{k}}.\]
+ 
+We note that $\frac{1}{x\ln^2{x}}$ is a positive decreasing function, so the series, which models right-hand Reimann sums given by the indexing $n+1$ of the regular partition of width one, will always be less than or equal to the area of the integral.
+
+Thus, \[R_n=\sum_{n+1}^{\infty}\frac{1}{k\ln^2{x}} \leq \int_{n}^{\infty} \frac{dx}{x\ln^2{x}}.\]
+
+We desire that the maximum error $R_n$ should be no greater than $0.05=\frac{1}{20}$; we will find an index $n$ that serves this purpose.
+\[R_n \leq \int_{n}^{\infty} \frac{dx}{x\ln^2{x}} \leq \frac{1}{20}.\]
+
+We evaluate the integral, considering that the multiplicative inverse of the natural log tends toward zero, to see that,
+\begin{align*}
+    \frac{1}{\ln{n}}&\leq\frac{1}{20} \\
+    \ln{n}&\geq 20 \\
+    n&\geq e^{20}. \\
+\end{align*}
+
+We verify using a calculator that with a series index of $e^{20}$, the partial sum will be within $0.05$ of $2.1$,
+\[\sum_{k=2}^{e^{20}}\frac{1}{k\ln^2{k}}\approx0.06.\]
+
+(c)
+
+We demonstrated the following chain of inequalities in class as a result of the integral test \textit{ibid}, 
+\[\int_{m}^{n}f(x)\,dx\leq\sum_{k=m}^{n}f(k)\leq f(m)+\int_{m}^{n}f(x)\,dx.\]
+
+So, with $f(x)=\frac{1}{x\ln{x}}$, $m=2$, and $n=10^{1000}$, the above becomes,
+\[\int_{2}^{10^{1000}}\frac{dx}{x\ln{x}}\leq\sum_{k=2}^{10^{1000}}\frac{1}{k\ln{k}}\leq\frac{1}{2\ln{2}}+\int_{2}^{10^{1000}}\frac{dx}{x\ln{x}}.\]
+
+We then compute the integral $\int \frac{dx}{x\ln{x}}$ with the substitution $u=\ln{x}$.
+
+We see that the indefinite integral equates to $\ln{(\ln{x})}$. We compute via calculator the definite integral on the interval $[2,10^{1000}]$, $\ln{\left(\ln{10^{1000}}\right)}-\ln{(\ln{2})}\approx8.1$.
+
+Additionally, we calculate that $\frac{1}{2\ln{2}}\approx0.72$.
+
+Thus, \[8.11\leq\sum_{k=2}^{10^{1000}}\frac{1}{k\ln{k}}\leq8.83.\]
+
+\end{document}

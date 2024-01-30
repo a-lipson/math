@@ -1,0 +1,42 @@
+\documentclass[../root file]{subfiles}
+
+\begin{document}
+
+Prove that $\sum_{k=1}^{\infty} (a_{k+1}-a_k)$ converges iff $a_n$ converges.
+
+
+
+\begin{proof}
+    $(\implies)$ Let $\sum (a_{k+1}-a_k)$ converge to $L$.
+
+    So, \[\lim\limits_{n\to\infty} \sum_{k=1}^{n} (a_{k+1}-a_k) = L.\]
+
+    Then,
+    \begin{align*}
+        L &= \lim\limits_{n\to\infty} \left[\sum_{k=1}^{n} a_{k+1}- \sum_{k=1}^{n} a_k\right]\\
+        &= \lim\limits_{n\to\infty} \left[\sum_{k=2}^{n+1} a_{k} - \sum_{k=1}^{n} a_k\right]\\
+        &= \lim\limits_{n\to\infty} \left[a_{n+1} + \sum_{k=2}^{n} a_{k} - \left(\sum_{k=2}^{n} a_k + a_1\right)\right]\\
+        &= \lim\limits_{n\to\infty} [a_{n+1}-a_1]\\
+        L+a_1 &= \lim\limits_{n\to\infty} a_{n+1} \\
+        L+a_1 &= \lim\limits_{n\to\infty} a_n. \\
+    \end{align*}
+
+    So, $a_n$ converges.
+
+    $(\impliedby)$ Let $(a_n)$ converge to $L$; Since $a_n\to L$, then $a_{n+1}\to L$ as well.
+
+    We compute the sum,
+    \begin{align*}
+        \sum_{k=1}^{\infty}(a_{k+1}-a_k)&=\sum_{k=1}^{\infty} a_{k+1} - \sum_{k=1}^{\infty} a_k \\
+        &= \lim\limits_{n\to\infty} \left[ \sum_{k=1}^{n} a_{k+1} - \sum_{k=1}^{n} a_k \right] \\
+        &= \lim\limits_{n\to\infty} \left[ \sum_{k=2}^{n+1} a_k - \sum_{k=1}^{n} a_k \right] \\
+        &= \lim\limits_{n\to\infty} \left[ a_{n+1} \sum_{k=2}^{n} a_k - \left(\sum_{k=2}^{n} a_k + a_1\right) \right] \\
+        &= \lim\limits_{n\to\infty} [a_{n+1}-a_1] \\
+        &= \lim\limits_{n\to\infty} a_{n+1} - a_1 \\
+        &= L-a_1.
+    \end{align*}
+
+    So, the sum also converges.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,172 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\DeclareMathOperator{\sech}{sech}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{ifthen,ifthenx}
+\usepackage[skip=15pt, indent=0pt]{parskip}
+\usepackage{pgfplots}
+\usepackage{tikz}
+    \usetikzlibrary{calc, intersections, pgfplots.fillbetween, angles, quotes}
+%\usepackage{subfiles}
+
+\pgfplotsset{compat=1.18}
+\pgfdeclarelayer{ft} 
+\pgfdeclarelayer{bg} 
+\pgfsetlayers{bg,main,ft}
+
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+
+
+\title{Math 134 Homework 10}
+\author{Alexandre Lipson}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+
+\begin{proof}
+If $b_n$ is bounded, then \[|b_n|<M\] for all $n\in\mathbb{Z}^+$.
+If $M=0$, then $b_n$ is a trivial sequence of zeros.
+Thus $a_n b_n=0$ for all $n\in\mathbb{Z}^+$.
+
+We continue with $M>0$. Since $(a_n)$ converges to zero, we know that, for all small numbers $\frac{\epsilon}{M}>0$, there exists a $K$ such that $n\geq K$ implies that $|a_n-0|<\frac{\epsilon}{M}$.
+So, \[|a_n|<\frac{\epsilon}{M}.\]
+
+Then, we will show that $a_n b_n$ converges to zero.
+For all $\epsilon>0$, there exists an $N>0$ such that, for all $n\geq N$, \[|a_n b_n - 0|<\epsilon.\]
+But, we know that \[|a_n b_n - 0|=|a_n||b_n|<M|a_n|<M\frac{\epsilon}{M}<\epsilon.\]
+
+So, $a_n b_n$ converges to zero if $a_n$ converges to zero and $b_n$ is bounded.
+\end{proof}
+
+\section*{2}
+
+\begin{proof}
+First, we note that the arithmetic mean of two numbers $a$ and $b$ is always greater than or equal to their geometric mean, \[\frac{a+b}{2}\geq\sqrt{ab}.\]
+
+Thus, for each term $a_{n+1}=\frac{{a_n}^2+2}{2a_n}$ in the sequence, we know that, \[\frac{{a_n}^2+2}{2a_n}=\frac{a_n+2/a_n}{2}\geq\sqrt{a_n \frac{2}{a_n}}=\sqrt{2}.\]
+So, \[a_n\geq\sqrt{2}.\]
+
+% We will prove by induction on the index $n$ that the elements of the sequence $a_n$ are all greater than $\sqrt{2}$.
+
+% For the base case, when $n=1$, we note that $a_1=\frac{3}{2}>\sqrt{2}$, so the base case holds.
+
+% We assume that the $n=k$ case holds by the inductive hypothesis.
+
+
+% For the inductive step,
+% \begin{align*}
+%     a_k&>\sqrt{2}\\
+%     {a_k}^2&>2\\
+%     {a_k}^2+2&>4\\
+%     \frac{{a_k}^2+2}{2a_k}&>\frac{4}{2a_k}\\
+% \end{align*}
+
+Since $a_n>\sqrt{2}$, we will show that the sequence is decreasing.
+\begin{align*}
+    a_n&>\sqrt{2}\\
+    {a_n}^2&>2\\
+    2{a_n}^2&>{a_n}^2+2\\
+    {a_n}&>\frac{{a_n}^2+2}{2a_n}.\\
+\end{align*}
+
+Since the sequence is decreasing and bounded below by $\sqrt{2}$, we know that the sequence converges to a limit $L$.
+
+We then confirm the limit of the sequence by taking the limit as $n$ exceeds any number.
+\begin{align*}
+    \lim\limits_{n\to\infty}a_n &= \lim\limits_{n\to\infty} \frac{{a^n}^2+2}{2a_n}\\
+    L &= \frac{L^2+2}{2L}\\
+    2L^2 &= L^2+2\\
+    L^2 &= 2\\
+    L &= \pm 2.\\
+\end{align*}
+
+We receive two potential values for the limit, $-\sqrt{2}$ and $\sqrt{2}$. However, since $a_1=\frac{3}{2}>\sqrt{2}$, if $(a_n)$ decreases to $\sqrt{2}$, it can never become close to $-\sqrt{2}$ as it would have to exceed a small number $\epsilon>0$ away from $\sqrt{2}$, and, as such, $\sqrt{2}$ would no longer be a limit for the sequence.
+
+\end{proof}
+
+\section*{3}
+\begin{proof}
+By the Mean Value Theorem, we know that, for $c_n\in(n,n+1)$, \[f'(c_n)=\frac{f(n+1)-f(n)}{n+1-n}=f(n+1)-f(n).\]
+
+\begin{lemma}
+$\lim\limits_{c_n\to0} f'(c_n)=0$.
+\end{lemma}
+\begin{proof}[Proof of Lemma]
+    For any $\epsilon>0$, then exists an $N$ such that for all $n>N$, $|f'(c_n)-0|<\epsilon$.
+    
+    Take any $\epsilon>0$.
+
+    Since \[\lim\limits_{x\to\infty} f'(x) = 0,\] then we know that there as an $X$ for which $x>X$ implies that $|f'(x)-0|<\epsilon$.
+
+    Then, with $N=X$, we see that, for all $n>N$, \[c_n>n>N=X.\]
+
+    So, $|f'(c_n)|<\epsilon$ and we have demonstrated that the Lemma holds.
+\end{proof}
+
+Since $f'(c_n)\to0$ as $n\to\infty$ by the Lemma, then \[\lim\limits_{n\to\infty} (f(n+1)-f(n))=0,\] which is what we wanted to prove.
+    
+\end{proof}
+
+
+\section*{4}
+
+\subsection*{a}
+We will prove by induction on the index $n$ that the formula \[a_n=\alpha^{n-1}a+\beta\sum\limits_{k=0}^{n-1}\alpha^k, \quad |\alpha|<1\] holds.
+
+For the base case, when $n=1$, we see that
+\[a_1=\alpha^{1-1}a+\beta\sum\limits_{n=0}^{1-1}a^k=a.\]
+
+We assume that the $n=m$ case holds by the inductive hypothesis.
+
+For the inductive step, 
+\begin{align*}
+    \alpha a_m&=\alpha \left[\alpha^{m-1}a+\beta\sum\limits_{k=0}^{m-1}\alpha^k\right] \\
+    \alpha a_m + \beta &= \alpha^{m}a + \beta\sum\limits_{k=0}^{m-1}\alpha^{k+1}+\beta \\
+    a_{m+1}&= \alpha^{m}a+\beta\sum\limits_{k=0}^{m}\alpha^{k}, \\
+\end{align*}
+which is the case when $n=m+1$.
+
+So, our formula holds.
+
+We then take the limit of the formula for $a_n$ as $n$ exceeds any number, recalling the condition that $|\alpha|<1$. We will denote the limit of the sequence $(a_n)$ as $a_{\infty}$.
+\begin{align*}
+    \lim\limits_{n\to\infty} a_n &= \lim\limits_{n\to\infty} \alpha^{n-1}a+\beta\sum\limits_{k=0}^{n}\alpha^k \\
+    a_{\infty} &= (0)a+\beta\left[\lim\limits_{n\to\infty}\sum\limits_{k=0}^{n}\alpha^k\right].
+\end{align*}
+We note that the series of powers of $\alpha$ can be represented by the geometric series expansion $\frac{1}{1-\alpha}$.
+
+So, $a_{\infty}$ becomes \[a_{\infty} = \frac{\beta}{1-\alpha}.\]
+
+\subsection*{b}
+
+The theorem states that for a contraction map $f$, the limit of the sequence $(x_n)$ defined by $f$ as $x_{n+1}=f(x_n)$ is a fixed point. 
+
+First, we will determine the conditions under which the sequence is a contraction. For $0<K<1$,
+\begin{align*}
+    |\alpha x+\beta - (\alpha y + \beta)| &\leq K|x-y| \\
+    |\alpha||x-y|&\leq K|x-y|.
+\end{align*}
+
+So, \[\alpha\leq K < 1.\]
+
+For these $\alpha$, we proceed with determining $a_{\infty}$ given that $f(a_n)=\alpha a_n + \beta$.
+\begin{align*}
+    a_{\infty} &= \alpha a_{\infty} + \beta \\
+    a_{\infty}(1-\alpha)&=\beta\\
+    a_{\infty}&=\frac{\beta}{1-\alpha}.\\
+\end{align*}
+
+We see that the result of this theorem produces the same limit as in part (a).
+
+\end{document}

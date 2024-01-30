@@ -1,0 +1,104 @@
+\documentclass[../hw4.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{4}
+Find the maximum volume of a cylinder inscribed in a cone of radius $b$ and height $a$.
+
+We take a cross section of the cone and cylinder about the center axis.
+
+\begin{figure*}[ht]
+\centering
+\begin{tikzpicture}
+    % Isosceles triangle
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (2,4);
+    \draw (A) -- (B) -- (C) -- cycle;
+  
+    % Rectangle inscribed in the triangle
+    \draw ($(A)!0.25!(B)$) rectangle ($(B)!0.5!(C)$);
+
+    % Dashed line through the triangle
+    \coordinate (M) at ($(A)!0.5!(B)$); % Midpoint of AB
+    \draw[dashed] (C) -- (M);
+\end{tikzpicture}  
+\end{figure*}
+
+We will look at just the right half of the cross section and notice a set of similar triangles. We label the radius and height of the inner cylinder cross section as $r$ and $h$ respectively.
+
+\begin{figure*}[ht]
+\centering
+\begin{tikzpicture}
+    % Isosceles triangle
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (2,0);
+    \coordinate (C) at (0,4);
+    \draw (A) -- (B) -- (C);
+    
+    % Rectangle inscribed in the triangle
+    \draw (A) rectangle ($(B)!0.5!(C)$);
+
+    \draw[dashed] (A) -- (C);
+
+    % Labels
+    \node[below] at (1,0) {$b$};
+    \node[left] at (0,2) {$a$};
+    \node[right] at (1,1) {$h$};
+    \node[above] at (0.5,2) {$r$};
+\end{tikzpicture}
+\end{figure*}
+  
+We can equate by the ratio of the heights to the bases,
+\[\frac{h}{b-r} = \frac{a}{b}\]
+
+Solving for $h$ in terms of $r$, we see that,
+\[h = \frac{a(b-r)}{b}\]
+
+So, we can create a function for the volume of the cylinder with $r>0$ as,
+\[V(r) = \pi r^2 \frac{a(b-r)}{b} = a\pi r^2 - \frac{a \pi r^3}{b}\]
+
+We begin to optimize by finding the derivative of $V$ with respect to its radius $r$ and setting $V'$ to zero.
+\begin{align*}
+    V' &= 2a\pi r - \frac{3a \pi r^2}{b} \\
+    0 &= 2a\pi r - \frac{3a \pi r^2}{b} \\
+    0 &= a \pi r\left( 2-\frac{3r}{b} \right) \\
+    0 &= (r)\left( 2-\frac{3r}{b} \right) \\
+\end{align*}
+
+We note that a cylinder of radius $r=0$ would have no volume. So, we proceed by assuming that $h,r\neq0$ (where a height $h$ of zero would have no volume either).
+\begin{align*}
+    0 &= 2-\frac{3r}{b} \\
+    3r &= 2b \\
+    r &= \frac{2}{3}b \\
+\end{align*}
+
+We now check the second derivative of $V$ to determine whether $r = \frac{2}{3}b$ is a local minimum or maximum.
+\begin{align*}
+    V''(r) &= 2a\pi-\frac{6a\pi r}{b} \\
+    V''\left( \frac{2}{3}b \right) &= 2a\pi-\frac{6a\pi \left( \frac{2}{3}b \right)}{b} \\
+    &= 2a\pi - 4a\pi \\
+    &= -2a\pi < 0, \quad a>0 \\
+\end{align*}
+
+Since $V''(r)$ at $r = \frac{2}{3}b$ is less than zero, $V$ is concave down at $r$, so the given $r$ is a local maximum.
+
+Then, we calculate $V\left( \frac{2}{3}b \right)$ to determine the maximum volume.
+\begin{align*}
+    V\left(\frac{2}{3}b\right) &= a\pi{\left(\frac{2}{3}b\right)}^2 - \frac{a\pi {\left( \frac{2}{3}b \right)}^3}{b} \\
+    &= \frac{4ab^2\pi}{9} - \frac{8ab^2\pi}{27} \\
+    &= \frac{4ab^2\pi}{27} \\
+\end{align*}
+
+So, the maximum volume of the inset cylinder is $\frac{4ab^2\pi}{27}$.
+
+We will now check the end behavior of $V$ when the radius of the cylinder $r$ is the radius of the cone $b$ and also at $r=0$.
+\[V(b) = a b^2 \pi - \frac{a b^3 \pi}{b} = 0\]
+
+And, \[V(0) = a {(0)}^2 \pi - \frac{a{(0)}^3\pi}{b} = 0\]
+
+Since $\frac{4ab^2\pi}{27}>0$, then $r=\frac{2}{3}b$ is the global maximum.
+
+The minimum possible volume is zero, which is attained when either the height or radius of the cone is zero.
+
+\end{document}

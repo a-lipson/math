@@ -1,0 +1,46 @@
+\documentclass[../hw3.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{57}
+$111/2$
+
+
+\subsection*{59}
+Let $f(x) = \begin{cases}
+    x\sin{\frac{1}{x}}, & x \neq 0 \\
+    0, & x = 0 
+\end{cases}$ and $g(x) = xf(x)$
+
+(a) Show that $f$ and $g$ are both continuous at 0.
+
+(b) Show that $f$ is not differentiable at 0.
+
+(c) Show that $g$ is differentiable at 0 and give $g'(0)$.
+
+\begin{proof}[Proof of (a).]
+    We say that $h$ is continuous at $c$ if \[\lim\limits_{x \to c} h(x) = h(c).\]
+
+    This requires that $\lim\limits_{x \to c^-} h(x) = \lim\limits_{x \to c^+} h(x)$
+
+    First, for $f$, 
+    \[\lim\limits_{x \to 0^0} f(x) = \lim\limits_{x \to 0^0} x\sin{\frac{1}{x}} = 0\]
+    which was proven by the Squeeze theorem in a previous assignment.
+
+    Since $f(0) = 0 = \lim\limits_{x \to 0} f(x)$, then $f$ is continuous.
+
+    For $g$, \[\lim\limits_{x \to 0} g(x) = \lim\limits_{x \to 0} x^2\sin{\frac{1}{x}} = \lim\limits_{x \to 0} \]
+
+\end{proof}
+
+\begin{proof}[Proof of (b).]
+    For a contradiction, assume $f$ is differentiable at 0. 
+
+\end{proof}
+
+\begin{proof}[Proof of (c).]
+    By 3.1.5, \[g'(0) = \lim\limits_{x \to 0} \frac{g(x)-0}{x-0} = \lim\limits_{x \to 0} \frac{g(x)}{x} = \lim\limits_{x \to 0} x\sin{\frac{1}{x}} = 0.\]
+\end{proof}
+
+
+\end{document}

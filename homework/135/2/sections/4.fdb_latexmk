@@ -1,0 +1,16 @@
+# Fdb version 4
+["pdflatex"] 1705466291.40949 "/home/a/docs/educ/latex/homework/135/2/sections/4.tex" "4.pdf" "4" 1705466291.57807 2
+  "../rootfile.tex" 0 -1 0 ""
+  "/home/a/docs/educ/latex/homework/135/2/sections/4.tex" 1705466290.45706 910 208d25d9c29441c48fe9a87d0e22a0d7 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty" 1586645574 6201 0ad8b5da8e12f60a88d546b2198a56f2 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.cls" 1605478891 1507 57de335d88fde4e5c924dfed577fdb74 ""
+  "/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf" 1697057529 41009 84b61f42d16d06bedb915f57aa2374cf ""
+  "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1704856974 8218537 323767bd5decd08a3895f9d324379b74 ""
+  "/usr/local/texlive/2023/texmf.cnf" 1704856892.14967 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "4.aux" 1705466291.40506 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "4.tex" 1705466290.45706 910 208d25d9c29441c48fe9a87d0e22a0d7 ""
+  (generated)
+  "4.aux"
+  "4.log"
+  "4.pdf"
+  (rewritten before read)

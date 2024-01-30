@@ -1,0 +1,51 @@
+\documentclass[../hw7.tex]{subfiles}
+
+\begin{document}
+\subsection*{40}
+A storage tank in the form of a hemisphere topped by a cylinder is filled with oil that weighs 60 pounds per cubic foot. The hemisphere has a 4-foot radius; the height of the cylinder is 8 feet.
+
+(a) How much work is required to pump the oil to the top of the tank?
+
+(b) How long would it take a $\frac{1}{2}$-horsepower motor to empty
+out the tank?
+
+For (a), we integrate the work done by considering small sections of oil traveling up to the top of the tank.
+
+Each little bit of force is given by the horizontal cross sectional area of the tank times the density of oil that fills it times gravity and, finally, times the small change in height of the cross section.
+
+The cross sectional area of a hemisphere is given by $\pi r^2$, where the radius is a function of the vertical variable $y$ and is given by the equation of a circle with radius $4$, $\sqrt{4^2-y^2}$.
+So, the area at height $y$ in the hemisphere is \[\pi\left(16-y^2\right).\]
+
+Then, given the oil density as above, each small piece of force is given by, \[60\pi \left( 16-y^2 \right) \Delta y.\]
+
+For the area of the cylindrical section, the cross sectional area is a constant $4^2\pi=16\pi$. Similarly, each bit of force is given by, \[60\cdot16\pi=960\pi.\]
+
+The distance that each slice of area travels is given by its current depth below the top of the tank. We will consider center of the hemisphere to lie at the origin. Thus, height is modelled as the difference between the current height of the oil and the top of the tank, \[8-y.\]
+
+We Integrate the work for all the pieces of the hemisphere lying from the base at $y=-4$ to the top at $y=0$, and the pieces of the cylinder from $y=0$ to $y=8$,
+\begin{align*}
+    & 60\pi\int_{-4}^{0} \left( 16-y^2 \right)(8-y)dy + \int_{0}^{8} 960\pi(8-y)dy \\
+    =& 60\pi\int_{-4}^{0} 128-16y-8y^2+y^3\,dy + 960\pi\left[ 8y-\frac{1}{2}y^2 \right] \Bigg\vert_{0}^{8} \\
+    =& 60\pi\left[ 128y-8y^2-\frac{8}{3}y^3+\frac{1}{4}y^4 \right] \Bigg\vert_{-4}^{0} + 960\pi\left( 64-\frac{64}{2} \right) \\
+    =& 60\pi\left( 0-\left( -512-128+\frac{512}{3}+\frac{256}{4} \right) \right) +960\pi(32) \\
+    =& 60\pi\left( 576 - \frac{512}{3} \right) + 30720\pi \\
+    =& 20\pi(1728 - 512) + 30720\pi\\
+    =& 24320\pi + 30720\pi \\
+    =& 55040\pi \\
+    \approx& 172913. \\
+\end{align*}
+
+So, the total work done to move the oil to the top of the tank is 172913 foot pounds.
+
+For (b), we note that one horsepower (HP) is 550 foot pounds per second.
+
+So, half of one horsepower is 275 foot pounds per second.
+
+Thus, cancelling foot pounds by a rate of foot pounds per second, we are left with seconds, \[\frac{172913}{275} \approx 629.\]
+
+Finally, 629 seconds is about $\frac{629}{60} \approx 10.5$ minutes.
+
+Therefore, it takes about ten and a half minutes to pump the oil out of the top of the tank.
+
+
+\end{document}

@@ -1,0 +1,92 @@
+\documentclass[../hw5.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{21}
+Suppose that $f$ is differentiable with $f'(x) > 0$ for all $x$, and suppose that $f(1) = 0$. 
+Set \[F(x) = \int_{0}^{x} f(t)dt.\]
+
+Justify each statement and make a rough sketch of the graph of $F$.
+
+\begin{enumerate}[label= (\alph*)]
+    \item $F$ is continuous.
+    
+    Since $f$ is differentiable, it is continuous. Then, by 5.3.5, $F$ is also continuous.
+
+    \item $F$ is twice differentiable.
+    
+    Since $F'(x)=f(x)$ by 5.3.5 and $f$ is differentiable, then $F''(x)=f'(x)$. So, $F$ is twice differentiable.
+
+    \item $x = 1$ is a critical point for $F$.
+    
+    Since $F'=f$ and $f(1)=0$, then $x=1$ is a critical number of $F$. 
+
+    \item $F$ takes on a local minimum at $x = 1$.
+
+    Since $F''(x)=f'(x)$ and $f'(x)>0$ for all $x>0$, then all critical points on $F$ will be local minima by the second derivate test.
+
+    \item $F(1) < 0$.
+
+    Since $f'(x)>0$ for all $x>0$, then $f$ is strictly increasing.
+
+    % So, $f$ cannot be a constant function on $[0,1]$.
+
+    Since $f(1)=0$, then $f(x)<0$ for all $x<1$.
+
+    Since $F'(x)=f(x)$ and $f(x)<0$ for all $x<1$, then $F(x)$ is strictly decreasing when $x<1$.
+
+    Since $F$ is strictly decreasing when $x<1$ and $F(0)=\int_{0}^{0} f(t)dt=0$, then $F(1)<0$.
+
+    % Then, for $F(1)=\int_{0}^{1} f(t) dt$, with $f(t)<0$ for $t\in[0,1]$, we see that $F(1)<0$
+
+\end{enumerate}
+
+We can produce a simple sketch around the interval $(0,1)$ using the data that $F(0)=0$; and that $F$ is strictly decreasing until $F(1)$, which is a local minima.
+
+\begin{figure*}[ht]
+\centering
+\begin{tikzpicture}
+    % Axes
+    \draw[->] (-1.25,0) -- (2,0) node[right] {$x$};
+    \draw[->] (0,-1) -- (0,2.5) node[above] {$y$};
+
+    \draw[domain=0:1.5,smooth,variable=\x,thick] plot ({\x},{\x^2 - 2*\x});
+    \draw[domain=-1:0,variable=\x,thick] plot ({\x},{-2*\x});
+    
+    \draw[thick] (1,-0.1) -- (1,0.1);
+    \node[below] at (1,0) {1};
+\end{tikzpicture}
+\caption{Sketch of $F$.}
+\end{figure*}
+
+
+\subsection*{36}
+Let $f$ be everywhere continuous and set 
+\[F(x)=\int_{0}^{x} t \left[ \int_{1}^{t} f(u) du \right] dt.\]
+
+Find each of the following,
+
+\begin{enumerate}[label= (\alph*)]
+    \item $F'(x)$
+    
+    By 5.3.5, $F'(x) = x \int_{1}^{x} f(u) du$.
+
+    \item $F'(1)$
+    
+    Since $F'(1) = x \int_{1}^{1} f(u) du = x \cdot 0$ by 5.3.4, then $F'(1) = 0$.
+
+    \item $F''(x)$
+    
+    Again, by 5.3.5,
+    \begin{align*}
+        F''(x) &= \int_{1}^{x} f(u) du + x \frac{d}{dx} \left[ \int_{1}^{x} f(u) du \right] \\
+        &= \int_{1}^{x} f(u) du + x f(x). \\
+    \end{align*}
+
+    \item $F''(1)$
+    
+    $F''(1) = 0 + 1 \cdot f(1)$ by 5.3.4. So, $F''(1)=f(1)$.
+
+\end{enumerate}
+
+\end{document}

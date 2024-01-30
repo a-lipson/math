@@ -1,0 +1,136 @@
+\documentclass[../hw3.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{54}
+Set $g(x) = \begin{cases}
+    x^3, & x \geq 0 \\
+    0, x < 0.
+\end{cases}$
+
+(a) Find $g'(0)$ and $g''(0)$.
+
+(b) Determine $g'(x)$ and $g''(x)$ for all other $x$.
+
+(c) Show that $g'''(0)$ does not exist.
+
+(d) Sketch the graphs of $g,g',g''$.
+
+\begin{proof}[Proof of (a).]
+    At $x=0$, $g(x) = x^3$. So, $\frac{dg}{dx} = g'(x) = 3x^2$ by the power rule.
+
+    Then, $g'(0) = 0$.
+
+    Similarly, since $\frac{d^{2}g}{dx^2} = g''(x) = 6x$, then $g''(0) = 0$.
+
+    So, $g'(0) = g''(0) = 0$.
+\end{proof}
+
+\begin{proof}[Proof of (b).]
+    As shown in (a), at $x=0$,
+    \[g'(x) = 3x^2 \text{ and } g''(x) = 6x.\]
+    
+    This is the case for all $x \geq 0$ as well.
+
+    For $x < 0$, $g(x) = 0$, so $g'(x) = g''(x) = 0$.
+
+    This leaves us with both derivates defined for all $x \in \mathbb{R}$.
+    \[g'(x) = \begin{cases}
+        3x^2, & x \geq 0 \\
+        0, & x < 0 \\
+    \end{cases} \text{ and } g''(x) = \begin{cases}
+        6x, & x \geq 0 \\
+        0, & x < 0 \\
+    \end{cases}.\]
+\end{proof}
+
+\begin{proof}[Proof of (c).]
+    For $g'''(0)$ to exist, $g''$ must de differentiable at 0. 
+
+    We will show that $g''$ is not differentiable at zero because its limit as $x$ approaches zero from positive $x$ is different than the limit as $x$ is approached from negative $x$. 
+    
+    Define $g''(x) = \begin{cases}
+        6x, & x \geq 0 \\
+        0, & x < 0 \\
+    \end{cases}$ from (b).
+
+    First, for the right limit, since $x>0$, $g''(x) = 6x$.
+    \[\lim\limits_{h \to 0^+} \frac{6(x+h)-6x}{h} = \lim\limits_{h \to 0^+} \frac{6h}{h} = 6.\]
+
+    Next, for the left limit, since $x<0$, $g''(x) = 0$.
+    \[\lim\limits_{h \to 0^-} \frac{0-0}{h} = \lim\limits_{h \to 0^-} 0 = 0.\]
+
+    But, \[\lim\limits_{h \to 0^-} g''(x) = 0 \neq 6 = \lim\limits_{h \to 0^+} g''(x)\]
+
+    Since these limits are not equal, the derivate at $x=0$ does not exist, so neither does $g'''(0)$.
+\end{proof}
+
+\begin{figure}[ht]
+\centering
+    \begin{minipage}[t]{0.3\linewidth} % Adjust the width as needed
+    \centering
+    \begin{tikzpicture}[scale=0.3]
+        \draw[->] (-4,0) -- (4,0) node[below] {$x$};
+        \draw[->] (0,-1) -- (0,10) node[left] {$y$};
+
+        \draw[blue, thick, domain=0:1.5, smooth, samples=100] plot (\x, \x^3) node[right] {$g$};
+        \draw[blue, thick, domain=-3:0] plot (\x, 0);
+    \end{tikzpicture}
+    \end{minipage}
+\hfill
+    \begin{minipage}[t]{0.3\linewidth} % Adjust the width as needed
+    \centering
+    \begin{tikzpicture}[scale=0.3]
+        \draw[->] (-4,0) -- (4,0) node[below] {$x$};
+        \draw[->] (0,-1) -- (0,10) node[left] {$y$};
+
+        \draw[red, thick, domain=0:1.5, smooth, samples=100] plot (\x, 3*\x^2) node[right] {$g'$};
+        \draw[red, thick, domain=-3:0] plot (\x, 0);
+    \end{tikzpicture}
+    \end{minipage}
+\hfill
+    \begin{minipage}[t]{0.3\linewidth} % Adjust the width as needed
+    \centering
+    \begin{tikzpicture}[scale=0.3]
+        \draw[->] (-4,0) -- (4,0) node[below] {$x$};
+        \draw[->] (0,-1) -- (0,10) node[left] {$y$};
+
+        \draw[green!70!black, thick, domain=0:1.5, smooth, samples=100] plot (\x, 6*\x) node[right] {$g''$};
+        \draw[green!70!black, thick, domain=-3:0] plot (\x, 0);
+    \end{tikzpicture}
+    \end{minipage}
+\caption{Sketches of $g$, $g'$, and $g''$ for (d).}
+\end{figure}
+
+\subsection*{61}
+Prove by induction that,
+\[\mbox{if $y=x^{-1}$, then $\frac{d^{n}y}{dx^n}={(-1)}^{n}n!x^{-n-1}$}.\]
+
+\begin{proof}[Proof by induction.]
+
+    For the base case, for all $n \in \mathbb{Z}^+$, when $n = 1$,
+    \begin{align*}
+        \frac{d^1y}{dx^1} &= {(-1)}^1 (1!) x^{-1-1} \\
+        \frac{dy}{dx} &= (-1) (1) x^{-2} \\
+        \frac{dy}{dx} &= -\frac{1}{x^2}
+    \end{align*}
+
+    We know that this is the first derivate of $\frac{1}{x}$ by the power rule, so the base case is true.
+
+    Then, we assume that the formula holds for $n = k$ by the inductive hypothesis.
+
+    Now, for the inductive step, we will show that the statement holds for $n = k+1$.
+    \begin{align*}
+        \frac{d}{dx} \left[ \frac{d^{k}y}{dx^k} \right] &= \frac{d}{dx} \left[ {(-1)}^{k}k!x^{-k-1} \right] \\
+        \frac{d^{k+1}}{dx^{k+1}} &= {(-1)}^{k}k! \frac{d}{dx}\left[ x^{-k-1} \right] \\
+        &= {(-1)}^{k}k! (-k-1) x^{-k-2} \\
+        &= {(-1)}^{k}k! (-1)(k+1) x^{-k-2} \\
+        &= {(-1)}^{k}(-1) k!(k+1) x^{-k-2} \\
+        &= {(-1)}^{k+1} (k+1)! x^{-k-2} \\
+        &= {(-1)}^{k+1} (k+1)! x^{-(k+1)-1} \\
+    \end{align*}
+
+    Which we recognize to be the formula when $n = k+1$. Therefore, by induction, the statement holds.
+\end{proof}
+
+\end{document}

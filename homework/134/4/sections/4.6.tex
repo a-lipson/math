@@ -1,0 +1,70 @@
+\documentclass[../hw4.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{48}
+Show that if a cubic polynomial $p(x)=x^3+ax^2+bx+c$ has a local maximum and a local minimum, then the midpoint of the line segment that connects the local high point to the local low point is a point of inflection.
+
+\begin{proof}
+    First, we find the local minimum and maximum of $p$ via setting $p'=0$.
+    \begin{align*}
+        p' = 3x^2 + 2ax + b &= 0 \\
+        x^2 + \frac{2a}{3}x + \frac{b}{3} &= 0 \\
+        {\left( x + \frac{a}{3} \right)}^2 - \frac{a^2}{9} + \frac{b}{3} &= 0 \\
+        {\left( x + \frac{a}{3} \right)}^2 &= \frac{a^2}{9} - \frac{b}{3} \\
+        x+\frac{a}{3} &= \pm \sqrt{\frac{a^2-3b}{9}} \\
+        x &= -\frac{a}{3} \pm \frac{\sqrt{a^2-3b}}{3}
+    \end{align*}
+
+    Then, it is clear that the midpoint $m$ of the local extrema is $-\frac{a}{3}$.
+
+    We verify this value by solving for $x$ when $f''(x)=0$ to determine the infection point.
+    \begin{align*}
+        p''(x) = 6x+2a &= 0 \\
+        6x &= -2a \\
+        x &= \frac{-a}{3} \\
+    \end{align*}
+
+    We see that the infection point and the midpoint of the line segment between the extrema are equal.
+
+    Next, we recognize that $p$ is symmetrical about the midpoint $m$. So for an $h\geq0$, we assume that, 
+    \[p(m+h)+p(m-h) = 2p(m)\]
+    % the graph $p(m+h)$ will be equal to $-p(m-h)$ along with some vertical shift.
+    % Since $-p$ is $p$ reflected about the $x$-axis, then the vertical offset to align $p(m)$ with $-p(m)$ is $2p(m)=p(m)-({-p(m)})$.
+
+    Since, $m=\frac{-a}{3}$, then $3m+a=0$. So, $2h^2(3m+a)=0$.
+
+    Then, by expanding,
+    \begin{align*}
+        2p(m) &= p(m+h)+p(m-h) \\
+        &= {(m+h)}^3+a{(m+h)}^2+b(m+h)+c \\
+        &+ {(m-h)}^3+a{(m-h)}^2+b(m-h)+c \\
+        &= (m^3+3m^2h+3mh^2+h^3)+(am^2+2amh+ah^2)+(bm+bh)+c \\
+        &+ (m^3-3m^2h+3mh^2-h^3)+(am^2-2amh+ah^2)+(bm-bh)+c \\
+        &= (m^3+3mh^2)+(am^2+ah^2)+(bm)+c \\
+        &+ (m^3+3mh^2)+(am^2+ah^2)+(bm)+c \\
+        &= 2\left[ (m^3+am^2+bm+c) + (3mh^2+ah^2) \right] \\
+        &= 2p(m) + 2h^2(3m+a) \\
+        &= 2p(m)
+    \end{align*}
+
+    We see that the assumption holds.
+
+    So, with $h=\frac{\sqrt{a^2-3b}}{3}$, we see that the the two extrema can be represented by $m-h$ and $m+h$.
+    
+    Then, the middle value of the line segment between the extrema, given by the mean, is equal to the function $p$ at the midpoint $m$ by the assumption.
+    \[\frac{p(m+h)+p(m-h)}{2} = p(m)\]
+
+    Finally, we compute $p\left( -\frac{a}{3} \right)$ to find the value of the function $p$ at the midpoint.
+    \begin{align*}
+        p\left(\frac{-a}{3}\right) &= {\left(\frac{-a}{3}\right)}^3 + a{\left(\frac{-a}{3}\right)}^2+b\left(\frac{-a}{3}\right) + c \\
+        &= \frac{-a^3}{27} + \frac{a^3}{9} - \frac{ab}{3} + c \\
+        &= \frac{2a^3}{27} - \frac{ab}{3} + c \\
+    \end{align*}
+
+    Thus, the midpoint and point of inflection is, \[\left( \frac{-a}{3}, \frac{2a^3}{27} - \frac{ab}{3} + c \right)\]
+
+\end{proof}
+
+
+\end{document}

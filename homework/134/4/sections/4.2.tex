@@ -1,0 +1,75 @@
+\documentclass[../hw4.texz]{subfiles}
+
+\begin{document}
+
+\subsection*{59}
+Show that the proposition holds.
+
+\begin{proposition}
+    If $1 < n \in \mathbb{Z}^+$ and $x>0$, then ${(1+x)}^n>1+nx$.
+\end{proposition}
+
+\begin{proof}[Proof by induction.]
+    We will first prove the proposition by induction on $n$.
+
+    For the base case, $n = 2$.
+    \begin{align*}
+        {(1+x)}^2 &> 1+2x \\
+        x^2+2x+1 &> 1+2x \\
+        x^2 &> 0 \\
+    \end{align*}
+
+    So, the base case holds because $x>0$ was given.
+
+    Then, we assume that the proposition holds for $n=k$ by the inductive hypothesis.
+
+    For the inductive step, we will show that $n=k+1$ also holds.
+    \begin{align*}
+        (1+x){(1+x)}^k &> (1+kx)(1+x) \\
+        {(1+x)}^{k+1} &> 1+x+kx+x^2, \quad {x^2>0} \\
+        {(1+x)}^{k+1} &> 1+(1+k)x+x^2 > 1+(k+1)x \\
+        {(1+x)}^{k+1} &> 1+(k+1)x \\
+    \end{align*}
+
+    Which is the proposition when $n=k+1$. So, by induction, the proposition is true.
+\end{proof}
+
+\begin{proof} % FIXME messy proof
+    We will define two functions $f$ and $g$ such that,
+    \[f(x) = {(1+x)}^n, \quad g(x) = 1+nx.\]
+
+    % QUESTION what's a standard order when presenting assumptions? make the assumption then build up the proof or dictate the steps then arrive at the assumption?
+    Assume that, for all $x>0$, $f'>g'$.
+    \[f'-g'>0, \quad x>0.\]
+
+    We differentiate $f(x)$ and $g(x)$,
+    \[f'(x) = n{(1+x)}^{n-1}, \quad g'(x) = n.\]
+
+    So, by the assumption and the fact that $n\geq2$ was given,
+    \begin{align*}
+        n{(1+x)}^{n-1} &> n \\
+        {(1+x)}^{n-1} &> 1
+    \end{align*}
+
+    Which holds since $x>0$ by the assumption and $n-1>1$ for all $n$ valid for the proposition.
+
+    Therefore the assumption holds.
+
+    If $x=0$, then $f(0)={(1+0)}^n=1^n=1$ and $g(0)=1+(0)x=1$.
+
+    Since, $f(0)=g(0)=1$, then $f(0)-g(0)=0$.
+
+    For a contradiction, assume that, for all $x>0$, $f<g$. So, $f-g<0$.
+
+    Then, by the assumption, and that, at $x=0$, $f(0)-g(0)=0$, there exists an $a>0$ such that $f'(a)-g'(a)<0$ and $f'(a)<g'(a)$ by the Mean Value Theorem.
+
+    But, this contradicts the assumption that, for all $x>0$, $f'(x)>g'(x)$.
+
+    Therefore, by contradiction, $f(x)>g(x)$ when $x>0$.
+    
+    So, by the definitions of $f$ and $g$, the proposition holds.
+    \[f(x) = {(1+x)}^n > 1+nx = g(x).\]
+
+\end{proof}
+
+\end{document}

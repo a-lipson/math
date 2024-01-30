@@ -1,0 +1,55 @@
+\documentclass[../m134a-hw2.tex]{subfiles}
+
+\begin{document}
+\subsection*{36}
+Let $f(x) = \begin{cases}
+    A^2x^2, & x\leq2 \\
+    (1-A)x, & x>2. \\
+\end{cases}$ For what values of $A$ is $f$ continuous at 2?
+
+The function $f$ is continuous when $\lim\limits_{x \to 2^-} f(x) = \lim\limits_{x \to 2^+} f(x) $.
+
+Since $(1-A)x$ is polynomial, $\lim\limits_{x \to 2^-} (1-A)x = 2(1-A)$.
+
+Since $A^2x^2$ is polynomial, $\lim\limits_{x \to 2^+} A^2x^2 = 4A^2$.
+
+So, $f$ will be continuous when,
+\begin{align*}
+    2(1-A) &= 4A^2 \\
+    {-4}A^2-2A+2 &= 0 \\
+    2A^2+A-1 &= 0 \\
+    A^2 + \frac{A}{2} - \frac{1}{2} &= 0 \\
+    A^2 + \frac{2A}{4} + \frac{1}{16} &= \frac{1}{2} + \frac{1}{16} \\
+    {\left(A + \frac{1}{4}\right)}^2 &= \frac{9}{16} \\
+    A + \frac{1}{4} &= \pm \frac{3}{4} \\
+    A &= -\frac{1}{4} \pm \frac{3}{4} \\
+    A &= -1, \frac{1}{2}. \\
+\end{align*}
+
+\subsection*{53}
+Suppose that the function $f$ has the property that there exists a number $B$ such that \[|f(x)-f(c)|\leq B|x-c|\] for all $x$ in the interval $(c-p,c+p)$. Prove that $f$ is continuous at $c$.
+
+\begin{proof}
+    We begin by noting that a function is continuous when $\lim\limits_{x \to c} f(x) = f(c)$.
+    
+    We will rewrite $x \in (c-p,c+p)$ as $|x-c|<p$.
+
+    For consistency, we will $\delta$ such that, $p = \delta > 0$.
+
+    For every $\epsilon>0$, there exists a $\delta>0$ such that $|x-c|<p=\delta$ implies $|f(x)-f(c)|<\epsilon$.
+
+    Let $\epsilon>0$ be given. Define $\delta = \frac{\epsilon}{B}$.
+
+    Assume $|x-c|<\delta$, then
+    \begin{align*}
+        |x-c| &< \frac{\epsilon}{B} \\
+        B|x-c| &< \epsilon \\
+        |f(x)-f(c)| &< \epsilon \text{ by the property of $f$.}\\
+    \end{align*}
+
+    Therefore, $\lim\limits_{x \to c} f(x) = f(c)$.
+
+    So, the function $f$ is continuous at $c$.
+\end{proof}
+
+\end{document}

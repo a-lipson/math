@@ -1,0 +1,36 @@
+\documentclass[../hw3.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{62}
+Let $f$ be a differentiable function. Use the chain rule to show that:
+
+(a) if $f$ is even, then $f'$ is odd.
+
+(b) if $f$ is odd, then $f'$ is even.
+
+Assume that an even function $g$ defined such that it satisfies the property $g(x) = g(-x)$.
+
+Assume that an odd function $g$ defined such that it satisfies the property $g(x) = -g(-x)$.
+
+\begin{proof}[Proof of (a).]
+    We differentiate both sides with respect to $x$.
+    \begin{align*}
+        \frac{d}{dx} \left[ f(x) \right] &= \frac{d}{dx} \left[ f(-x) \right] \\
+        f'(x) &= -f'(-x) \\
+    \end{align*}
+
+    We recognize this to be the form of an odd function where $f' = g$.
+\end{proof}
+
+\begin{proof}[Proof of (b).]
+    We differentiate both sides with respect to $x$.
+    \begin{align*}
+        \frac{d}{dx} \left[ f(x) \right] &= \frac{d}{dx} \left[ -f(-x) \right] \\
+        f'(x) &= f'(-x) \\
+    \end{align*}
+
+    We recognize this to be the form of an even function where $f' = g$.
+\end{proof}
+
+\end{document}

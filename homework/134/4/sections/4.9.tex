@@ -1,0 +1,46 @@
+\documentclass[../hw4.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{48}
+To estimate the height of a bridge, a man drops a stone into
+the water below. How high is the bridge (a) if the stone hits
+the water 3 seconds later? (b) if the man hears the splash
+3 seconds later? (Use 1080 feet per second as the speed of
+sound.)
+
+We will use the gravitational constant $g$ as $32$ feet per second per second.
+
+Recall that the equation for vertical motion in the presence of gravity is $y(t) = \frac{-1}{2}gt^2 + v_0t+y_0$ where $v_0$ is the initial upward velocity and $y_0$ is the initial vertical position.
+
+Given that the stone was dropped, it has no initial velocity.
+
+For (a), to compute the initial height $y_0$, we use the fact that it took three seconds for the rock to reach the water, which we will consider as the height zero. So, with $y(3)=0$,
+\begin{align*}
+    -\frac{32}{2}{(3)}^2+y_0 &= 0 \\
+    -16 (9) &= -y_0 \\
+    144 &= y_0 \\
+\end{align*}
+
+So, in (a), the height of the bridge is 144 feet.
+
+For (b), we know that the the splash occurs some time three seconds have elapsed, and then some $t$ seconds occur before the sound reaches the top of the bridge. As such, we can represent the height of the bridge as $1080t$ feet, and the duration of time for the rock to fall and splash as $3-t$.
+
+So, we equate the height of the bridge and the distance fallen by the rock until the splash,
+\begin{align*}
+    1080t &= \frac{32}{2}{(3-t)}^2 \\
+    \frac{135}{2}t &= 9-6t+t^2 \\
+    -9 &= t^2 - \frac{147}{2}t \\
+    -9 &= {\left( t-\frac{147}{4} \right)}^2 - {\left( \frac{147}{4} \right)}^2 \\
+    \frac{147^2-144}{16} &= {\left( t-\frac{147}{4} \right)}^2 \\
+    \pm \frac{\sqrt{147^2-144}}{4} &= t - \frac{147}{4} \\
+    \frac{147 \pm \sqrt{147^2-144}}{4} &= t \\
+    %\frac{147 \pm \sqrt{21465}}{4} &= t \\
+    \frac{147 \pm 9\sqrt{265}}{4} &= t \\
+\end{align*}
+
+Since the height of the bridge was given by $y_0=1080t$, then $y_0=1080\cdot\frac{147 \pm 9\sqrt{265}}{4}=39690\pm2430\sqrt{265}$
+
+Given that part (a) estimated that the bridge was 144 feet, (b) should give a similar answer. In this case, we compute $39690-2430\sqrt{265}$ to see that the height of the bridge is about $132.466$ feet.
+
+\end{document}

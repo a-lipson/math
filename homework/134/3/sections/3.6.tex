@@ -1,0 +1,171 @@
+\documentclass[../hw3.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{67}
+Set $f(x) = \begin{cases}
+    x\sin{\frac{1}{x}}, & x \neq 0 \\
+    0, & x = 0. \\
+\end{cases}$ and $g(x) = xf(x)$. Both $f$ and $g$ are differentiable at each $x \neq 0$.
+
+(a) Find $f'(x)$ and $g'(x)$ for $x \neq 0$.
+
+(b) Show that $g'$ is not continuous at 0.
+
+\begin{proof}[Proof of (a).] 
+    
+    First, we will differentiate $f$ where $x \neq 0$.
+    \begin{align*}
+        \frac{d}{dx} \left[ f(x) \right] &= \frac{d}{dt} \left[ x\sin{\frac{1}{x}} \right] \\
+        f'(x) &= \sin{\frac{1}{x}} \frac{d}{dx} \left[ \frac{1}{x} \right] x\cos{\frac{1}{x}} \\
+        &= \sin{\frac{1}{x}} + x \left( \frac{-1}{x^2} \right)\cos{\frac{1}{x}} \\
+        &= \sin{\frac{1}{x}} - \frac{1}{x}\cos{\frac{1}{x}} \\
+    \end{align*}
+
+    Next, we will do the same for $g$, again with the constraint $x \neq 0$.
+    \begin{align*}
+        \frac{d}{dx} \left[ g(x) \right] &= \frac{d}{dx} \left[ x^2\sin{\frac{1}{x}} \right] \\
+        g'(x) &= 2x\sin{\frac{1}{x}} + x^2 \left( \frac{-1}{x^2} \right) \cos{\frac{1}{x}} \\
+        &= 2x\sin{\frac{1}{x}} - \cos{\frac{1}{x}} \\
+    \end{align*}
+
+    We have found $f'$ and $g'$ for $f$ and $g$ where $x \neq 0$.
+\end{proof}
+
+\begin{proof}[Proof of (b) by contraction.]
+
+    For a contraction, we will assume that $g'$ is continuous at zero. 
+
+    Since $g(0)=0$ and the derivative of zero is zero, $g'(0)=0$.
+
+    Therefore, we assume that, if $g'$ is continuous at $x=0$, then, 
+    \[\lim\limits_{x \to 0} g' = 0.\]
+    
+    We will use $g' = 2x\sin{\frac{1}{x}} - \cos{\frac{1}{x}}$ from (a).
+    \begin{align*}
+        & \lim\limits_{x \to 0} 2x\sin{\frac{1}{x}} - \cos{\frac{1}{x}} \\
+        &= 2\lim\limits_{x \to 0} x\sin{\frac{1}{x}} - \lim\limits_{x \to 0} \cos{\frac{1}{x}}
+    \end{align*}
+
+    The first limit has been previously shown to be zero using the Squeeze Theorem. We will show it again briefly.
+    
+    \begin{proposition}
+        $\lim\limits_{x \to 0} x\sin{\frac{1}{x}} = 0$.
+    \end{proposition}
+
+    \begin{proof}
+        Assume that, for all $x \in \mathbb{R}$, $-|x| \leq x \leq |x|$.
+
+        Assume that the range of sine is $[-1,1]$.
+
+        Which means that, $-1 \leq \sin{\theta} \leq 1$.
+
+        So, $-1 \leq \sin{\frac{1}{x}} \leq 1$.
+
+        Then, by the assumption, $-|x| \leq x\sin{\frac{1}{x}} \leq |x|$.
+
+        Since $\lim\limits_{x \to 0} -|x| = 0$ and $\lim\limits_{x \to 0} |x| = 0$, then $\lim\limits_{x \to 0} x\sin{\frac{1}{x}} = 0$ by the Squeeze Theorem.
+    \end{proof}
+
+    So, the limit in the first term, $2 \lim\limits_{x \to 0} x\sin{\frac{1}{x}}$, is zero. 
+
+    For the second limit, we will prove that it does not exist, which implies that $\lim\limits_{x \to 0} g'$ does not exist either.
+
+    \begin{proposition}
+        The limit $\lim\limits_{h \to 0} \cos{\frac{1}{h}}$ does not exist.
+    \end{proposition}
+
+    \begin{proof}
+        For a contradiction, assume $\lim\limits_{h \to 0} \cos{\frac{1}{h}} = L$.
+
+        For $\epsilon=1$, there exists a $\delta>0$ such that $|h|<\delta$ implies $\Big| \cos{\frac{1}{h}}-L \Big| < \epsilon=1$.
+
+        Choose $n \in \mathbb{Z}^+$ such that $\frac{1}{m} < \delta$.
+
+        Then, let $h = \frac{1}{\pi\left( 2n+\frac{1}{2} \right)}$.
+
+        So, $|h| = h < \frac{1}{m} < \delta$, which implies $\Big|\cos{\frac{1}{h}}-L \Big|<1$.
+
+        But, $\sin{\frac{1}{h}} = \sin{\pi\left( 2n+\frac{1}{2} \right)} = 1$.
+
+        So, \[|1-L|<1.\]
+
+        Similarly, if $h = \frac{1}{\pi\left( 2n+1+\frac{1}{2} \right)}$, then $|h|<\frac{1}{m}<\delta$ and $\cos{\frac{1}{h}}=-1$.
+
+        So, \[|-1-L|<1.\]
+
+        Then, $-1<1-L<1$ and $-1<-1-L<1$.
+        
+        So, $-2<-L<0$ and $0<-L<2$.
+        
+        Or, $0<L<2$ and $-2<L<0$.
+
+        But, $L>0$ and $L<0$ is a contradiction, so $\lim\limits_{h \to 0} \cos{\frac{1}{h}}$ does not exist.
+    \end{proof}
+
+    Since $\lim\limits_{x \to 0} g'(x)$ does not exist, then $\lim\limits_{x \to 0} g' \neq 0$. Therefore $g'$ is not continuous at zero at the assumption is false.
+
+    Therefore, we have shown that statement in (b) is true.
+
+\end{proof}
+
+
+
+\subsection*{72}
+A simple pendulum consists of a mass $m$ swinging at the end of a rod or wire of negligible mass. The figure shows a simple pendulum of length $L$. The angular displacement $\theta$ at time $t$ is given by a trigonometric expression:
+\[\theta(t) = A\sin{(\omega t + \phi)}\]
+where $A$, $\omega$, $\phi$ are constants.
+
+(a) Show that the function $\theta$ satisfies the equation
+\[\frac{d^2\theta}{dt^2} + {\omega}^2 = 0.\]
+
+(b) Show that $\theta$ can be written in the form
+\[\theta(t) = A\sin{\omega t} + B\cos{\omega t}\]
+where $A$, $B$, $\omega$ are constants.
+
+\begin{proof}[Proof of (a).]
+
+First, we differentiate both sides with respect to t,
+\begin{align*}
+    \frac{d}{dt} \left[ \theta(t) \right] &= \frac{d}{dt} \left[ A\sin{(\omega t + \phi)} \right]\\
+    \frac{d\theta}{dt} &= A \omega \cos{(\omega t + \phi)} \\
+\end{align*}
+
+Then we repeat to obtain $\frac{d^2\theta}{dt^2}$, 
+\begin{align*}
+    \frac{d}{dt}\left[ \frac{d\theta}{dt} \right] &= \frac{d}{dt} \left[ A \omega \cos{(\omega t + \phi)} \right] \\
+    \frac{d^2\theta}{dt^2} &= {-A}\omega^2 \sin{(\omega t + \phi)}\\
+\end{align*}
+
+Next, we find $\omega^2 \theta(t)$,
+\[\omega^2 \theta(t) = A \omega^2 \sin{(\omega t + \phi)}\]
+
+We then see that,
+\[\frac{d^2\theta}{dt^2} + \omega^2 \theta = {-A} \omega^2 \sin{(\omega t + \phi)} + A \omega^2 \sin{(\omega t + \phi)} = 0\]
+
+\end{proof}
+
+
+\begin{proof}[Proof of (b).]
+
+We rewrite $\theta(t)$ as,
+\[\theta(t) = C\sin{(\omega t + \phi)}.\]
+
+Assume the identity for sine,
+\[\sin{\alpha+\beta} = \sin{\alpha}\cos{\beta}+\cos{\alpha}\sin{\beta}.\]
+
+We can express $\theta$ according to this identity as,
+\[C\left( \sin{\omega t}\cos{\phi} + \cos{\omega t}\cos{\phi} \right).\]
+
+Then, we define $A=C\cos{\phi}$ and $B=C\sin{\phi}$ and simplify.
+\begin{align*}
+    & C\left( \sin{\omega t}\cos{\phi} + \cos{\omega t}\cos{\phi} \right) \\
+    &= C\sin{\omega t}\cos{\phi} + C\cos{\omega t}\cos{\phi} \\
+    &= A\sin{\omega t} + B\cos{\omega t}
+\end{align*}
+
+Therefore, we can represent $\theta$ as the sum of a sine and cosine term of the same inner term $\omega t$, $A\sin{\omega t} + B\cos{\omega t}$.
+    
+\end{proof}
+
+\end{document}

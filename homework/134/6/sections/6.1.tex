@@ -1,0 +1,72 @@
+\documentclass[../hw6.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{40}
+(a) Calculate the area of the region in the first quadrant
+bounded by the coordinate axes and the parabola $y=1+a-ax^2, \quad a>0$.
+
+(b) Determine the value of a that minimizes this area.
+
+
+For (a), we start by finding the bounds of integration, noting that $x>0$ in the first quadrant. 
+\begin{align*}
+    0 &= 1+a-ax^2 \\
+    \frac{-(1+a)}{-a} &= x^2 \\
+    x &= \sqrt{\frac{a+1}{a}}. \\
+\end{align*}
+
+Since we are in the first quadrant, the lower bound of integration will be 0.
+
+Since the leading coefficient is negative, we know that this is a downward opening parabola. So, the signed area will be positive. We integrate to find the area function $A(a)$.
+\begin{align*}
+    A(a) &= \int_{0}^{\sqrt{\frac{a+1}{a}}} 1+a-ax^2 dx \\
+    &= \bigg[ (a+1)x-\frac{a}{3}x^3 \bigg] \Bigg\vert_{0}^{\sqrt{\frac{a+1}{a}}} \\
+    &= (a+1)\sqrt{\frac{a+1}{a}} - \frac{a}{3}{\left( \sqrt{\frac{a+1}{a}} \right)}^3 \\
+    &= \frac{(a+1)\sqrt{a+1}}{\sqrt{a}} - \frac{a}{3} \left( \frac{(a+1)\sqrt{a+1}}{a\sqrt{a}} \right) \\
+    &= \frac{(a+1)\sqrt{a+1}}{\sqrt{a}} - \frac{1}{3} \left( \frac{(a+1)\sqrt{a+1}}{\sqrt{a}} \right) \\
+    &= \frac{2}{3} \left( \frac{(a+1)\sqrt{a+1}}{\sqrt{a}} \right) \\
+    &= \frac{2}{3} (a+1)\sqrt{1+\frac{1}{a}}. \\
+\end{align*}
+
+For (b), we optimize $A(a)$.
+
+We differentiate to find the critical number of $A$.
+\begin{align*}
+    A' &= \frac{d}{da} \left[ \frac{2}{3} (a+1)\sqrt{1+\frac{1}{a}} \right] \\
+    &= \frac{2}{3} \left( \sqrt{1+\frac{1}{a}} + (a+1) \frac{1}{2\sqrt{1+\frac{1}{a}}} \left( \frac{-1}{a^2} \right) \right) \\
+    &= \frac{2}{3} \left( \sqrt{1+\frac{1}{a}} - \frac{a+1}{2a^2\sqrt{1+\frac{1}{a}}} \right) \\
+    &= \frac{2}{3} \left( \sqrt{1+\frac{1}{a}} - \frac{1+\frac{1}{a}}{2a\sqrt{1+\frac{1}{a}}} \right) \\
+    &= \frac{2}{3} \left( \sqrt{1+\frac{1}{a}} - \frac{\sqrt{1+\frac{1}{a}}}{2a} \right) \\
+    &= \frac{2}{3} \left( \frac{2a-1}{2a} \sqrt{1+\frac{1}{a}} \right) \\
+    &= \left( \frac{2a-1}{3a} \right) \sqrt{1+\frac{1}{a}} \\
+\end{align*}
+
+Then, we find the critical points of $A$ by setting $A'=0$.
+
+Since $a>0$, then $\frac{\sqrt{1+\frac{1}{a}}}{3a}\neq0$.
+
+So,
+\begin{align*}
+    0 &= A' = (2a-1) \frac{\sqrt{1+\frac{1}{a}}}{3a} \\
+    0 &=2a-1 \\
+    a&=\frac{1}{2}.
+\end{align*}
+
+We take the second derivative of $A$ to determine concavity and to classify the critical number $a=\frac{1}{2}$.
+\begin{align*}
+    A'' &= \frac{d}{da} \left[ \left( \frac{2a-1}{3a} \right) \sqrt{1+\frac{1}{a}} \right] \\
+    &= \left[ 2 \left( \frac{1}{3a} \right) + (2a-1) \left( \frac{-1}{6a^2} \right) \right] \sqrt{1+\frac{1}{a}} + \left( \frac{2a-1}{3a} \right) \left[ \left( \frac{-1}{a^2} \right) \frac{1}{2\sqrt{1+\frac{1}{a}}}\right] \\
+    &= \left( \frac{2}{3a} + \frac{1-2a}{6a^2} \right) \sqrt{1+\frac{1}{a}} + \frac{1-2a}{6a^3\sqrt{1+\frac{1}{a}}} \\
+\end{align*}
+
+We evaluate $A''$ at the critical point $a=\frac{1}{2}$. We note that the second term is immediately reduced since its numerator, $1-2a$ is zero when $a=\frac{1}{2}$. The same is true true for $1-2a$ in the first term.
+\begin{align*}
+    A''\left( \frac{1}{2} \right) &= \left( \frac{2}{3\left( \frac{1}{2} \right)} \right) \sqrt{1+\frac{1}{\frac{1}{2}}} \\
+    &= \frac{4}{3} \sqrt{3} \\
+    &= \frac{4}{\sqrt{3}}. \\
+\end{align*}
+
+Since $\frac{4}{\sqrt{3}}>0$, then $a=\frac{1}{2}$ is a local minimum which minimizes the area under the parabola $y=1+a-ax^2$ in the first quadrant.
+
+\end{document}

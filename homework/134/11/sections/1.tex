@@ -1,0 +1,129 @@
+\documentclass[../hw11]{subfiles}
+
+\begin{document}
+
+Newton’s law of cooling states that the rate of heat loss of a body is directly proportional to the difference in the temperatures between the body and its surroundings. 
+Experimenting, I have found that 12 ounces of 180F coffee in my favorite cup will take 20 minutes to cool to a drinking temperature
+of 110F in a 70F room. 
+Assume that when I add cream to the coffee, the two liquids are mixed instantly, and the temperature of the mixture instantly becomes the weighted average of the temperature of the coffee and of the cream (weighted by the number of ounces of each fluid).
+Also, assume that the cooling constant of the liquid (the proportionality constant in the differential equation) does not change when I add the cream.
+
+I take my coffee with cream. I am going to add 2 ounces of cream at 40F to my coffee. In order to reach drinking temperature as quickly as possible, should I
+
+\begin{enumerate}[label= (\alph*)]
+    \item Add the cream immediately to my 12 ounces of 180F coffee and wait for it to cool down to 110F\@?
+    \item Wait 5 minutes before adding the cream?
+\end{enumerate}
+
+To begin, we will model the cooling of plain coffee.
+
+We will model the temperature $T$ over time $t$ with the differential equation
+\begin{align*}
+    \frac{dT}{dt}&\propto T-T_s \\
+    \frac{dT}{dt}&=k(T-T_s),
+\end{align*}
+where $T_s$ is the ambient temperature of the room.
+
+We solve using separation of variables,
+\begin{align*}
+    \int \frac{dT}{T-T_s}&=\int k\,dt\\
+    \ln{|T-T_s|}&=kt+c_0 \\
+    T-T_s&=ce^{kt} \\
+    T=ce^{kt}+T_s. \\
+\end{align*}
+
+With the given ambient temperature of 70F and an initial temperature for the coffee of 180F, we solve for the constant $c$,
+\begin{align*}
+    T(0)&=180\\
+    &=ce^{k(0)}+70 \\
+    110&=c. \\
+\end{align*}
+
+We also know that, when this coffee is set out for twenty minutes, it cools to a temperature of 110 degrees. So, given $T(20)=110$, we solve for the cooling rate $k$,
+\begin{align*}
+    110&=110e^{20k}+70 \\
+    \frac{40}{110}&=e^{20k} \\
+    \ln{\frac{4}{11}}&=20k \\
+    \frac{\ln{\frac{4}{11}}}{20}&=k. \\
+\end{align*}
+
+So, the equation for the temperature of the plain coffee at time $t$ is then 
+\[T(t)=70+110{\left( \frac{4}{11} \right)}^{\frac{t}{20}}.\]
+
+We then compute the temperature of the plain coffee after it is let to sit for five minutes.
+\begin{align*}
+    T(5)&=70+110{\left( \frac{4}{11} \right)}^{\frac{5}{20}}\\
+    &=70+110\sqrt[4]{\left( \frac{4}{11} \right)}\\
+    &=155.42.
+\end{align*}
+
+We define this value as $T_5=155.42$.
+
+We then compute the temperature of the mixture of 12 ounces of plain coffee at this temperature $T_5$ with 2 ounces of 40F cream, given by the volume weighted average of their temperatures.
+\begin{align*}
+    T_0&=\frac{12\cdot T_5+2\cdot40}{12+2}\\
+    &=\frac{1865.04+80}{14} \\
+    &\approx138.93. \\
+\end{align*}
+
+So, the temperature for coffee that has sat for five minutes and then has had cream added is 138.93F.
+
+We model the temperature from the solution to the differential equation from Newton’s law of cooling using the same cooling rate as before, $k=\frac{\ln{\frac{4}{11}}}{20}$.\footnote{We imagine that this is realistic, and that the surface area of the beverage that is exposed to air remains roughly the same. This would be the case in a cylindrical mug.}
+
+Then, we solve for the new arbitrary constant at $t=0$,
+\begin{align*}
+    138.93&=70+c \\
+    c&=68.93. \\
+\end{align*}
+
+We proceed to determine the time $t$ at which the coffee and cream mixture reaches the 110F drinking temperature.
+\begin{align*}
+    T(t)&=110\\
+    110&=70+68.93{\left( \frac{4}{11} \right)}^{\frac{t}{20}} \\
+    \frac{40}{68.93}&={\left( \frac{4}{11} \right)}^{\frac{t}{20}} \\
+    \ln{\frac{40}{68.93}}&=\frac{t}{20}\ln{\left( \frac{4}{11} \right)} \\
+    20\frac{\ln{\frac{40}{68.93}}}{\ln{\frac{4}{11}}}&=t \\
+    10.76\approx t. \\
+\end{align*}
+
+So, it takes about 10.76 minutes for the mixed beverage to cool to drinking temperature.
+
+Thus, a total of 15.76 minutes elapsed prior to being able to drink the coffee for choice (b).
+
+For choice (a), we consider the initial temperature of the mixture of 12 ounces of coffee with 2 ounces of cream when the coffee is at 180F.
+
+So,
+\begin{align*}
+    T_0&=\frac{12\cdot180+2\cdot40}{12+2} \\
+    &= \frac{2160+80}{14} \\
+    &= \frac{2240}{14} \\
+    &= 160.
+\end{align*}
+
+With $T(0)=160$, we can compute the constant for the general solution $T(t)=70+c{\left( \frac{4}{11} \right)}^{\frac{t}{20}}$,
+\begin{align*}
+    T(0)&=160 \\
+    &=70+c \\
+    90&=c. \\
+\end{align*}
+
+Finally, we find the time $t$ at which the equation for the instantly-mixed coffee and cream comes to drinking temperature.
+\begin{align*}
+    T(t)&=110 \\
+    110&=70+90{\left( \frac{4}{11} \right)}^{\frac{t}{20}}\\
+    \ln{\frac{4}{9}}&=\frac{t}{20}\ln{\frac{4}{11}} \\
+    20\frac{\ln{\frac{4}{9}}}{\ln{\frac{4}{11}}}&=t \\
+    16&\approx t.
+\end{align*}
+
+So, when the cream is added as soon as the coffee is poured, it takes 16 minutes for the beverage to arrive at the drinking temperature.
+
+Thus, choice (b) is the superior choice; Wait some time to add the cream as the coffee will cool quicker.
+
+As it turns out, waiting as long as possible before adding cream will mean the total time to wait before the beverage arrives at the drinking temperature will be reduced.
+
+Also, I don't drink coffee.
+
+
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass[../hw4]{subfiles}
+
+\begin{document}
+
+Prove by induction that \[\frac{1}{{(1-x)}^{k+1}}=\sum_{n=0}^{\infty}\binom{n+k}{k}x^n, \quad \forall|x|<1.\] 
+
+\begin{proof}
+
+First, with given by the identity, \[\binom{n}{k}=\frac{n!}{k!(n-k)!},\]
+we simplify the binomial coefficient to \[\binom{n+k}{k}=\frac{(n+k)!}{k!n!}.\]
+
+We will rewrite the relationship we wish to demonstrate given the above; we will also move the $k!$ term from the denominator of the sum to the left as it does not depend on the summation index $n$ and reindex the sum starting at $n=1$. 
+\[\frac{k!}{{(1-x)}^{k+1}}=1+\sum_{n=1}^{\infty}\frac{(n+k)!}{n!}x^n, \quad \forall|x|<1.\]
+
+We will perform induction on $k\geq0$. We start with the base case $k=0$.
+\begin{align*}
+    \frac{0!}{{(1-x)}^{0+1}}&=1+\sum_{n=1}^{\infty}\frac{(n+0)!}{n!}x^n \\
+    \frac{1}{1-x}&=1+\sum_{n=1}^{\infty}x^n=\sum_{k=0}^{\infty}x^n. \\
+\end{align*}
+
+We recognize this equality to hold as the identity of the geometric series. So, the base case holds as well.
+
+We claim that the $k^{\text{th}}$ case holds by the inductive hypothesis,
+\[\frac{k!}{{(1-x)}^{k+1}}=1+\sum_{n=1}^{\infty}\frac{(n+k)!}{n!}x^n, \quad \forall|x|<1.\]
+
+Then, for the inductive step, we differentiate the relationship given by the inductive hypothesis. 
+\begin{align*}
+    \frac{d}{dx}\left[ \frac{k!}{{(1-x)}^{k+1}} \right] &= \frac{d}{dx}\left[1+\sum_{n=1}^{\infty}\frac{(n+k)!}{n!}x^n\right] \\
+    \frac{(k+1)!}{{(1-x)}^{k+2}}&=\sum_{n=1}^{\infty}\frac{(n+k)!}{n!}nx^{n-1} \\
+    \frac{(k+1)!}{{(1-x)}^{(k+1)+1}}&= \sum_{n=1}^{\infty} \frac{(n-k)!}{(n-1)!}x^{n-1} \\
+    &= \sum_{j=0}^{\infty} \frac{(j+1+k)!}{(j+1-1)!}x^{j+1-1} \\
+    &= \sum_{j=0}^{\infty} \frac{(j+(k+1))!}{j!}x^j \\
+    &= 1 + \sum_{j=1}^{\infty} \frac{(j+(k+1))!}{j!}x^j, \\
+\end{align*}
+
+which is the same as the formula with an index of $k+1$. So, by induction, the statement holds.
+    
+\end{proof}
+
+\end{document}

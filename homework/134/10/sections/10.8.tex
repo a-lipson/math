@@ -1,0 +1,140 @@
+\documentclass[../hw10]{subfiles}
+
+\begin{document}
+
+\subsection*{27}
+Slice a sphere along two parallel planes which are a fixed distance apart. Show that the surface area of the band that is obtained depends only on the distance between the planes, not on their locations.
+
+We will consider a sphere of radius $R$.
+
+We will produce the surface area of this sphere via the shells produced by the rotation of horizontal sections of a circle.
+
+Let this circle be parametrized by the equations 
+\[x(\theta)=R\cos{\theta}, \quad y(\theta)=R\sin{\theta}.\]
+
+We will define the two parallel planes by the lines $x=a$ and $x=b$ which intersect the circle. 
+
+We note that the angle at at which the planes intersect the circle is given by the triangle formed between the radius of the sphere and the $y$-coordinate of the intersecting plane. 
+
+So, we let the parallel planes be defined by the two angles, $\alpha$ and $\beta$, which form the bounds of the inner region of the sphere.
+\begin{align*}
+    \sin{\alpha}&=\frac{a}{R}, \quad \alpha=\sin^{-1}{\frac{a}{R}}; \\
+    \sin{\beta}&=\frac{b}{R}, \quad \beta=\sin^{-1}{\frac{b}{R}}. \\
+\end{align*}
+
+We then consider each shell piece of area to be the circumference of the shell, which $2\pi$ times the radius $x(\theta)=R\cos{\theta}$, times the length of the outside of the shell piece. The length of of the outside $s$ is given by $s(\theta)=R\theta$
+
+So, each piece of area is given by,
+\[\Delta A \approx 2\pi R\cos{\theta} \Delta s.\]
+
+We approximate $\Delta A \approx dA = 2\pi R \cos{\theta} ds$ and integrate between the bounds $\alpha$ and $\beta$.
+\begin{align*}
+    \int_{\alpha}^{\beta} dA &= \int_{\alpha}^{\beta} 2\pi R \cos{\theta} \, ds \\
+    &= 2\pi R \int_{\alpha}^{\beta} \cos{\theta} R \, d\theta \\
+    &= 2\pi R^2 \int_{\alpha}^{\beta} \cos{\theta}\, d\theta \\
+    &= 2\pi R^2 {[\sin{\theta}]}_{\alpha}^{\beta} \\
+    &= 2\pi R^2 (\sin{\beta}-\sin{\alpha}) \\
+    &= 2\pi R^2 \left( \frac{b}{R} - \frac{a}{R} \right) \\
+    &= 2\pi R (b-a). \\
+\end{align*}
+
+So, the surface area of the region in between the planes is given by \[2\pi R(b-a).\]
+
+However, this values depend only on the distance between the two planes $(b-a)$, in addition to the radius of the sphere, but not the absolute position of the planes.
+
+
+\subsection*{Project}
+Take a wheel and mark a point on the rim. Call that point $P$. Now roll the wheel, keeping your eyes on $P$. The jumping path described by $P$ is called a \textit{cycloid}. To obtain a mathematical characterization of the cycloid, let the radius of the wheel be $R$ and set the wheel on the $x$-axis so that the point $P$ starts at the origin.
+
+The cycloid can be parametrized by the functions
+\[x(\theta)=R(\theta-\sin{\theta}), \quad y(\theta)=R(1-\cos{\theta}).\]
+
+\subsubsection*{2}
+\begin{enumerate}[label=\alph*.]
+    \item At the end of each arch, the cycloid comes to a cusp. Show that $x'$ and $y'$ are both 0 at the end of each arch.
+    \item Show that the area under an arch of the cycloid is three times the area of the rolling circle.
+    \item Find the length of an arch of the cycloid.
+\end{enumerate}
+
+For (a) we will demonstrate that $x'$ and $y'$ are zero at the each cusp. Each cusp occurs at the end of an arch, where $\theta=2\pi k, k\in\mathbb{Z}$ which satisfies the sine term in $y$ such that $y(\theta)=0$.
+
+We compute the first derivative of the parametrization, 
+\[x'=R(1-\cos{\theta}), \quad y'=R\sin{\theta}.\]
+
+We note that at integer multiples of $2\pi$, $1-\cos{\theta}=0$ and $\sin{\theta}=0$. So, it becomes clear that $x'$ and $y'$ are both zero at integer multiples of $2\pi$.
+
+For (b), we know that the area of a circle of radius $R$ is $\pi R^2$. 
+
+We will show that the area under each arch of a cycloid is then $3\pi R^2$.
+
+We will integrate under the first arch, where $\theta\in[0,2\pi]$, recalling that $\cos^2{\theta}=\frac{\cos{2\theta}+1}{2}$.
+\begin{align*}
+    \int_{0}^{2\pi} y(\theta)x'(\theta)\, d\theta &= \int_{0}^{2\pi} {(R(1-\cos{\theta}))}^2\, d\theta \\
+    &= R^2 \int_{0}^{2\pi} 1-2\cos{\theta}+\cos^2{\theta} \, d\theta \\
+    &= R^2{\left[ \theta-2\sin{\theta}+\int\cos^2{\theta}\, d\theta \right]}_{0}^{2\pi} \\
+    &= R^2{\left[ \theta-2\sin{\theta}+\int\frac{\cos{2\theta}+1}{2}\, d\theta \right]}_{0}^{2\pi} \\
+    &= R^2{\left[ \theta-2\sin{\theta}+\frac{1}{2}\left( \frac{\sin{2\theta}}{2} + \theta \right) \right]}_{0}^{2\pi} \\
+    &= R^2{\left[ \theta-2\sin{\theta}+\frac{\sin{2\theta}}{4}+\frac{\theta}{2}\right]}_{0}^{2\pi} \\
+    &= R^2{\left[ \frac{3\theta}{2}-2\sin{\theta}+\frac{\sin{2\theta}}{4}\right]}_{0}^{2\pi} \\
+    &= R^2\left( \frac{3(2\pi)}{2} \right) \\
+    &= 3\pi R^2. \\
+\end{align*}
+
+So, the area under the cycloid is three times the area of the circle which traces it.
+
+For (c) we determine the arclength directly, employing the half angle identity $\sin{\frac{x}{2}}=\sqrt{\frac{1-\cos{\theta}}{2}}$ for $x\in[0,2\pi]$.
+\begin{align*}
+    \int_{0}^{2\pi} \sqrt{{[x'(\theta)]}^2+{[y'(\theta)]}^2} \, d\theta &= \int_{0}^{2\pi} \sqrt{{(R(1-\cos{\theta}))}^2+{R\sin{\theta}}^2} \, d\theta\\
+    &= R \int_{0}^{2\pi} \sqrt{1-2\cos{\theta}+\cos^2{\theta}+\sin^2{\theta}} \, d\theta \\
+    &= R \int_{0}^{2\pi} \sqrt{2-2\cos{\theta}} \, d\theta \\
+    &= 2R \int_{0}^{2\pi} \sqrt{\frac{1-\cos{\theta}}{2}} \, d\theta \\
+    &= 2R \int_{0}^{2\pi} \sin{\frac{\theta}{2}} \, d\theta \\
+    &= -4R {[\cos{\frac{\theta}{2}}]}_{0}^{2\pi} \\
+    &= -4R (\cos{\pi}-\cos{0}) \\
+    &= -4R(-2) \\
+    &= 8R. \\
+\end{align*}
+
+So, the arclength of one arch of the cycloid is eight times the radius of the circle that describes it.
+
+\subsubsection*{3}
+\begin{enumerate}[label=\alph*.]
+    \item Locate the centroid of the region under the first arch of the cycloid.
+    \item Find the volume of the solid generate by revolving the region under an arch of the cycloid about the $x$-axis.
+    \item Find the volume of the solid generate by revolving the region under an arch of the cycloid about the $y$-axis.
+\end{enumerate}
+
+For (a), by symmetry of each arch region, we expect that the $x$-coordinate of the centroid to lie in the middle of that region. This occurs at half of the width of each region, or $\pi R$.
+
+Then, we compute the $y$-coordinate, $\overline{y}$, using the first region between $\theta=0$ and $\theta=2\pi$. We have already reduced the integrand of the arclength integral, noting that for the length $s$, the sum of the pieces, $\int ds = \int 2R\sin{\theta/2}$ for $\theta\in[0,2\pi]$.
+
+So, with the fact that $\cos{2x}=2\cos^2{x}-1$,\footnote{This fact is clearly demonstrated once we take the identity $\cos{2x}=\cos^2{x}-\sin^2{x}$ along with $\sin^2{x}=1-\cos^2{x}$.}
+\begin{align*}
+    \overline{y}L &= \int_{0}^{2\pi} y(\theta) \sqrt{{[x'(\theta)]}^2+{[y'(\theta)]}^2}\, d\theta \\
+    &= \int_{0}^{2\pi} R(1-\cos{\theta})\left( 2R\sin{\frac{\theta}{2}} \right)\, d\theta \\
+    &= 2R^2 \left[ \int_{0}^{2\pi} \sin{\frac{\theta}{2}} \, d\theta - \int_{0}^{2\pi} \cos{\theta}\sin{\frac{\theta}{2}} \, d\theta \right] \\
+    &= 2R^2 \left[ 2 {\left[ -\cos{u} \right]}_{0}^{\pi} - \int_{0}^{\pi} \cos{2u}\sin{u} \, du \right] \\
+    &= 2R^2 \left[ 2(-\cos{\pi}+\cos{0}) - \int_{0}^{\pi} \left( 2\cos^2{u}-1 \right)\sin{u} \, du \right] \\
+    &= 2R^2 \left[ 4 + \int_{\cos{0}}^{\cos{\pi}} \left( 2v^2-1 \right)\, dv \right] \\
+    &= 2R^2 \left[ 4 + {\left[ \frac{2v^3}{3}-v \right]}_{1}^{-1} \right] \\
+    &= 2R^2 \left( 4 + \left( \left( -\frac{2}{3}+1 \right) - \left( \frac{2}{3}-1 \right)\right) \right) \\
+    &= 2R^2 \left( 4 + \left( 2 - \frac{4}{3} \right) \right) \\
+    &= 2R^2 \left( \frac{16}{3} \right)\\
+    &= \frac{32}{3} R^2. \\
+\end{align*}
+
+Since $L=8R$, then $\overline{y}=\frac{\frac{32}{3}R^2}{8R}=\frac{4}{3}R$.
+
+For (b) and (c), we will use Pappus theorem of a planar region rotated about an axis. 
+\[V=2\pi\overline{R}A,\]
+where $\overline{R}$ is the centroid coordinate against the axis of rotation, and $A$ is the area of the region, $3\pi R^3$.
+
+
+
+For (b), the rotation about the $x$-axis we use the $\overline{y}$, so $V=2\pi\left( \frac{4}{3}R \right)(3\pi R^2) = \frac{8\pi^2}{3}R^2$
+
+For (c), we use $\overline{x}$ to rotate about the $y$-axis.
+So, $V=2\pi(\pi R)(3 \pi R^2)=6\pi^3 R^3$.
+
+
+\end{document}

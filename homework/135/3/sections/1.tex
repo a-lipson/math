@@ -1,0 +1,138 @@
+\documentclass[../hw3]{subfiles}
+
+\begin{document}
+
+Let the $n^{\text{th}}$ Taylor Polynomial for $f(x)$ at $x=a$ be given by,
+\[T_{n,a}(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}{(x-a)}^k.\]
+
+(a) Show that \[f^{(i)}(a)=T^{(i)}_{n,a}(a), \qquad i\in[0,n].\]
+
+% Note that the $n^{\text{th}}$ derivative of $x^k$ is, \[\frac{d^n}{dx^n}x^k=\]
+
+We begin by pulling out the first term of $T_{n,a}(x)$ and taking the $i^{\text{th}}$ derivative of $T_{n,a}(x)$. We can differentiate a sum because of the linearity of the derivative.
+\begin{align*}
+    \frac{d^i}{dx^i}[T_{n,a}(x)]&=\frac{d^i}{dx^i}\left[ f(a) + \sum_{k=1}^{n}\frac{f^{(k)}(a)}{k^!}{(x-a)}^k \right] \\
+    &= \frac{d^i}{dx^i}[f(a)] +\sum_{k=1}^{n} \frac{f^{(k)}(a)}{k!}\left( \frac{d^i}{dx^i}{(x-a)}^k \right)
+\end{align*}
+
+We notice that at $x=a$, the sum will reduce to zero given that $x-a=0$. 
+So, we are left with the $i^{\text{th}}$ derivative of the series $T$, \[T^{(i)}_{n,a}(a)=f^{(i)}(a),\] which is what we wished to show.
+
+% Notice that all but the first term cancel in $T_{n,a}(x)$ at $x=a$,
+% \begin{align*}
+%     T_{n,a}(x)&=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}{(x-a)}^k
+%     &=f(a)+\sum_{k=1}^{n}\frac{f^{(k)}(a)}{k!}{(x-a)}^k
+%     T_{n,a}(a)&=f(a)+\sum_{k=1}^{n}\frac{f^{(k)}(a)}{k!}{(a-a)}^k
+%     &=f(a).
+% \end{align*}
+
+(b) Show that \[\lim\limits_{x\to a}\frac{f(x)-T_{n,a}(x)}{{(x-a)}^n}=0\] using L'Hôpital's Rule.
+
+First, we note that the $n^{\text{th}}$ derivative of the function ${(x-a)}^n$ is $n!$,
+\[\frac{d^n}{dx^n}\left[ {(x-a)}^n \right] = n(n-1)(n-2)\cdots(n-n+1){(x-a)}^{n-n}=n!.\]
+
+We have shown in (a) that the following relationship holds for the $i^{\text{th}}$ derivative up to $i=n$,
+\[f^{(i)}(a)=T^{(i)}_{n,a}(a).\]
+
+In order to construct the $n^{\text{th}}$ term of the series $T$, we need $f(x)$ to be at least $n$ times differentiate. So, the $n^{\text{th}}$ derivative of $f$, being differentiable itself, is also continuous. Then, since $T^{(i)}_{n,a}(x)$ is polynomial, it is continuous.
+
+So, we can rewrite the above identity as a limit expression,
+\[\lim\limits_{x\to a} f^{(i)}(x)=\lim\limits_{x\to a}T^{(i)}_{n,a}(x),\] for all $i\in[0,n]$.
+
+Next, we notice that the original limit is of indeterminate form. We have already seen that the numberator will equate to zero; the denominator ${(x-a)}^n$ will tend toward zero as $x\to a$.
+
+We then proceed with L'Hôpital's Rule, and differentiate $n$ times, such that the denominator becomes non-zero and the limit expression becomes of determine form.
+
+Thus, \[\lim\limits_{x\to a} \frac{f(x)-T_{n,a}(x)}{{(x-a)}^n} \stackrel{\text{LH}}{=} \lim\limits_{x\to a} \frac{f^{(n)}(x)-T^{(n)}_{n,a}(x)}{n!} = 0\]
+
+(c) \textit{Second Derivative Test Generalized}
+Assume that \[f'(a)=f''(a)=\cdots=f^{(n-1)}(a)=0\] but $f^{(n)}(a)\neq0$.
+\begin{enumerate}[label= (\roman*)]
+    \item If $n$ is even and $f^{(n)}(a)$ is positive, then $f$ has a local minimum at $x=a$.
+    \item If $n$ is even and $f^{(n)}(a)$ is negative, then $f$ has a local maximum at $x=a$.
+    \item If $n$ is odd, then $f$ has neither a minimum or a maximum at $x=a$.
+\end{enumerate}
+
+Assume that $f(a)=0$. 
+
+Notice that $f(x)=f(x)-f(a)$. This equation does not alter $f$ or its derivatives.
+
+From the definition, \[T_{n,a}(x)=\sum_{k=0}^{n} \frac{f^{(k)}(a){(x-a)}^k}{k!}.\]
+
+So,
+\begin{align*}
+    \frac{T_{n,a}(x)}{{(x-a)}^n}&=\frac{1}{{(x-a)}^n} \sum_{k=0}^{n} \frac{f^{(k)}(a){(x-a)}^k}{k!}\\
+    &=\sum_{k=0}^{n} \frac{f^{(k)}(a){(x-a)}^{k-n}}{k!}.
+\end{align*}
+
+Recall that $f^{(k)}(a)=0$ for all $k<n$. So, our series reduces to,
+\[\frac{f^{(n)}(a)}{n!}{(x-a)}^{n-n} = \frac{f^{(n)}(a)}{n!} = \frac{T_{n,a}(x)}{{(x-a)}^n}.\]
+
+Then, we see that,
+\[\frac{f(x)-T_{n,a}(x)}{{(x-a)}^n}=\frac{f(x)}{{(x-a)}^n}-\frac{f^{(n)}(a)}{n!}.\]
+
+But, we have already seen that the left term goes to zero as $x$ approaches $a$. This informs us that the difference between the right terms must also go to zero. In other words, the term must be very close together.
+
+We showed earier that \[\lim\limits_{x\to a} \frac{f(x)-T_{n,a}(x)}{{(x-a)}^n}=0\]
+
+So, for all $\epsilon>0$, there is a $\delta$ such that for all $|x-a|<\delta$, then $\Big|\frac{f(x)-T_{n,a}(x)}{{(x-a)}^n}\Big|<\epsilon$.
+
+Then, we also know that \[\Bigg|\frac{f(x)}{{(x-a)}^n}-\frac{f^{(n)}(a)}{n!}\Bigg|<\epsilon,\]
+for all $|x-a|<\delta$.
+
+Since $\frac{f(x)}{{(x-a)}^n}$ is $\epsilon$ close to the $n^{\text{th}}$ derivative of $f$ at $a$ when $x$ is $\delta$ close to $a$, we can conclude that this value shares the same sign as the $n^{\text{th}}$ derivative of $f$ at $a$.
+
+We then proceed with (i) and (ii), where $n$ is even. 
+
+For even $n$, ${(x-a)}^n$ will be positive for all $x\neq a$.
+ 
+Also, for all positive $n$, $n!$ will be positive.
+
+So, the ratio of these two terms, $\frac{{(x-a)}^n}{n!}$, will also be positive when $x \neq a$.
+
+We will choose an $\epsilon$ such that $\epsilon<\Big|f^{(n)}\frac{{(x-a)}^n}{n!}\Big|$. For convenience, we will write $\epsilon_0 = \epsilon {(x-a)}^n$.
+
+We see that,
+\begin{align*}
+    \frac{f^{(n)}(a)}{n!} - \epsilon < &\frac{f(x)}{{(x-a)}^n} < \frac{f^{(n)}(a)}{n!} + \epsilon \\
+    f^{(n)}(a)\frac{{(x-a)}^n}{n!} - \epsilon_0 < &f(x) < f^{(n)}(a)\frac{{(x-a)}^n}{n!} + \epsilon_0,
+\end{align*}
+for all $|x-a|<\delta$
+
+By our definition of epsilon, we see that in case (i), when $f^{(n)}(a)>0$ and $x \neq a$,
+\[0<f^{(n)}(a)\frac{{(x-a)}^n}{n!} - \epsilon_0 < f(x),\]
+so, \[f(x)>0.\]
+
+Since $f(a)=0$ by our assumption, then with $f(x)>0$ for all $x\neq a$, we see that $f$ attains a local minimum at $x=a$.
+
+In case (ii), with $f^{(n)}(a)<0$ and $x \neq a$, 
+\[f(x)<f^{(n)}(a)\frac{{(x-a)}^n}{n!} + \epsilon_0 < 0,\] 
+so \[f(x)<0.\]
+
+Since $f(x)<0$ for all $x \neq a$, and $f(a)=0$, we see that $x=a$ is a local maximum for $f$.
+
+For case (iii), when $n$ is odd, the sign of the ${(x-a)}^n$ term depends on $x$. For $x<a$, the term is negative; for $x>a$, the term is positive.
+
+We return to our description of the proximity of $\frac{f(x)}{{(x-a)}^n}$ and $\frac{f^{(n)}(a)}{n!}$. We will first consider $x>a$ such that ${(x-a)}^n$ is positive. The steps follow from above, 
+\begin{align*}
+    \frac{f^{(n)}(a)}{n!} - \epsilon < &\frac{f(x)}{{(x-a)}^n} < \frac{f^{(n)}(a)}{n!} + \epsilon \\
+    f^{(n)}(a)\frac{{(x-a)}^n}{n!} - \epsilon_0 < &f(x) < f^{(n)}(a)\frac{{(x-a)}^n}{n!} + \epsilon_0,
+\end{align*} 
+and we again see that the sign of values of $f(x)$ follows the sign of the $n^{\text{th}}$ derivative of $f$ at $a$. 
+
+However, when $x<a$ and ${(x-a)}^n$ is negative, the identity flips,
+\begin{align*}
+    \frac{f^{(n)}(a)}{n!} - \epsilon < &\frac{f(x)}{{(x-a)}^n} < \frac{f^{(n)}(a)}{n!} + \epsilon \\
+    f^{(n)}(a)\frac{{(x-a)}^n}{n!} - \epsilon_0 > &f(x) > f^{(n)}(a)\frac{{(x-a)}^n}{n!} + \epsilon_0.
+\end{align*}
+Similarly, we see that the sign of $f$ depends on $f^{(n)}(a)$, but now it does so inversely.
+
+For $f^{(n)}(a)>0$ and $x \neq a$, again recalling that ${(x-a)}^n<0$,
+\[0>f^{(n)}(a)\frac{{(x-a)}^n}{n!}>f(x)\]
+implies that $f(x)<0$.
+
+The same can be repeated for $f^{(n)}(a)$ negative.
+
+Since the sign of $f^{(n)}(a)$ is fixed, and the sign of $f$ depends inversely on this term when $x<a$, but then directly on this term after $x>a$, we see that the sign of $f$ changes about $x=a$, which makes it neither a maximum nor a minimum.
+
+\end{document}

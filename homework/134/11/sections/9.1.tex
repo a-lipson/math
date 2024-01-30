@@ -1,0 +1,193 @@
+\documentclass[../hw11]{subfiles}
+
+\begin{document}
+
+\subsection*{30}
+Find the general solution of $y'+ry=0$, $r$ constant. 
+
+\begin{enumerate}[label= (\alph*)]
+    \item Show that if $y$ is a solution and $y(a)=0$ at some number $a\geq0$, then $y(x)=0$ for all $x$. (Thus a solution y is either identically zero or never zero.)
+    \item Show that if $r<0$, then all nonzero solutions are unbounded.
+    \item Show that if $r>0$, then all solutions tend to $0$ as $x\to\infty$.
+    \item What are the solutions if $r=0$?
+\end{enumerate}
+
+First, we compute the general solution to the first order linear homogeneous differential equation by separation of variables.
+\begin{align*}
+    \frac{dy}{dx}+ry&=0\\
+    \int \frac{dy}{y} &= \int -r\,dx \\
+    \ln{|y|}&=c_0-rx\\
+    |y|&=e^{c_0-rx} \\
+    |y|&=e^{c_0}e^{-rx} \\
+    y&=\pm e^{c_0}e^{-rx} \\
+    y&=c_1 e^{-rx}.
+\end{align*}
+
+The general solution is \[y=ce^{-rx}.\]
+
+For (a), we will show that $y$ is either the trivial solution $y(x)=0$, or $y$ is never zero.
+
+If, for some $a\geq0$, $y(a)=0$, then, $0=ce^{-rx}$.
+
+But, $e^b>0$ for all $-rx = b \in \mathbb{R}$.
+
+Then $ce^{-rx}=0$ implies that $c=0$.
+
+So $y(x)=0\cdot e^{-rx}=0$ for all $x$.
+
+If $c\neq 0$ and $e^{-rx}\neq0$ for all $x$, then their product $f(x)\neq0$ either.
+
+For (b), if $r<0$, then $-r>0$.
+
+If $c=0$, then, by (a), the solution is identically zero, so it does grow without bound. So, we continue with $c\neq0$.
+
+So, when $x$ exceeds any number, with $0<b=-r$ $\lim\limits_{x\to\infty} ce^{bx}$ grows without bound.
+
+Thus, when $r<0$, the nontrivial solutions $y$ are unbounded.
+
+For (c), we note that the trivial solution is zero everywhere, so it tends toward zero as $x$ exceeds any number.
+
+As $x$ exceeds any number, with $r>0$, $\lim\limits_{x\to\infty} ce^{rx}$ will become unbounded by (b).
+
+We note that $y=ce^{-rx}=\frac{1}{ce^{rx}}$.
+
+So, $\lim\limits_{x\to\infty} \frac{1}{ce^{rx}}$ will have is denominator grow without bound and thus will tend toward zero as $x$ exceeds any number.
+
+Therefore for all solutions with $r>0$, $y$ tends toward zero.
+
+For (d), when $r=0$, we see that $y=ce^{-rx}=c$.
+
+So, the solution is uniquely $y=c$ when $r=0$.
+
+
+\subsection*{31}
+Consider the differential equation \[y'+p(x)y=0\] with $p$ continuous on an interval $I$.
+\begin{enumerate}[label= (\alph*)]
+    \item Show that if $y_1$ and $y_2$ are solutions, then $u=y_1+y_2$ is also a solution.
+    \item Show that if $y$ is a solution and $C$ is a constant, then $u=Cy$ is also a solution.
+\end{enumerate}
+
+For (a), since $y_1$ and $y_2$ are both solutions, we are given that
+\begin{align*}
+    {y_1}'+p(x)y_1&=0,\\
+    {y_2}'+p(x)y_2&=0.\\
+\end{align*}
+
+We take their sum,
+\[({y_1}'+{y_2}')+p(x)(y_1+y_2)=0.\]
+
+Given that the sum of a derivative is the same is the derivative of a sum, we get
+\[{(y_1+y_2)}'+p(x)(y_1+y_2)=0.\]
+
+When we let $u=y_1+y_2$, we see that $u$ is also a solution to the differential equation,
+\[u'+p(x)u=0.\]
+
+For (b), we begin with the solution $y$ where
+\[y'+p(x)y=0.\]
+
+We multiply by the arbitrary constant $C$, 
+\begin{align*}
+    C(y'+p(x)y)&=C\cdot0\\
+    Cy'+p(x)Cy&=0.\\
+\end{align*}
+
+We note that the derivative of a constant times a function is the constant times the derivative of the function. So, we get
+\[(Cy)'+p(x)Cy=0.\]
+
+We define the function $u=Cy$ where $y$ is the given solution and see that,
+\[u'+p(x)u=0.\]
+
+So, $u$ is also a solution to the differential equation.
+
+% First, we find the general solution to the differential equation by separation of variables. We will define $P(x)$ as the antiderivative of $p(x)$.
+% \begin{align*}
+%     \frac{dy}{dx}+p(x)y&=0\\
+%     \int \frac{dy}{y}&=\int -p(x)\,dx\\
+%     \ln{|y|}&=c_0-P(x)\\
+%     |y|&=e^{c_0} e^{-P(x)}\\
+%     y&=\pm e^{c_0} e^{-P(x)}\\
+%     y&=ce^{-P(x)}.\\
+% \end{align*}
+
+% For (a), we will demonstrate the superposition principle by considering the two unique solutions
+% \begin{align*}
+%     y_1 &= c_1 e^{-P(x)},\\
+%     y_2 &= c_2 e^{-P(x)}.\\
+% \end{align*}
+
+% Then, their sum $u=y_1+y_2$ is
+% \begin{align*}
+%     y_1+y_2&=c_1 e^{-P(x)}+c_2 e^{-P(x)} \\
+%     &= (c_1+c_2)e^{-P(x)} \\
+%     &= c_3 e^{-P(x)}, \\
+% \end{align*}
+% which is another unique solution to the differential equation.
+
+% For (b), we will demonstrate that multiplication by a constant does not impair the validity of a solution.
+
+% Let $u=Cy$ where $y=c_1 e^{-P(x)}$ is a solution to the differential equation.
+
+% So,
+% \begin{align*}
+%     u&=Cy \\
+%     &= C\cdot c_1 e^{-P(x)} \\
+%     &= c_4 e^{-P(x)}, \\
+% \end{align*}
+% which is another unique solution to the differential equation. 
+
+
+\subsection*{34}
+
+Show that if $y_1$ and $y_2$ are solutions to \[y'+p(x)y=q(x),\] then $y=y_1-y_2$ is a solution to $y'+p(x)y=0$.
+
+Since $y_1$ and $y_2$ are both solutions, we see that
+\begin{align*}
+    {y_1}'+p(x)y_1&=q(x),\\
+    {y_2}'+p(x)y_2&=q(x).\\
+\end{align*}
+
+We take their difference,
+\[{y_1}'-{y_2}'+p(x)(y_1-y_2)=0.\]
+
+We note, by linearity of the derivative, the above becomes
+\[{(y_1-y_2)}'+p(x)(y_1-y_2)=0.\]
+
+We define $y=y_1-y_2$ and see that,
+\[y'+p(x)y=0.\]
+
+So, $y$ is a solution to the equation $y'+p(x)y=0$.
+
+% First, by the previous problem, we note that $y=ce^{-P(x)}$ where $P(x)$ is the antiderivative of $p(x)$ is a solution to the latter differential equation $y'+p(x)y=0$.
+
+% We solve the given first order linear nonhomogeneous differential equation by using the integrating factor $e^{\int p(x)\,dx}=e^{P(x)}$.
+
+% So,
+% \begin{align*}
+%     e^{P(x)}y'+e^{P(x)}p(x)y &= e^{P(x)}q(x) \\
+%     \frac{d}{dx}\left[ e^{P(x)}y \right]&=e^{P(x)}q(x) \\
+%     e^{P(x)}y&=\int e^{P(x)}q(x)\,dx \\
+%     y&=e^{-P(x)}\int e^{P(x)}q(x)\,dx. \\
+% \end{align*}
+
+% We verify this by comparing to the given solution from 9.1.2,
+% \[y(x)=e^{-P(x)}\left[ \int e^{P(x)}q(x)\,dx + C \right].\]
+
+% We note that the extra constant is a result of evaluating the integral.
+
+% We define two unique solutions
+% \begin{align*}
+%     y_1&=e^{-P(x)}\left[ \int e^{P(x)}q(x)\,dx+C_1 \right], \\
+%     y_2&=e^{-P(x)}\left[ \int e^{P(x)}q(x)\,dx+C_2 \right]. \\
+% \end{align*}
+
+% We compute their difference,
+% \begin{align*}
+%     y_1-y_2&=e^{-P(x)}\left[ \left[ \int e^{P(x)}q(x)\,dx+C_1 \right] - \left[ \int e^{P(x)}q(x)\,dx+C_2 \right] \right] \\
+%     &=e^{-P(x)}(C_1-C_2) \\
+%     &=C_3 e^{-P(x)}, \\
+% \end{align*}
+
+% Which is also a valid solution to the homogeneous differential equation $y'+p(x)y=0$.
+
+
+\end{document}

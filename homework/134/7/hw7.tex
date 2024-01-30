@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{ifthen,ifthenx}
+\usepackage[skip=15pt, indent=0pt]{parskip}
+\usepackage{pgfplots}
+\usepackage{tikz}
+    \usetikzlibrary{calc, intersections, pgfplots.fillbetween}
+\usepackage{subfiles}
+
+\pgfplotsset{compat=1.18}
+\pgfdeclarelayer{ft} 
+\pgfdeclarelayer{bg} 
+\pgfsetlayers{bg,main,ft}
+
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+
+
+\title{Math 134 Homework 7}
+\author{Alexandre Lipson}
+
+\begin{document}
+\maketitle
+
+\section*{5.9}
+\subfile{sections/5.9}
+
+\section*{6.4}
+\subfile{sections/6.4}
+
+\section*{6.5}
+\subfile{sections/6.5}
+
+\section*{Worksheet}
+\subfile{sections/worksheet}
+
+\section*{7.1}
+\subfile{sections/7.1}
+
+\end{document}

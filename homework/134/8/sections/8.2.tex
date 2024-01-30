@@ -1,0 +1,54 @@
+\documentclass[../hw8]{subfiles}
+
+\begin{document}
+
+\subsection*{78}
+We are familiar with the identity
+\[f(b)-f(a)=\int_{a}^{b}f'(x)\,dx.\]
+
+(a) Assume that $f$ has a continuous second derivative. 
+Use integration by parts to derive the identity
+\[f(b)-f(a)=f'(a)(b-a)-\int_{a}^{b}f''(x)(x-b)\,dx.\]
+
+We rearrange the terms so that we wish to show
+\[\int_{a}^{b}f''(x)(x-b)\,dx = f'(a)(b-a)-\left( f(b)-f(a) \right).\]
+
+Then, we evaluate the integral with integration by parts, using $u(x)=(x-b)$ and $dv=f''(x)dx$,
+\begin{align*}
+    &\int_{a}^{b}f''(x)(x-b)\,dx \\
+    =& {\left[ f'(x)(x-b) - \int f'(x)\,dx \right]}_{a}^{b} \\
+    =& {\left[ f(x)(x-b) - f(x) \right]}_{a}^{b} \\
+    =& \left( f'(b)(b-b)-f(b) \right)-\left( f'(a)(a-b)-f(a) \right) \\
+    =& f'(a)(b-a)-\left( f(b)-f(a) \right), \\
+\end{align*}
+which matches the identity above.
+
+So, the assumption (a) holds.
+
+
+(b) Assume that $f$ has a continuous third derivative. 
+Use the result in part (a) and integration by parts to derive the identity
+\[f(b)-f(a)=f'(a)(b-a)+\frac{f''(a)}{2}{(b-a)}^2+\int_{a}^{b}\frac{f'''(x)}{2}{(x-b)}^2\,dx.\]
+
+Again, we rearrange the terms such that,
+\[\int_{a}^{b}\frac{f'''(x)}{2}{(x-b)}^2\,dx=\left(f(b)-f(a)\right)-f'(a)(b-a)-\frac{f''(a)}{2}{(b-a)}^2.\]
+
+Then, we compute with integration by parts, using $u={(x-b)}^2$ and $dv=f'''(x)dx$.
+\begin{align*}
+    &\frac{1}{2}\int_{a}^{b}f'''(x){(x-b)}^2\,dx \\
+    =& {\left[ f''(x){(x-b)}^2 - \int f''(x)(2(x-b))\,dx \right]}_{a}^{b} \\
+    =& {\left[ \frac{f''(x)}{2}{(x-b)}^2 -\int_{a}^{b}f''(x)(x-b)\,dx \right]}_{a}^{b}. \\
+\end{align*}
+We notice that the second term was already evaluated in part (a); so we continue,
+\begin{align*}
+    =& {\left[ \frac{f''(x)}{2}{(x-b)}^2 - (f'(x)(x-b)-f(x)) \right]}_{a}^{b} \\
+    =& {\left[ f(x) + \frac{f''(x)}{2}{(x-b)}^2 - f'(x)(x-b)\right]}_{a}^{b} \\
+    =& f(b)-f(a)-\frac{f''(x)}{2}{(a-b)}^2-f'(a)(b-a). \\
+\end{align*}
+
+So, we have achieved the desired identity.
+ 
+%Note that continuing on in this manner, we arrive at the Taylor series.
+
+
+\end{document}

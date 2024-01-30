@@ -1,0 +1,31 @@
+\documentclass[../hw2]{subfiles}
+
+\begin{document}
+
+
+Let $\sum a_k$ converge.
+
+Define the remainder as $R_n=\sum_{k=n+1}^{\infty}a_k$.
+
+Let $S_n$ be the $n^{\text{th}}$ partial sum of $\sum a_k$.
+
+\begin{proof}
+We will prove that, as $n\to\infty$, $R_n\to0$.
+
+We begin by splitting the series into the two parts of the partial sum and the remainder at the index $n$, \[\sum_{k=0}^{\infty}a_k=\sum_{k=0}^{n}a_k+\sum_{k=n+1}^{\infty}a_k=S_n+R_n.\]
+
+\[R_n=\sum_{k=0}^{\infty} a_k - \sum_{k=0}^{n} a_k.\]
+
+We then consider the behavior of $R_n$ as $n$ tends toward infinity.
+
+\begin{align*}
+    \lim\limits_{n\to\infty}R_n&=\lim\limits_{n\to\infty}\left[\sum_{k=0}^{\infty} a_k - \sum_{k=0}^{n} a_k\right] \\
+    &= \sum_{k=0}^{\infty} a_k -\lim\limits_{n\to\infty}\sum_{k=0}^{n} a_k \\
+    &= \sum_{k=0}^{\infty} a_k - \sum_{k=0}^{\infty} a_k \\
+    &= 0.
+\end{align*}
+
+So, the remainder of a convergent series tends toward zero.
+\end{proof}
+
+\end{document}

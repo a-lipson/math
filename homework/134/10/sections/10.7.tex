@@ -1,0 +1,129 @@
+\documentclass[../hw10]{subfiles}
+
+\begin{document}
+
+\subsection*{27}
+\begin{enumerate}[label= (\alph*)]
+    \item Let $a>0$. Find the length of the path traced out by
+    \begin{align*}
+        x(\theta) &= 3a\cos{\theta}+a\cos{3\theta}, \\
+        y(\theta) &= 3a\sin{\theta}-a\sin{3\theta}, \quad \text{as $\theta \in [0,2\pi]$}. \\
+    \end{align*}
+    
+    \item Show that this path can also be parametrized by
+    \[x(\theta)=4a\cos^3{\theta}, \quad y(\theta)=4a\sin^3{\theta} \quad \theta\in[0,2\pi].\]
+\end{enumerate}
+
+We will start with (b). We will use the triple angle identities,
+\begin{align*}
+    \sin{3\theta} &= 3\sin{\theta}-4\sin^3{\theta} \\
+    \cos{3\theta} &= 4\cos^3{\theta}-3\cos{\theta}. \\
+\end{align*}
+
+We will start with finding an alternate parametrization for $x(\theta)$,
+\begin{align*}
+    a\cos{3\theta} &= a4\cos^3{\theta}-a3\cos{\theta} \\
+    4a\cos^3{\theta} &= a\cos{3\theta}+3a\cos{\theta} \\
+    4a\cos^3{\theta} &= x(\theta). \\
+\end{align*}
+
+Then, similarly, for $y(\theta)$,
+\begin{align*}
+    a\sin{3\theta} &= a3\sin{\theta}-a4\sin^3{\theta} \\
+    4a\sin^3{\theta} &= 3a\sin{\theta}-a\sin{3\theta}. \\
+    4a\sin^3{\theta} &= y(\theta). \\
+\end{align*}
+
+So, we have shown that the alternate parametrizations hold, 
+\begin{align*}
+    x(\theta) &= 4a\cos^3(\theta), \\
+    y(\theta) &= 4a\sin^3{\theta}. \\
+\end{align*}
+
+For (a), we use these parametric equations from (b), to find the length of the curve from $\theta=0$ to $\theta=2\pi$, noting that $a>0$.
+
+We note that the arclength is given by,
+\[\int_{0}^{2\pi} \sqrt{{[x'(\theta)]}^2+{[y'(\theta)]}^2}.\]
+
+We first find $x'(\theta)$ and $y'(\theta)$.
+\begin{align*}
+    \frac{d}{d\theta}x(\theta)&=\frac{d}{d\theta}4a\cos^3{\theta}\\
+    x'(\theta)&=4a\left[ 3\cos^2{\theta}(-\sin{\theta}) \right] \\
+    &= -12a\cos^2{\theta}\sin{\theta}.
+\end{align*}
+
+Additionally,
+\begin{align*}
+    \frac{d}{d\theta}y(\theta)&=\frac{d}{d\theta}4a\sin^3{\theta} \\
+    y'(\theta)&= 4a\left[ 3\sin^2{\theta}(\cos{\theta}) \right] \\
+    &= 12a\sin^2{\theta}\cos{\theta}. \\
+\end{align*}
+
+We then construct the integrand,
+\begin{align*}
+    \sqrt{{[x'(\theta)]}^+{[y'(\theta)]}^2}&= \sqrt{{\left( -12a\cos^2{\theta}\sin{\theta} \right)}^2+{\left( 12a\sin^2{\theta}\cos{\theta} \right)}^2}\\
+    &= \sqrt{144a^2\cos^4{\theta}\sin^2{\theta}+144a^2\sin^4{\theta}\cos^2{\theta}} \\
+    &= 12a\sqrt{\cos^2{\theta}\sin^2{\theta}}\sqrt{\cos^2{\theta}+\sin^2{\theta}} \\
+    &= 12a|\cos{\theta}\sin{\theta}|. \\
+\end{align*}
+
+Finally, we evaluate the integral,
+\begin{align*}
+    \int_{0}^{2\pi} 12a|\cos{\theta}\sin{\theta}|\, d\theta \\
+    12a \int_{0}^{2\pi} |\cos{\theta}\sin{\theta}|\, d\theta \\
+\end{align*}
+
+We note that that the magnitude of the area under each period of the function $\cos{\theta}\sin{\theta}$ is the same.
+\[\int_{0}^{\pi/2} \cos{\theta}\sin{\theta}\, d\theta = -\int_{\pi/2}^{\pi} \cos{\theta}\sin{\theta} \, d\theta.\]
+
+The same holds for the third and fourth periods.
+
+So, \[\int_{0}^{2\pi} |\cos{\theta}\sin{\theta}| \, d\theta = 4\int_{0}^{\pi/2} \cos{\theta}\sin{\theta} \, d\theta.\]
+
+We continue from before,
+\begin{align*}
+    &12a\cdot4\int_{0}^{\pi/2} \cos{\theta}\sin{\theta}\, d\theta \\
+    =& 48a\int_{\sin{0}}^{\sin{\pi/2}} u\,du \\
+    =& 48a {\left[ \frac{u^2}{2} \right]}_{0}^{1} \\
+    =& 48a\left( \frac{1}{2} \right) \\
+    =& 24a. \\
+\end{align*}
+
+So, the arclength of the curve is 24a.
+
+
+\subsection*{43}
+Show that the curve $y=\cosh{x}$ has the property that, for every interval $[a,b]$, the length of the curve from $x=a$ to $x=b$ is equal to the area under the curve from $x=b$ to $x=b$.
+
+\begin{proposition}
+    For $f(x)=\cosh^2{x}$,
+    \[\sqrt{1+{[f'(x)]}^2}=f(x).\]
+\end{proposition}
+
+\begin{proof}
+    First, we start with two properties of the hyperbolic cosine, 
+    \[1+\sinh^2{x}=\cosh^2{x}, \quad \frac{d}{dx}\cosh{x}=\sinh{x}.\]
+    
+    So, with $f(x)=\cosh{x}$,
+    \begin{align*}
+        f'(x)&=\sinh{x} \\
+        {[f'(x)]}^2&=\sinh^2{x} \\
+        {[f'(x)]}^2+1&=\sinh^2{x}+1\\
+        \sqrt{{[f'(x)]}^2+1}&=\sqrt{\cosh^2{x}} \\
+        \sqrt{{[f'(x)]}^2+1}&=\cosh^2{x}. \\
+    \end{align*}
+
+    Therefore the proposition holds.
+\end{proof}
+
+We begin by setting up the length and area integrals for a function $f$ on the integral $[a,b]$.
+
+The length of the curve is given by, \[\int_{a}^{b}\sqrt{1+{[f'(x)]}^2}\, dx.\]
+
+The length area under the curve is given by, \[\int_{a}^{b}f(x)\, dx.\]
+
+But, when $f(x)=\cosh{x}$, we notice that, by the proposition, the integrands are equivalent, $f(x)=\sqrt{1+{[f(x)]}^2}$.
+
+So, the area under the curve is equivalent to the length of the curve on a given interval.
+
+\end{document}

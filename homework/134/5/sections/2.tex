@@ -1,0 +1,42 @@
+\documentclass[../hw5.tex]{subfiles}
+
+\begin{document}
+
+Show that the function $f(x)=x^2$ is not uniformly continuous on the real line.
+%You can use the example from call and do a proof by contradiction.
+
+\begin{proposition}
+    For every $\epsilon>0$, there exists a $\delta>0$ such that, for all $x$ and $y$, $|x-y|<\delta$ implies $|f(x)-f(y)|<\epsilon$.
+\end{proposition}
+
+\begin{proof}
+    For a proof by contradiction, we will negate the statement. 
+
+    We will that that, there is an $\epsilon>0$, with all $\delta>0$ such that for some $x$ and $y$, $|x-y|<\delta$ and $|f(x)-f(y)|\geq\epsilon$ are true.
+
+    Let $\epsilon=1$. Choose any $\delta>0$.
+
+    Let $x=\frac{1}{\delta}, \quad y=\frac{1}{\delta}+\frac{\delta}{2}$.
+
+    Notice that,
+    \[|x-y|=|\frac{1}{\delta}+\frac{\delta}{2} - \frac{1}{\delta}| = \frac{\delta}{2} < \delta.\]
+
+
+    We have that,
+    \begin{align*}
+        |f(x)-f(y)| &= |x^2-y^2| \\
+        &= |x-y||x+y| \\
+        &= \frac{\delta}{2}|x+y| \\
+        &= \frac{\delta}{2}\Bigg| \frac{1}{\delta}+\frac{\delta}{2} + \frac{1}{\delta}\Bigg| \\
+        &= \frac{\delta}{2} \left( \frac{2}{\delta}+\frac{\delta}{2} \right) \\
+        &= 1 + \frac{\delta^2}{4} > 1\geq\epsilon.
+    \end{align*}
+
+    So, the negation of the statement holds.
+
+    Thus, by contradiction, the proposition is false.
+    Therefore $f(x)$ is not uniformly continuous on the real line.
+    
+\end{proof}
+
+\end{document}

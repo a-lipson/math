@@ -1,0 +1,10 @@
+PWD /home/a/docs/educ/latex/homework/135/2/sections
+INPUT /usr/local/texlive/2023/texmf.cnf
+INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /home/a/docs/educ/latex/homework/135/2/sections/4.tex
+OUTPUT 4.log
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty

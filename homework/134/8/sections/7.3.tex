@@ -1,0 +1,41 @@
+\documentclass[../hw8]{subfiles}
+
+\begin{document}
+
+\subsection*{66}
+Find a formula for the $n$th derivative.
+\[\frac{d^n}{dx^n}[\ln{(1-x)}]\]
+
+\begin{proposition}
+    $\frac{d^n}{dx^n}[\ln{(1-x)}] = (n-1)!{(-1)}^n{(1-x)}^{-n}$.
+\end{proposition}
+
+\begin{proof}
+    We will prove that the proposition holds by induction on $n$.
+
+    For the base case, when $n=1$,
+    \[(1-1){(-1)}^1{(1-x)}^{-1}=\frac{-1}{1-x}.\]
+
+    We verify by differentiating $\ln{(1-x)}$,
+    \[\frac{d}{dx}[\ln{(1-x)}]=-1\cdot\frac{1}{1-x}=\frac{-1}{1-x}.\]
+
+    So, the base case holds.
+
+    By the inductive hypothesis, we assume that the formula holds for $n=k$.
+
+    For the inductive step, we will find $\frac{d^{k+1}}{dx^{k+1}}[\ln{(1-x)}]$ by differentiating $\frac{d}{dx}[\ln{(1-x)}]$.
+    \begin{align*}
+        & \frac{d}{dx} \left[ (k-1)!{(-1)}^k{(1-x)}^{-k} \right] \\
+        =& (k-1)!{(-1)}^k\frac{d}{dx} \left[ {(1-x)}^{-k} \right] \\
+        =& (k-1)!{(-1)}^k\cdot\left( (-k){(1-x)}^{-k-1} \right) \\
+        =& k(k-1)!{(-1)}^{k+1}{(1-x)}^{-(k+1)} \\
+        =& \left( (k+1)-1 \right)!{(-1)}^{k+1}{(1-x)}^{-(k+1)}, \\
+    \end{align*}
+
+    which is the case when $n=k+1$.
+
+    So, the proposition holds.
+    
+\end{proof}
+
+\end{document}

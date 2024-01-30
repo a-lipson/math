@@ -1,0 +1,29 @@
+\documentclass[../hw4.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{20}
+View the earth as a sphere of radius 4000 miles. The volume
+of ice that covers the north and south poles is estimated to
+be 8 million cubic miles. Suppose that this ice melts and the
+water produced distributes itself uniformly over the surface
+of the earth. Estimate the depth of this water.
+
+First, we find the volume of the earth.
+\[V_E = \frac{4}{3}\pi{(4000)}^3=\frac{256}{3}\pi\cdot10^9\]
+
+Then, we find the radius of the sphere comprised of the total volume of both the earth and all of its melted ice. 
+\begin{align*}
+    \frac{4}{3}\pi r^3 &= \frac{256}{3}\pi\cdot10^9 + 8\cdot10^6 \\
+    r^3 &= \frac{3}{4\pi} \left( \frac{256}{3}\pi\cdot10^9 + 8\cdot10^6 \right) \\
+    r^3 &= 64\cdot10^9 + \frac{6\cdot10^6}{\pi} \\
+    r = \sqrt[3]{64\cdot10^9 + \frac{6\cdot10^6}{\pi}} \\
+    r \approx 4000.04 \\
+\end{align*}
+
+Finally, we find the height of the ice by taking the radius of the earth from $r$, the earth and melted ice radius. 
+\[4000.04-4000 = 0.04\]
+
+So, the added depth of water covering the earth would be about 0.04 miles or around 211 feet.
+
+\end{document}

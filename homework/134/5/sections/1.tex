@@ -1,0 +1,31 @@
+\documentclass[../hw5.tex]{subfiles}
+
+\begin{document}
+
+Prove that a non-constant linear function is uniformly continuous on the real line.
+%This should be straight forward. Start with a continuity proof and make sure your delta does not depend on the point you choose.
+
+\begin{proposition}
+    The function $f(x)=ax+b, \quad x\neq0$ is uniformly continuous on $x \in \mathbb{R}$. 
+\end{proposition}
+
+\begin{proof}
+    By the definition on uniform continuity, for every $\epsilon>0$, there is a $\delta>0$ such that, for all $x,y$, $|x-y|<\delta$ implies $\Big|(ax+b)-(ay+b)\Big|<\epsilon$.
+
+    Let $\epsilon>0$ be given.
+    
+    Define $\delta=\frac{\epsilon}{|a|}$. 
+    
+    Assume $|x-y|<\delta=\frac{\epsilon}{|a|}$.
+
+    Then,
+    \begin{align*}
+        \Big|(ax+b)-(ay+b)\Big| &= |ax-ay| \\
+        &= |a||x-y| \\
+        &< |a|\frac{\epsilon}{|a|} = \epsilon. \\
+    \end{align*}
+
+    Since, $\Big|(ax+b)-(ay+b)\Big|<\epsilon$, the proposition holds.
+\end{proof}
+
+\end{document}

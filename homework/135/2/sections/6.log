@@ -1,0 +1,39 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.9)  16 JAN 2024 21:40
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/a/docs/educ/latex/homework/135/2/sections/6.tex
+(/home/a/docs/educ/latex/homework/135/2/sections/6.tex
+LaTeX2e <2023-11-01>
+L3 programming layer <2024-01-04>
+(/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.cls
+Document Class: subfiles 2020/11/14 v2.2 Multi-file projects (class)
+Preamble taken from file `../rootfile'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+)
+
+! LaTeX Error: File `../rootfile.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.cls:45: Emergency stop.
+<read *> 
+         
+l.45 \input{\preamble@file}
+                           ^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 77 strings out of 474166
+ 1819 string characters out of 5745490
+ 1924525 words of memory out of 5000000
+ 22476 multiletter control sequences out of 15000+600000
+ 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,0n,55p,187b,17s stack positions out of 10000i,1000n,20000p,200000b,200000s
+/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.cls:45:  ==> Fatal error occurred, no output PDF file produced!

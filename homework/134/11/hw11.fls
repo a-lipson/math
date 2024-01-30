@@ -1,0 +1,5 @@
+PWD /run/user/1000/gvfs/smb-share:server=svalbard.local,share=iron/docs/educ/latex/homework/11
+INPUT /usr/local/texlive/2023/texmf.cnf
+INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /run/user/1000/gvfs/smb-share:server=svalbard.local,share=iron/docs/educ/latex/homework/11/hw11.tex

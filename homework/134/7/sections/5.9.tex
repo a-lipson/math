@@ -1,0 +1,166 @@
+\documentclass[../hw7.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{26}
+For a rod that extends from $x=a$ to $x=b$ and has mass density $\lambda(x)$, the integral 
+\[\int_{a}^{b} (x-c)\lambda(x)\,dx\] 
+gives what is called the mass moment of the rod about the point $x=c$. 
+Show that the mass moment about the center of mass is zero. 
+(The center of mass can be defined as the point about which the mass moment is zero.)
+
+\begin{definition}[5.9.4]
+    The mass of a rod with density $\lambda(x)$ is \[M=\int_{a}^{b} \lambda(x)\,dx.\]
+\end{definition}
+
+\begin{definition}[5.9.5]
+    The center of mass $x_M$ of a rod of variable density $\lambda(x)$ is \[x_M M=\int_{a}^{b} x\lambda(x)\,dx.\]
+\end{definition}
+
+\begin{proof}
+
+First, we evaluate the mass moment at the center of mass $x_M$,
+\begin{align*}
+    &\int_{a}^{b} (x-x_m)\lambda(x)\,dx \\
+    =& \int_{a}^{b}x\lambda(x)\,dx - \int_{a}^{b}x_M\lambda(x)\,dx \\
+\end{align*}
+We note that $x_M$ is a constant. Then, using Definitions 5.9.4 and 5.9.5, we see that,
+\begin{align*}
+    & \int_{a}^{b}x\lambda(x)\,dx - \int_{a}^{b}x_M\lambda(x)\,dx \\
+    =& x_M\cdot M - x_M\cdot M \\
+    =&0. \\
+\end{align*}
+
+So, the mass moment about the center of mass is zero.
+
+%% TODO/QUESTION come back to this later
+
+    % We use the center of mass from Definition 5.9.5 inside the mass moment equation,
+    % \begin{align*}
+    %     0 &= \int_{a}^{b} (x-x_M) \lambda(x)\,dx\\
+    %     &= \int_{a}^{b} \left( x - \frac{1}{M} \int_{a}^{b} x\lambda(x)\,dx \right) \lambda(x)\,dx\\
+    %     &= 
+    % \end{align*}
+
+    % We begin with equating the mass moment about a point $c$ with the center of mass of the rod. By the Definitions,
+    % \begin{align*}
+    %     \int_{a}^{b} (x-c)\lambda(x)\,dx &= x_M
+    %     x_M = \frac{1}{M}\int_{a}^{b}x\lambda(x)\,dx &= \int_{a}^{b} (x-c)\lambda(x)\,dx \\
+
+    % \end{align*}
+
+    % We begin with the center of mass, where the mass moment is zero,
+    % \begin{align*}
+    %     0&=\int_{a}^{b} (x-c)\lambda(x)\,dx\\
+    %     &=\int_{a}^{b} x\lambda(x)\,dx - c\int_{a}^{b} \lambda(x)\,dx.\\
+    % \end{align*}
+
+    % We recognize the first term to be center of mass of the rod times the mass of the rod by Definition 5.9.4, and the second term to be the mass moment times the mass of the rod by Definition 5.9.5.
+
+    % So, with the assumption that the mass of the rod $M$ is positive,
+    % \begin{align*}
+    %     0&=x_M M - c M, \quad M>0\\
+    %     c&=x_M.\\
+    % \end{align*}
+
+    % So, 
+\end{proof}
+
+
+\subsection*{35}
+Prove the proposition.
+
+\begin{proposition}
+    Two distinct continuous functions cannot have the same average on
+    every interval.    
+\end{proposition}
+
+
+\begin{proof}[Proof 1]
+    Let $h(x)=f(x)-g(x)$. Since $f$ and $g$ are continuous, then their difference $h$ is also continuous.
+    
+    Since $f\neq g$, there exists a $c$ such that $h(c)=f(c)-g(c)\neq0$.
+
+    Without loss of generality, suppose that $f(c)>g(c)$.\footnote{If $g$ is greater than $f$, repeat the process with the labels swapped.} So, $h(c)>0$.
+
+    Since $h$ continuous, then there is an interval $I$ that is $\delta>0$ close to $c$, defined as $(c-\delta,c+\delta)$, such that $h(c)>0$.
+
+    So, by the definition of continuity, $|x-c|<\delta$ implies $|h(x)-h(c)|<h(c)$.
+
+    But, $|h(x)-h(c)|<h(c)$ is equivalent to $h(c)-h(c)<h(x)<h(c)+h(c)$.
+
+    So, $0<h(x)$.
+
+    Since $h>0$ on $I$, then $f>g$ on $I$.
+
+    Then, by 5.8.2, \[\int_{c-\delta}^{c+\delta} f(x)-g(x)\,dx > 0.\]
+
+    So, \[\int_{c-\delta}^{c+\delta} f(x)\,dx > \int_{c-\delta}^{c+\delta} g(x)\,dx.\]
+
+    Or, \[\frac{1}{2\delta}\int_{c-\delta}^{c+\delta} f(x)\,dx > \frac{1}{2\delta}\int_{c-\delta}^{c+\delta} g(x)\,dx.\]
+
+    Therefore, there exists an interval where the averages of $f$ and $g$ are no the same, so the proposition holds.
+
+\end{proof}
+
+\begin{proof}[Proof 2]
+    Define $h(x)=f(x)-g(x)$.
+
+    Assume that $h(x)\neq0$.
+
+    For a contradiction, assume that $f$ and $g$ have the same average on any arbitrary interval $[a,b]$.
+
+    Then,
+    \[\frac{1}{b-a}\int_{a}^{b}h(x)dx=0.\]
+    
+    So, for all $a<b$, \[\int_{a}^{b}h(x)=0.\]
+
+    Let \[H(x)=\int_{a}^{x}h(t)dt=0.\]
+
+    Then, \[H'(x)=h(x)=0.\]
+
+    But, we assumed $h(x)\neq0$. So the assumption was false and the statement holds.
+    % For a contradiction, assume that two discrete continuous functions $f$ and $g$ have the same average on every interval. 
+
+    % Since $f$ and $g$ are discrete, then there exists a $c$ such that $f(c) \neq g(c)$.
+
+    % For a contradiction, assume that their averages are the same on the interval $(c,c+h)$.
+
+    % So, \[\frac{1}{h}\int_{c}^{c+h} f(x)\,dx = \frac{1}{h}\int_{c}^{c+h} g(x)\,dx.\]
+
+    % We note that $\int_{a}^{a} h(x)\,dx=0$ for any function $h$.
+
+    % Then,
+    % \begin{align*}
+    %     \frac{1}{h}\int_{c}^{c+h} f(x)\,dx + \int_{c}^{c} f(x)\,dx &= \frac{1}{h}\int_{c}^{c+h} g(x)\,dx \int_{c}^{c} g(x)\,dx\\
+    %     \frac{\int_{c}^{c+h} f(x)\,dx + \int_{c}^{c} f(x)\,dx}{h}&=\frac{\int_{c}^{c+h} g(x)\,dx + \int_{c}^{c} g(x)\,dx}{h}.
+    % \end{align*}
+
+    % We define, \[F(h)=\int_{c}^{c+h}f(x)\,dx, \quad G(h)=\int_{c}^{c+h}g(x)\,dx.\]
+
+    % So the above becomes, \[\frac{F(h)-F(0)}{h} = \frac{G(h)-G(0)}{h}.\]
+
+    % Taking the limit as $h$ goes to zero provides the definition for the derivative. 
+
+    % So,
+    % \begin{align*}
+    %     \frac{F(h)-F(0)}{h} &= \frac{G(h)-G(0)}{h} \\
+    %     \lim\limits_{h \to 0} \frac{F(h)-F(0)}{h} &= \lim\limits_{h \to 0} \frac{G(h)-G(0)}{h} \\
+    %     F'(0) &= G'(0). \\
+    % \end{align*}
+
+    % Then, by 5.8.7,
+    % \begin{align*}
+    %     F'(0) &= G'(0) \\
+    %     f(c+0)&=g(c+0) \\
+    %     f(c)&=g(c). \\
+    % \end{align*}
+
+    % But, $f(c)\neq g(c)$, which is a contradiction. So, the assumption is false.
+
+    % Therefore, there is an interval for which the averages of $f$ and $g$ are not equal. Thus, the proposition holds.
+
+\end{proof}
+
+
+\end{document}

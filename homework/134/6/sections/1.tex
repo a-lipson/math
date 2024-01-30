@@ -1,0 +1,44 @@
+\documentclass[../hw6.tex]{subfiles}
+
+\begin{document}
+
+Find the slope of the line through the origin which divides the area under the parabola $y=4x-x^2$ and above the $x$-axis into two equal parts.
+
+First, we find the total area $A_T$ under the curve.
+
+The zeros of $y=4x-x^2$ can be found by factoring; we see that $y=x(4-x)$ indicates that the parabola has zeros at $x=0$, and $x=4$. These will become the bounds of integration.
+\begin{align*}
+    A_T &= \int_{0}^{4} 4x-x^2 dx \\
+    &= 2x^2-\frac{x^3}{3}\Bigg\vert_{0}^{4} \\
+    &= 32 - \frac{64}{3} \\
+    &= \frac{32}{3}. \\
+\end{align*}
+
+Then, half of the total area, $\frac{A_T}{2}=\frac{16}{3}$, will be the area between the line $y=ax$ of slope $a$ and the parabola.
+
+We find the bounds of integration for this region by first noticing that the origin is a root of both the parabola and the line. So, we will now consider only $x\neq0$,
+\begin{align*}
+    4x-x^2 &= ax \\
+    4-x &= a \\
+    x &= 4-a. \\
+\end{align*}
+
+So, we integrate by $x$ between 0 and $4-a$.
+
+The line must lie underneath the parabola in order to divide the parabola's area in twain.\footnote{The phrase ``in twain'' is an archaic way of saying, ``in two.`` It is intended to provide joy to the reader when used here. Its inclusion was not designed to detract from the clarity of the proof.} So, the upper function is the parabola and the lower one is the line.
+
+We integrate to find the slope $a$.
+\begin{align*}
+    \frac{16}{3} &= \int_{0}^{4-a}4x-x^2-ax \\
+    &= \int_{0}^{4-a} (4-a)x-x^2 dx \\
+    &= \frac{(4-a)x^2}{2}-\frac{x^3}{3} \Bigg\vert_{0}^{4-a} \\
+    &= \frac{{(4-a)}^3}{2}-\frac{{(4-a)}^3}{3} \\
+    \frac{16}{3} &= \frac{{(4-a)}^3}{6} \\
+    32 &= {(4-a)}^3 \\
+    \sqrt[3]{32} &= 4-a \\
+    a &= 4-2\sqrt[3]{4} \approx 0.8252. \\
+\end{align*}
+
+So, the slope of the line that divides the total area under the parabola in half is $4-2\sqrt[3]{4}$, or about $0.8252$.
+
+\end{document}

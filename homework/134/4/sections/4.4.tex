@@ -1,0 +1,37 @@
+\documentclass[../hw4.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{39}
+Show that the proposition holds.
+% Suppose that $f$ is continuous on $[a,b]$ and $f(a)=f(b)$.
+% Show that f has at least one critical point in $(a,b)$.
+
+\begin{proposition}
+    If $f$ is continuous on $[a,b]$ and $f(a)=f(b)$, then $f$ has at least one critical point in $(a,b)$.
+\end{proposition}
+
+\begin{proof}
+    We will prove the proposition by two cases, either $f$ is differentiable on $(a,b)$, or $f$ is not differentiable on the interval.
+
+    Recall that a critical number is defined as some $c$ on a differentiable $f$ such that $f'(c)=0$ or $f'(c)$ does not exist.
+
+    If $f$ is differentiable on $(a,b)$, then, since $f(a)=f(b)$, by Rolle's Theorem, there exists a $c \in (a,b)$ such that $f'(c)=0$. In this case, $c$ is a critical point.
+
+    If $f$ is not differentiable on $(a,b)$, then there is at least one $\gamma \in (a,b)$ such that $f'(\gamma)$ does not exist. Therefore $\gamma$ is a critical point is this case as well.
+\end{proof}
+
+
+\subsection*{41}
+Give an example of a non-constant function that takes on
+both its absolute maximum and absolute minimum on every
+interval.
+
+Use the Dirichlet function, $f(x) = \begin{cases}
+    \alpha, & x \in \mathbb{Q} \\
+    \beta, & x \notin \mathbb{Q} \\
+\end{cases}$ where $x \in \mathbb{R}$ and $\alpha<\beta$ so that $\alpha$ is the absolute minimum and $\beta$ is the absolute maximum.
+
+For any interval $I \subseteq \mathbb{R}$, there will be some $a,b \in I$ such that $a \in \mathbb{Q}$ and $b \notin \mathbb{Q}$. Therefore, $f$ will attain the value of both $\alpha$ and $\beta$ on any interval, which are the absolute minimum and maximum respectively.
+
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[../hw4.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{42}
+Let $y = f(x)$ be differentiable and suppose that the graph of $f$ does not pass through the origin. The distance $D$ from the origin to a point $P(x,f(x))$ of the graph is given by
+\[D = \sqrt{x^2+{[f(x)]}^2}.\]
+Show that if $D$ has a local extreme value at $c$, then the line through $(0,0)$ and $(c,f(c))$ is perpendicular to the line tangent to the graph of $f$ at $(c,f(c))$.
+
+\begin{proof}
+    Since $(0,0)$ does not lie on $f$, then $D$, being the distance from $f$ to $(0,0)$, is never zero.
+
+    Since $D$ has a local extreme at $c$, then $D'(c) = 0$ or $D'(c)$ does not exist.
+
+    First, we find $D'$,
+    \begin{align*}
+        \frac{d}{dx} D &= \frac{d}{dx} \left[ \sqrt{x^2+{[f(x)]}^2} \right] \\
+        &= \frac{1}{2\sqrt{x^2+{[f(x)]}^2}} \cdot \frac{d}{dx} \left[ x^2+{[f(x)]}^2 \right] \\
+        &= \frac{2x+2f(x)f'(x)}{2\sqrt{x^2+{[f(x)]}^2}} \\
+        &= \frac{x+ff'}{\sqrt{x^2+f^2}} \\
+        &= \frac{x+ff'}{D} \\
+    \end{align*}
+
+    Then, given that $D'(c)=0$ (we assume $D$ to be differentiable at $c$ and so its critical point exists), and that $D\neq0$,
+    \begin{align*}
+        D'(c) = \frac{c+f(c)f'(c)}{D(c)} &= 0 \\
+        c+f(c)f'(c) &= 0 \\
+        f'(c) &= \frac{-c}{f(c)} \\
+    \end{align*}
+
+    Two lines are perpendicular if their slopes are negative reciprocals of each other, such that,
+    \[m_1 = \frac{-1}{m_2}.\]
+
+    The line through $(0,0)$ and $(c,f(c))$ has a slope of $\frac{f(c)}{c}$.
+
+    The line tangent to $f$ at $(c,f(c))$ has a slope of $f'(c)$.
+
+    Since $f'(c) = \frac{-c}{f(c)}$, which is the slope of the second line, then its negative reciprocal is $\frac{-1}{f'(c)} = \frac{f(c)}{c}$, which is the slope of the first line.
+
+    So, the lines are perpendicular and the statement holds. 
+
+\end{proof}
+
+
+\end{document}

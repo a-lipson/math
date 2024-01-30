@@ -1,0 +1,160 @@
+\documentclass[../hw8]{subfiles}
+
+\begin{document}
+
+\subsection*{51}
+Let $\Omega$ be the region under the curve
+$y=\sqrt{x^2-a^2}$ from $x=a$ to $x=\sqrt{2}a$.
+
+(a) Sketch $\Omega$.
+
+\begin{figure*}[ht]
+\centering
+\begin{tikzpicture}[scale=2]
+    \draw[gray,->] (-0.5,0) -- (2,0) node[below] {$x$};
+    \draw[gray,->] (0,-0.5) -- (0,1.5) node[left] {$y$};
+
+
+    \draw[blue,domain=1:1.5,smooth,variable=\x,thick] plot ({\x},{sqrt(\x*\x - 1)});
+    
+    \path[name path=A,domain=1:{sqrt(2)},smooth,variable=\x] plot ({\x},{sqrt(\x*\x-1)});
+    \path[name path=B] (1,0) -- ({sqrt(2)},0);
+    \tikzfillbetween[of=A and B, on layer=bg]{blue, opacity=0.3};
+
+    \draw[thick] (1,0.1) -- (1,-0.1) node[below] {$a$};
+    \draw[thick] ({sqrt(2)},0.1) -- ({sqrt(2)},-0.1) node[below] {$\sqrt{2}a$};
+
+\end{tikzpicture}
+\caption{Sketch of $\Omega$.}
+\end{figure*}
+
+(b) Find the area of $\Omega$.
+
+The area $A$ is given by the integral, \[A=\int_{a}^{\sqrt{2}a} \sqrt{x^2-a^2}\,dx.\]
+
+We evaluate this integral using the trigonometric substitution \[x=a\sec{\theta}.\]
+
+So, \[dx=a\tan{\theta}\sec{\theta}d\theta.\]
+
+Then, \[x^2-a^2={(a\sec{\theta})}^2-a^2={(a\tan{\theta})}^2.\]
+
+So,
+\begin{align*}
+    \int\sqrt{x^2-a^2}\,dx &= \int \sqrt{{(a\tan{\theta})}^2}\cdot a\tan{\theta}\sec{\theta}\,d\theta
+    &= \int a^2\tan^2{\theta}\sec{\theta}\,d\theta \\
+    &= a^2 \int \left( \sec^2{\theta}-1 \right) \sec{\theta}\,d\theta \\
+    &= a^2\left[ \int \sec^3{\theta}\,d\theta - \int\sec{\theta}\,d\theta \right]. \\
+\end{align*}
+
+We have previously computed,
+\begin{align*}
+    \int\sec{\theta}\,d\theta &= \ln{|\tan{\theta}+\sec{\theta}|} \text{ and} \\
+    \int\sec^3{\theta}\,d\theta &= \frac{1}{2}\left( \ln{|\tan{\theta}+\sec{\theta}|} + \tan{\theta}\sec{\theta} \right). \\
+\end{align*}
+
+So, we continue from above,
+\begin{align*}
+    &= a^2\left( \frac{1}{2}\left( \ln{|\tan{\theta}+\sec{\theta}|} + \tan{\theta}\sec{\theta} \right) - \ln{|\tan{\theta}+\sec{\theta}|} \right) \\
+    &= \frac{a^2}{2}\left( \tan{\theta}\sec{\theta} - \ln{|\tan{\theta} + \sec{\theta}|} \right)
+\end{align*}
+
+Using trigonometric identities, we see that $\tan{\theta}=\frac{\sqrt{x^2-a^2}}{a}$.
+
+Then, we return to the integral in terms of $x$, using $\sec{\theta}=\frac{x}{a}$ and $\tan{\theta}=\frac{\sqrt{x^2-a^2}}{a}$,
+\begin{align*}
+    \int \sqrt{x^2-a^2} &= \frac{a^2}{2}\left( \left( \frac{\sqrt{x^2-a^2}}{a} \right) \left( \frac{x}{a} \right) - \ln{\Bigg|\frac{\sqrt{x^2-a^2}}{a}+\frac{x}{a}\Bigg|} \right) \\
+    &=\frac{a^2}{2}\left( \frac{x\sqrt{x^2-a^2}}{a^2} -\ln{\Bigg|\frac{\sqrt{x^2-a^2}+x}{a}\Bigg|} \right).
+\end{align*}
+
+We evaluate the integral of the bounds of the region $\Omega$, from $x=a$ to $x=\sqrt{2}a$,
+\begin{align*}
+    A &= \int_{a}^{\sqrt{2}a} \sqrt{x^2-a^2} \\
+    &= {\left[ \frac{a^2}{2}\left( \frac{x\sqrt{x^2-a^2}}{a^2} -\ln{\Bigg|\frac{\sqrt{x^2-a^2}+x}{a}\Bigg|} \right) \right]}_{a}^{\sqrt{2}a} \\
+    &= \frac{a^2}{2}{\left[ \frac{x\sqrt{x^2-a^2}}{a^2} -\ln{\Bigg|\frac{\sqrt{x^2-a^2}+x}{a}\Bigg|}\right]}_{a}^{\sqrt{2}a} \\
+    &= \frac{a^2}{2} \left( \left( \frac{\sqrt{2}a\cdot a}{a^2} -\ln{\Bigg|\frac{a+\sqrt{2}a}{a}\Bigg|}\right) - \left( \frac{a(0)}{a^2}-\ln{\Bigg|\frac{0+a}{a}\Bigg|}\right) \right) \\
+    &= \frac{a^2}{2} \left( \sqrt{2} - \ln{(1+\sqrt{2})} +\ln{1} \right) \\
+    &= \frac{a^2}{2} \left( \sqrt{2} - \ln{(1+\sqrt{2})} \right) \\
+\end{align*}
+
+So, \[A=\frac{a^2}{2} \left( \sqrt{2} - \ln{(1+\sqrt{2})} \right).\]
+
+(c) Locate the centroid of $\Omega$.
+
+For the $x$ coordinate, we evaluate
+\[\frac{1}{A}\int_{a}^{\sqrt{2}a}x\sqrt{x^2-a^2}\,dx.\]
+
+We make the substitution $u(x)=x^2-a^2$,
+\begin{align*}
+    \frac{1}{2A}\int_{u(\sqrt{2}a)}^{u(a)} \sqrt{u}\,du &= \frac{1}{2A}{\left[ \frac{2}{3}u^{\frac{3}{2}} \right]}_{0}^{a^2} \\
+    &= \frac{a^3}{3A} \\
+    &= \frac{a^3}{3\left( \frac{a^2}{2} \left( \sqrt{2} - \ln{(1+\sqrt{2})} \right) \right)} \\
+    &= \frac{2a}{3(\sqrt{2}-\ln{(\sqrt{2}+1)})}. \\
+\end{align*}
+
+For the $y$ coordinate, we evaluate
+\begin{align*}
+    \frac{1}{A}\int_{a}^{\sqrt{2}a}\frac{1}{2}{(\sqrt{x^2-a^2})}^2\,dx &= \frac{1}{2A} \int_{a}^{\sqrt{2}a} x^2-a^2\,dx \\
+    &= \frac{1}{2A} {\left[ \frac{x^3}{3}-a^2x \right]}_{a}^{\sqrt{2}a} \\
+    &= \frac{1}{2A} \left( \left( \frac{2\sqrt{2}a^3}{3}-\sqrt{2}a^3 \right) - \left( \frac{a^3}{3} - a^3 \right)\right) \\
+    &= \frac{1}{2A} \left( \left( \frac{-\sqrt{2}a^3}{3} \right) + \left( \frac{2a^3}{3} \right)\right) \\
+    &= \frac{1}{2A} \left( \frac{a^3}{3}(2-\sqrt{2}) \right) \\
+    &= \frac{a^3(2-\sqrt{2})}{6\left( \frac{a^2}{2} \right) \left( \sqrt{2} - \ln{(1+\sqrt{2})} \right)} \\
+    &= \frac{a(2-\sqrt{2})}{3(\sqrt{2}-\ln{(\sqrt{2}+1)})}. \\
+\end{align*}
+
+So, the centroid of the region $\Omega$ is \[\left(\frac{2a}{3(\sqrt{2}-\ln{(\sqrt{2}+1)})}, \frac{a(2-\sqrt{2})}{3(\sqrt{2}-\ln{(\sqrt{2}+1)})} \right).\]
+
+
+\subsection*{52}
+Find the volume of the solid generated by revolving $\Omega$ about the $x$-axis and determine the centroid of that solid.
+
+We determine the volume of $\Omega$ rotated about the $x$-axis using the disk method.
+
+Then,
+\begin{align*}
+    V &= \int_{a}^{\sqrt{2}a} \pi {\left( \sqrt{x^2-a^2} \right)}^2\,dx, \\
+\end{align*}
+which is the same integral that we evaluated in 51.
+
+So, \[V=\frac{\pi a^3}{3}(2-\sqrt{2}).\]
+
+Then, the centroid of the solid of revolution about the $x$-axis has its $y$ coordinate given by the equation,\footnote{The equations for the centroids of volumes of revolution were derived in a previous assignment.} \[\overline{x}=\frac{\pi}{V}\int_{a}^{\sqrt{2}a}x{\left( \sqrt{x^2-a^2} \right)}^2\,dx.\]
+
+Then, we evaluate,
+\begin{align*}
+    \frac{\pi}{V}\int_{a}^{\sqrt{2}a}x{\left( \sqrt{x^2-a^2} \right)}^2\,dx &= \frac{\pi}{V} \int_{a}^{\sqrt{2}a} x^3-a^3x\,dx \\
+    &= \frac{\pi}{V} {\left[ \frac{x^4}{4} - \frac{a^2x^2}{2} \right]}_{a}^{\sqrt{2}a} \\
+    &= \frac{\pi}{V} \left( \left( \frac{4a^4}{4} -\frac{2a^4}{2}\right) - \left( \frac{a^4}{4}-\frac{a^4} {2} \right)\right) \\
+    &= \frac{\pi}{V} \left( \frac{a^4}{4} \right) \\
+    &= \frac{\pi a^4}{4\left( \frac{\pi a^3}{3}(2-\sqrt{2}) \right)} \\
+    &= \frac{3a}{4(2-\sqrt{2})}. \\
+\end{align*}
+
+So, the centroid of the volume of rotation about the $x$-axis is \[\left( \frac{3a}{4(2-\sqrt{2})},0 \right).\]
+
+\subsection*{53}
+Find the volume of the solid generated by revolving $\Omega$ about the $y$-axis and determine the centroid of that solid.
+
+Following the procedure in 52, we will first find the volume the region $\Omega$ rotated about the $y$-axis.
+
+We find the volume using the shell method and the substitution $u(x)=x^2-a^2$\footnote{We have already evaluated this integral above as well. However, it is simple enough to repeat.},
+\begin{align*}
+    V &= \int_{a}^{\sqrt{2}a} 2\pi x\sqrt{x^2-a^2}\,dx \\
+    &= \pi \int_{u(a)}^{u(\sqrt{2}a)} \sqrt{u}\,du \\
+    &= \pi {\left[ \frac{2}{3}u^{\frac{3}{2}} \right]}_{0}^{a^2} \\
+    &= \frac{2\pi a^3}{3}. \\
+\end{align*}
+
+Then, the $y$ coordinate of the centroid about the $y$ axis is given by, the same equation for $x$ coordinate of a rotation about the $x$ axis, but with the corresponding volume of rotation.
+
+So, 
+\begin{align*}
+    \overline{y} &= \frac{1}{V}\int_{a}^{\sqrt{2}a} \pi x {\left( \sqrt{x^2-a^2} \right)}^2 \\
+    &= \frac{\pi a^4}{4V} \\
+    &= \frac{\pi a^4}{4\left( \frac{2\pi a^3}{3} \right)} \\
+    &= \frac{3a}{8}.
+\end{align*}
+
+Therefore, the centroid of the volume of rotation about the $y$-axis is \[\left( 0,\frac{3a}{8} \right).\]
+
+\end{document}

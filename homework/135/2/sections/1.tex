@@ -1,0 +1,21 @@
+\documentclass[../hw2]{subfiles}
+
+\begin{document}
+
+Let $f>0$ be continuous and decreasing on $[1,\infty)$.
+
+We will show that, \[\int_{1}^{\infty}f(x)\,dx \text{ converges iff } a_n=\int_{1}^{n}f(x)\,dx \text{ converges.}\]
+
+$(\implies)$ We define $\int_{1}^{\infty}f(x)\,dx$ converging to $L$ as, 
+\[\lim\limits_{n\to\infty}\int_{1}^{n}f(x)\,dx=L.\]
+
+We also see that,
+\[\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}\int_{1}^{n}f(x)\,dx=L.\]
+
+So, \[\lim\limits_{n\to\infty}a_n=L.\]
+
+Therefore, the sequence $(a_n)$ converges to $L$ when $\int_{1}^{\infty}f(x)\,dx$ converges to $L$.
+
+$(\impliedby)$ We follow the same definitions in the other direction to arrive at the fact that the converge of $(a_n)$ implies the convergence of $\int_{1}^{\infty}f(x)\,dx$.
+
+\end{document}

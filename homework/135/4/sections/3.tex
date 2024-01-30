@@ -1,0 +1,106 @@
+\documentclass[../hw4]{subfiles}
+
+\begin{document}
+
+\begin{enumerate}[label= (\alph*)]
+    \item Prove the Cauchy Mean Value Theorem 11.5.2
+    
+    \begin{theorem}[Cauchy Mean Value Theorem 11.5.2]
+        For $f,g$ differentiable on $(a,b)$ and continuous on $[a,b]$, with $g'\neq0$ on $(a,b)$, there exists and $r$ in $(a,b)$ such that
+        \[\frac{f'(r)}{g'(r)}=\frac{f(b)-f(a)}{g(b)-g(a)}.\]
+    \end{theorem}
+
+    \begin{proof}
+        Define $h(x)=(g(b)-g(a))(f(x)-f(a))-(f(b)-f(a))(g(x)-g(a))$ such that $h(a)=h(b)=0$. 
+
+        Let $\underset{[a,b]}{\Delta}f = f(b)-f(a)$ and $\underset{[a,b]}{\Delta}g=g(b)-g(a)$.
+
+        Since $g'\neq0$ and the fact that $g$ is continuous on $[a,b]$, then $\underset{[a,b]}{\Delta}g$ cannot be zero by the conditions of Rolle's Theorem that if $g(b)=g(a)\implies \underset{[a,b]}{\Delta}g = 0$, then there would be an $r_0$ such that $g'(r_0)=0$. But, this is not the case, so we continue with $\underset{[a,b]}{\Delta}\neq0$. 
+
+        Since $h$ is a combination of continuous functions on $[a,b]$, $h$ is continuous on $[a,b]$.
+
+        Since $h(a)=h(b)=0$ and $h$ is continuous on $[a,b]$, then by the Mean Value Theorem, there exists an $r$ in $(a,b)$ such that $h'(r)=0$.
+        
+        Then, with $h'(x)=\underset{[a,b]}{\Delta}g\cdot f'(x)-\underset{[a,b]}{\Delta}f\cdot g'(x)$, $h'(r)=0$ implies that 
+        \[\underset{[a,b]}{\Delta}f\cdot g'(r)=\underset{[a,b]}{\Delta}g\cdot f'(r).\]
+
+        Then, recalling that $g'\neq0$ on $[a,b]$ and $\underset{[a,b]}{\Delta}g\neq0$,
+        \[\frac{f'(r)}{g'(r)}=\frac{\underset{[a,b]}{\Delta}f}{\underset{[a,b]}{\Delta}g}=\frac{f(b)-f(a)}{g(b)-g(a)}, \quad r \in (a,b).\]
+
+        So, the statement holds for some $r$.
+    \end{proof}
+
+    \item Prove that, for $f,g$ contiunous on $[a,b]$, there exists a $c\in[a,b]$ such that, \[g(c)\int_{a}^{b}f(t)\,dt=f(c)\int_{a}^{b}g(t)\,dt.\] 
+    
+    \begin{proof}
+        Let $F'(x)=f(x)$ and $G'(x)=g(x)$.
+
+        By the Cauchy Mean Value Theorem, $\exists c \in (a,b)$ such that,
+        \begin{align*}
+            G'(c)[F(b)-F(a)]&=F'(c)[G(b)-G(a)]\\
+            g(c)[F(b)-F(a)]&=f(c)[G(b)-G(a)].\\
+        \end{align*}
+
+        By the Fundamental Theorem of Calculus, for $F'(x)=f(x)$, $F(b)-F(a)=\int_{a}^{b}f(t)\,dt$. The same holds for $G'(x)$.
+
+        So, for some $c$ in $(a,b)$, \[g(c)\int_{a}^{b}f(t)\,dt = f(c)\int_{a}^{b}g(t)\,dt.\]
+    \end{proof}
+
+    \item Prove that, for $\phi,h$ continuous on $[a,b]$, with $h(t)\neq0$ for all $t\in[a,b]$, then, \[\int_{a}^{b}\phi(t)h(t)\,dt=\phi(c)\int_{a}^{b}h(t)\,dt.\]
+    
+    If $h(t)\neq0$ for all $t\in(a,b)$, then $h(t)>0$ or $h(t)<0$ for all $t\in(a,b)$.
+
+    With $h(t)\geq0$, the Second Mean Value Theorem for Integrals 5.9.3 applies to demonstrate that there is a $c$ in $(a,b)$ such that the statement holds.
+
+    Similarly, for $h(t)\leq0$, the proof of 5.9.3 can be altered with the use of $-h$, so that the minimum and maximum values attained by $h$ on $[a,b]$ are flipped.
+
+    % \begin{theorem}[Second Mean Value Theorem for Integrals 5.9.3]
+    %     For all $f,g$ continuous on $[a,b]$ and $g\geq0$, there exists a $c$ in $(a,b)$ such that,
+    %     \[\int_{a}^{b}f(t)g(t)\,dt=f(c)\int_{a}^{b}g(t)\,dt.\]
+    % \end{theorem}
+
+    % \begin{theorem}[Additional Second Mean Value Theorem for Integrals]
+    %     For all $f,g$ continuous on $[a,b]$ and $g\leq0$, there exists a $c$ in $(a,b)$ such that,
+    %     \[\int_{a}^{b}f(t)g(t)\,dt=f(c)\int_{a}^{b}g(t)\,dt.\]
+    % \end{theorem}
+
+    % \begin{proof}[Proof of Additional Second Mean Value Theorem for Integrals 5.9.3]
+    %     This proof follows nearly identically to the other
+    % \end{proof}
+
+    \item Prove that, for some $c$ between $a$ and $x$,
+    \[\frac{1}{n!}\int_{a}^{x}f^{(n+1)}(t){(x-t)}^n\,dt=\frac{f^{(n+1)}(c){(x-a)}^{n+1}}{(n+1)!}, \qquad {(x-t)}^n\neq0, \quad\forall t\in(a,x),\]
+    which is the remainder in Taylor's theorem.
+
+    \begin{proof}
+        By (c), there exists an $c\in(a,x)$ such that,
+        \begin{align*}
+            \frac{1}{n!}\int_{a}^{x}f^{(n+1)}(t){(x-t)}^n\,dt&=\frac{f^{(n+1)}(c)}{n!}\int_{a}^{x}{(x-t)}^n\,dt \\
+            &= \frac{f^{(n+1)}(c)}{n!}\left[ \frac{{-(x-t)}^{n+1}}{n+1}\Bigg\vert_{a}^{x} \right] \\
+            &= \frac{f^{(n+1)}(c)}{(n+1)!}\left( {(x-a)}^{n+1} - {(x-x)}^{n+1} \right) \\
+            &= \frac{f^{(n+1)}(c)}{(n+1)!}{(x-a)}^{n+1}. \\
+        \end{align*}
+    \end{proof}
+
+    \item Show that, \[\frac{1}{10\sqrt{2}}<\int_{0}^{1}\frac{x^9}{\sqrt{1+x}}\,dx<\frac{1}{10}.\]
+    
+    % use part (c)!
+    
+    Let $f(x)=\frac{1}{\sqrt{1+x}}$; $f$ is decreasing on the interval $[0,1]$.
+
+    Then, the local extrema can be determined by the endpoints, $\underset{[0,1]}{\min}f = \frac{1}{\sqrt{2}}$ and $\underset{[0,1]}{\max}f = 1$.
+
+    So, \[\frac{1}{\sqrt{2}} < \frac{1}{\sqrt{1+x}} < 1, \quad \forall x \in [0,1].\]
+
+    Then, with $x^9>0$ for all $x$ in closed positive unit interval $[0,1]$,
+    \[\frac{x^9}{\sqrt{2}}<\frac{x^9}{\sqrt{1+x}}<x^9.\]
+
+    We then integrate on the interval $[0,1]$,
+    \begin{align*}
+        \int_{0}^{1}\frac{x^9}{\sqrt{2}}\,dx&<\int_{0}^{1}\frac{x^9}{\sqrt{1+x}}\,dx<\int_{0}^{1}x^9\,dx\\
+        \frac{1}{10\sqrt{2}}&<\int_{0}^{1}\frac{x^9}{\sqrt{1+x}}\,dx<\frac{1}{10}.
+    \end{align*}
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[../hw7.tex]{subfiles}
+
+\begin{document}
+\subsection*{52}
+Set \[f(x)=\int_{1}^{2x} \sqrt{16+t^4}\,dt\]
+
+% \begin{definition}[7.1.1]
+%     A function $f$ is said to be injective if there are no two distinct numbers in the domain of $f$ at which $f$ takes on the same value.
+%     \[f(x_1)=f(x_2) \quad\text{implies}\quad x_1=x_2.\]
+% \end{definition}
+
+(a) Show that $f$ has an inverse.
+
+The statement is equivalent to showing that $f$ is injective.
+
+We will show that $f$ is increasing for all $x$ in its domain.
+
+We differentiate $f(x)$ with respect to $x$ by 5.8.7,
+\begin{align*}
+    f'(x)&=\frac{d}{dx}\left[ \int_{1}^{2x} \sqrt{16+t^4}\,dt \right] \\
+    &= 2\sqrt{16+{(2x)}^4} \\
+    &= 2\sqrt{16+16x^4} \\
+    &= 8\sqrt{1+x^4}. \\
+\end{align*}
+We note that the range of $\sqrt{x}>0$ for all $x \in \mathbb{R}$.
+
+So, $f'(x)>0$ for all $x$ in the domain of $f$.
+
+Since, $f'(x)>0$ for all $x\in$ dom$(f)$, then $f$ is increasing.
+
+Since $f$ is increasing for all $x$ in its domain, then $f$ is injective. %QUESTION: where is this definition
+
+(b) Find ${\left(f^{-1}\right)}'(0)$.
+
+Theorem 7.1.8 states that, when $f$ is injective and differentiable, then ${\left(f^{-1}\right)}'(b)=\frac{1}{f'(a)}$ where $f(a)=b$.
+
+First, we solve for $a$ according to Theorem 7.1.8 from $b=0$ by noting that for any function $h(x)$ and number $k$, $\int_{k}^{k} h(x)dx=0$,
+\[0=f(a)=\int_{1}^{2a}\sqrt{16+t^4}\,dt\]
+So, $2a=1$, or $a=\frac{1}{2}$.
+
+Next, with $f'(x)$ from (a),
+\begin{align*}
+    \left( f^{-1} \right)'(0)&=\frac{1}{f'\left( \frac{1}{2} \right)}\\
+    &= \frac{1}{8\sqrt{1+{\left( \frac{1}{2} \right)}^2}} \\
+    &= \frac{1}{8\sqrt{1+\frac{1}{16}}} \\
+    &= \frac{1}{8\frac{\sqrt{17}}{4}} \\
+    &= \frac{1}{2\sqrt{17}}. \\
+\end{align*}
+
+Therefore, we see that $\left(f^{-1}\right)'(0)=\frac{1}{2\sqrt{17}}$.
+
+\end{document}

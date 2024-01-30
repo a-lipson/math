@@ -1,0 +1,120 @@
+\documentclass[../hw8]{subfiles}
+
+\begin{document}
+
+\subsection*{53}
+(a) Use integration by parts to show that for $n>2$
+\[\int \sin^n{x}\,dx={-\frac{1}{n}}\sin^{n-1}{x}\cos{x}+\frac{n-1}{n}\int \sin^{n-2}{x}\,dx.\]
+
+We will let $u(x)=\sin^{n-1}{x}$ and $\frac{dv}{dx}=\sin{x}$, so that $\frac{du}{dx}=(n-1)\sin^{n-2}{x}\cos{x}$ and $v(x)={-\cos{x}}$.
+
+Then,
+\begin{align*}
+    \int \sin^n{x}\,dx &= -\cos{x}\sin;{n-1}{x}+\int (n-1)\cos^2{x}\sin^{n-2}{x}\,dx \\
+    \int \sin^n{x}\,dx &= -\cos{x}\sin^{n-1}{x}+(n-1)\int \left( 1-\sin^2{x} \right)\sin^{n-2}{x}\,dx \\
+    \int \sin^n{x}\,dx &= -\cos{x}\sin^{n-1}{x}+(n-1)\int \sin^{n-2}{x}\,dx - (n-1)\int \sin^n{x}\,dx \\
+    (1+(n-1))\int \sin^n{x}\,dx &= -\cos{x}\sin^{n-1}{x}+(n-1)\int \sin^{n-2}{x}\,dx \\
+    \int \sin^n{x}\,dx &= -\frac{1}{n}\cos{x}\sin^{n-1}{x}+\frac{n-1}{n}\int \sin^{n-2}{x}\,dx. \\
+\end{align*}
+
+So, the statement holds.
+
+(b) Then show that
+\[\int_{0}^{\frac{\pi}{2}} \sin^n{x}\,dx=\frac{n-1}{n}\int_{0}^{\frac{\pi}{2}}\sin^{n-2}{x}\,dx.\]
+
+We evaluate the identity from part (a),
+\begin{align*}
+    &\int_{0}^{\pi/2} \sin^n{x}\,dx \\
+    =& {\left[ -\frac{1}{n}\cos{x}\sin^{n-1}{x}+\frac{n-1}{n}\int \sin^{n-2}{x}\,dx \right]}_{0}^{\frac{\pi}{2}}, \\
+\end{align*}
+but $\sin{0}=0$ and $\cos{\frac{\pi}{2}}=0$, so the first term will reduce to zero.
+
+So, we are left with,
+\[\int_{0}^{\pi/2} \sin^n{x}\,dx = {\left[ \int \frac{n-1}{n} \sin^{n-2}{x}\,dx \right]}_{0}^{\frac{\pi}{2}}=\frac{n-1}{n}\int_{0}^{\pi/2} \sin^{n-2}{x}\,dx.\]
+
+(c) Verify the \textit{Wallis sine formulas}:
+
+We will use the notation ${x!!}$, ``double factorial''\footnote{\url{https://en.wikipedia.org/wiki/Double_factorial}} to represent the product of the integers up to $n$ with the same parity as $n$.
+
+for even $n\geq2$, 
+\[\int_{0}^{\frac{\pi}{2}} \sin^n{x}\,dx = \frac{(n-1)\cdots5\cdot3\cdot1}{n\cdots6\cdot4\cdot2}\cdot\frac{\pi}{2}=\frac{(n-1)!!}{n!!};\]
+
+for odd $n\geq3$,
+
+\[\int_{0}^{\frac{\pi}{2}} \sin^n{x}\,dx = \frac{(n-1)\cdots6\cdot4\cdot2}{n\cdots5\cdot3\cdot1}=\frac{(n-1)!!}{n!!}.\]
+
+Since \[\int_{0}^{\pi/2} \sin^n{x}\,dx = \frac{n-1}{n} \int_{0}^{\pi/2} \sin^{n-2}{x}\,dx,\] then \[\int_{0}^{\pi/2} \sin^{n-2}{x}\,dx = \left( \frac{(n-2)-1}{(n-2)} \right)\int_{0}^{\pi/2} \sin^{n-4}{x}\,dx.\]
+
+So, \[\int_{0}^{\pi/2} \sin^n{x}\,dx = \left( \frac{n-1}{n} \right)\left( \frac{(n-2)-1}{(n-2)} \right)\int_{0}^{\pi/2} \sin^{n-4}{x}\,dx.\]
+
+First, we consider even $n$, such that continued subtraction by 2 $k$ times, $n-2k$, is zero when $k=n/2$. 
+
+We take a total of $k$ substitutions for the $\int_{0}^{\pi/2} \sin^{n-2k}{x}\,dx$ term so that there will be $k-1$ coefficients before the sine integral term.
+
+So, for $n$ even,
+\begin{align*}
+    \int_{0}^{\pi/2}\sin^n{x}\,dx &= \frac{(n-1)(n-3)\cdots(n-(2(k-1)-1))}{(n)(n-2)\cdots(n-2(k-1))} \cdot \int_{0}^{\pi/2} \sin^{0}{x}\,dx \\
+    &= \frac{(n-1)(n-3)\cdots(n-2k+3)}{(n)(n-2)\cdots(n-2k+2)} \cdot \int_{0}^{\pi/2} \,dx \\
+    &= \frac{(n-1)(n-3)\cdots3}{(n)(n-2)\cdots2} \cdot \frac{\pi}{2} \\
+    &= \frac{\pi (n-1)!!}{2 n!!}.
+\end{align*}
+
+Next, we consider odd $n$, such that for the same $k$ substitutions, $n-2k=1$. 
+
+Now, the remaining sine integral term becomes $\int_{0}^{\pi/2} \sin^1{x}\,dx=[-\cos{x}]_{0}^{\pi/2}=(0-(-1))=1$.
+
+So, for $n$ odd,
+\begin{align*}
+    \int_{0}^{\pi/2}\sin^n{x}\,dx &= \frac{(n-1)(n-3)\cdots(n-(2(k-1)-1))}{(n)(n-2)\cdots(n-2(k-1))} \cdot \int_{0}^{\pi/2} \sin^1{x}\,dx \\
+    &= \frac{(n-1)(n-3)\cdots2}{(n)(n-2)\cdots3} \\
+    &= \frac{(n-1)!!}{n!!}.
+\end{align*}
+
+Therefore, the Wallis sine formulas hold.
+
+\subsection*{54}
+Use Exercise 53 to show that
+\[\int_{0}^{\frac{\pi}{2}} \cos^n{x}\,dx = \int_{0}^{\frac{\pi}{2}} \sin^n{x}\,dx.\]
+
+First, we note that $\cos{x}=\sin{\frac{\pi}{2}-x}$.
+
+So,
+\begin{align*}
+    \int_{0}^{\pi/2} \cos^n{x}\,dx &= \int_{0}^{\pi/2} \sin^n{(\frac{pi}{2}-x)} \\
+    &= -\int_{\pi/2}^{0}\sin^n{u}\,du \\
+    &= \int_{0}^{\pi/2} \sin^n{u}\,du.
+\end{align*}
+
+Therefore \[\int_{0}^{\frac{\pi}{2}} \cos^n{x}\,dx = \int_{0}^{\frac{\pi}{2}} \sin^n{x}\,dx.\]
+
+Additionally, we will follow the same procedure as in 53. 
+
+First, we evaluate $\cos^n{x}$ using integration by parts,
+\begin{align*}
+    \int_{0}^{\pi/2} \cos^n{x}\,dx &= {\left[ \sin{x}\cos^{n-1}{x}+(n-1)\int\sin^2{x}\cos^{n-2}{x}\,dx \right]}_{0}^{\pi/2} \\
+    \int_{0}^{\pi/2} \cos^n{x}\,dx &= {\left[ \sin{x}\cos^{n-1}{x} \right]}_{0}^{\frac{\pi}{2}} + (n-1) \int_{0}^{\pi/2} \left( 1-\cos^2{x} \right) \cos^{n-2}{x}\,dx \\
+    \int_{0}^{\pi/2} \cos^n{x}\,dx &= 0 + (n-1)\left[ \int_{0}^{\pi/2} \cos^{n-2}{x}\,dx - \int_{0}^{\pi/2} \cos^n{x}\,dx \right] \\
+    1+(n-1) \int_{0}^{\pi/2} \cos^n{x}\,dx &= (n-1)\int_{0}^{\pi/2} \cos^{n-2}{x}\,dx \\
+    \int_{0}^{\pi/2} \cos^n{x}\,dx &= \frac{n-1}{n} \int_{0}^{\pi/2} \cos^{n-2}{x}\,dx. 
+\end{align*}
+
+Then, following 53,
+\[\int_{0}^{\pi/2} \cos^n{x}\,dx = \frac{(n-1)(n-3)}{(n)(n-2)}\int_{0}^{\pi/2} \cos^{n-4}{x}\,dx.\]
+
+So, we will apply the same argument.
+
+For $n$ even, \[\int_{0}^{\pi/2} \cos^{0}{x}\,dx = \int_{0}^{\pi/2}dx = \frac{\pi}{2}.\]
+
+For $n$ odd, \[\int_{0}^{\pi/2} \cos^{1}{x}\,dx = \int_{0}^{\pi/2} \cos{x}\,dx = [\sin{x}]_{0}^{\frac{\pi}{2}}=(1-0)=1.\]
+
+Then, after $k$ substitutions of the cosine term, 
+
+For $n$ even, \[\int_{0}^{\pi/2} \cos^n{x}\,dx = \frac{\pi(n-1)!!}{2n!!}.\]
+
+For $n$ odd, \[\int_{0}^{\pi/2} \cos^n{x}\,dx = \frac{(n-1)!!}{n!!}\]
+
+Since these match $\int_{0}^{\pi/2} \sin^n{x}\,dx$, then
+\[\int_{0}^{\pi/2} \cos^n{x}\,dx=\int_{0}^{\pi/2} \sin^n{x}\,dx.\]
+
+
+\end{document}

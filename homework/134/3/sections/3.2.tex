@@ -1,0 +1,103 @@
+\documentclass[../hw3.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{50}
+Find $A$ and $B$ given that the derivate of $f(x) = \begin{cases}
+    Ax^2+B, & x<-1 \\
+    Bx^5+Ax+4, & x\geq-1
+\end{cases}$ is everywhere continuous.
+
+\begin{proof}
+    Since $f$ is differentiable, it is continuous.
+
+    Therefore, given that $f$ is continuous,
+    \begin{align*}
+        \lim\limits_{x \to -1^-} Ax^2+B &= \lim\limits_{x \to -1^+} Bx^5+Ax+4 \\
+        A+B &= -B-A+4 \\
+        2B &= 4-2A \\
+        B = 2-A \\
+    \end{align*}
+
+    Then, we find $f'(x)$.
+    \[f(x) = \begin{cases}
+        2Ax & x<-1 \\
+        5Bx^4 + A & x\geq-1 \\
+    \end{cases}\]
+
+    Since $f'$ is continuous, then, \[\lim\limits_{x \to -1^-} f' = \lim\limits_{x \to -1^+} f' \text{and} \lim\limits_{x \to c} f'(x) = f'(c). \]
+
+    So,
+    \begin{align*}
+        \lim\limits_{x \to -1^-} 2Ax &= \lim\limits_{x \to -1^+} 5Bx^4+A \\
+        -2A &= 5B+A \\
+        -3A &= 5B \\
+        \frac{-3}{5}A &= B \\
+    \end{align*}
+
+    Then, using the relationship $B=2-A$ derived earlier, we can solve the system of equations.
+    \begin{align*}
+        2-A &= \frac{-3}{5}A \\
+        2 &= \frac{2}{5}A \\
+        5 &= A \\
+    \end{align*}
+
+    Lastly, \[B=2-A=2-5=-3.\]
+
+\end{proof}
+
+\subsection*{62}
+Set $f(x)=x^3$.
+
+(a) Find an equation for the line tangent to the graph of $f$ at $(c,f(c)),\quad c \neq 0$.
+
+(b) Determine whether the tangent line found in (a) intersects the graph of $f$ at a point other than $(c,c^3)$.
+
+\begin{proof}[Proof of (a).]
+    \textbf{Definition 3.1.2.} Let the tangent line to a point $(c,f(c))$ be given by the equation, \[y-f(c)=f'(c)(x-c).\]
+
+    Let $f(c) = c^3$.
+    
+    Then, $f'(c) = 3c^2$ by 3.2.7.
+
+    Next, we use $f'$ to find the tangent line equation at $(c,f(c))$,
+    \begin{align*}
+        y-c^3 &= 3c^2 (x-c) \\
+        y &= 3xc^2 - 3c^3 + c^3 \\
+        y &= 3xc^2 - 2c^3 \\
+    \end{align*}
+
+    Therefore, the tangent line at $(c,f(c))$ is $y = 3xc^2-2c^3$.
+\end{proof}
+
+\begin{proof}[Proof of (b).]
+    We must check if the tangent line $y$ found in (a) intersects the given curve $f(x) = x^3$.
+
+    So, we will find all the $(x,x^3)$ on $f$ that satisfy $y = 3xc^2-2c^3$
+    \begin{align*}
+        x^3 &= 3xc^2-2c^3 \\
+        x^3-3xc^2+2c^3 &= 0 \\
+    \end{align*}
+
+    We can begin to factor this polynomial using the fact that $y$ is a tangent line to $f$ at $x=c$ given the intersection point $(c,c^3)$. Since a tangent line only touches the curve $f$ but does not pass through it, it can be considered a second degree root of this equation. For this reason, we will begin to factor by ${(x-c)}^2$.
+   
+    We will show that the resulting zero is $(2c+x)$.
+    \begin{align*}
+        x^3-3xc^2+2c^3 &= {(x-c)}^2 (2c+x) \\
+        &= (x^2-2xc+c^2)(2c+x) \\
+        &= (2cx^2-4xc^2+2c^3+x^3-2cx^2+xc^2) \\
+        &= x^3-3xc^2+2c^3
+    \end{align*}
+
+    With $(2c+x) = 0$, we see that $x={-2}c$.
+
+    So, the valid $x$ are $x = c$ and $x = {-2}c$.
+
+    With the first $x$, we reobtain the given point $(c,c^3a)$.
+
+    However, with the latter $x$, we get the second intersection point on $f$,
+    \[({-2}c,{-8}c^3).\] 
+\end{proof}
+
+
+\end{document}

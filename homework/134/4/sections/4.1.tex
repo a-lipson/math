@@ -1,0 +1,129 @@
+\documentclass[../hw4.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{29}
+A number $c$ is called a fixed point of $f$ if $f(c) = c$. 
+Prove the proposition.
+%HINT: Form $g(x) = f (x) − x$.
+
+\begin{proposition}
+    If $f$ is differentiable on an interval $I$ and $f'(x) < 1$ for all $x \in I$, 
+    then $f$ has at most one fixed point in $I$. 
+\end{proposition}
+
+\begin{proof}
+    For a contradiction, assume that $f$ has two fixed points on $I$.
+
+    Define $g(x) = f(x) - x$ so that when $x$ is a fixed point of $f$, $g = 0$.
+
+    Since $f$ is differentiable, on $I$, it is also continuous on $I$. So, $g$ as the sum of a two continuous functions is also continuous.
+
+    Similarly, since $f$ and $-x$ are both differentiable, $g$ is differentiable.
+
+    So, \[g'(x) = f'(x) - 1.\]
+
+    But, $f'(x) < 1$ was given. So, \[g'(x) < 0.\]
+
+    Then, by the assumption, if $f$ has two fixed points on $I$, then $g$ has two zeros on $I$. 
+
+    Let $a,b \in I$ be defined such that $g(a)=g(b)=0$.
+
+    Then, there exists $c$ in $I$ between $a$ and $b$ such that $g'(c) = 0$ by Rolle's Theorem.
+
+    But, $g'(x) < 0$ and $g'(c) = 0$ is a contradiction.
+
+    So the proposition is true.
+\end{proof}
+
+
+\subsection*{34}
+Show that the proposition (2) holds.
+%Show that the equation $x^n + ax + b = 0$, $n$ an odd positive integer, has at most three distinct real roots.
+
+% \begin{proposition}[1]\label{proposition:one}
+%     If $m = 2n : n \in \mathbb{Z}$ and $y^m = x$, then $y = \pm \sqrt[m]{x}$.
+% \end{proposition}
+
+% \begin{proof}[Proof of (1).]
+%     We will prove the proposition using induction.
+
+%     For the base case, when $m=2$,
+%     \begin{align*}
+%         y^2 &= x \\
+%         \sqrt{y^2} &= \sqrt{x} \\
+%         |y| &= \sqrt{x} \\
+%         y &= \pm \sqrt{x} \\
+%     \end{align*}
+
+%     Assume that the proposition holds for an even $k$ and $m=k$ by the inductive hypothesis.
+
+%     For the inductive step, we let $m=k+2$,
+%     \begin{align*}
+%         y^{k+2} &= x \\
+%         {\left( y^{k+2} \right)}^{\frac{1}{k+2}} &= x^{\frac{1}{k+2}} \\
+%         %\sqrt[k+2]{y^{k+2}} &= \sqrt[k+2]{x} \\
+%         {\left( y^{k}y^{2} \right)}^{\frac{1}{k+2}} &= x^{\frac{1}{k+2}} \\
+%         {\left(y^k\right)}^{\frac{1}{k+2}} {\left(y^2\right)}^{\frac{1}{k+2}} &= x^{\frac{1}{k+2}} \\
+%         y^{\frac{k}{k+2}} y^{\frac{2}{k+2}} &= x^{\frac{1}{k+2}} \\
+%         y^{\frac{k+2-2}{k+2}} y^{\frac{2}{k+2}} &= x^{\frac{1}{k+2}} \\
+%         y^{1-\frac{2}{k+2}} y^{\frac{2}{k+2}} &= x^{\frac{1}{k+2}} \\
+%     \end{align*}
+% \end{proof}
+
+\begin{proposition}%[2]
+    If $f(x) = x^m+ax+b$, and $m = 2n+1 : n \in \mathbb{Z}^+$, then $f$ has at most three distinct real roots.
+\end{proposition}
+
+\begin{proposition}[1]
+    If $g$ is a differentiable function and $g'$ has no more than $k$ roots, then $g$ has no more than $k+1$ roots.
+\end{proposition}
+
+\begin{proof}[Proof of (1).]
+    For a contradiction, assume that $g$ has $k+2$ roots.
+
+    Then, by Rolle's Theorem, $g'$ has $k+1$ roots, contradiction the assumption that $g'$ had $k$ roots.
+\end{proof}
+
+\begin{proof}%[Proof of (2).]
+    First, we will differentiate $f$ twice.
+    \begin{align*}
+        f(x) &= x^m+ax+b \\
+        f'(x) &= mx^{m-1}+a \\
+        f''(x) &= m(m-1)x^{m-2} \\
+    \end{align*}
+
+    If $m=1$, then $f$ is a linear function $(1+a)x+b$, which only has one root, so the proposition holds. So, we continue with all positive odd integers such that $m>1$.
+
+    We see that $f''$ can only have one root at $x=0$.
+
+    Therefore, by proposition (1), $f'$ has no more than two roots.
+
+    Similarly, since $f'$ has no more than two roots, $f$ has no more than three roots, again by proposition (1).
+ 
+    Therefore $f$ has at most three distinct roots.
+    % For a contradiction, assume that $f$ has four roots. 
+
+    % Then, by Rolle's Theorem, there are three unique values $x_1,x_2,x_3$ such that $f'(x_1)=f'(x_2)=f'(x_3)=0$.
+
+    % Next, we differentiate $f$, \[f'(x) = mx^{m-1}+a.\]
+
+    % Then, we find the roots of $f'$,
+    % \begin{align*}
+    %     mx^{m-1}+a &= 0 \\
+    %     x^{m-1} &= \frac{-a}{m}
+    % \end{align*}
+
+    % Since $m$ is odd, then $m-1$ is even. So, by proposition (1),
+    % \[x = \pm {\left( \frac{-a}{m} \right)}^{\frac{1}{m-1}}.\]
+
+    % Therefore, $f'(x)$ has at most two real $x$\footnote{If $a$ = 0, then $f'$ has one root $x=0$.} such that $f'(x) = 0$, which contradicts the fact that $f'$ has three values of $x$ such that $f'(x) = 0$.
+    
+    % Therefore, by contradiction, the proposition holds.
+
+    % % QUESTION can we use Rolle backwards, e.g. one f'=0 implies f has two roots?
+\end{proof}
+
+
+
+\end{document}

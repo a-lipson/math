@@ -1,4 +1,5 @@
 {
+	"no trailing commas!": {},
 	"setup subfile document": {
 		"prefix": "subdoc",
 		"body": [
@@ -8,8 +9,8 @@
 			"",
 			"",
 			"",
-			"\\end{document}",
-		],
+			"\\end{document}"
+		]
 	},
 
 	"setup root document": {
@@ -63,13 +64,12 @@
 			"",
 			"\\begin{enumerate}",
 			"    \\item \\subfile{sections/1}",
-			"    \\item \\subfile{sections/2}",
-			"    \\item \\subfile{sections/3}",
-			"	$4",				
+			"    %\\item \\subfile{sections/2}",
+			"    %\\item \\subfile{sections/3}",				
 			"\\end{enumerate}",
 			"",
 			"",
-			"\\end{document}",
+			"\\end{document}"
 		]
-	},
+	}
 }

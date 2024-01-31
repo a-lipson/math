@@ -5,7 +5,8 @@
             "label": "Create New Project",
             "type": "shell",
             // fix hardcoded location
-            "command": "cd homework/135 && mkdir ${input:projectName} && cd ${input:projectName} && mkdir sections && echo 'rootdoc' > ${input:projectName}${input:projectType}.tex",
+            // "command": "cd homework/135 && mkdir ${input:projectName} && cd ${input:projectName} && mkdir sections && echo 'rootdoc' > ${input:projectName}${input:projectType}.tex",
+            "command": "./.vscode/createNewProject.sh ${input:projectName} ${input:projectType}",
             "problemMatcher": []
         },
         {
@@ -27,10 +28,17 @@
                 }
             ],
             "presentation": {
-                "reveal": "always",
-                "panel": "new"
+                "reveal": "never",
+                "revealProblems": "onProblem",
+                "panel": "shared"
             }
         },
+        {
+            "label": "Test Task",
+            "type": "shell",
+            "command": "./.vscode/test.sh ${fileDirname}",
+            "problemMatcher": []
+        }
     ],
     "inputs": [
         {

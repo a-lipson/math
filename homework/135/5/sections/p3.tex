@@ -1,0 +1,60 @@
+\documentclass[../hw5]{subfiles}
+
+\begin{document}
+
+First the first three Picard approximations of the system of differential equations,
+\begin{align*}
+    x'(t)&=t+y^2\quad &x(0)=0, \\
+    y'(t)&=x-t\quad &y(0)=1. \\
+\end{align*}
+
+We first notice that $t_0=0$, $x_0=0$, and $y_0=1$.
+
+For a parametric system of differential equations, the Picard approximations are given by
+\begin{align*}
+    x_n&=x_0+\int_{t_0}^{t}f_1[t,x_{n-1}(t)y_{n-1}(t)]\,dt, \\
+    y_n&=y_0+\int_{t_0}^{t}f_2[t,x_{n-1}(t)y_{n-1}(t)]\,dt,
+\end{align*} 
+where $x'(t)=f_1(t,x(t),y(t))$ and $y'(t)=f(t,x(t),y(t))$.
+
+We start with the first pair of approximations,
+\begin{align*}
+    x_1(t)&=0+\int_{0}^{t}(t+1^2)\,dt \\
+    &={\left[ t+\frac{t^2}{2} \right]}_{0}^{t} \\
+    &=t+\frac{t^2}{2}+t, \\
+\end{align*}
+and
+\begin{align*}
+    y_1(t)&=1+\int_{0}^{t}(0-t)\,dt \\
+    &=1-{\frac{t^2}{2}}_{0}^{t} \\
+    &=1-\frac{t^2}{2}. \\
+\end{align*}
+
+We continue recursively as before, 
+\begin{align*}
+    x_2(t)&=0+\int_{0}^{t}\left( t+{\left( 1-\frac{t^2}{2} \right)}^2 \right)\,dt \\
+    &=\int_{0}^{t} \left( 1+t-t^2+\frac{t^4}{4} \right)\,dt \\
+    &= {\left[ t+\frac{t^2}{2}-\frac{t^3}{3}+\frac{t^5}{20} \right]}_{0}^{t} \\
+    &= t+\frac{t^2}{2}-\frac{t^3}{3}+\frac{t^5}{20}, \\
+\end{align*}
+and
+\begin{align*}
+    y_2(t)&=10y\int_{0}^{t}\left( t+\frac{t^2}{2}-t \right)\,dt \\
+    &=1+\frac{t^3}{6}\bigg\vert_{0}^{t} \\
+    &=1+\frac{t^3}{6}. \\
+\end{align*}
+
+Finally,
+\begin{align*}
+    x_3(t)&=0+\int_{0}^{t}\left( t+{\left( 1+\frac{t^3}{6} \right)}^2 \right)\,dt \\
+    &= \int_{0}^{t}\left( 1+t+\frac{t^3}{3}+\frac{t^6}{36} \right)\,dt \\
+    &= t+\frac{t^2}{2}+\frac{t^4}{12}+\frac{t^7}{252}, \\
+\end{align*}
+and
+\begin{align*}
+    y_3(t)&=1+\int_{0}^{t}\left( t+\frac{t^2}{2}-\frac{t^3}{3}+\frac{t^5}{20}-t \right)\,dt \\
+    &= 1+{\left[ \frac{t^3}{6}-\frac{t^4}{12}+\frac{t^6}{120} \right]}_0^x.
+\end{align*}
+
+
+\end{document}

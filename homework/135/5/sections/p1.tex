@@ -1,0 +1,154 @@
+\documentclass[../hw5]{subfiles}
+
+\begin{document}
+
+Solve the differential equations and check the solution.
+\begin{enumerate}[label= (\alph*)]
+    \item $y'=x-4xy$
+    
+    We begin by reorganizing the equation to the form $y'+p(x)y=q(x)$ in order to arrive at the solution via the method of integrating factors. S.H.E. 9.1.2 Provides that, with $H(x)=\int p(x)\,dx$,
+    \[y(x)=e^{-H(x)}\left[ \int e^{H(x)}q(x)\,dx \right],\] with a constant of integration after the evaluation of the indefinate integral.
+
+    So, $y'+4xy=x$ gives \[H(x)=\int 4x\,dx=2x^2.\]
+
+    Then,
+    \begin{align*}
+        y(x)&=e^{-2x^2}\left[ \int xe^{2x^2}\,dx \right] \\
+        &=e^{-2x^2}\left[ \frac{1}{4}\int e^u\,du \right] \\
+        &=e^{-2x^2}\left( \frac{e^{2x^2}}{4}+c \right) \\
+        &=ce^{-2x^2}+\frac{1}{4}. \\
+    \end{align*}
+
+    
+    We verify this result by taking the derivative of our solution, 
+    \[y'=\frac{d}{dx}\left[ ce^{-2x^2}+\frac{1}{4} \right]=-4cxe^{-2x^2},\]
+    and then matching it with the equation for $y$ above,
+    \begin{align*}
+        y'&=x-4xy\\
+        -4cxe^{-2x^2}&=x-4x\left( ce^{-2x^2}+\frac{1}{4} \right) \\
+        &=x-4cxe^{-2x^2}-\frac{4x}{4} \\
+        &=-4cxe^{-2x^2}. \\
+    \end{align*}
+
+    This statement is true, and therefore we have arrived at a valid general solution.
+
+    \item $y'=\csc{x}+y\cot{x}$
+    
+    Again, we will put the first order linear differential equaition into standard form such that we can use the form provided by S.H.E. 9.1.2.
+
+    With $y'-y\cot{x}=\csc{x}$, we will need $H(x)=\int-\cot{x}\,dx=-\ln{\sin{x}}$.
+
+    Then,
+    \begin{align*}
+        y(x)&=e^{\ln{\sin{x}}}\left[ \int \csc{x}e^{-\ln{\sin{x}}}\,dx \right] \\
+        &=\sin{x}\left[ \int-\frac{dx}{\sin{x}e^{\ln{\sin{x}}}} \right] \\
+        &=\sin{x}\left[ \int-\csc^2{x}\,dx \right] \\
+        &=\sin{x}\left( -\cot{x}+c \right) \\
+        &=c\sin{x}-\cos{x}. \\
+    \end{align*}
+
+    We diffentiate our solution,
+    \[y'(x)=c\cos{x}+\sin{x}.\]
+
+    We compare this to the given form for $y'(x)$,
+    \begin{align*}
+        y'(x)&=\csc{x}+y\cot{x}\\
+        c\cos{x}+\sin{x}&=\csc{x}+(c\sin{x}-\cos{x})\cot{x}\\
+        &=\frac{1}{\sin{x}}+c\cos{x}-\frac{\cos^2{x}}{\sin{x}}\\
+        &=\frac{1-\cos^2{x}}{\sin{x}}+c\cos{x}\\
+        &=\frac{\sin^2{x}}{\sin{x}}+c\cos{x} \\
+        &=\sin{x}+c\cos{x}. \\
+    \end{align*}
+
+    We see that the statement is true and so the general solution is valid.
+
+    \item $x^2y'+2xy=8x^3$
+    
+    We put this equation into standard form and proceed with the methods used in the previous problems,
+    \[y'+\frac{2}{x}y=8x.\]
+
+    With, $\int p(x)\,dx=\int\frac{2}{x}\,dx=2\ln{x}$,
+    \begin{align*}
+        y(x)&=e^{-2\ln{x}}\left[ \int 8xe^{2\ln{x}}\,dx \right] \\
+        &=\frac{1}{x^2}\left[ \int 8x^3\,dx \right] \\
+        &=\frac{1}{x^2}\left( 2x^4+c \right) \\
+        &=2x^2+\frac{c}{x^2}. \\
+    \end{align*}
+
+    To check this $y$, we differentiate,
+    \[y'(x)=4x-\frac{2c}{x^3}.\]
+
+    Then we compare, with the given differential equation where $y'$ is isolated,
+    \begin{align*}
+        4x-\frac{2c}{x^3}&=8x-\frac{2}{x}\left( 2x^2+\frac{c}{x^2} \right) \\
+        &=8x-4x-\frac{2c}{x^3} \\
+        &=4x-\frac{2c}{x^3}, \\
+    \end{align*}
+    which is true, so the general solution holds as well.
+
+    \item $y'=xe^{y-x^2}, \quad y(0)=0$
+    
+    This is a separable differential equation. We also have an initial condition that will pin the single constant at a fixed number.
+
+    We rewrite the equation with regards to differentials $\frac{dy}{dx}$, 
+    \begin{align*}
+        \frac{dy}{dx}&=\frac{xe^y}{e^{x^2}} \\
+        \int\frac{dy}{e^y}&=\int\frac{x\,dx}{e^{x^2}} \\
+        -e^{-y}&=-\frac{1}{2}\int e^u\,du \\
+        e^{-y}&=\frac{1}{2}e^u+c \\
+        e^{-y}&=\frac{1}{2}e^{-x^2}+c \\
+        -y&=\ln{\left( \frac{1}{2}e^{-x^2}+c \right)} \\
+        y&=-\ln{\left( \frac{1}{2}e^{-x^2}+c \right)}. \\
+    \end{align*}
+
+    We then consider the initial condition $y(0)=0$,
+    \begin{align*}
+        0&=-\ln{\left( \frac{1}{2}e^{-0^2}+c \right)} \\
+        0&=-\ln{\left( \frac{1}{2}+c \right)} \\
+        1&=\frac{1}{2}+c \\
+        \frac{1}{2}=c. \\
+    \end{align*}
+
+    So, we have the solution,
+    \begin{align*}
+        y(x)&=-\ln{\left( \frac{1}{2}(1+e^{-x^2}) \right)} \\
+        &=\ln{2}-\ln{\left( 1+e^{-x^2} \right)}. \\
+    \end{align*}
+
+    We can verify this solution in the same manner as previous problems.
+
+    First, we differentiate our solution,
+    \begin{align*}
+        y'(x)&=\frac{d}{dx}\left[ \ln{2}-\ln{\left( 1+e^{-x^2} \right)} \right] \\
+        &=-\frac{-2xe^{-x^2}}{1+e^{-x^2}} \\
+        &=\frac{2x}{1+e^{x^2}}. \\
+    \end{align*}
+
+    Then we compare it to the given $y'$ with our derived solution $y$,
+    \begin{align*}
+        y'(x)&=\frac{xe^{\left( \ln{2}-\ln{\left( 1+e^{-x^2} \right)} \right)}}{e^{x^2}} \\
+        &=\frac{xe^{\ln{2}}}{e^{x^2}e^{\ln{\left( 1+e^{-x^2} \right)}}} \\
+        &=\frac{2x}{e^{x^2}\left( 1+e^{-x^2} \right)} \\
+        &=\frac{2x}{1+e^{x^2}}. \\
+    \end{align*}
+
+    Since both $y'$ match, we confirm that we have arrived at a valid general solution.
+
+    \item $(x+yx)\,dx=(x^2y^2+x^2+y^2+1)\,dy$
+    
+    We rearrange the terms to reveal that this equation is separable.
+    \begin{align*}
+        (x+yx)\,dx&=(x^2y^2+x^2+y^2+1)\,dy \\
+        x(y+1)\,dx&=(x^2+1)(y^2+1)\,dy \\
+        \int\frac{x\,dx}{x^2+1}&=\int\frac{y^2+1}{y+1}\,dy \\
+        \frac{1}{2}\int\frac{du}{u}&=\int\frac{{(y+1)}^2-2y}{y+1}\,dy \\
+        \frac{\ln{u}}{2}+c/2&=\int\left( y+1-\frac{2(y+1)-2}{y+1} \right)\,dy \\
+        \frac{\ln{(x^2+1)}}{2}+c/2&=\int\left( y+1-2+\frac{2}{y+1} \right)\,dy\\
+        &=\int\left(y-1+\frac{2}{y+1}\right)\,dy \\
+        &=\frac{y^2}{2}-y+2\ln{(y+1)} \\
+        \ln{(x^2+1)}+c&=y^2-2y+4\ln{(y+1)} \\
+    \end{align*}
+
+\end{enumerate}
+
+\end{document}

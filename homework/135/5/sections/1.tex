@@ -2,6 +2,54 @@
 
 \begin{document}
 
-The equation $y'+P(x)y=Q(x)y^n$ is called the Bernoulli equation. It becomes a linear equation after the change of variable $y^{1-n}=z$. Soylve the equation $y(6y^2-x-1)\,dx+2x\,dy=0$ using this idea.
+The equation $y'+P(x)y=Q(x)y^n$ is called the Bernoulli equation. It becomes a linear equation after the change of variable $y^{1-n}=z$. Solve the equation $y(6y^2-x-1)\,dx+2x\,dy=0$ using this idea.
+
+First, we rearrange the equation to the given form,
+\begin{align*}
+    y(6y^2-x-1)\,dx+2x\,dy&=0\\
+    -2x\frac{dy}{dx}&=6y^3-y(x+1)\\
+    y'-\frac{x+1}{2x}y&=-\frac{3}{x}y^3.\\
+\end{align*}
+
+We see that this is a Bernoulli differential equation of degree three.
+
+We will perform the substitution with $y^{1-n}=y^{1-3}=y^{-2}=z$ to find $y$ and $y'$ in $z$,
+\begin{align*}
+    y^{-2}&=z\\
+    y&=z^{-1/2}\\
+    y'&=-\frac{1}{2}z^{-3/2}z'.\\
+\end{align*}
+
+We then rewrite the DE in $z$,
+\begin{align*}
+    -\frac{1}{2}z^{-3/2}z'-\frac{x+1}{2x}\left( z^{-1/2} \right)&=-\frac{3}{x}{\left( z^{-1/2} \right)}^3\\
+    -\frac{z'}{2}-\frac{x+1}{2x}z&=-\frac{3}{x}\\
+    z'+\frac{x+1}{x}z&=\frac{6}{x}.\\
+\end{align*}
+
+We can use the method of an integrating factor to solve this first order linear differential equation.
+
+Let \[\mu=e^{\int \frac{x+1}{x}\,dx}=e^{x+\ln{x}}=xe^x.\]
+
+Then,
+\begin{align*}
+    \mu z'+\mu\frac{x+1}{x}z&=\mu\frac{6}{x}\\
+    xe^x z'+e^x(x+1)z&=6e^x\\
+    \frac{d}{dx}\left[ xe^x z \right]&=6e^x\\
+    xe^x z&=\int 6e^x\,dx\\
+    xe^x z&=6e^x+c\\
+    z&=\frac{6e^x+c}{xe^x}.\\
+\end{align*}
+
+But recall that $y^{-2}=z$. So,
+\begin{align*}
+    y^{-2}&=\frac{6e^x+c}{xe^x}\\
+    y^2&=\frac{xe^x}{6e^x+c}\\
+    y&=\pm\sqrt{\frac{xe^x}{6e^x+c}}\\
+    y&=\pm\sqrt{\frac{x}{6+ce^{-x}}},\\
+\end{align*}
+which is the general solution to our differential equation.
+
 
 \end{document}
+

@@ -71,5 +71,11 @@
 			"",
 			"\\end{document}"
 		]
+	},
+	"limit to infinity": {
+		"prefix": "liminf",
+		"body": [
+			"\\lim\\limits_{$1\\to\\infty}$2"
+		]
 	}
 }

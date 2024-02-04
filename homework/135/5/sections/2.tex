@@ -4,4 +4,92 @@
 
 Let $I=[0,1]$ and $Y_n(t)=t^n$. Show that the sequence $(Y_n)$ is not Cauchy by computing $||Y_n-Y_m||$.
 
+Fix $n,m\in\mathbb{Z}^+$ such that $n>m$.
+
+Let $k$ be the difference between the two indices, $k=n-m$ such that $k>0$.
+
+Then,
+\begin{align*}
+    ||Y_n-Y_m||&=\underset{t\in I}{\max}|t^n-t^m|\\
+    &=\underset{t \in I}{\max}\left[ t^m\big|t^k-1\big| \right].
+\end{align*}
+But, \[0\leq t^k\leq 1,\quad \forall k \in\mathbb{Z}^+, \forall t \in [0,1] = I.\]
+
+So, \[||Y_n-Y_m||=\underset{t \in I}{\max}\left[ t^m\left( 1-t^k \right) \right].\]
+
+We then wish to find the extrema of this function $t^m\left( 1-t^k \right)$.
+\begin{align*}
+    0&=\frac{d}{dt}\left[ t^m\left( 1-t^k \right) \right]\\
+    &=mt^{m-1}\left( 1-t^k \right)+t^m\left( -kt^{k-1} \right)\\
+    &=t^{m-1}\left[ m\left( 1-t^k \right) +t\left( -kt^{k-1} \right)\right]\\
+    &=t^{m-1}\left[ m-mt^k-kt^k \right]\\
+    &=t^{m-1}\left[ m-(m+k)t^k \right],\\
+\end{align*}
+which occurs when either,
+\[t^{m-1}=0 \implies t=0,\]
+or,
+\begin{align*}
+    m-(m+k)t^k&=0\\
+    t^k&=\frac{m}{m+k}\\
+    t&={\left( \frac{m}{m+k} \right)}^{1/k}.\\
+\end{align*}
+
+We evaluate the function at the endpoints $0,1$ and the extrema $0,{\left( \frac{m}{m+k} \right)}^{1/k}$.
+We see that, at $0$ and $1$, the function becomes zero. So, at the last critical point, when $t={\left( \frac{m}{m+k} \right)}^{1/k}$,
+\begin{align*}
+    &{\left( \frac{m}{m+k} \right)}^{\frac{m}{k}}\left( 1-{\left( \frac{m}{m+k} \right)}^{\frac{k}{k}} \right)\\
+    =&{\left( \frac{m}{m+k} \right)}^{\frac{m}{k}}\left( \frac{k}{m+k} \right).\\
+\end{align*}
+
+Now, we will consider the value of the function as $k$, the gap between $n$ and $m$, grows large.
+\[\lim\limits_{k\to\infty}\left[ {\left( \frac{m}{m+k} \right)}^{\frac{m}{k}}\left( \frac{k}{m+k} \right) \right].\]
+
+We will consider each term in the limit separately and show that they both exist and are finite.
+
+With
+\[\lim\limits_{k\to\infty}\frac{k}{m+k},\]
+we have a limit of indeterminate form. We apply L'Hôpital's Rule,
+\[\lim\limits_{k\to\infty}\frac{1}{1}=1.\]
+
+Next, for
+\begin{align*}
+    &\lim\limits_{k\to\infty}{\left( \frac{m}{m+k} \right)}^{\frac{m}{k}}\\
+    =&{\left[ \lim\limits_{k\to\infty}{\left( \frac{m}{m+k} \right)}^{1/k} \right]}^m,\\
+\end{align*}
+we will show that the numerator and denominator are both finite and nonzero so that the limit of the quotient is equal to the quotient of the limits.
+
+The numerator, $\lim\limits_{k\to\infty}m^{1/k}=1, \quad m>0$ by S.H.E 11.4.1.
+
+For the denominator, we know that $\lim\limits_{k\to\infty}\frac{\ln{k}}{k}=0$ by S.H.E. 11.4.1.
+
+So,
+\begin{align*}
+    \lim\limits_{k\to\infty}\frac{\ln{(m+k)}}{k}&=\lim\limits_{k\to\infty}\frac{\ln{m}\ln{k}}{k}\\
+    &=\ln{m}\lim\limits_{k\to\infty}\frac{\ln{k}}{k}\\
+    &=\ln{m}\cdot 0\\
+    &=0.
+\end{align*}
+Since,
+\[{(m+k)}^{1/k}=e^{\ln{\left( {(m+k)}^{1/k} \right)}}=e^{\frac{\ln{(m+k)}}{k}}.\]
+Then,
+\begin{align*}
+    \lim\limits_{k\to\infty}{(m+k)}^{1/k}&=\lim\limits_{k\to\infty}e^{\frac{\ln{(m+k)}}{k}}\\
+    &=e^{\lim\limits_{k\to\infty}\frac{\ln{(m+k)}}{k}}\\
+    &=e^0\\
+    &=1.\\
+\end{align*}
+
+Since the limit of the numerator and denominator are both one, then the limit of their quotient is also one.
+
+Since the both limits in the original product exist and equate to one, then,
+\[{\left[ \lim\limits_{k\to\infty}{\left( \frac{m}{m+k} \right)}^{1/k} \right]}^m=1^m=1.\]
+
+We had that,
+\[||Y_n-Y_m||=\underset{t\in I}{\max}\left[ t^m\left( 1-t^k \right) \right],\]
+
+So, for $k\to\infty$,
+\[||Y_n-Y_m||=\underset{t\in I}{\max}\left[ t^m\left( 1-t^k \right) \right]={\left( \frac{m}{m+k} \right)}^{\frac{m}{k}}\left( \frac{k}{m+k} \right)\to1.\]
+
+Since $||Y_n-Y_m||$ goes to one as $n-m$ goes to infinity, then $||Y_n-Y_m||$ cannot be less than any number $\epsilon$ for some large number $N$ with any $n,m\geq N$. So, the sequence $(Y_n)$ does not meet the definition of Cauchy and is therefore not a Cauchy sequence.
+
 \end{document}

@@ -9,4 +9,38 @@ So $f_1(t)=\cos{(t)}+\frac{1}{2}\sin{(t)}e^t,\quad f_2(t)=\cos{(t)}+\frac{1}{2}\
 
 Show that $f_n$ converges uniformly to a continuous function and find the limit $\lim\limits_{n\to\infty}f_n$.
 
+We will show that $f_n$ is a contraction map. 
+
+We consider, $||f_n(Y_1)-f_n(Y_2)||$, where $Y_1$ and $Y_2$ are two arbitrary functions in $\mathcal{F}$, defined as a subset of $C$, which is the set of all continuous functions on $I$, that meets the following conditions,
+%F = {Y ∈ C : Y (t0) = y0, and |Y (t) − y0| ≤ b for all t ∈ I} .
+\[\mathcal{F}=\{Y\in C : Y(t_0)=y_0, \text{ and } |Y(t)-y_0|\leq b \quad \forall t \in I\}.\]
+
+Then,
+\begin{align*}
+    ||f_n(Y_1)-f_n(Y_2)||&=\underset{t\in I}{\max}|f_n(Y_1)-f_n(Y_2)|\\
+    &=\underset{t\in I}{\max}\Bigg|\cos{(t)}+\frac{1}{2}\sin{(t)}Y_1-\left( \cos{(t)}+\frac{1}{2}\sin{(t)}Y_2 \right)\Bigg|\\
+    &=\underset{t\in I}{\max}\Bigg|\frac{\sin{(t)}}{2}(Y_1-Y_2)\Bigg|\\
+    &=\frac{1}{2}\underset{t\in I}{\max}\big|Y_1-Y_2\big|\\
+    &=\frac{1}{2}||Y_1-Y_2||.\\
+\end{align*}
+
+So, by the definition of the contraction map, if we choose $K=1/2$, then $0<K<1$ and
+\[||f_n(Y_1)-f_n(Y_2)||\leq K||Y_1-Y_2.\]
+So, $f_n$ is a contraction map.
+
+Since $f_n$ is a contraction map, then $f_n$ is Cauchy. Since $f_n$ is Cauchy, then $f_n$ converges uniformly to a function $f$. Since $f_n$ converges uniformly to $f$, then,
+\[f(t)=\lim\limits_{n\to\infty}f_n(t).\]
+
+% So, \[\lim\limits_{n\to\infty}f_n(t)=\lim\limits_{n\to\infty}f_{n+1}(t)=f(t).\]
+
+By Theorem 3 in the Cauchy Sequences of Functions handout, $f(t)$ is a fixed point of $f_n(t)$. 
+
+So,
+\begin{align*}
+    % \lim\limits_{n\to\infty}f_{n+1}(t)&=\lim\limits_{n\to\infty}\left[ \cos{t}+\frac{1}{2}\sin{t}f_n(t) \right]\\
+    f(t)&=\cos{t}+\frac{1}{2}\sin{t}f(t)\\
+    f(t)\left( 1-\frac{1}{2}\sin{t} \right)&=\cos{t}\\
+    f(t)&=\frac{\cos{t}}{1-\frac{1}{2}\sin{t}}.\\
+\end{align*}
+
 \end{document}

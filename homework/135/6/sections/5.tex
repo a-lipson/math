@@ -1,0 +1,72 @@
+\documentclass[../hw6]{subfiles}
+
+\begin{document}
+
+\subsection*{23.16}
+
+Find the general solution to $x^2y''-2y=2x^2$ given $y_1=x^2$.
+
+We proceed using the method of reduction of order.
+
+With the form $f_2(x)y''+f_1(x)y'+f_0(x)y=0$ from TP 23.14, 
+we see that $f_2(x)=x^2$, $f_1(x)=0$ and $f_0(x)=-2$.
+
+Then, by TP 23.28,
+\[y_2=y_1\int\frac{e^{-\int\frac{f_1(x)}{f_2(x)}\,dx}}{y_1^2}\,dx.\]
+
+So, with $y_1=x^2$,
+\begin{align*}
+    y_2&=x^2\int\frac{e^{-\int\frac{0}{x^2}\,dx}}{x^4}\,dx\\
+    &=x^2\int\frac{dx}{x^4}\\
+    &=x^2\frac{1}{-3x^3}\\
+    &=\frac{1}{-3x}.\\
+\end{align*}
+
+We construct the homogeneous solution with this $y_2$,
+\[y_h=c_1x^2+c_2x^{-1}.\]
+
+Then, we place the differential equation into standard form,
+\[y''-2x^{-2}y=2\]
+and proceed with the technique of variation of parameters.
+
+Let $y_1=x^2$, $y_2=x^{-1}$, and $g(x)=2$.
+
+Then, \[y_p=u_1y_1+u_2y_2\] where
+\begin{align*}
+    u_1&=\int\frac{-u_2g(x)}{W(y_1,y_2)}\,dx,\\
+    u_2&=\int\frac{u_1g(x)}{W(y_1,y_2)}\,dx.\\
+\end{align*}
+
+First, we compute the Wronskian of the two solutions found in the homogeneous solution,
+\begin{align*}
+    W(x^2, x^{-1}) &= \begin{vmatrix}
+        x^2 & x^{-1} \\
+        2x & -x^{-2}
+    \end{vmatrix} \\
+    &=-x^2\cdot x^{-2}-2x\cdot x^{-1} \\
+    &= -1-2 \\
+    &= -3. \\
+\end{align*}
+
+Then, we compute $u_1$,
+\begin{align*}
+    u_1&=\int\frac{-x^{-1}\cdot 2}{-3}\,dx \\
+    &=\frac{2}{3}\int\frac{dx}{x} \\
+    &=\frac{2}{3}\ln{x}. \\
+\end{align*}
+
+Similarly, we compute $u_2$
+\begin{align*}
+    u_2&=\int\frac{x^2\cdot 2}{-3}\,dx \\
+    &=-\frac{2}{9}x^3. \\
+\end{align*}
+
+So, we combine to get,
+\[y_p=\frac{2}{3}x^2\ln{x}-\frac{2}{9}x^2.\]
+
+When combining $y_h$ and $y_p$, we see that $y_h$ already contains an arbitrary constant for an $x^2$ term, so we only need to consider the $\frac{2}{3}x^2\ln{x}$ part of the particular solution.
+
+Thus, our general solution is,
+\[y=c_1x^2+c_2x^{-1}+\frac{2}{3}x^2\ln{x}.\]
+
+\end{document}

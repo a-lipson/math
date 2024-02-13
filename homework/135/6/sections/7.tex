@@ -1,0 +1,44 @@
+\documentclass[../hw6]{subfiles}
+
+\begin{document}
+
+Let $y_1$ and $y_2$ be solutions to 
+\begin{equation*}
+    y''+py'+qy=0 \tag{*}
+\end{equation*}
+where $p,q$ continuous on $I=(a,b)$.
+
+Show that if there as a point in $I$ where $y_1$ and $y_2$ are both zero or where both have maxima or minima, then $y_1$ and $y_2$ are linearly dependent. 
+
+We will show that there exists a $c \in I$ such that, if either 
+\[y_1(c)=y_2(c)=0,\tag{a}\] or 
+\[{y'}_1(c)={y'}_2(c)=0\tag{a}\] and ${y''}_1(c)\neq0$ and ${y''}_2(c)\neq0$, 
+then $y_1$ and $y_2$ are linearly dependent.
+
+For a contradiction, assume that $y_1$ and $y_2$ are linearly independent solutions to (*). 
+
+So, the Wronskian of $y_1$ and $y_2$ is non zero for all $t\in I$.
+\[0 \neq W(y_1, y_2) = \begin{vmatrix}
+    y_1 & y_2 \\
+    y_1' & y_2'
+\end{vmatrix}
+= y_1 y_2' - y_1'y_2.\]
+
+Then, for case (a), \[y_1(c)=y_2(c)=0\] implies that
+\[y_1(c)y_2'(c) - y_1'(c)y_2(c)=0.\]
+
+But, \[y_1 y_2' - y_1'y_2\neq0\] for all $t\in I$ by the assumption that the solutions $y_1$ and $y_2$ were linearly independent.
+
+Therefore $y_1$ and $y_2$ are linearly dependent and also constant multiples of each other.
+
+Next, for case (b), \[y_1'(c)=y_2'(c)=0\] implies that 
+\[y_1(c)y_2'(c) - y_1'(c)y_2(c)=0.\]
+
+But, this contracts the assumption of the linear independence of the solutions.
+
+The non-zero second derivative condition was not necessary. 
+
+So, we have shown that if there exists a $c$ such that the solutions are both zero at $c$, or both attain a critical point at $c$, then the two solutions are linearly dependent and therefore constant multiples of one another.
+
+
+\end{document}

@@ -1,4 +1,7 @@
 {
     // disabled for latex work
-    "editor.fontLigatures": false
+    "editor.fontLigatures": false,
+    "cSpell.words": [
+        "Wronskian"
+    ]
 }

@@ -1,0 +1,33 @@
+\documentclass[../hw6]{subfiles}
+
+\begin{document}
+
+\subsection*{21.30}
+
+Find the general solution to $y'''-2y''+y'=2e^x+2x$ with the initial conditions $y(0)=y'(0)=y''(0)=0$.
+
+Then, via the characteristic equation, the homogeneous solution is
+\[y_h=c_1e^x+c_2xe^x+c_3\]
+
+Since the characteristic equation contains a root of degree two and the non-homogeneous equation contains an $e^x$ term, the form of the particular solution is given by two degrees above the highest degree present in the homogeneous solution,
+\[y_p=A+Bx+Cx^2+Ex^2e^x+Fx^3e^x.\]
+
+Then, we also have
+\[u_p'=B+2Cx+(Ex^2+2Ex)e^x+(Fx^3+3Ex^2)e^x,\]
+and
+\[u_p''=2C+(Ex^2+4Ex+2x)e^x+(Fx^3+6Fx^2+6Fx)e^x.\]
+
+Then, 
+\begin{align*}
+u_p''-2u_p'+u_p&=2e^x+2x\\
+A+Bx+Cx^2-2B-4Cx+2C+2Ee^x+5Fxe^x&=2e^x+2x\\
+(A-2B+2C)+(B-4C)x+Cx^2+2Ee^x+5Fxe^x&=2e^x+2x.\\
+\end{align*}
+
+The system of equations yields\footnote{Did not have time to finish typing up the solution.}\dots
+
+The initial conditions reveal the final solution\footnote{Same as above.}\dots
+
+So \[y=x^2+4x+4+(x^2-4)e^x.\]
+
+\end{document}

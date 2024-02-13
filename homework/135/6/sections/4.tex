@@ -1,0 +1,50 @@
+\documentclass[../hw6]{subfiles}
+
+\begin{document}
+
+\subsection*{22.18}
+
+Use variation of parameters to find the general solution to 
+\[x^2y''+xy'-4y=x^3\] given that $y_1=x^2$ and $y_2=x^{-2}$.
+
+The homogeneous solution is \[y_h=c_1x^2+c_2x^{-2}.\]
+
+We will place the differential equation into standard form,
+\[y''+x^{-1}y'-4x^{-2}y=x.\]
+
+Let $g(x)=x$.
+
+Then, $y_p=u_1y_1+u_2y_2$ where
+\begin{align*}
+    u_1&=\int\frac{-u_2g(x)}{W(y_1,y_2)}\,dx,\\
+    u_2&=\int\frac{u_1g(x)}{W(y_1,y_2)}\,dx.\\
+\end{align*}
+
+First, we compute the Wronskian of the two solutions,
+\begin{align*}
+    W(x^2, x^{-2}) &= \begin{vmatrix}
+        x^2 & x^{-2} \\
+        2x & -2x^{-3}
+    \end{vmatrix} \\
+    &=-2x^{-1}-2x^{-1} \\
+    &= -4x^1. \\
+\end{align*}
+
+So,
+\begin{align*}
+    u_1&=\int\frac{-x^{-2}\cdot x}{-4x^{-1}}\,dx=\frac{1}{4}\int dx=\frac{x}{4},\\
+    u_2&=\int\frac{x^2\cdot x}{-4x^{-1}}\,dx=-\frac{1}{4}\int x^4\,dx=-\frac{x^5}{20}.
+\end{align*}
+
+Assembling $y_p$, we obtain,
+\begin{align*}
+    y_p&=\frac{x}{4}x^2-\frac{x^5}{20}x^{-2}\\
+    &=\frac{x^3}{4}-\frac{x^3}{20}\\
+    &=\frac{5x^3-x^3}{20}\\
+    &=\frac{x^3}{5}.
+\end{align*}
+
+Thus,
+\[y=c_1x^2+c_2x^{-2}+\frac{x^3}{5}.\]
+
+\end{document}

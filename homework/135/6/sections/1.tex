@@ -1,0 +1,64 @@
+\documentclass[../hw6]{subfiles}
+
+\begin{document}
+
+\subsection*{19.1}
+Prove that, if $p\neq q$, then $e^{px}$ and $e^{qx}$ are linearly independent.
+
+\begin{proof}
+For a contradiction, assume that $p\neq q$ and $e^{px}$ and $e^{qx}$ are linearly dependent and therefore satisfy
+\[c_1e^{px}+c_2e^{qx}=0\tag{*}\]
+for all $x$ and $c_1$ and $c_2$ not both zero.
+
+Assume that $c_2\neq 0$.
+
+Then,
+\begin{align*}
+    c_1e^{px}&=-c_2e^{qx}\\
+    -\frac{c_1}{c_2}&=e^{(q-p)x}.\\
+\end{align*}
+
+But $q-p\neq0$ so $e^{(q-p)x}$ cannot be constant for all $x$.
+
+Therefore the assumption that $e^{px}$ and $e^{qx}$ were linearly dependent when $p\neq q$ was false.
+
+Thus, by contraction, $e^{px}$ and $e^{qx}$ are linearly independent when $p\neq q$.
+
+
+Then, $e^{(q-p)}\neq1$. 
+
+So, $e^{(q-p)x}\neq 1^x = 1$ cannot be constant for all $x$.
+
+So, $e^{(q-p)x}\neq c$ where $c=-\frac{c_1}{c_2}$ such that $c_2\neq0$.
+
+Then, 
+\begin{align*}
+    -\frac{c_1}{c_2}&\neq e^{(q-p)x}\\
+    -c_1e^{px}&\neq c_2e^{qx}\\
+    0&\neq c_1e^{px}+c_2e^{qx}.\\
+\end{align*}
+
+
+\end{proof}
+
+\subsection*{19.2}
+
+Prove that $e^{ax}$ and $xe^{ax}$ are linearly independent.
+
+\begin{proof}
+    For a contradiction, assume that $e^{xa}$ and $xe^{ax}$ are linearly dependent.
+    
+    Assume that $c_2\neq0$.
+
+    Then \[c_1e^{ax}+c_2xe^{ax}=0\] for all $x$.
+
+    Since $e^{ax}\neq0$ for all $x$, then \[c_1+c_2x=0.\] 
+
+    So \[x=-\frac{c_1}{c_2}.\]
+
+    But, this statement cannot hold for all $x$.
+
+    So, the assumption that $e^{ax}$ and $xe^{ax}$ was false, therefore the two equations are linearly independent.
+\end{proof}
+
+\end{document}

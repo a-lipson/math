@@ -1,0 +1,79 @@
+\documentclass[../hw6]{subfiles}
+
+\begin{document}
+
+Suppose that $y_1$ and $y_2$ form the fundamental set of solutions to
+\[y''+p(t)y'+q(t)y=0 \tag{*}\] on $t\in\mathbb{R}$ such that $p,q$ continuous for all $t$.
+
+Prove that there is only one zero of $y_1$ between two consecutive zeros of $y_2$.
+
+\begin{proof}
+Assume $y_1$ and $y_2$ form the fundamental set of solutions to (*).
+
+Since $y_1$ and $y_2$ form the fundamental set of solutions to the differential equation (*), then they are twice differentiable, linearly independent, and their Wronskian is non-zero for all $t$.
+\[0 \neq W(y_1, y_2) = \begin{vmatrix}
+    y_1 & y_2 \\
+    y_1' & y_2'
+\end{vmatrix}
+= y_1 y_2' - y_1'y_2.\]
+
+For a contraction, assume that there is no zero of $y_1$ between two consecutive zeros of $y_2$. 
+
+Define $c_1,c_2$ as consecutive roots of $y_2$ such that $y_2(c_1)=y_2(c_2)=0$.
+
+Let $I=[c_1,c_2]$.
+
+Then, by the assumption, $y_1(t)\neq 0$ for all $t\in I$.
+
+Let $f(t)=\frac{y_2(t)}{y_1(t)}$.
+
+Since $y_2(c_1)=y_2(c_2)=0$, then $f(c_1)=f(c_2)=0$.
+
+Since $y_1(t)\neq0, \quad \forall t \in I$, then $f(t)$ is continuous for all $t\in I$.
+
+So, there exists an $a\in(c_1,c_2)$ such that $f'(a)=0$ by Rolle's Theorem.
+
+Then, with
+\[f'(t)=\frac{d}{dt}\left[ \frac{y_2(t)}{y_1(t)} \right]=\frac{y_2'y_1-y_2y_1'}{y_1^2},\]
+we see that
+\[0=f'(a)=\frac{y_2'(a)y_1(a)-y_2(a)y_1'(a)}{y_1^2(a)}.\]
+
+But $y_1\neq0$; so, \[0=y_2'(a)y_1(a)-y_2(a)y_1'(a),\] which is the Wronskian of $y_1$ and $y_2$ evaluated at $t=a$. 
+
+But $y_1$ and $y_2$ form the fundamental set of solutions to (*) and therefore their Wronskian is never zero by the assumption. 
+
+So, the statement that $y_1$ has no zero between $c_1$ and $c_2$ is false. 
+
+So, by contradiction, $y_1$ must have at least one zero between the two consecutive zeros of $y_2$ at $c_1$ and $c_2$.
+
+Then, for a contraction, assume that $y_1$ has more than one zero between two consecutive zeros of $y_2$. This statement is equivalent to stating that $y_2$ has no zeros between two consecutive zeros of $y_2$.
+
+We will repeat the above part of the proof by defining the utility function $g(t)=\frac{y_1(t)}{y_2(t)}$.
+
+Let $J=[b_1,b_2]$
+
+So, by the assumption, there exists $b_1,b_2$ such that $y_1(b_1)=y_1(b_2)=0$.
+
+Then, by the assumption, $y_2(t)\neq0$ for all $t\in J$.
+
+So, $g$, the quotient of two continuous functions, whose denominator is not zero, is continuous.
+
+Since $g(b_1)=g(b_2)=0$ and $g$ continuous, then there exists a $k\in J$ such that $g'(k)=0$ by Rolle.
+
+Then, with
+\[g'(t)=\frac{y_1'y_2-y_1y_2'}{y_2^2},\]
+\[0=g'(k)=\frac{y_1'(k)y_2(k)-y_1(k)y_2'(k)}{y_2^2(k)}.\]
+
+But $y_2\neq0$; so, \[0=y_1'(k)y_2(k)-y_1(k)y_2'(k),\] which is the Wronskian of $y_1$ and $y_2$ evaluated at $t=k$. 
+
+But, the Wronskian of $y_1$ and $y_2$ is never zero by the assumption that they form the fundamental set of solutions.
+
+So $W(y_1(k),y_2(k))=0$ is a contradiction. 
+
+Thus $y_1$ has no more than one zero between two consecutive zeros of $y_2$.
+
+Since $y_1$ has at least one zero and no more than one zero between two consecutive zeros of $y_2$, then $y_1$ has exactly one zero between two consecutive zeros of $y_2$. 
+
+\end{proof}
+
+\end{document}

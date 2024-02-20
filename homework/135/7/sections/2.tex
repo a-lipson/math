@@ -1,0 +1,87 @@
+\documentclass[../hw7]{subfiles}
+
+\begin{document}
+
+\begin{enumerate}[label= (\alph*)]
+    \item We are given that
+    \begin{equation*}
+        \int\text{Re}\left[ e^{(a+bi)t}\right]\,dt = \text{Re}\int e^{(a+bi)t}\,dt. \tag{*}
+    \end{equation*}
+    
+    We expand $e^{(a+bi)t}$ according to Euler's formula,
+    \[e^{(a+bi)t} = e^{at}e^{bit} = e^{at}\left( \cos{bt}+i\sin{bt} \right).\]
+    
+    So, \[\text{Re}\left[ e^{(a+bi)t} \right]=e^{at}\cos{bt}.\]
+    
+    Then, by (*),
+    \begin{align*}
+        \int e^{at}\cos{bt} &= \text{Re}\int e^{(a+bi)t}\,dt \\
+        &= \text{Re}\left[ \frac{e^{(a+bi)t}}{a+bi} \right] \\
+        &= \text{Re}\left[ \frac{(a-bi)e^{at}(\cos{bt}+i\sin{bt})}{a^2+b^2} \right] \\
+        &= \text{Re}\left[ \frac{e^{at}\left( (a-bi)\cos{bt}+(ai+b)\sin{bt} \right)}{a^2+b^2} \right] \\
+        &= \frac{e^{at}(a\cos{bt}+b\sin{bt})}{a^2+b^2} \tag{**}. \\
+    \end{align*}
+
+    \item So, for $\lapl{\cos{bt}}$, with the definition of the Laplace transform,
+    \begin{align*}
+        \lapl{\cos{bt}}&=\int_{0}^{\infty}e^{-st}\cos{bt}\,dt \\
+        &=\lim\limits_{n\to\infty}\left[ \frac{e^{-st}\left( -s\cos{bt}+b\sin{bt} \right)}{{(-s)}^2+b^2}\Bigg\vert_{0}^{n} \right] \\
+        &=\lim\limits_{n\to\infty} \frac{e^{-sn}(-s\cos{bn}+b\sin{bn})-s}{s^2+b^2} \\
+        &=\lim\limits_{n\to\infty}\frac{s-\frac{b\sin{bn}-s\cos{bn}}{e^{sn}}}{s^2+b^2} \\
+        &= \frac{s}{s^2+b^2}. \\
+    \end{align*}
+
+    \item For $\lapl{\sin{bt}}$, we will let $f(t)=\frac{-\cos{bt}}{b}$. So $f'(t)=\sin{bt}$.
+    Then we consider the Laplace of a derivative,
+    \begin{align*}
+        \lapl{f'(t)}&=s\lapl{f(t)}-f(0) \\
+        \lapl{\sin{bt}}&=s\lapl{\frac{-\cos{bt}}{b}}-\left( \frac{-\cos{(b\cdot 0)}}{b} \right) \\
+        &= \frac{-s}{b}\lapl{\cos{bt}}+\frac{1}{b} \\
+        &= \frac{1}{b}\left( 1-s\left( \frac{s}{s^2+b^2} \right) \right) \\
+        &= \frac{1}{b}\left( \frac{b^2}{s^2+b^2} \right) \\
+        &= \frac{b}{s^2+b^2}. \\
+    \end{align*}
+
+    \item For $\lapl{t\sin{bt}}$, we consider the derivative of the Laplace transform, \[\frac{d^n}{ds^n}F(s)=\lapl{{(-t)}^n f(t)}, \quad F(s)=\lapl{f(t)}. \tag{**} \]
+
+    Let $f(t)=-\sin{bt}$. Then $F(s)=\frac{-b}{s^2+b^2}$ from above.
+
+    With (**) and $n=1$,
+    \begin{align*}
+        \lapl{-t f(t)}&=\frac{d}{ds}F(s) \\
+        \lapl{t\sin{bt}} &= \frac{d}{ds}\left[ \frac{-b}{s^2+b^2} \right] \\
+        &= \frac{2bs}{{(s^2+b^2)}^2}. \\
+    \end{align*}
+
+    \item For $\lapl{e^{at}\sin{bt}}$, we note that the product of a function $f$ with the exponential function produces a horizontal shift in the Laplace frequency domain, \[\lapl{e^{at}f(t)}=F(s-a), \quad \lapl{f}=F.\]
+    
+    Since \[\lapl{\sin{bt}}=\frac{b}{s^2+b^2}=F(s),\]
+
+    Then \[\lapl{e^{at}\sin{bt}}=F(s-a)=\frac{b}{{(s-a)}^2+b^2}.\]
+
+    \item With $\lapl{te^{at}\sin{bt}}$, we consider both (d) and (e), where \[F(s)=\lapl{t\sin{bt}}=\frac{2bs}{{(s^2+b^2)}^2},\] such that \[F(s-a)=\lapl{te^{at}\sin{bt}}=\frac{2b(s-a)}{{\left( {(s-a)}^2+b^2 \right)}^2}.\]
+    
+    \item For $\ilapl{\frac{s^2}{{\left( s^2+a^2 \right)}^2}}$ and $\ilapl{\frac{a^2}{{\left( s^2+a^2 \right)}^2}}$, we will rewrite the Laplace function argument $F(s)$ into terms that can be inverted easily from our given Laplace table.
+    
+    First,
+    \begin{align*}
+        \frac{s^2}{{\left( s^2+a^2 \right)}^2}&=\frac{1}{2}\cdot\frac{s^2+a^2+s^2-a^2}{{\left( s^2+a^2 \right)}^2}\\
+        &=\frac{1}{2}\left( \frac{s^2+a^2}{{\left( s^2+a^2 \right)}^2} +\frac{s^2-a^2}{{\left( s^2+a^2 \right)}^2}\right)\\
+        &=\frac{1}{2}\left( \frac{1}{a}\cdot\frac{a}{s^2+a^2}+\frac{s^2-a^2}{{\left( s^2+a^2 \right)}^2} \right). \\
+    \end{align*}
+
+    Then, we are ready to take the inverse Laplace,
+    \[\ilapl{\frac{1}{2}\left( \frac{1}{a}\cdot\frac{a}{s^2+a^2}-\frac{s^2-a^2}{{\left( s^2+a^2 \right)}^2} \right)}=\frac{1}{2}\left( \frac{1}{a}\sin{at}+t\cos{at} \right).\]
+
+    Next,
+    \begin{align*}
+        \frac{a^2}{{\left( s^2+a^2 \right)}^2}&=\frac{1}{2}\cdot\frac{s^2+a^2-(s^2-a^2)}{{\left( s^2+a^2 \right)}^2}\\
+        &=\frac{1}{2}\left( \frac{s^2+a^2}{{\left( s^2+a^2 \right)}^2}-\frac{s^2-a^2}{{\left( s^2+a^2 \right)}^2}\right)\\
+        &=\frac{1}{2}\left( \frac{1}{a}\cdot\frac{a}{s^2+a^2}-\frac{s^2-a^2}{{\left( s^2+a^2 \right)}^2} \right). \\
+    \end{align*}
+
+    So, \[\ilapl{\frac{1}{2}\left( \frac{s^2+a^2}{{\left( s^2+a^2 \right)}^2}-\frac{s^2-a^2}{{\left( s^2+a^2 \right)}^2}\right)}=\frac{1}{2}\left( \frac{1}{a}\sin{at}-t\cos{at} \right).\]
+
+\end{enumerate}
+
+\end{document}

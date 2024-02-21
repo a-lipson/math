@@ -4,7 +4,7 @@
 
 Solve \[y''+'=f(t), \quad y(0)=y'(0)=0,\] where \[f(t)=\begin{cases}
     4, & 0\leq t \leq 2, \\
-    t+2, 2<t. \\
+    t+2, & 2<t. \\
 \end{cases}\]
 
 First, we rewrite the piecewise function $f$ using the step function $H$, where
@@ -13,5 +13,45 @@ First, we rewrite the piecewise function $f$ using the step function $H$, where
     1 & \text{if } t \geq 0;
 \end{cases}
 \] we will use $H_c=H(t-c)$.
+
+The forcing function becomes
+\begin{align*}
+    f(t)&=4(1-H_2)+(t+2)H_2 \\
+    &= 4+(t+2-4)H_2 \\
+    &= 4+(t-2)H_2. \\
+\end{align*}
+
+Let $\lapl{y}=Y$. Then, the Laplace transform of 
+\[y''+y=4+(t-2)H_2\]
+becomes 
+\begin{align*}
+    s^2Y-sy(0)-y'(0)+Y&=\frac{4}{s}+\frac{e^{-2s}}{s^2}\\
+    (s^2+1)Y&=\frac{4}{s}+\frac{e^{-2s}}{s^2}\\
+    Y&=\frac{4}{s(s^2+1)}+\frac{e^{-2s}}{s^2(s^2+1)}.\\
+\end{align*}
+
+Let us take a moment to consider the partial fraction expansions of $\frac{1}{s(s^2+1)}$ and $\frac{1}{s^2(s^2+1)}$.
+We will show that the following hold:
+
+first, 
+\begin{align*}
+    \frac{1}{s(s^2+1)}&=\frac{1}{s}-\frac{s}{s^2+1}\\
+    &=\frac{s^2+1}{s(s^2+1)}-\frac{s^2}{s(s^2+1)}\\
+    &=\frac{1}{s(s^2+1)}.\\
+\end{align*}
+
+Next,
+\begin{align*}
+    \frac{1}{s^2(s^2+1)}&=\frac{1}{s^2}-\frac{1}{s^2+1}\\
+    &=\frac{s^2+1}{s^2(s^2+1)}-\frac{s^2}{s^2(s^2+1)}\\
+    &=\frac{1}{s^2(s^2+1)}.\\
+\end{align*}
+
+We continue from above, substituting the partial fractions in place of the product denominators,
+\[Y=4\left( \frac{1}{s}-\frac{s}{s^2+1} \right)+e^{-2s}\left( \frac{1}{s^2}-\frac{1}{s^2+1} \right).\]
+
+We find the general solution $y$ by taking the inverse Laplace transform,
+\[y=4(1-\cos{t})+H_2\left( (t-2)-\sin{(t-2)} \right).\]
+
 
 \end{document}

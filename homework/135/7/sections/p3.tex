@@ -1,0 +1,33 @@
+\documentclass[../hw7]{subfiles}
+
+\begin{document}
+
+The following problems are from page 311 in the TP ODE textbook.
+
+\subsubsection*{12}
+\[\begin{WithArrows}
+    y'-y &=0, \quad y(0)=1 \Arrow{$\mathcal{L}$} \\
+    sY-y(0)-Y&=0 \\
+    (s-1)Y&=1 \\
+    Y&=\frac{1}{s-1} \Arrow{$\mathcal{L^{-\text{$1$}}}$} \\ % weird bug, without \text{$1$}, it turns into -\infty?
+    y&=e^t.
+\end{WithArrows}\]
+
+\subsubsection*{13}
+\[\begin{WithArrows}
+    y'-y&=e^x, \quad y(0)=1 \Arrow{$\mathcal{L}$} \\
+    (s-1)Y-1&=\frac{1}{s-1}\\
+    Y&=\frac{1}{{(s-1)}^2}+\frac{1}{s-1} \Arrow{$\mathcal{L}^{-1}$} \\
+    y&=e^t(t+1). 
+\end{WithArrows}\]
+
+\subsubsection*{14}
+\[\begin{WithArrows}
+    y'+y&=e^x, \quad y(0)=1 \Arrow{$\mathcal{L}$} \\
+    sY-y(0)+Y&=\frac{1}{s-1} \\
+    (s+1)Y&=\frac{1}{s-1}+1\\
+    Y&=\frac{1}{{(s+1)}^2}+\frac{1}{s+1} \Arrow{$\mathcal{L}^{-1}$} \\
+    y&=e^{-t}(t+1). 
+\end{WithArrows}\]
+
+\end{document}

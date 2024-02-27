@@ -77,5 +77,11 @@
 		"body": [
 			"\\lim\\limits_{$1\\to\\infty}$2"
 		]
+	},
+	"series to infinity": {
+		"prefix": "suminf",
+		"body": [
+			"\\sum\\limits_{$1=0}^{\\infty}$2"
+		]
 	}
 }

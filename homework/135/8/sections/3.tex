@@ -1,0 +1,75 @@
+\documentclass[../hw8]{subfiles}
+
+\begin{document}
+
+Find the general solution to $(1-4t^2)y''+8y=0$.
+
+We replace $y$ and its derivatives with their power series form and combine on the same power of $t$.
+\begin{align*}
+    \sum\limits_{k=2}^{\infty}k(k-1)a_k t^{k-2}-4 \sum\limits_{k=2}^{\infty}k(k-1)a_k t^k + 8 \sum\limits_{k=0}^{\infty}a_k t^k &= 0 \\
+    \sum\limits_{m=0}^{\infty}(m+2)(m+1)a_{m+2}t^m-4 \sum\limits_{m=2}^{\infty}m(m-1)a_m t^m + 8 \sum\limits_{m=0}^{\infty}a_m t^m &= 0 \\
+    2a_2+6a_3t+8a_0+8a_1t+\sum\limits_{m=2}^{\infty}\left[ (m+2)(m+1)a_{m+2}-4m(m-1)a_m+8a_m \right]t^m &= 0. \\
+\end{align*}
+
+For the standalone coefficients,
+\begin{align*}
+    2a_2+8a_0&=0\\
+    a_2&=-4a_0;\\
+\end{align*}
+\begin{align*}
+    (6a_3+8a_1)t&=0\\
+    a_3&=\frac{-4}{3}a_1.\\
+\end{align*}
+
+For the recurrence relation,
+\begin{align*}
+    (m+2)(m+1)a_{m+2}-4m(m-1)a_m+8a_m&=0\\
+    a_{m+2}&=\frac{4m(m-1)a_m-8a_m}{(m+1)(m+2)}\\
+    &=4a_m\frac{m^2-m-2}{(m+1)(m+2)}\\
+    &=4a_m\frac{(m+1)(m-2)}{(m+1)(m+2)}\\
+    &=4a_m\frac{m-2}{m+2}.\\
+\end{align*}
+
+We will consider some even coefficients, starting with $a_4$ at $m=2$,
+\begin{align*}
+    a_4&=4a_2\frac{2-2}{2+2}=0,\\
+    a_6&=4a_4\frac{4-2}{2+2}=0,\\
+    a_8&=4a_6(\cdots)=0,\\
+    &\vdots\\
+    a_{2n}&=0.\\
+\end{align*}
+
+In fact, all even coefficients for $n>1$ reduce to zero.
+
+We will then consider some odd coefficients, starting with $a_5$ at $m=3$,
+\begin{align*}
+    a_5&=4a_3\frac{1}{5}=\frac{-4^2}{3\cdot5}a_1,\\
+    a_7&=4a_5\frac{3}{7}=\frac{-4^3}{5\cdot7}a_1,\\
+    a_9&=4a_7\frac{5}{9}=\frac{-4^4}{7\cdot9}a_1,\\
+    a_{11}&=4a_9\frac{7}{11}=\frac{-4^5}{9\cdot11}a_1.\\
+\end{align*}
+
+We see that the explicit form for all of the odd coefficients can be written as,
+\[a_{2k+1}=\frac{-4^k}{(2k-1)(2k+1)}a_1.\]
+
+Given all coefficients, we can express the solution to the differential equation as a series\footnote{Since the explicit form holds for $a_1$ and $a_3=\frac{-4}{3}a_1$, we incorporate these two coefficients into the series and let the starting index be zero.} noting that the coefficient for $t^2$, $a_2=-4a_0$; so,
+\[y=a_0(1-4t^2)+a_1\sum\limits_{k=0}^{\infty}\frac{-4^k}{(2k-1)(2k+1)}t^{2k+1}.\]
+
+We evaluate this series by itself,
+\begin{align*}
+    \sum\limits_{k=0}^{\infty}\frac{-4^k}{(2k-1)(2k+1)}t^{2k+1}&=-2\left[ \sum\limits_{k=0}^{\infty} \frac{4^k t^{2k+1}}{2k-1}-\frac{4^k t^{2k+1}}{2k+1}\right]\\
+    &=-2\left[ t^2 \sum\limits_{k=0}^{\infty}\frac{4^k t^{2k-1}}{2k-1} - \sum\limits_{k=0}^{\infty}\frac{4^k t^{2k+1}}{2k+1} \right]\\
+    &=-2\left[ t^2 \int \sum\limits_{k=0}^{\infty}4^k t^{2k-2}\,dt - \int \sum\limits_{k=0}^{\infty}4^k t^{2k}\,dt \right]\\
+    &=-2\left[ 4t^2 \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^{k-1}\,dt - \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt\right] \\
+    &=-2\left[ 4t^2 \int \left[ \frac{1}{4t^2} + \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\right]dt - \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt\right] \\
+    &=-2\left[ 4t^2\left( -\frac{1}{4t} \right) + \left( 4t^2-1 \right)\int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt \right]\\
+    &= 2\left[ t + \left( 1-4t^2 \right)\int \frac{dt}{1-{(2t)}^2} \right] \\
+    &=2\left[ t+\left( 1-4t^2 \right)\cdot\frac{1}{2}\int \left( \frac{1}{1+2t}+\frac{1}{1-2t} \right)dt \right]\\
+    &=2\left[ t+\left( 1-4t^2 \right)\cdot\frac{1}{4}\left( \ln{(1+2t)}-\ln{(1-2t)} \right) \right].\\
+\end{align*}
+
+We then use this along with $c_1=a_0$ and $c_2=2a_1$ to find the general solution,
+\[y(t)=c_1\left( 1-4t^2 \right)+c_2\left( 4t+\left( 1-4t^2 \right)\left[ \ln{(1+2t)}-\ln{(1-2t)} \right] \right).\]
+
+
+\end{document}

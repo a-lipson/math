@@ -1,0 +1,45 @@
+\documentclass[../hw8]{subfiles}
+
+\begin{document}
+
+We will consider the system when there is $y$ centimeters of mercury above equilibrium on one side and $y$ centimeters below equilibrium on the other side. 
+
+So, if we remove the $2y$ column of mercury, the system is at equilibrium and the net force is equal to zero.
+
+Thus the net force in the system, net mass times net acceleration, is given by the weight of the column of mercury of height $2y$. The downward force of the weight of the column of mercury opposes the direction of acceleration of the system.
+
+The acceleration is modeled by the second derivative of $y$.
+
+The volume of this column is $2y$ times the cross sectional area of the cylindrical tube $A=\pi$.
+
+So,
+\begin{align*}
+    -2yA\rho_L g&= m_L y'' \\
+    m_L y''+2yA\rho_L g&= 0 \\
+    y'' + \frac{2A\rho_L g}{m_L}y&= 0 \\
+    y'' + \frac{2\cdot\pi\cdot13.5\cdot9.8}{500}y &= 0 \\
+    y'' + \frac{1323\pi}{2500}y &= 0 \\
+\end{align*}
+
+For the characteristic equation,
+\begin{align*}
+    r^2+\frac{1323\pi}{2500}&=0\\
+    r&=\pm\frac{21\sqrt{3\pi}i}{50}.\\
+\end{align*}
+
+Let $\omega=\frac{21\sqrt{3\pi}}{50}$.
+
+Then, \[y=c_1\cos{\omega t}+c_2\sin{\omega t}.\]
+
+To find the period $T$, we consider when $\omega (t+T)=\omega t + 2\pi$, which is the period of the sine and cosine functions.
+
+So,
+\begin{align*}
+    \omega (t+T)&=\omega t + 2\pi\\
+    \omega T &= 2\pi\\
+    T &= \frac{2\pi}{\omega},\\
+    T &= \frac{100\pi}{21\sqrt{3\pi}}\\
+    T &= \frac{100\sqrt{\pi}}{21\sqrt{3}}.
+\end{align*}
+
+\end{document}

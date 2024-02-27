@@ -57,18 +57,19 @@ Given all coefficients, we can express the solution to the differential equation
 
 We evaluate this series by itself,
 \begin{align*}
-    \sum\limits_{k=0}^{\infty}\frac{-4^k}{(2k-1)(2k+1)}t^{2k+1}&=-2\left[ \sum\limits_{k=0}^{\infty} \frac{4^k t^{2k+1}}{2k-1}-\frac{4^k t^{2k+1}}{2k+1}\right]\\
-    &=-2\left[ t^2 \sum\limits_{k=0}^{\infty}\frac{4^k t^{2k-1}}{2k-1} - \sum\limits_{k=0}^{\infty}\frac{4^k t^{2k+1}}{2k+1} \right]\\
-    &=-2\left[ t^2 \int \sum\limits_{k=0}^{\infty}4^k t^{2k-2}\,dt - \int \sum\limits_{k=0}^{\infty}4^k t^{2k}\,dt \right]\\
-    &=-2\left[ 4t^2 \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^{k-1}\,dt - \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt\right] \\
-    &=-2\left[ 4t^2 \int \left[ \frac{1}{4t^2} + \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\right]dt - \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt\right] \\
-    &=-2\left[ 4t^2\left( -\frac{1}{4t} \right) + \left( 4t^2-1 \right)\int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt \right]\\
-    &= 2\left[ t + \left( 1-4t^2 \right)\int \frac{dt}{1-{(2t)}^2} \right] \\
-    &=2\left[ t+\left( 1-4t^2 \right)\cdot\frac{1}{2}\int \left( \frac{1}{1+2t}+\frac{1}{1-2t} \right)dt \right]\\
-    &=2\left[ t+\left( 1-4t^2 \right)\cdot\frac{1}{4}\left( \ln{(1+2t)}-\ln{(1-2t)} \right) \right].\\
+    \sum\limits_{k=0}^{\infty}\frac{-4^k}{(2k-1)(2k+1)}t^{2k+1}&=-\frac{1}{2}\left[ \sum\limits_{k=0}^{\infty} \frac{4^k t^{2k+1}}{2k-1}-\frac{4^k t^{2k+1}}{2k+1}\right]\\
+    &=-\frac{1}{2}\left[ t^2 \sum\limits_{k=0}^{\infty}\frac{4^k t^{2k-1}}{2k-1} - \sum\limits_{k=0}^{\infty}\frac{4^k t^{2k+1}}{2k+1} \right]\\
+    &=-\frac{1}{2}\left[ t^2 \int \sum\limits_{k=0}^{\infty}4^k t^{2k-2}\,dt - \int \sum\limits_{k=0}^{\infty}4^k t^{2k}\,dt \right]\\
+    &=-\frac{1}{2}\left[ 4t^2 \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^{k-1}\,dt - \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt\right] \\
+    &=-\frac{1}{2}\left[ 4t^2 \int \left[ \frac{1}{4t^2} + \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\right]dt - \int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt\right] \\
+    &=-\frac{1}{2}\left[ 4t^2\left( -\frac{1}{4t} \right) + \left( 4t^2-1 \right)\int \sum\limits_{k=0}^{\infty}{\left( {(2t)}^2 \right)}^k\,dt \right]\\
+    &=\frac{1}{2}\left[ t + \left( 1-4t^2 \right)\int \frac{dt}{1-{(2t)}^2} \right] \\
+    &=\frac{1}{2}\left[ t+\left( 1-4t^2 \right)\cdot\frac{1}{2}\int \left( \frac{1}{1+2t}+\frac{1}{1-2t} \right)dt \right]\\
+    &=\frac{1}{2}
+    \left[ t+\left( 1-4t^2 \right)\cdot\frac{1}{4}\left( \ln{(1+2t)}-\ln{(1-2t)} \right) \right].\\
 \end{align*}
 
-We then use this along with $c_1=a_0$ and $c_2=2a_1$ to find the general solution,
+We then use this along with $c_1=a_0$ and $c_2=8a_1$ to find the general solution,
 \[y(t)=c_1\left( 1-4t^2 \right)+c_2\left( 4t+\left( 1-4t^2 \right)\left[ \ln{(1+2t)}-\ln{(1-2t)} \right] \right).\]
 
 

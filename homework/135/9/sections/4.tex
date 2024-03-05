@@ -30,4 +30,24 @@ This yields the following definitions for $\alpha$, $\beta$, and $\gamma$,
     \gamma=\frac{\mathbf{d}\cdot(\mathbf{a}\times \mathbf{b})}{\mathbf{c}\cdot(\mathbf{a}\times \mathbf{b})}.
 \]
 
+\begin{figure*}[ht]
+\centering
+\begin{tikzpicture}[>=Latex, vector/.style={->, thick}, dashedVector/.style={->, dashed, thick}]
+    % Define vectors a, b, c
+    \coordinate (start) at (0,0);
+    \coordinate (a) at (2,1);
+    \coordinate (b) at ($(a) + (1.5,0.5)$); % b starts where a ends
+    \coordinate (c) at ($(b) + (1,-1)$); % c starts where b ends
+    
+    % Draw vectors a, b, c
+    \draw[vector] (start) -- (a) node[midway, above] {$\vec{a}$};
+    \draw[vector] (a) -- (b) node[midway, above] {$\vec{b}$};
+    \draw[vector] (b) -- (c) node[midway, right] {$\vec{c}$};
+    
+    % Draw vector d from start to the end of c, dashed
+    \draw[dashedVector] (start) -- (c) node[midway, below] {$\vec{d}$};
+\end{tikzpicture}
+\caption{Linear combination of $\mathbf{a}$, $\mathbf{b}$, and $\mathbf{c}$ to form $\mathbf{d}$.}
+\end{figure*}
+
 \end{document}

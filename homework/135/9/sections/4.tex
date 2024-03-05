@@ -1,0 +1,33 @@
+\documentclass[../hw9]{subfiles}
+
+\begin{document}
+
+If $\mathbf{a}$, $\mathbf{b}$, and $\mathbf{c}$ are linearly independent, then, for any vector $\mathbf{d}$,
+\[\mathbf{d}=\alpha \mathbf{a}+\beta \mathbf{d}+\gamma \mathbf{c}.\]
+
+Since $\mathbf{b},\mathbf{c}$ are linearly independent, they are not parallel. So, $\mathbf{b}\times \mathbf{c}\neq0$.
+
+Additionally, since $\mathbf{a},\mathbf{b},\mathbf{c}$ are linearly independent, then $\mathbf{a}$ is not a linear combination of $\mathbf{b}$ and $\mathbf{c}$. So, $\mathbf{a}$ does not lie in the plane formed by $\mathbf{b}$ and $\mathbf{c}$. 
+
+Thus, by 13.6.4, \[\mathbf{a}\cdot \mathbf{b}\times \mathbf{c}\neq0.\tag{*}\]
+
+To define $\alpha$, we note that either $\mathbf{b}$ or $\mathbf{c}$ crossed with the vector $\mathbf{b}\times \mathbf{c}$ will always be zero since $\mathbf{b}\times \mathbf{c}$ is perpendicular to both $\mathbf{b}$ and $\mathbf{c}$.
+Thus, we consider the following,
+\begin{align*}
+    \mathbf{d}\cdot(\mathbf{b}\times \mathbf{c})&=(\alpha \mathbf{a}+\beta \mathbf{d}+\gamma \mathbf{c})\cdot(\mathbf{b}\times \mathbf{c})\\
+    &=\alpha \mathbf{a}\cdot(\mathbf{b} \times \mathbf{c})\\
+    \frac{\mathbf{d}\cdot(\mathbf{b} \times \mathbf{c})}{\mathbf{a}\cdot(\mathbf{b} \times \mathbf{c})}&=\alpha.\\
+\end{align*}
+
+The denominator, being the triple product of $\mathbf{a}$, $\mathbf{b}$, and $\mathbf{c}$, is not zero by (*), and is therefore non-zero for any arrangement of the vectors in the triple product by 13.4.7.
+
+We repeat the computation above using $\mathbf{a}\times \mathbf{c}$ and $\mathbf{a}\times \mathbf{b}$ to retain only $\mathbf{b}$ or $\mathbf{c}$ respectively.
+
+This yields the following definitions for $\alpha$, $\beta$, and $\gamma$,
+\[
+    \alpha=\frac{\mathbf{d}\cdot(\mathbf{b} \times \mathbf{c})}{\mathbf{a}\cdot(\mathbf{b} \times \mathbf{c})}, \qquad
+    \beta=\frac{\mathbf{d}\cdot(\mathbf{a}\times \mathbf{c})}{\mathbf{b}\cdot(\mathbf{a}\times \mathbf{c})}, \qquad
+    \gamma=\frac{\mathbf{d}\cdot(\mathbf{a}\times \mathbf{b})}{\mathbf{c}\cdot(\mathbf{a}\times \mathbf{b})}.
+\]
+
+\end{document}

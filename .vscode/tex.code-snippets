@@ -83,5 +83,16 @@
 		"body": [
 			"\\sum\\limits_{$1=0}^{\\infty}$2"
 		]
+	},
+	"bold vector": {
+		"prefix": "bv",
+		"body": [
+			"\\mathbf{$1}$2"
+		]
+	},
+	"align equals": {
+		"prefix": "ae",
+		"body": ["&=$1\\\\\\\n"]
 	}
+
 }

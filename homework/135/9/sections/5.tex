@@ -1,0 +1,59 @@
+\documentclass[../hw9]{subfiles}
+
+\begin{document}
+
+\begin{theorem}
+    Every angle inscribed in a semicircle is a right angle
+\end{theorem}
+
+\begin{figure*}[ht]
+\centering
+\begin{tikzpicture}[>=Latex, scale=2]
+    \draw[gray] (0,0) -- (4,0) arc (0:180:2) -- cycle;
+    
+    \coordinate (O) at (2,0); % Origin
+    \coordinate (A) at (0,0); % Left corner
+    \coordinate (B) at (4,0); % Right corner
+
+    \path (2,0) ++(45:2) coordinate (P);
+    
+    \draw[->] (A) -- (P);
+    \draw[->] (P) -- (B);
+    \draw[->] (O) -- (P);
+    \draw[->] (O) -- (A);
+    \draw[->] (O) -- (B);
+
+    \fill (O) circle (1pt);
+
+    \node[below] at (1,0) {$-\mathbf{a}$};
+    \node[below] at (3,0) {$\mathbf{a}$};
+    \node[below] at (3,0.9) {$\mathbf{b}$};
+    \node[above left] at (2,0.9) {$\mathbf{c}$};
+    \node[left] at (3.9,0.8) {$\mathbf{d}$};
+\end{tikzpicture}
+\end{figure*}
+
+\begin{proof}
+    Let $\theta$ be the angle between $\mathbf{c}$ and $\mathbf{d}$.
+
+    We will prove that $\mathbf{c}\cdot\mathbf{d}=0$. This is an equivalent statement to the Theorem.
+
+    Since $\mathbf{c}-\mathbf{a}=\mathbf{b}$, then $\mathbf{c}=\mathbf{a}+\mathbf{b}$.
+
+    We see that $\mathbf{d}=\mathbf{a}-\mathbf{b}$.
+
+    We also notice that $||\mathbf{a}||=||\mathbf{b}||$, which is the radius of the semicircle.
+
+    Then,
+    \begin{align*}
+        \mathbf{c}\cdot \mathbf{d}&=(\mathbf{a}-\mathbf{b})\cdot(\mathbf{a}+\mathbf{b})\\
+        &=\mathbf{a}\cdot\mathbf{a}+\mathbf{a}\cdot\mathbf{b}-\mathbf{a}\cdot\mathbf{b}+\mathbf{b}\cdot\mathbf{b}\\
+        &=\mathbf{a}\cdot\mathbf{a}-\mathbf{b}\cdot\mathbf{b}\\
+        &={||\mathbf{a}||}^2-{||\mathbf{b}||}^2\\
+        &=0.
+    \end{align*}
+
+    So $\mathbf{c}\cdot\mathbf{d}=0$.
+\end{proof}
+
+\end{document}

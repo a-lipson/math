@@ -1,0 +1,39 @@
+\documentclass[../hw10]{subfiles}
+
+\begin{document}
+
+A vector-valued function $\mathbf{G}$ is called an \textit{antiderivative} for $\mathbf{f}$ on $[a,b]$ provided that
+\begin{enumerate}[label= (\roman*)]
+    \item $\mathbf{G}$ is continuous on $[a,b]$ and
+    \item $\mathbf{G}'(t)=\mathbf{f}(t)$ for all $t\in(a,b)$.
+\end{enumerate}
+Show that:
+\begin{enumerate}[label= (\alph*)]
+    \item If $\mathbf{f}$ is continuous on $[a,b]$ and $\mathbf{G}$ is an antiderivative for $\mathbf{f}$ on $[a,b]$, then
+    \[\int_{a}^{b}\mathbf{f}(t)\,dt=\mathbf{G}(b)-\mathbf{G}(a).\]
+    \item If $\mathbf{f}$ is continuous on an interval $I$ and $\mathbf{F}$ and $\mathbf{G}$ are antiderivatives for $\mathbf{f}$, then
+    \[\mathbf{F}=\mathbf{G}+\mathbf{C}\]
+    for some constant vector $\mathbf{C}$.
+\end{enumerate}
+
+For (a), we will consider a vector in three space. The argument holds for a vector of $n$ dimensions as well.
+
+Let $\mathbf{f}(t)=\left<f_1(t),f_2(t),f_3(t)\right>$.
+
+Then, by 14.1.8, \[\int_{a}^{b}\mathbf{f}(t)\,dt=\left<\int_{a}^{b} f_1(t)dt,\int_{a}^{b} f_2(t)dt,\int_{a}^{b} f_2(t)dt\right>.\]
+
+We then let each component of $\mathbf{G}$, $\mathbf{G}_i$, be the antiderivative of the corresponding component of $\mathbf{f}$, $\mathbf{f}_i$, on $[a,b]$.
+
+So, by the Fundamental Theorem of Calculus the above becomes,
+\[\int_{a}^{b}\mathbf{f}(t)\,dt=\left<\mathbf{G}_1(b)-\mathbf{G}_1(a),\mathbf{G}_2(b)-\mathbf{G}_2(a),\mathbf{G}_3(b)-\mathbf{G}_3(a)\right>\]
+
+But, each $\mathbf{G}_i$ is a component of $\mathbf{G}$, so we can rewrite the above as,
+\[\int_{a}^{b}\mathbf{f}(t)\,dt=\mathbf{G}(b)-\mathbf{G}(a).\]
+
+For (b), let $\mathbf{F}=\mathbf{G}+\mathbf{C}$.
+
+By 14.1.6, the derivative of a constant vector is the zero vector.
+
+Since $\mathbf{G}'=\mathbf{f}$, then $\mathbf{F}'=(\mathbf{G}+\mathbf{C})'=\mathbf{f}+\mathbf{0}=\mathbf{f}$.
+
+\end{document}

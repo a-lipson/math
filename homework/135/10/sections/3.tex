@@ -1,0 +1,35 @@
+\documentclass[../hw10]{subfiles}
+
+\begin{document}
+
+The curvature of the curve traced by the vector function $\mathbf{r}(t)$ is given by
+\[\kappa=\frac{||\mathbf{T}'||}{||\mathbf{r}'||}\]
+where $\mathbf{T}$ is the unit tangent vector. Prove 
+\[\kappa=\frac{||\mathbf{v}\times \mathbf{a}||}{{\left(\frac{ds}{dt}\right)}^3}\]
+(formula 14.5.9) using question 2 above and formula 13.4.11.
+
+\begin{proof}
+    We will first rewrite 14.5.9 using $\mathbf{r}'=\mathbf{v}$, $\mathbf{r}''=\mathbf{a}$, and
+    \[\frac{ds}{dt}=\frac{d}{dt}\int_{t_0}^{t}||\mathbf{r}'(u)||\,du=||\mathbf{r}'||.\]
+
+    This gives, \[\kappa=\frac{||\mathbf{r}'\times\mathbf{r}''}{{||\mathbf{r}'||}^3}.\]
+
+    Since $\mathbf{T}=\frac{\mathbf{r}'}{||\mathbf{r}'||}$, then $\mathbf{T}'=\left( \frac{\mathbf{r}'}{||\mathbf{r}'||} \right)'$.
+
+    By 14.2.4 as used in question 2, this becomes, \[\frac{\left( \mathbf{r}''\times\mathbf{r}' \right)\times\mathbf{r}'}{{||\mathbf{r}'||}^3}.\]
+
+    Then, \[||\mathbf{T}'||=\frac{||\left( \mathbf{r}''\times\mathbf{r}' \right)\times\mathbf{r}'||}{{||\mathbf{r}'||}^3}.\]
+
+    With the the fact that $||\mathbf{a}\times \mathbf{b}||=||\mathbf{a}|| ||\mathbf{b}|| \sin{\theta}$, where $\theta$ is the angle between $\mathbf{a}$ and $\mathbf{b}$, we expand the above,
+    \[||\mathbf{T}'||=\frac{1}{{||\mathbf{r}'||}^3}||\mathbf{r}'|| ||\mathbf{r}''\times\mathbf{r}'||\sin{\theta}.\]
+
+    Since $\mathbf{r}'$ will be orthogonal to any vector that is produced from a cross product of any vector and itself. So, the angle $\theta$ between $\mathbf{r}'$ and $\mathbf{r}''\times\mathbf{r}'$ will be $\pi/2$. So, $\sin{\theta}=1$.
+
+    Thus, \[||\mathbf{T}'||=\frac{1}{{||\mathbf{r}'||}^3}||\mathbf{r}'|| ||\mathbf{r}''\times\mathbf{r}'||\sin{\theta}=\frac{||\mathbf{r}''\times\mathbf{r}'||}{{||\mathbf{r}'||}^2}.\]
+
+    Then it immediately follows from our first definition for $\kappa$ that,
+    \[\kappa=\frac{||\mathbf{r}''\times\mathbf{r}'||}{{||\mathbf{r}'||}^3}.\]
+\end{proof}
+
+
+\end{document}

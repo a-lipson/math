@@ -1,0 +1,21 @@
+\documentclass[../hw10]{subfiles}
+
+\begin{document}
+
+Let $\mathbf{f}$ be a differentiable vector-valued function. Show that, where $||\mathbf{f}(t)||\neq0$,
+\[\frac{d}{dt}\left[\frac{\mathbf{f}}{||\mathbf{f}||}\right]=\frac{\mathbf{f}'}{||\mathbf{f}||}-\frac{\mathbf{f}\cdot \mathbf{f}'}{{||\mathbf{f}||}^3}\mathbf{f}.\]
+
+Let $f=||\mathbf{f}||$ so $\mathbf{f}\cdot\mathbf{f}=f^2$.
+
+By 14.2.4, \[{\left( \frac{\mathbf{f}}{f} \right)}'=\frac{1}{f^3}\left( \left( \mathbf{f}\times \mathbf{f}' \right) \times \mathbf{f} \right), \quad f\neq0.\]
+
+By 13.4.11, the above becomes,
+\begin{align*}
+    & \frac{1}{f^3}\left( \left( \mathbf{f}\cdot\mathbf{f} \right)\mathbf{f}'-\left( \mathbf{f}\cdot\mathbf{f}' \right)\mathbf{f} \right) \\
+    =&\frac{f^2}{f^3}\mathbf{f}'-\frac{\mathbf{f}\cdot\mathbf{f}'}{f^3}\mathbf{f} \\
+    =&\frac{\mathbf{f}'}{f}-\frac{\mathbf{f}\cdot\mathbf{f}'}{f^3}\mathbf{f} \\
+    =&\frac{\mathbf{f}'}{||\mathbf{f}||}-\frac{\mathbf{f}\cdot\mathbf{f}'}{{||\mathbf{f}||}^3}\mathbf{f}. \\
+\end{align*}
+
+
+\end{document}

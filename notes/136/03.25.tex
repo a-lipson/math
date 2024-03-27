@@ -1,49 +1,28 @@
-\documentclass{article}
 
-\usepackage[english]{babel}
-\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{comment}
-\usepackage{enumitem}
-\usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{ifthen,ifthenx}
-\usepackage[skip=15pt,indent=0pt]{parskip}
-\usepackage{pgfplots}
-\usepackage{tikz}
-    \usetikzlibrary{calc, intersections, pgfplots.fillbetween, angles, quotes}
-\usepackage{subfiles}
+% need to import default format
 
-\pgfplotsset{compat=1.18}
-\pgfdeclarelayer{ft} 
-\pgfdeclarelayer{bg} 
-\pgfsetlayers{bg,main,ft}
+\section*{Chapter 1 - Vector Spaces}
 
-\newtheorem*{lemma}{Lemma}
-\newtheorem*{proposition}{Proposition}
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{definition}{Definition}
+A vector space over $\mathbb{R}$ (or $\mathbb{C}$, $\mathbb{Q}$, any field) is a set $V$ with two operations
+\begin{enumerate}
+  \item addition, $\vec{v}+\vec{w}$
+    multiplication by a scalar $\alpha\vec{v}$
+\end{enumerate}
 
-\def\titleme{Linear Algebra: Intro \& Linear Combinations and Bases}
-\def\authorme{Alexandre Lipson}
-
-\title{\titleme}
-\author{\authorme}
+with properties
+\begin{enumerate}
+  \item $\vec{v}+\vec{w}=\vec{w}+\vec{v}$
+  \item associative
+  \item $\exists \vec{0}: \vec{0}+\vec{v}=\vec{v}
+  \item inverse: $(-\vec{v})+\vec{v}=\vec{0}$
+  \item 
+\end{enumerate}
 
 
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{\today}
-\rhead{\authorme}
-\chead{\titleme}
+\subsection*{examples:}
+$\mathbb{R}^{n}$ (or $\mathbb{R}^{3}$) \tag{1}
 
-\rfoot{\thepage}
+old notation: $(a,b,c), \left<a,b,c\right>$
+or  $a$ 
 
-
-\begin{document}
-%\maketitle
-
-this is a test document
-
-\end{document}
+% update from handwritten notes

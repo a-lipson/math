@@ -1,0 +1,39 @@
+\documentclass[../hw1]{subfiles}
+
+
+\begin{document}
+Write down a basis for the space of
+\begin{enumerate}[label= (\alph*)]
+  \item $3\times 3$ symmetric matrices;
+  \item $n\times n$ symmetric matrices;
+  \item $n\times n$ antisymmetric matrices $A ^{T} = -A$ matrices;
+\end{enumerate}
+
+a) We note that a symmetric matrix is given by $A ^{T} = A$.
+So, each entry $a_{ij}$ must be equal to $a_{ji}$ for $i,j \le 3$.
+
+Thus, we can construct a basis of six matrices that are symmetric about the diagonal,
+\[
+  \left\{ 
+    \begin{bmatrix} 1&0&0\\0&0&0\\0&0&0 \end{bmatrix}, 
+    \begin{bmatrix} 0&0&0\\0&1&0\\0&0&0 \end{bmatrix},
+    \begin{bmatrix} 0&0&0\\0&0&0\\0&0&1 \end{bmatrix},
+    \begin{bmatrix} 0&1&0\\1&0&0\\0&0&0 \end{bmatrix},
+    \begin{bmatrix} 0&0&1\\0&0&0\\1&0&0 \end{bmatrix},
+    \begin{bmatrix} 0&0&0\\0&0&1\\0&1&0 \end{bmatrix},
+  \right\}
+.\] 
+
+b) Let $M_{ij}$ be the matrix of all zeros with a 1 in position $i,j$.
+
+Then, the basis for the space of $n\times n$ symmetric matrices is given by the set \[
+  \left\{ M_{ij}+M_{ji}, i \ge j \right\}
+.\] We restrict the indices to $i \ge j$ such that we will not create any linearly dependent duplicates.
+
+c) Using the same definition of $M_{ij}$ as above, we consider that the middle diagonal the any antisymmetric matrix must be zero because, for zero only, $0=-0$. Thus, our basis can be defined as follows,  \[
+\left\{ M_{ij} - M_{ji}, i > j \right\}
+.\]  This time, we do not include the cases where $i=j$ because our middle row must be zero.\footnote{The trace of an antisymmetric matrix must be zero.}
+
+\end{document}
+
+

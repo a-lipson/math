@@ -1,0 +1,31 @@
+\documentclass[../hw1]{subfiles}
+
+\begin{document}
+  Prove that $\text{trace}(AB)=\text{trace}(BA)$. 
+
+  First, we will consider how the diagonals of the matrix $AB$, $(AB)_{ii}$ are created. 
+  
+  With $A_{m\times n }$ and $B_{n\times m }$, the product $AB$ will be a $m\times m $ square matrix. We will fix some $i $ as the index of $m$ and note that we take the dot product of the $i ^{\text{th}}$ row of $A $ and the $i ^{\text{th}}$ column of $B$. We will iterate over  $n $ with the index $j $. 
+
+  This gives, \[
+    \sum_{j=1 }^{n} a_{ij}b_{ji} = (AB)_{ii} 
+  .\] 
+
+  In order to obtain the trace of $AB$, we need to sum over the index $i $ from 1 to $n$. 
+
+  Thus,  \[
+    \text{trace}(AB)=\sum_{i=1}^{m}(AB)_{ii}=\sum_{i=1}^{m}\sum_{j=1 }^{n} a_{ij}b_{ji}
+  .\] 
+
+  We then notice that $BA$ produces an  $n\times n $ matrix. We then see that, \[
+  \text{trace}(BA)=\sum_{i=1}^{n}(AB)_{ii}=\sum_{i=1}^{n}\sum_{j=1 }^{m} b_{ij}a_{ji}
+  .\] 
+
+  We can use the fact that we can rearrange sums (linearity of addition) and that multiplication is commutative to see that this is the same as \[
+  \sum_{j=1}^{m}\sum_{i=1 }^{n} b_{ij}a_{ji}
+  .\] 
+
+  We can swap labels where $i=j$ and  $j=i$ to make this the same as above. 
+
+  So, the statement holds.
+\end{document}

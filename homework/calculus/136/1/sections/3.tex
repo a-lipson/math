@@ -1,5 +1,41 @@
 \documentclass[../hw1]{subfiles}
 
 \begin{document}
-  
+Let $T:\R ^{3 }\longmapsto\R ^{3 }$ be the \textbf{projection} of the points on the $xyz$-space to the plane through the origin given by the equation $\alpha x+\beta y + \gamma z = 0$. Find the matrix of this transformation with respect to the standard basis on $\R ^{3}$.
+ 
+Let $\vec{n}=\left< \alpha, \beta, \gamma \right>$ be the normal vector to the plane. 
+
+We find the transformation $T $ of any point $\vec{P}=\left<x,y,z  \right>$ on the plane by the component of $\vec{P}$ that is normal to the plane's normal vector $\vec{n}$. 
+
+In order to find the component of $\vec{P}$ normal to $\vec{n}$, we subtract the projection of $\vec{P}$ on $\vec{n}$ from $\vec{P}$. 
+
+\[
+  T(\vec{P})=\vec{P}-\text{proj }_{\vec{n}}\vec{P}
+.\] 
+
+We will consider the transformation of the $\R ^{3 }$ basis vectors $\hat{i}$, $\hat{j}$, and $\hat{k}$.
+
+First, \begin{align*}
+  T(\hat{i})&= \hat{i}-\text{proj }_{\vec{n}} \hat{i}\\
+      &= \left<1,0,0  \right>-\frac{\vec{n}\cdot\left<1,0,0  \right>}{{\|\vec{n}\|}^2}\vec{n} \\
+      &= \left<1,0,0  \right>-\frac{\alpha}{{\|\vec{n}\|}^2}\vec{n} \\
+      &= \left<1-\frac{\alpha ^{2 }}{{\|\vec{n}\|}^2},\frac{-\alpha\beta}{{\|\vec{n}\|}^2},\frac{-\alpha\gamma}{{\|\vec{n}\|}^2}  \right> \\
+      &= \frac{1}{{\|\vec{n}\|}^2}\left<{\|\vec{n}\|}^2-\alpha ^{2 }, -\alpha\beta, \alpha\gamma \right>. \\
+\end{align*}
+
+Then, \begin{align*}
+T(\hat{j})&= \left<0,1,0  \right>-\frac{\beta}{{\|\vec{n}\|}^2}\vec{n} \\  
+          &= \left<\frac{-\alpha\beta}{{\|\vec{n}\|}^2},1-\frac{\beta ^{2 }}{{\|\vec{n}\|}^2},\frac{-\beta\gamma}{{\|\vec{n}\|}^2} \right> \\
+          &= \frac{1}{{\|\vec{n}\|}^2}\left<-\alpha\beta,{\|\vec{n}\|}^2-\beta ^{2 },-\beta\gamma \right> \\
+\end{align*}
+
+Lastly, \begin{align*}
+  T(\hat{k})&= \left<0,0,1  \right>-\frac{\gamma}{{\|\vec{n}\|}^2} \vec{n}\\
+  &= \frac{1}{{\|\vec{n}\|}^2}\left<-\alpha\gamma,-\beta\gamma,{\|\vec{n}\|}^2-\gamma^{2} \right> \\
+\end{align*}
+
+So, \[
+  T\left( \begin{bmatrix} x\\y\\z  \end{bmatrix}  \right) = -\frac{1}{{\|\vec{n}\|}^2}\begin{bmatrix} \alpha ^{2 }-{\|\vec{n}\|}^2 & \alpha\beta & \alpha\gamma \\ \alpha\beta & \beta^{2 }-{\|\vec{n}\|}^2 & \beta\gamma \\ \alpha\gamma & \beta\gamma & \gamma^{2 }-{\|\vec{n}\|}^2 \\ \end{bmatrix} \begin{bmatrix} x\\y\\z \end{bmatrix}  
+.\]
+
 \end{document}

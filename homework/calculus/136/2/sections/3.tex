@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\begin{document}
+  Given a linear transformation $T:V \longmapsto W$, the kernel of $V$ is $\text{ker}\,T=\left\{ \vec{v} \in V : T(\vec{v})=\vec{0} \right\} $ and the image of $V$ is $\text{Im}\,T=\left\{ T(\vec{v}):\vec{v}\in V \right\} $. The kernel is a subset of $V$ and the image is a subset of $W$.
+  \begin{enumerate}[label= (\alph*)]
+  \item Show that the kernel and the image of a transformation are vector subspaces of the domain and target set, respectively
+
+    Let $\vec{v_1},\vec{v_2} \in \text{ker}\,T$. Then,
+    \[
+      T(\vec{v_1})=T(\vec{v_2})=\vec{0}. 
+    \]
+     
+
+    So,
+    \[
+      T(\alpha_1\vec{v_1}+\alpha_2\vec{v_2})=\alpha_1T(\vec{v_1})+\alpha_2T(\vec{v_2})=\vec{0}. 
+    \]
+
+    Since the kernel of $T $ is closed under addition and scalar multiplication, it is a vector space. 
+
+    Since the kernel is a subset of $V $ and it is also a vector space, it is a subspace of $V $.
+
+
+    Let $\vec{w_1}=T(\vec{v_1}),\vec{w_2}=T(\vec{v_2})$ be vectors in the image of $T$.
+
+    Then, \[
+    \alpha_1\vec{w_1}+\alpha_2\vec{w_2} = \alpha_1T(\vec{v_1})+\alpha_2T(\vec{v_2}) = T(\alpha_1\vec{v_1}+\alpha_2\vec{v_2})
+    .\] 
+
+    Since the sum of two arbitrary scalar multiples of vectors in the image of $T $ are also in the image of $T $, then $\text{Im}\, T$ is a vector space. 
+
+    Since $\text{Im}\,T$ is a vector space and a subset of $W $, then it is a subspace of $W$. 
+
+
+  \item Recall that a function is injective if $f(x)=f(y)\implies x=y$. Show that a linear transformation $T$ is injective if and only if $\text{ker}T={\vec{0}}$
+
+  ($\impliedby$)
+  
+  Suppose that $\text{ker}\,T={0}$. If $T(x)=T(y)$, then, $T(x)-T(y)=0$ implies that $T(x-y)=0$ by the linearity of $T$. 
+
+  So, $x-y$ must belong to the kernel of $T$ contains only the zero function. 
+
+  Thus $x-y=0$ so $x=y$. Therefore $T$ is injective. 
+
+  ($\implies$) 
+
+  Suppose that $T $ is injective. 
+
+  For a contradiction, suppose that the kernel of $T$ contains zero and also $x\neq 0$. 
+
+  Since  $T$ is injective, then  $0=T(x)=T(0)$ implies that $x=0$, contradicting the assumption that $\text{ker}\,T$ contained $x\neq 0$. 
+
+  Therefore $\text{ker}\,T={0}$.
+
+  \item Let $T:\R^{3}\longmapsto\R^{3}$ defined by ${(x\ y\ z)}^{T}\longmapsto(x\ 0\ y)$. Describe the image and kernel of this transformation, both geometrically and using a basis for each, and find their dimensions.
+
+Since the transformation drops all information in $z$, the kernel of $T $ is the $z$-axis where $x$ and $y$ are zero. It can be described with the basis vector $\left<0,0,1 \right>$ and has dimension one. 
+
+The image of $T$ is spanned by the basis $\left\{ \left<1,0,0 \right>,\left<0,0,1 \right> \right\} $ which produces the $xz$-plane and has dimension two. 
+
+  \item Let $W$ be the set of all functions from $\R$ to $\R$ with continuous derivatives. Let $D$ be the differentiation map. Then, $D$ is a linear transformation, why?. What are the image and kernel of $D$? Same question with $D_1:V_{P,n}\longmapsto V_{P,n}$.
+\end{enumerate}
+
+$D$ is a linear transformation since differentiation is a linear operator. 
+
+The kernel of  $D$ is the set of all constant functions. 
+
+Take any continuous function $f$. Let $g(x)=\int_{0}^{x} f(t)\,dt $. 
+
+So $g$ has continuous derivatives and $D(g)=f$. 
+
+So, the image of $D$ is the set of all continuous functions. 
+
+
+With the transformation $D_1$ that maps from $V_{p,n}$ as the domain and codomain, the kernel is the same as $D$ above, ${V_{p,0}}$.
+
+The image of $D_1$ is one ${V_{p,n-1}}$, or the polynomials of a degree one less than $n$. 
+
+
+
+\end{document} 

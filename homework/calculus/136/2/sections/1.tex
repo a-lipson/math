@@ -1,0 +1,67 @@
+\documentclass{article}
+\begin{document}
+Find the matrix of the rotation in $\R^{3}$ through the angle $\alpha$ around the vector ${(1,2,3)}^{T}$.
+We assume that the rotation is counterclockwise if we sit at the tip of the vector and looking at the origin.
+
+Present the answer as a product of several matrices: you don't have to perform the multiplication.
+
+We already have the counterclockwise rotation matrix for $\R^{2 }$. We can expand this matrix to operate on the $xy$-plane in $\R^{3 }$ by preserving $\hat{k}$. 
+
+Thus, a counterclockwise rotation of $\alpha$ degrees about the $z $-axis is given by,
+\[
+  R_{\alpha} = \begin{bmatrix} 
+    \cos\alpha & -\sin\alpha & 0 \\
+    \sin\alpha & \cos\alpha & 0 \\
+    0 & 0 & 1 \\
+  \end{bmatrix} 
+.\] 
+
+First, we must make a change of basis to put the vector $\left< 1,2,3 \right>$ at $\left<0,0,1 \right>$. 
+
+We will construct an orthonormal set of vectors that includes $\vec{v_3}=\left<1,2,3 \right>$. We pick the vector $\vec{v_2}=\left<2,-1,0 \right>$ which is normal to the first since their dot product is zero. 
+
+We then take the cross product of these two vectors to build a third that is normal to the other two,
+\[
+  \begin{vmatrix} 
+    \hat{i} & \hat{j} & \hat{k} \\
+    1 & 2 & 3 \\
+    1 & 1 & -1 \\
+  \end{vmatrix} = \left< -5, 4, -1 \right> = \vec{v_1} 
+.\] 
+
+We then normalize each of these vectors to establish the orthonormal set,
+\begin{align*}
+  \|\left<1,2,3  \right>\| &= \sqrt{14} \\
+  \|\left<1,1,-1  \right>\|&= \sqrt{3}  \\
+  \|\left<-5,4,-1 \right>\| &= \sqrt{42}.  \\
+\end{align*}
+So, 
+\begin{align*}
+  \hat{v_3} &= \frac{1}{\sqrt{14} }\left<1,2,3\right> \\
+  \hat{v_2} &= \frac{1}{\sqrt{3 }}\left<1,1,-1\right> \\
+  \hat{v_1} &= \frac{1}{\sqrt{42}}\left<-5,4,-1\right>. \\
+\end{align*}
+
+However, we notice that the orientation of this basis is different than the orientation of the standard basis. In the future, this can be checked with the sign of the determinant. For now, we notice that this basis is left-handed while the standard basis is right-handed by attempting to place our fingers in in the appropriate octants. 
+
+In order to preserve the direction of rotation, we will reverse $\hat{v_1}$. 
+
+We assemble the transformation matrix $A$ by set the image of each of the standard basis vectors in each of columns.
+
+We will write the new basis vectors in terms of the common denominator $\frac{1}{\sqrt{42}}$.
+\[
+  A = \frac{1}{\sqrt{42} }\begin{bmatrix} 
+    5 & \sqrt{13} & \sqrt{3} \\
+    -4 & \sqrt{14} & 2\sqrt{3} \\
+    1 & -\sqrt{14} & 3\sqrt{3} \\ 
+  \end{bmatrix} 
+.\] 
+
+In order to perform the total transformation, we first transform the skewed orthonormal basis to the position the standard basis--this is the inverse transform of $A$--in order to rotate about $\hat{k}$, then we do the transformation $A $ to place $\hat{k}$ back at $\vec{v_3}$. 
+
+So, the final transformation is given by the composition,
+\[
+T(\vec{x})=A R_{\alpha} A^{-1} \vec{x}
+.\] 
+
+\end{document}

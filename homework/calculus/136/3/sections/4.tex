@@ -1,0 +1,55 @@
+\documentclass{article}
+\begin{document}
+\begin{enumerate}[label=(\alph*)]
+  \item Show that the complex numbers $\mathbb{C}$ may be viewed as a 2-dimensional real vector space. 
+
+    $\mathcal{C}$ is defined as $\R^{2}$ paired with the maps $+,-,\cdot,/$. Since the vector space of $\R^{2}$ is $\R^{2}$ with the addition (and substraction maps), then we can reductively view $\mathbb{C}$ as $\R^{2}$.
+
+  \item Let $L : \mathbb{C} \longmapsto M_{2\times 2}$ be the map defined by
+    \[
+      L(x+iy)=\begin{pmatrix} x&y\\-y&x\\ \end{pmatrix} 
+    .\]
+    Verify that $L$ is a linear map. What is the rank of $L$?
+
+    Let $z_1=x_1+iy_1$ and $z_2=x_2+iy_2$.
+
+    Then, 
+    \begin{align*}
+      L(\alpha_1 z_1 + \alpha_2 z_2) &= L(\alpha_1 x_1 + \alpha_2 x_2 + i(\alpha_1 y_1+\alpha_2 y_2)) \\
+      &= \begin{pmatrix}
+      \alpha_1 x_1 + \alpha_2 x_2 & \alpha_1 y_1+\alpha_2 y_2 \\
+      -(\alpha_1 y_1+\alpha_2 y_2) & \alpha_1 x_1 + \alpha_2 x_2 \\
+      \end{pmatrix}  \\
+      &= \alpha_1 \begin{pmatrix} 
+        x_1 & y_1 \\ -y_1 & x_1 \\
+      \end{pmatrix} + \alpha_2 \begin{pmatrix} 
+        x_2 & y_2 \\ -y_2 & x_2 \\
+      \end{pmatrix} \\
+      &= \alpha_1 L(z_1) + \alpha_2 L(z_2). \\
+    \end{align*}
+
+    Since $L$ is closed under addition and scalar multiplication, it is a linear map.
+
+    We can see that the kernel of $L$ will be solely $0\in \mathbb{C}$, so the nullity of $L$ is zero. 
+
+    Since the dimension of the domain of $L$ is 2 and the zero nullity of $L$, by the Rank Nullity Theorem, the rank of $L$ is 2.
+
+  \item Show that $L$ satisfies the identity $L(z_1 z_2)=L(z_1)L(z_2)$ for all $z_1,z_2 \in \mathbb{C}$.
+
+  We start from the product of the two matrices, using the above definitions for $z_1$ and $z_2$,
+  \begin{align*}
+    L(z_1)L(z_2)&= \begin{pmatrix} 
+      x_1 & y_1 \\ -y_1 & x_1 \\
+    \end{pmatrix} \begin{pmatrix} 
+      x_2 & y_2 \\ -y_2 & x_2 \\
+    \end{pmatrix} \\
+    &= \begin{pmatrix} 
+      x_1x_2-y_1y_2 & x_1y_2 + x_2y_1 \\ -(x_2y_1+x_1y_2) & x_1x_2-y_1y_2 \\
+    \end{pmatrix}  \\
+    &= L\left(x_1x_2-y_1y_2+i(x_1y_2+x_2y_1)\right) \\
+    &= L\left((x_1+iy_1)(x_2+iy_2)\right) \\
+    &= L(z_1z_2). \\
+  \end{align*}
+
+\end{enumerate}  
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass{article}
+\begin{document}
+Define $T : \R^{3} \longmapsto \R^{3}$ by  
+\[
+  T\left( \begin{bmatrix} x\\y\\z \end{bmatrix}  \right) = 
+  \begin{bmatrix} 
+  0 & 3 & -2 \\
+  1 & -2 & 2 \\
+  2 & -6 & 5 \\
+  \end{bmatrix} \begin{bmatrix} x\\y\\z \end{bmatrix} 
+.\] 
+Let $\mathcal{S}$ be the set of all vectors that are fixed by $T$, which means that
+ \[
+\mathcal{S}=\left\{ \vec{v}\in \R^{3} : T(\vec{v})=\vec{v} \right\} 
+.\] 
+\begin{enumerate}[label=(\alph*)]
+  \item Show, using the definition of a subspace, that $\mathcal{S}$ is a subspace of $\R^{3}$. 
+
+    Let $\vec{v_1},\vec{v_2}\in \R^{3}$ such that $\vec{v_1}=T(\vec{v_1})$ and $\vec{v_2}=T(\vec{v_2})$.
+
+    Then,
+    \begin{align*}
+      T(\alpha_1\vec{v_1}+\alpha_2\vec{v_2})&= \alpha_1 T(\vec{v_1})+\alpha_2 T(\vec{v_2}) \\
+      &= \alpha_1\vec{v_1}+\alpha_2\vec{v_2} \in \R^{3} \\
+    .\end{align*}
+
+    Therefore $\mathcal{S}$ is a vector space. Since $\mathcal{S}$ contains only elements from $\R^{3}$, $\mathcal{S}$ is a subspace of $\R^{3}$.
+
+  \item Find a linear equation $ax+by+cz=d$ such that $\mathcal{S}$ is the set of solutions to that equation.
+
+    Let the transformation matrix of the transformation $T$ be given by $A$. We wish to find $\vec{x}$ such that $A\vec{x}=\vec{x}$.
+
+  Note that $\vec{x}=I \vec{x}$. So, $A\vec{x}=\vec{x}$ becomes $A\vec{x}-I\vec{x}=\vec{0}=(A-I)\vec{x}$.
+
+  So, we now need the kernel of $A-I$.
+
+  We reduce the matrix,
+   \begin{align*}
+     &= \begin{pmatrix} 0&3&-2\\1&-2&2\\&2&-6&5\\ \end{pmatrix} - \begin{pmatrix} 1&0&0\\0&1&0\\0&0&1\\ \end{pmatrix} \\
+     &= \begin{pmatrix} -1&2&-2\\1&-3&2\\2&-6&4\\ \end{pmatrix}  \\
+     &\rightarrow \begin{pmatrix} 1&-3&2\\0&0&0\\0&0&0\\ \end{pmatrix}.
+  \end{align*}
+
+  When we consider the homogeneous system of these equations, we see that the solution in the given form is
+  \[
+  x-3y+2z=0
+  .\] 
+  \item Geometrically, what king of object is $\mathcal{S}$. 
+
+    $\mathcal{S}$ is a plane.
+
+  \item Find a basis for $\mathcal{S}$. 
+
+    We will choose two linearly independent vectors that are orthogonal to the plane's normal vector $\left<1,-3,2 \right>$.
+
+    We see that the vectors $\left<1,1,1 \right>$ and $\left<-2,0,1 \right>$ will work. 
+
+    So, a basis for $\mathcal{S}$ is given by the set of the two,
+    \[
+      \left\{ \begin{pmatrix} 1\\1\\1 \end{pmatrix} ,\begin{pmatrix} -2\\0\\1 \end{pmatrix} \right\} 
+    .\] 
+\end{enumerate}
+
+\end{document}

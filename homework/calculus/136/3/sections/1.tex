@@ -1,0 +1,48 @@
+\documentclass{article}
+\begin{document}
+True or false:
+\begin{enumerate}[label=(\alph*)]
+  \item Any system of linear equations has at least one solution;
+
+    False. Represent the system of linear as an augmented matrix that has a row without pivots but with a nonzero entry in the augment column of that row. This indicates that the system has no solutions.
+
+  \item Any system of linear equations has at most one solution;
+
+    False. Use any augmented matrix that has at least on column without a pivot. This indicates that the solution to the system has a free variable and therefore infinitely many solutions. For example, a matrix of all zeros has infinitely many solutions.
+
+  \item Any homogeneous system of linear equations has at least one solution;
+
+    True. The solution set to a homogeneous system is the same as the kernel of the coefficient matrix. The kernel will include at least the zero vector. Thus, the any homogeneous system has at least one solution.
+
+  \item Any system of $n$ linear equations in $n$ unknowns has at least one solution;
+
+    False. This is a more specific case of (a), where the coefficient matrix is square. We can create an augmented matrix with a nonzero particular solution entry next to a row of zeros in the coefficient matrix.
+
+  \item Any system of $n$ linear equations in $n$ unknowns has at most one solution;
+
+    False. With the same argument as (b), a column without a pivot yields a free variable which produces infinitely many solutions.
+
+  \item If the homogeneous system corresponding to a given system of a linear has a solution, then the given system has a solution;
+  
+    False. Take any system without a solution. We can find such a system because (a) does not hold. Add the homogeneous augment column of all zeros. Since this system is now homogeneous, it has a solution by (c). But, the original system did not have a solution. Therefore a solution to a homogeneous system does not imply that the linear system given by coefficient matrix also has a solution. Therefore the statement is false.
+    
+  \item If the coefficient matrix of a homogeneous system of $n$ linear equations in $n$ unknowns is invertible, then the system has no non-zero solution;
+
+    True. Let the coefficient matrix by $A$. 
+    
+    Since $A$ has $n$ equations and $n$ unknowns, then it is a square $n\times n$ matrix.
+
+    Since $A$ is invertible and square, then $A$ has pivots in every row and column. So, $\text{rank}A=n$ and, more importantly, the nullity of $A$ is zero by the Rank Nullity Theorem (FTLA).
+
+    So, $\text{ker}A={\vec{0}}$. Then, since $\text{ker}A=\left\{ \vec{v}\in \text{dom}A : A(\vec{v})=\vec{0} \right\} $, we also see that the zero vector is a solution to the homogeneous system. Thus, the statement holds.
+
+  \item The solution set of any system of $m$ equations in $n$ unknowns is a subspace in $\R^{n}$;
+
+    False. By (a), the solution set $\mathcal{S}$ of a system of equations can be empty. But, if $\vec{0}\not\in \mathcal{S}$, then $\mathcal{S}$ cannot be a vector space.\footnote{Instead, it is an affine space that is translated from the origin.} If the solution set of a system of equations is not a vector space, then it cannot be a subspace.
+
+  \item The solution set of any homogeneous system of $m$ equations in $n$ unknowns is a subspace in $\R^{n}$.
+
+    False. The solution set of a homogeneous system is equivalent to the kernel of its coefficient matrix. Since the kernel is a subspace of the domain, which is $\R^{n}$ given that there are $n$ unknowns and therefore $n$ input variables, then the solution set is a subspace of $\R^{n}$.
+
+ \end{enumerate} 
+\end{document}

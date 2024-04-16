@@ -1,0 +1,42 @@
+\documentclass{article}
+\begin{document}
+True or false:
+\begin{enumerate}[label=(\alph*)]
+  \item The rank of a matrix is equal to the number of its non-zero columns;
+
+    False. A row reduced matrix may have a nonzero column with no pivots. This column would then be a linear combination of the other columns. Therefore, this column would not contribute to the dimension of the image of the transformation, which is the rank. So, the rank is not equal to the number of nonzero columns and the statement is false.
+
+  \item The $m\times n$ zero matrix is the only $m\times n$ matrix with rank 0;
+
+    True. Since the rank is the dimension of the image of of the matrix, which are both zero, then the image of the matrix transformation must be zero. Thus, the matrix can have no nonzero columns and must thereby be the zero matrix.
+
+  \item Elementary row operations preserve rank;
+
+    True; this was proved in lecture. By 7.2.3, all row operations preserve row space and therefore the rank of the row space, or just the rank.
+
+  \item Elementary column operations do not necessarily preserve rank;
+
+    False. By the same reasoning as (c), column operations preserve column space. So, the dimension of the column space is preserved, which is the rank.
+
+  \item The rank of a matrix is equal to the maximum number of linearly independent columns in the matrix;
+
+    True. All of the linearly independent columns form a basis for the column space. Since the number of columns in a basis for a space is dimension of a given space, then the maximum number of linearly independent columns are the dimension of the column space which is the rank.
+
+  \item The rank of a matrix is equal to the maximum number of linearly independent rows in the matrix;
+
+    True. The linearly independent rows form a basis for the row space. By the same argument as (e), the number of linearly independent rows is the dimension of the row space, which is again the rank.
+
+    Alternatively, using (e), we see that the size of the largest set of linearly independent rows is the rank of the transpose of the give matrix. This is equal to the rank of the matrix itself by the Rank theorem.
+
+  \item The rank of an $n\times n$ matrix $A$ is at most $n$;
+    
+  True. Suppose, for a contradiction, that $\text{rank}\,A=\text{dim}\,\text{Im}\,A=m>n$. 
+
+  But $A$ has a codomain of dimension $n$ and an $n\times n$ matrix cannot produce vectors of a higher dimension that the target set. So, by contradiction, the rank of $A$ must be at most $n$.
+
+  \item An $n\times n$ matrix $A$ with rank $n$ is invertible. 
+
+    True. $A$ has a domain dimension of $n$. Since it has rank $n$, then it has a nullity of zero by the FTLA. Therefore it is invertible by the identities given in lecture.
+
+\end{enumerate}
+\end{document}

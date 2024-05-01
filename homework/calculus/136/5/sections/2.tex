@@ -1,0 +1,41 @@
+\documentclass{article}
+\begin{document}
+  Prove that the trace of a matrix is equal to the sum of its eigenvalues.
+
+  \begin{proof}
+   From 4.1.10, the determinant of a matrix is the product of its eigenvalues,
+   \[
+   \text{det}(A-\lambda I)=(\lambda_1-\lambda)(\lambda_2-\lambda)\cdots(\lambda_n-\lambda)
+   .\] 
+
+   We expand and then isolate the terms of degree $\lambda^{n-1}$ to obtain
+   \[
+     (\lambda_1+\lambda_2+\cdots+\lambda_n){(-1)}^{n-1}\lambda^{n-1}
+   .\] 
+
+   We will now show that $\text{det}(A-\lambda I)$ can be represented as \[
+     (a_{11}-\lambda)(a_{22}-\lambda)\cdots(a_{nn}-\lambda)+q(\lambda)
+   ,\]
+   where $q(\lambda)$ is a polynomial of degree at most $n-2$.
+
+  First, we will compute the determinant through minor matrices. We will consider the minor formed by taking the top left element of $A$,
+   \[
+     \text{det}(A-\lambda I)=(a_{11}-\lambda)\text{det}\begin{pmatrix} a_{22}-\lambda & & * \\ & \ddots & \\ * & & a_{nn}-\lambda \end{pmatrix}+q(\lambda).
+  .\] 
+  Then, $q$ is the product of all the other minors which are obtained either the first row or the first column. Let us take from the first row. Then, for each $a_{1j}$, for $j=2,3,\ldots,n$, the corresponding minor matrix will not have the $a_{11}-\lambda$ term, nor the $a_{jj}-\lambda$ term. Therefore, the highest order that the roots of in this minor matrix could be is $n-2$. 
+
+  Since the highest order of the terms in $q$ is only $n-2$, all of the $n-1$ terms must be contained in the product given by the first minor. 
+
+  By expanding and isolating $\lambda^{n-1}$ terms, we see get
+  \[
+    (a_{11}+a_{22}+\cdots+a_{nn}){(-1)}^{n-1}{\lambda}^{n-1}
+  .\] 
+
+  Then, by comparing coefficients we see that
+  \begin{align*}
+    \lambda_1+\cdots+\lambda_n&= a_{11}+\cdots+a_{nn} \\
+    \sum_{i=1}^{n}\lambda_i &= \sum_{i=1}^{n}a_{ii} = \text{trace}A \\
+  .\end{align*}
+
+  \end{proof}
+\end{document}

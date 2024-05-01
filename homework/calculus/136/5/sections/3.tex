@@ -1,0 +1,97 @@
+\documentclass{article}
+\begin{document}
+\begin{problem}
+  Find a closed form for the $n^{\text{th}}$ Fibonacci number $\varphi_n$. The series is defined recursively as $\varphi_{n+2}=\varphi_{n+1}+\varphi_{n}$. 
+\end{problem}
+
+First, we will find a matrix $A_{2\times 2}$ such that \[
+  \begin{pmatrix} \varphi_{n+2} \\ \varphi_{n+1} \end{pmatrix} =
+  A \begin{pmatrix} \varphi_{n+1} \\ \varphi_{n} \end{pmatrix} 
+.\] 
+
+This holds for the matrix \[
+  A=\begin{pmatrix} 1 & 1 \\ 1 & 0 \\ \end{pmatrix} 
+.\] 
+
+We will diagonalize $A$ to find a form for $A^n$.
+
+We compute the eigenvalues of the matrix,
+ \begin{align*}
+  0&= \text{det}(A-\lambda I) \\
+   &= \text{det}\begin{pmatrix} 1-\lambda & 1 \\ 1 & 0-\lambda \end{pmatrix}  \\
+   &= (1-\lambda)(-\lambda)-1 \\
+   &= \lambda^2-\lambda-1 \\
+.\end{align*}
+
+We recognize the solutions to this equation to be the golden ratio $\varphi$ and its conjugate $-\varphi^{-1}$; these are our two eigenvalues $\lambda_1$ and $\lambda_2$. 
+
+So, for diagonalizable $A=SDS^{-1}$, we now have that \[
+  D=\begin{pmatrix} \varphi & 0 \\ 0 & -\varphi^{-1} \end{pmatrix} 
+.\] 
+
+To determine the isomorphic matrix $S$, we compute the eigenvectors for $A$.
+
+For $\lambda_1=\varphi$, along with the fact that $1-\varphi=-\varphi^{-1}$, $A-\lambda I$ gives, 
+\[
+  \begin{pmatrix} 1-\varphi & 1 \\ 1 & -\varphi \end{pmatrix} 
+  \rightarrow
+  \begin{pmatrix} -\varphi^{-1} & 1 \\ \varphi^{-1} & -1 \end{pmatrix} 
+  \rightarrow
+  \begin{pmatrix} 1 & -\varphi \\ 0 & 0 \end{pmatrix} 
+.\] 
+which yields the eigenvector $\begin{pmatrix} \varphi \\ 1 \end{pmatrix}$.
+
+Similarly, for $\lambda_2=-\varphi^{-1}$,
+\[
+  \begin{pmatrix} 1-{(-\varphi)}^{-1} & 1 \\ 1 -{(-\varphi)}^{-1} \end{pmatrix} 
+  =
+  \begin{pmatrix} \varphi & 1 \\ 1 & \varphi^{-1} \end{pmatrix} 
+  \rightarrow
+  \begin{pmatrix} \varphi & 1 \\ 0 & 0 \end{pmatrix} 
+,\] 
+which provides the eigenvector $\begin{pmatrix} -\varphi^{-1} \\ 1 \end{pmatrix}$.
+
+So, \[
+  S=\begin{pmatrix} \varphi & -\varphi^{-1} \\ 1 & 1 \end{pmatrix} 
+.\] 
+
+Then, for $S^{-1}$, we use the form of the inverse of a $2\times 2$ matrix with the determinant of $S$ to see that
+ \[
+   S^{-1}=\frac{1}{2\varphi-1}\begin{pmatrix} 1 & \varphi^{-1} \\ -1 & \varphi \end{pmatrix} = \frac{1}{\sqrt{5}}\begin{pmatrix} 1 & \varphi^{-1} \\ -1 & \varphi \end{pmatrix}
+.\] 
+
+Then, with $A^n=SD^nS^{-1}$,
+\[
+  A^n=\begin{pmatrix} \varphi & -\varphi^{-1} \\ 1 & 1 \end{pmatrix}
+\begin{pmatrix} \varphi^n & 0 \\ 0 & {(-\varphi^{-1})}^n \end{pmatrix}
+\frac{1}{\sqrt{5} }\begin{pmatrix} 1 & \varphi^{-1} \\ -1 & \varphi \end{pmatrix} 
+.\] 
+
+Since \[
+  \begin{pmatrix} \varphi_{n+1} \\ \varphi_{n} \end{pmatrix} = A^n \begin{pmatrix} \varphi_1 \\ \varphi_0 \end{pmatrix} = A^n \begin{pmatrix} 1 \\ 0 \end{pmatrix},
+\] 
+then, 
+\begin{align*}
+  \begin{pmatrix} \varphi_{n+1} \\ \varphi_{n} \end{pmatrix} &= \begin{pmatrix} \varphi & -\varphi^{-1} \\ 1 & 1 \end{pmatrix}
+\begin{pmatrix} \varphi^n & 0 \\ 0 & {(-\varphi^{-1})}^n \end{pmatrix}
+\frac{1}{\sqrt{5} }\begin{pmatrix} 1 & \varphi^{-1} \\ -1 & \varphi \end{pmatrix} 
+\begin{pmatrix} 1 \\ 0 \end{pmatrix} 
+\\
+&= \frac{1}{\sqrt{5} } \begin{pmatrix} \varphi & -\varphi^{-1} \\ 1 & 1 \end{pmatrix}
+\begin{pmatrix} \varphi^n & 0 \\ 0 & {(-\varphi)}^{-n} \end{pmatrix}
+\begin{pmatrix} 1 \\ -1 \end{pmatrix} \\
+&=  \frac{1}{\sqrt{5} } \begin{pmatrix} \varphi & -\varphi^{-1} \\ 1 & 1 \end{pmatrix}
+\begin{pmatrix} \varphi^n \\ -{(-\varphi)}^{-n} \end{pmatrix} \\
+&= \frac{1}{\sqrt{5} }\begin{pmatrix} \varphi^{n+1}-{(-\varphi)}^{-(n+1)} \\ \varphi^n-{(-\varphi)}^{-n} \end{pmatrix}.\\
+\end{align*}
+
+So, we see that
+\[
+  \varphi_n = \frac{1}{\sqrt{5} }\left( \varphi^n-{(-\varphi)}^{-n} \right)
+.\] 
+
+We will show that $\begin{pmatrix}\frac{\varphi_{n+1}}{\varphi_{n}}\\1\end{pmatrix}$ converges to an eigenvector of $A$. 
+
+
+
+\end{document}

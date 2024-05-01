@@ -1,0 +1,72 @@
+\documentclass{article}
+\begin{document}
+\begin{enumerate}[label=(\alph*)]
+  \item \begin{proof}
+      For a contradiction, suppose that $\vec{x_1}$ and $\vec{x_2}$ are linearly dependent. 
+
+      So, $\vec{x_2}=a\vec{x_1}$ for some scalar $a \in \R$. 
+
+      Then,
+      \[
+      A\vec{z}=A(\vec{x_1}+i a \vec{x_1}).
+      .\] 
+
+      For the case when $a=0$ and $\vec{x_2}=\vec{0}$, then $A\vec{z}=A\vec{x_1}$, which has no imaginary part, contradicting the requirement that $\beta \neq 0$. 
+
+      So, we continue with $a \neq 0$. 
+      \[
+        A(\vec{x_1}+i a \vec{x_1})= (\alpha-\beta a)\vec{x_1}+i(\alpha a + \beta)\vec{x_1}
+      .\] 
+     
+      By separating into real and imaginary components, we see that
+      \begin{align*}
+        A\vec{x_1}&= (\alpha-\beta a)\vec{x_1} \\
+        aA\vec{x_1}&= (\alpha a + \beta) \\
+        A\vec{x_1}&= \left(\frac{\alpha a + \beta}{a}\right) \vec{x_1}.\\
+      \end{align*}
+
+      So,
+      \begin{align*}
+        \frac{\alpha a + \beta}{a}&= \alpha - \beta a \\
+        \alpha a + \beta &= \alpha a - \beta a^2 \\
+        \beta &= -\beta a^2 \\
+        -1 &= a^2. \\
+      \end{align*}
+
+      But, this implies that $a \in \mathbb{C}$, contradicting our assumption that it was real. 
+
+      So, by contradiction, $\vec{x_1}$ and $\vec{x_2}$ are linearly independent. 
+    \end{proof}
+
+  \item \begin{proof}
+
+    Let $\text{span}\left\{ \vec{x_1},\vec{x_2} \right\} = W$.
+
+    We see that $L_W$ maps vectors from $W$ onto linear combinations of vectors in $W$, so its codomain is also $W$,
+ \[
+   A\vec{x_1}+iA\vec{x_2}=(\alpha\vec{x_1}-\beta\vec{x_2})+i(\beta\vec{x_1}+\alpha\vec{x_2})
+ .\]
+
+    Treating $\vec{x_1}$ and $\vec{x_2}$ as basis vectors $(1,0)$ and $(0,1)$ respectively, we see that they map to $(\alpha,-\beta)$ and $(\beta,\alpha)$ through $L_W$ by looking at the corresponding real and imaginary parts.
+
+    So, writing $L_W$ with a matrix,
+    \[
+      A=\begin{pmatrix} \alpha & \beta \\ -\beta & \alpha \end{pmatrix}
+    .\] 
+
+ With $\lambda=\alpha+i\beta$, using Euler's formula where $\lambda=\|\lambda\|e^{i\theta}$, we get that \[
+   \|\lambda\|e^{i\theta}=\|\lambda\|(\cos\theta+i\sin\theta)
+ .\] 
+
+ So, it is clear that $\alpha=\cos\theta$ and $\beta=\sin\theta$.
+
+ Thus, we can rewrite our matrix as,
+ \[
+   A=\|\lambda\|\begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{pmatrix} 
+ .\] 
+
+    \end{proof}
+
+    \item Scaling by $\lambda$ and rotating by $\theta$ in a plane $W$.
+  \end{enumerate}
+\end{document}

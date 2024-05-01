@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\begin{document}
+  Prove that the geometric multiplicity of an eigenvalue cannot exceed its algebraic multiplicity.
+\begin{proof}
+  Let $\vec{v_1},\ldots,\vec{v_r}$ be a basis of the eigenspace of $A$ for a corresponding eigenvalue $\lambda_0$. So, $r$ is the geometric multiplicity of $\lambda_0$. 
+
+  By 4.1.8, we can complete this to form a basis in $\R^{n}$,
+  \[
+    A=
+    \begin{pmatrix} \hspace{5pt}
+      \lambda_0 I_r & * \\ \mathbf{0} & B
+  \hspace{5pt} \end{pmatrix} 
+  \] 
+  where $I_r$ is the $r\times r$ identity matrix.
+
+  By 4.1.7, this characteristic polynomial of this matrix is given by its determinant,
+  \[
+  \text{det}(A-\lambda I)=\text{det}(\lambda_0 I_g - \lambda I)\text{det}(B-\lambda I)
+  .\] 
+  This first determinant term will become the $\lambda_0$ roof of degree $r$ and the second determinant will be a polynomial in $\lambda$ which we will call $q(\lambda)$.
+
+  So, \[
+    \text{det}(A-\lambda I)={(\lambda_0 - \lambda)}^r q(\lambda)
+  .\] 
+
+  Since the determinant does not depend on basis, we will also consider the characteristic equation for the operator $A$ in the standard basis. This will be a polynomial with roots for each eigenvalue  $\lambda_i$ with degree $m_i$ for $i=1,2,\ldots,k$. $m_i$ represents the algebraic multiplicity of the root.
+  \[
+    P(\lambda)={(\lambda_0-\lambda)}^{m_0}{(\lambda_1-\lambda)}^{m_1}\cdots{(\lambda_k-\lambda)}^{m_k}
+  .\] 
+
+  Then, we equate these two characteristic polynomials and divide by the $r^{\text{th}}$ power of the $\lambda_0$ root.
+  \[
+    {(\lambda_0 - \lambda)}^{m_0-r}{(\lambda_1 - \lambda)}^{m_1}\cdots{(\lambda_k-\lambda)}^{m_k}=q(\lambda)
+  .\] 
+
+  But $q$ is a polynomial and not a rational function, so the power of the $\lambda_0$ root must be positive. 
+
+  Hence $m_0 \ge r$; the geometric multiplicity $r$ cannot exceed the algebraic multiplicity $m_0$. 
+\end{proof}
+\end{document}

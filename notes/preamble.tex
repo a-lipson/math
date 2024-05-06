@@ -37,11 +37,22 @@
 \newtheorem*{previouslyseen}{As previously seen}
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
-\newtheorem*{problem}{Problem}
 \newtheorem*{observe}{Observe}
 \newtheorem*{property}{Property}
 \newtheorem*{intuition}{Intuition}
 
+\newtheoremstyle{non-italic-style}
+  {3pt}
+  {3pt}
+  {\normalfont}
+  {}
+  {\bfseries}
+  {.}
+  {.5em}
+  {}
+
+\theoremstyle{non-italic-style}
+\newtheorem*{problem}{Problem}
 
 % fix spacing
 % http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm

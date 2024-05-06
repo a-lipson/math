@@ -1,6 +1,7 @@
 \documentclass{article}
 \begin{document}
-Let $V$ ck the vector space of continuous functions on the close interval  $[-1,1]$, with scalar product defined by
+\begin{problem}
+ Let $V$ be the vector space of continuous functions on the closed interval $[-1,1]$, with scalar product defined by
  \[
 \left<f,g \right> = \int_{-1}^{1} f(x)g(x)\,dx 
 .\] 
@@ -10,6 +11,88 @@ Let $V$ ck the vector space of continuous functions on the close interval  $[-1,
     \item Verify that $p_k$ is a solution of the differential equation 
       \[
         (1-x^{2})y''-2xy'+\lambda y = 0,\ \text{with}\ \lambda=k(k+1)
-      \] for $k=1,2,3,4$.  
+      \] for $k=0,1,2,3$.  
 \end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*)]
+  \item Let $v_{k}=x^{k}$ for $k=0,1,2,3$.
+
+    Gram-Schmidt orthogonalization gives the following formula where $P_{E_k}$ gives the projection onto the $k^{\text{th}}$ subspace defined by the first $k$ vectors from the $p_k$ set,
+    \[
+      p_{k+1}=v_{k+1}-P_{E_{k}}v_{k+1}=v_{k+1}-\sum_{i=1}^{k}\frac{\left<v_{k+1},p_i\right>}{\left<p_i,p_i \right>}p_i
+    .\] 
+
+    We let $p_1=v_1=1$. 
+
+    Then, $p_2=v_2-\frac{\left<v_2,p_1 \right>}{\left<p_1,p_1 \right>}p_1$. 
+
+    But $\left<v_2,p_1 \right> = \int_{-1}^{1} x\cdot1\,dx=0$ given that $x$ is odd. 
+
+    So, $p_2=x$.
+
+    Then, $p_3=v_3-\left( \frac{\left<v_3,p_1 \right>}{\left<p_1,p_1 \right>}p_1+\frac{\left<v_3,p_2 \right>}{\left<p_2,p_2 \right>}p_2 \right)$. 
+
+    For the first term in the sum, $\left<v_3,p_1 \right> = \int_{-1}^{1} x^2\cdot 1\,dx = \frac{x^3}{3} \vert_{-1}^{1} = \frac{2}{3}$
+    and $\left<p_1,p_1 \right> = \int_{-1}^{1} 1\cdot 1\,dx = 2$ since the integrand is a rectangle.
+
+    But, $\left<v_3,p_2 \right> = \int_{-1}^{1} x^2\cdot x\,dx = 0$ since the integrand $x^3$ is odd, so the second term is zero. 
+
+    So, $p_3=x^2-\frac{2 / 3}{2}\cdot 1=x^2-\frac{1}{3}$. 
+
+    Then $p_4=v_4-\left( \frac{\left<v_4,p_1 \right>}{\left<p_1,p_1 \right>}p_1+\frac{\left<v_4,p_2 \right>}{\left<p_2,p_2 \right>}p_2+\frac{\left<v_4,p_3 \right>}{\left<p_3,p_3 \right>}p_3 \right)$.
+
+    But, the first and third terms become zero since $\left<v_4,p_1 \right>$ and $\left<v_4,p_3 \right>$ both produce integrands of odd functions by the integral definition of the inner product, and odd function have zero signed area under the curve on symmetrical regions like $[-1,1]$. So, these terms reduce to zero.
+
+    So, we will consider the second term, where $\left<v_4,p_2 \right> = \int_{-1}^{1} x^3\cdot x\,dx = \frac{x^5}{5} \vert_{-1}^{1} = \frac{2}{5}$ and $\left<p_2,p_2 \right> = \int_{-1}^{1} x\cdot x\,dx = \frac{x^3}{3} \vert_{-1}^{1} = \frac{2}{3}$. 
+
+    Thus, $p_4=x^{3}-\left( \frac{2 / 5}{2 / 3} \right)x = x^{3}-\frac{3}{5}x$. 
+
+    \item For $k=0$, $y=p_0=1$, so the coefficient of the $D^{0}$ term is $\lambda=0(0+1)=0$. 
+
+    So we will verify that the chosen $y=1$, $y'=y''=0$ holds for the equation  \[
+      (1-x^{2})y''-2xy'=0 
+    .\] 
+
+    Clearly, if both the first and second derivatives of $y$ are zero, then the left side of the equation is zero and the identity holds. 
+
+    For $k=1$, $y=p_1=x$ and $\lambda=1(1+1)=2$. 
+
+    So, we get the equation \[
+      (1-x^{2})y''-2xy'+2y=0 
+    .\] 
+
+    With $y'=1$ and $y''=0$, we need only to compare the $D^1$ and $D^0$ terms,
+     \[
+       (1-x^2)(0)-2x(1)+2(x)=0
+    .\] 
+
+    We quickly see that this equation holds.
+
+    For $k=2$, we get $\lambda=2(2+1)=6$, $y=p_2=x^2-\frac{1}{3}$, $y'=2x$, and $y''=2$. 
+
+    We will check if the following holds: \[
+      (1-x^2)(2)-2x(2x)+6\left( x^{2}-\frac{1}{3} \right)=0
+    .\] 
+
+    We verify by expanding, \[
+    2-2x^{2}-4x^{2}+6x^{2}-2=0 
+    .\] 
+
+    We see that this is zero because of term cancellation.
+
+    Finally, for $k=3$, we get $\lambda=3(3+1)=12$, $y=p_3=x^3-\frac{3}{5}x$, $y'=3x^2-\frac{3}{5}$, and $y''=6x$. 
+
+    Then, we will simply the following and see that it holds:
+    \begin{align*}
+      (1-x^2)(6x)-2x\left( 3x^2-\frac{3}{5} \right)+12\left( x^3 - \frac{3}{5} x \right) &=0\\
+      6x-6x^3-6x^3+\frac{6}{5}x+12x^3-\frac{36}{5}x &= 0 \\
+      \frac{30}{5}x+\frac{6}{5}x-\frac{36}{5}x-2\cdot 6x^3+12x^3&= 0 \\
+    .\end{align*}
+
+    Again, we see that, through cancellation of terms, the differential equation condition holds.
+
+    So, $p_0,p_1,p_2,p_3$ satisfy the given differential equation. 
+\end{enumerate}
+
 \end{document}

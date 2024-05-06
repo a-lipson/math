@@ -1,12 +1,46 @@
 \documentclass{article}
 \begin{document}
+\begin{problem}
   Let $\left<\: \cdot\:,\:\cdot\: \right>$ be a positive definite inner product on the vector space $V$. Let  $L:V \longmapsto V$ be a linear transformation that satisfies the condition,
   \[
-  \left<u,L(v) \right> =\left<L(u),v \right> \forall u,v \in V 
+  \left<u,L(v) \right> =\left<L(u),v \right>, \quad \forall u,v \in V 
   .\] 
   Such an operator is said to be \textit{self-adjoint}.
 
   Let $v_{\lambda}$ and  $v_{\mu}$ be eigenvectors associated to the eigenvalues  $\lambda$ and  $\mu$ of  $L$, with $\lambda\neq\mu$. 
 
   Show that $v_{\lambda}\perp v_{\mu}$
+\end{problem}
+
+\begin{lemma}
+  Self-adjoint matrices have real eigenvalues.
+\end{lemma}
+
+\begin{proof}
+  Let $z$ be an eigenvector with eigenvalue $\lambda$.
+
+  First, we will use the left eigenvalue,
+  \begin{align*}
+    \left<Lz,z\right> &= \left<z,Lz \right> \\
+    \left< \lambda z,z \right>&= \left< z, \lambda z \right> \\
+    \lambda \left< z,z \right> &= \overline{\lambda}\left<z,z \right>. \\
+  \end{align*}
+  Since $z=\overline{z}$, then $z\in \R$.
+\end{proof}
+
+Eigenvectors with different eigenvalues from a self-adjoint matrix are always orthogonal.
+
+Since $L$ is self adjoint, by the Lemma, we will only take out real eigenvalues from either position in the inner product. 
+
+So,
+\begin{align*}
+  \left<Lv_{\mu},v_{\lambda}\right> &= \left<v_{\mu},Lv_{\lambda} \right> \\
+  \left< \mu v_{\mu},v_{\lambda} \right>&= \left< v_{\mu}, \lambda v_{\lambda} \right> \\
+  \mu\left< v_{\mu},v_{\lambda} \right>&= \lambda\left< v_{\mu}, v_{\lambda} \right> \\
+  (\mu-\lambda)\left<v_{\mu},v_{\lambda} \right> &= 0, \qquad \mu\neq\lambda\\
+  \left< v_{\mu},v_{\lambda}\right> &= 0. \\
+\end{align*}
+
+Therefore $v_{\mu}\perp v_{\lambda}$.
+
 \end{document}

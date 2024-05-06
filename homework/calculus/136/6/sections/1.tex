@@ -2,9 +2,34 @@
 \begin{document}
   \begin{problem}
     Let $A$ be a matrix such that  $A^{*}A$ is invertible. 
-    With $P_{\text{Im}\,A}$ given by $A{(A^{*}A)}^{-1}A^{*}$, find $P_{\text{ker}\,A}$, $P_{\text{ker}\,A^{*}}$, and $P_{\text{Im}\,A^{*}}$. 
-
-
-
+    With $P_{\text{Im}\,A}$ given by $A{(A^{*}A)}^{-1}A^{*}$, find $P_{\text{ker}\,A}$, $P_{\text{ker}\,A^{*}}$, and $P_{\text{Im}\,A^{*}}$.
   \end{problem}
+
+    We can express any vector $z\in V$ uniquely by expressing its components as projections onto the linearly independent subspaces $E,E^{\perp}\subset V$,
+    \[
+      z=P_E(z)+P_{E^{\perp}}(z)
+    .\] 
+
+    Given the $P_{\text{Im}\,A}$ and the above, we can find the projection onto ${\left( \text{Im}\,A \right)}^{\perp}=\text{ker}\,A^{*}$.
+    \begin{align*}
+      z&=P_{\text{Im}\,A}(z)+P_{\text{ker}\,A^{*}}(z)\\
+      z-P_{\text{Im}\,A}(z)&= P_{\text{ker}\,A^{*}}(z) \\
+      z(I-A{(A^{*}A)}^{-1}A^{*})&= P_{\text{ker}\,A^{*}}(z) \\
+      I-A{(A^{*}A)}^{-1}A^{*}&= P_{\text{ker}\,A^{*}}. \\
+    \end{align*}
+
+    Then, we will consider the same with the linearly independent pair of orthogonal subspaces $\text{ker}\,A$ and ${(\text{ker}\,A)}^{\perp}=\text{Im}\,A^{*}$.
+    Since $A^{*}A$ is invertible, $\text{ker}\,A={\vec{0}}$, then the image of any vector under the operator $A$ projected into the kernel of $A$ will be the zero vector.
+    So,
+    \begin{align*}
+      z&= P_{\text{ker}\,A}+P_{\text{Im}\,A^{*}} \\
+      Az&= AP_{\text{ker}\,A}+AP_{\text{Im}\,A^{*}}\\
+      Az&= AP_{\text{Im}\,A^{*}}\\
+      I &= P_{\text{Im}\,A^{*}} \\
+    \end{align*}
+    and
+    \[
+      0 = P_{\text{ker}\,A}
+    .\] 
+
 \end{document}

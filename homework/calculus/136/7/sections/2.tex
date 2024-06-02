@@ -1,0 +1,26 @@
+\documentclass{article}
+\begin{document}
+\begin{enumerate}[label=(\alph*)]
+    \item Recall and write down the definition of continuity for $f:\R\longmapsto\R$ at $x=a$. 
+    \item Modify it using the norm on $\R^n$ (instead of absolute value) to write down the definition of continuity for $f:\R^n\longmapsto\R$ being continuous at $x=a$ in $\R^n$.
+    \item We say $f:\R^{n}\longmapsto\R$ is continuous if it is continuous at every $x\in \R^n$. Now assume $f:\R^n\longmapsto\R$ is a continuous function and let $I$ be an open interval of the form  $I=(a,b)$ where  $a<b$. Show that the preimage of  $I$  \[
+    f^{-1}(I)=\left\{ \vec{x}\in \R^n : f(\vec{x})\in I \right\} 
+    \] 
+    is an open set. 
+    (This becomes an alternative definition of continuity in analysis or topology: We say $f:\R^n\longmapsto\R$ is continuous if the preimage of every open set in $\R^m$ is open in $\R^n$.)
+  \end{enumerate}
+
+  \begin{enumerate}[label=(\alph*)]
+    \item \[
+    \forall \epsilon>0, \exists \delta>0 : |x-a|<\delta \implies |f(x)-f(a)| < \epsilon
+    .\] 
+  \item \[
+    \forall \epsilon>0, \exists \delta>0 : \|\vec{x}-\vec{a}\|<\delta \implies |f(\vec{x})-f(\vec{a})| < \epsilon
+  .\]  
+  \item Given $x\in f^{-1}(I)$, we wish to find a $\delta>0$ such that we can form a $\delta$-sized ball around $\vec{x}$ which is a subset of $f^{-1}(I)$. 
+  Then, for any vector $\vec{y}$ $\delta$-close to $\vec{x}$, $f(\vec{y})$ will be in the open interval $I$ \[
+  \|\vec{y}-\vec{x}\|<\delta \implies f(\vec{y})\in I
+  .\] 
+  Since $f$ is continuous, we choose $\epsilon=\min\{f(\vec{x})-a,b-f(\vec{x})\}$ where $a<f(\vec{x})<b$ and are given the desired $\delta$.
+  \end{enumerate}
+\end{document}

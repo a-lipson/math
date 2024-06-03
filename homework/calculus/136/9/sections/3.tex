@@ -1,0 +1,20 @@
+\documentclass{article}
+\begin{document}
+  \begin{problem}
+    Let $w=f(x,y),x=g(u,v)$, and set  $k(u,v)=f(g(u,v),v)$. Assume that  $f$ and  $g$ are  $C^2$. Find  $\frac{\partial}{\partial v}k(u,v)$ and $\frac{\partial^{2}}{\partial v^2}k(u,v)$ in terms of partial derivatives of $f$ and  $g$.
+  \end{problem}
+
+  First, for the first order differential,
+  \begin{align*}
+    \frac{\partial k}{\partial v}&= \frac{\partial f}{\partial g}\frac{\partial g}{\partial v}\frac{\partial v}{\partial v}+\frac{\partial f}{\partial v}+\frac{\partial v}{\partial v} \\
+    &= \frac{\partial f}{\partial g}\frac{\partial g}{\partial v}+\frac{\partial f}{\partial v}. \\
+  \end{align*}
+
+  Then, for the second order,
+  \begin{align*}
+    \frac{\partial^{2} k}{\partial v^2}&= \frac{\partial^2 f}{\partial v \partial g}\frac{\partial g}{\partial v}+\frac{\partial f}{\partial g}\frac{\partial^{2} g}{\partial v^2}+\frac{\partial^{2} f}{\partial v^2} \\
+    \frac{\partial^{2} k}{\partial v^2}&= \left( \frac{\partial^{2} f}{\partial g^2}\frac{\partial g}{\partial v}+\frac{\partial^{2} f}{\partial v^2} \right) \frac{\partial g}{\partial v}+\frac{\partial f}{\partial g}\frac{\partial^{2} g}{\partial v^2}+\frac{\partial^{2} f}{\partial v^2} \\
+                                       &= \frac{\partial^{2} f}{\partial g^2}{\left( \frac{\partial g}{\partial v} \right) }^2 +\frac{\partial^{2} f}{\partial v^2}\frac{\partial g}{\partial v}+\frac{\partial f}{\partial g}\frac{\partial^{2} g}{\partial v^2}+\frac{\partial^{2} f}{\partial v^2}\\
+                                       &= \frac{\partial^{2} f}{\partial g^2}{\left( \frac{\partial g}{\partial v} \right) }^2 +\frac{\partial^{2} f}{\partial v^2}\left(\frac{\partial g}{\partial v}+1\right)+\frac{\partial f}{\partial g}\frac{\partial^{2} g}{\partial v^2}.\\
+  \end{align*}
+\end{document}

@@ -11,7 +11,42 @@
 
   So, at the origin, $f(0,0)=5$.
 
-  We will parametrize 
+  We will parametrize the boundary with a single variable by removing $x$ from $f$ according to the boundary condition $x^2+y^2=1 \implies x^2=1-y^2$. We will consider only $y \in [-1,1]$.
+  \begin{align*}
+    f(y)&= {(1-y^2)}^2+4y^3+5 \\
+    &= 1-2y^2+y^4+4y^3+5 \\
+    &= y^4+4y^3-2y^2+6. \\
+  \end{align*}
+
+  Then we find where the derivative of $f(y)$ is zero,
+  \begin{align*}
+    f'(y)&= 4y^3+12y^2-4y \\
+    &= 4y(y^2+3y-1). \\
+  \end{align*}
+  We see that this function is zero at $y=0$. We will now consider the roots of the quadratic,
+  \begin{align*}
+    {\left( y+\frac{3}{2} \right) }^2-\frac{13}{4}&= 0 \\
+    y+\frac{3}{2}&= \frac{\sqrt{13}}{2}  \\
+    y&= \frac{\sqrt{13}-3}{2}. \\
+  \end{align*}
+
+  We will evaluate the $f$ at these critical points.
+  \begin{align*}
+    f(0)&= 6; \\
+    f\left( \frac{\sqrt{13}-3}{2} \right) &\approx 5.9. \\
+  \end{align*}
+
+  We will also evaluate at the endpoints.
+  \begin{align*}
+    f(-1)&= 1; \\
+    f(1)&= 9.
+  \end{align*}
+
+  So, we see that, considering the critical points inside the region, the critical points on the boundary of the region, and the endpoints of the region,
+  \begin{align*}
+    \text{min}\,f &= 1 \ \text{at}\ (0,-1); \\
+    \text{max}\,f &= 9 \ \text{at}\ (0,1). \\
+  \end{align*}
 
 
 \end{document}

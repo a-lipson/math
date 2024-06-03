@@ -1,0 +1,29 @@
+\documentclass{article}
+\begin{document}
+  \begin{problem}
+    Show that a surface of the form $z=xf(\frac{x}{y})$ with $f$ continuously differentiable, has the property that all tangent have a common point.
+  \end{problem}
+
+  Let $g(x,y)=z=xf(\frac{x}{y})$.
+
+  The tangent plane $T(\vec{x})$ of the function $g$ at a point $\vec{x_0}$ is given by, \[
+  T(\vec{x})=g(\vec{x_0})+\nabla g(\vec{x_0})\cdot (\vec{x}-\vec{x_0})
+  .\] 
+
+  Let $\vec{x}=(x,y)$ and fix $\vec{x_0}=(a,b)$.
+
+  Then, \[
+  \nabla g = \left(f\left(\frac{x}{y}\right)+\frac{x}{y}f'\left(\frac{x}{y}\right),-\frac{x^2}{y^2}f'\left(\frac{x}{y}\right)\right)
+  .\] 
+
+  So,
+  \begin{align*}
+    T(x,y)&= \left( f\left( \frac{a}{b} \right) +\frac{a}{b}f'\left( \frac{a}{b} \right)  \right)(x-a)-\frac{a^2}{b^2}f'\left( \frac{a}{b} \right)(y-b)+af\left( \frac{a}{b} \right)\\
+    &= x\left(f\left( \frac{a}{b} \right)+\frac{a}{b}f'\left( \frac{a}{b} \right) \right)-\frac{a^2}{b}f'\left( \frac{a}{b} \right) -af\left( \frac{a}{b} \right) -y \frac{a^2}{b^2}f'\left( \frac{a}{b} \right)+\frac{a^2}{b}f'\left( \frac{a}{b} \right) + af\left( \frac{a}{b} \right)   \\
+    &= x\left( f\left( \frac{a}{b} \right)+\frac{a}{b}f'\left( \frac{a}{b} \right)   \right) -y \frac{a^2}{b^2} f'\left( \frac{a}{b} \right). \\
+  \end{align*}
+
+  Since $a$ and $b$ were fixed from  $\vec{x_0}$, then we see that this function is indeed a plane as it is linear in $x$ and $y$. 
+
+  More importantly, all of the $T$ planes share a common point of the origin $(x,y)=(0,0)$.
+\end{document}

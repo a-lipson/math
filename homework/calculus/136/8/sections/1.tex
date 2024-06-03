@@ -11,6 +11,15 @@
   .\] 
 
   We find $\frac{\partial r}{\partial x}$, \[
-  \frac{\partial r}{\partial x}=\frac{\partial}{}
+  \frac{\partial r}{\partial x}=\frac{\partial}{\partial x}\sqrt{x^2+y^2+z^2}=\frac{2x}{2\sqrt{x^2+y^2+z^2}}=\frac{x}{r}
   .\] 
+  The same holds for $y$ and $z$.
+
+  So, the above becomes  \[
+  \nabla f(r)=\left(\frac{df}{dr}\frac{x}{r}+\frac{df}{dr}\frac{y}{r}+\frac{df}{dr}\frac{z}{r}\right)=\frac{df}{dr}\left( \frac{1}{r} \right) \cdot \left( x,y,z \right) = f'(r) \frac{\vec{r}}{r} 
+  ,\] 
+
+  which is equivalent to the statement that we wished to show.
+
+
 \end{document}

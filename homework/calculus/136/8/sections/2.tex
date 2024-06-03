@@ -1,0 +1,52 @@
+\documentclass{article}
+\begin{document}
+  \begin{problem}
+    Assume $u(x,y)$ has continuous second partials. Show that the Laplace polar form holds,  \[
+      \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=\frac{\partial^2 u}{\partial r^2}+\frac{1}{r^2}\frac{\partial^2 u}{\partial \theta^2}+\frac{1}{r}\frac{\partial u}{\partial r}
+    .\] 
+  \end{problem}
+
+  Let $x=r\cos\theta$ and $y=r\sin\theta$.
+
+  So, $\frac{\partial x}{\partial r}=\cos \theta$ and $\frac{\partial y}{\partial r}=\sin \theta$; and $\frac{\partial x}{\partial \theta}=-r\sin \theta$ and $\frac{\partial y}{\partial \theta}=r\cos \theta$.
+
+  We use to chain rule to compute to the $r$ partials,
+  \begin{align*}
+    \frac{\partial u}{\partial r} &= \frac{\partial u}{\partial x}\frac{\partial x}{\partial r}+\frac{\partial x}{\partial y} \\
+    &= \frac{\partial u}{\partial x}\cos \theta+\frac{\partial u}{\partial y} \sin \theta. \\
+  \end{align*}
+
+  We deploy the chain rule again,
+  \begin{align*}
+    \frac{\partial^{2} u}{\partial r^2}&=\cos \theta\frac{\partial}{\partial r}\frac{\partial u}{\partial x} + \sin \theta\frac{\partial}{\partial r}\frac{\partial u}{\partial y}\\
+    &= \cos \theta\left( \frac{\partial^{2} u}{\partial x^2}\frac{\partial x}{\partial r}+\frac{\partial^2 u}{\partial y \partial x}\frac{\partial y}{\partial r} \right)+\sin \theta\left( \frac{\partial^2 u}{\partial x \partial y}\frac{\partial x}{\partial r}+\frac{\partial^{2} u}{\partial y^2}\frac{\partial y}{\partial r} \right)   \\
+    &= \cos^2 \theta \frac{\partial^{2} u}{\partial x^2} + \cos \theta \sin \theta \left( \frac{\partial^2 u}{\partial x \partial y}+\frac{\partial^2 u}{\partial y \partial x} \right) +\sin^2 \theta \frac{\partial^{2} u}{\partial y^2}. \\
+  \end{align*}
+
+  We will apply the same for $\theta$,
+  \begin{align*}
+    \frac{\partial u}{\partial \theta}&= \frac{\partial u}{\partial x}\frac{\partial x}{\partial \theta}+\frac{\partial u}{\partial y}\frac{\partial y}{\partial \theta} \\
+    &= \frac{\partial u}{\partial x}(-r\sin \theta)+\frac{\partial u}{\partial y}(r\cos \theta). \\
+  \end{align*}
+
+  And, for the second order partial as well,
+  \begin{align*}
+    \frac{\partial^{2} u}{\partial \theta^2}&= -r \frac{\partial}{\partial \theta}\left[ \sin \theta \frac{\partial u}{\partial x} \right] + r \frac{\partial}{\partial \theta}\left[ \cos \theta \frac{\partial u}{\partial y} \right] \\
+    &= -r\left( \cos \theta \frac{\partial u}{\partial x} + \sin \theta \frac{\partial}{\partial \theta}\frac{\partial u}{\partial x} \right) + r\left( -\sin \theta \frac{\partial u}{\partial y} + \cos \theta \frac{\partial}{\partial \theta}\frac{\partial u}{\partial y} \right) \\
+    &= -r\left(\cos \theta \frac{\partial u}{\partial x} + \sin \theta \frac{\partial u}{\partial y}\right)-r\sin \theta\left( \frac{\partial^{2} u}{\partial x^2}\frac{\partial x}{\partial \theta}+\frac{\partial^2 u}{\partial y \partial x}\frac{\partial y}{\partial \theta} \right)+r\cos \theta\left( \frac{\partial^2 u}{\partial x \partial y}\frac{\partial x}{\partial \theta}+\frac{\partial^{2} u}{\partial y^2}\frac{\partial y}{\partial \theta} \right) \\
+    &= -r\left(\cos \theta \frac{\partial u}{\partial x} + \sin \theta \frac{\partial u}{\partial y}\right)\\&\quad-r\sin\theta\left( \frac{\partial^{2} u}{\partial x^2}(-r\sin \theta)+\frac{\partial^2 u}{\partial y \partial x}(r\cos \theta) \right)\\&\quad+r\cos\theta\left( \frac{\partial^2 u}{\partial x \partial y}(-r\sin \theta)+\frac{\partial^{2} u}{\partial y^2}(r\cos \theta) \right) \\
+    &= -r \left(\cos \theta \frac{\partial u}{\partial x} + \sin \theta \frac{\partial u}{\partial y}\right) + r^2\left( \sin^2 \theta \frac{\partial^{2} u}{\partial x^2} -\cos \theta \sin \theta \left( \frac{\partial^2 u}{\partial x \partial y} + \frac{\partial^2 u}{\partial y \partial x} \right) +\cos^2 \theta \frac{\partial^{2} u}{\partial y^2} \right). \\
+  \end{align*}
+
+  We will assemble the terms, starting with $\frac{\partial^{2} u}{\partial \theta^2}$, noting that we can substitute part the first term with $\frac{\partial u}{\partial r}$.
+  \begin{align*}
+    \frac{1}{r^2} \frac{\partial^{2} u}{\partial q^2} &= -\frac{1}{r}\frac{\partial u}{\partial r}+\sin^2 \theta \frac{\partial^{2} u}{\partial x^2} -\cos \theta \sin \theta \left( \frac{\partial^2 u}{\partial x \partial y} + \frac{\partial^2 u}{\partial y \partial x} \right)+\cos^2 \theta \frac{\partial^{2} u}{\partial y^2}. \\
+  \end{align*}
+
+  Then, adding $\frac{\partial^{2} u}{\partial r^2}$, we get cancellation of this mixed partials and the product of a cosine squared and sine squared term for each second partial of $u$ in  $x$ and  $y$ respectively. These reduce to a coefficient of one.
+  \begin{align*}
+    \frac{\partial^{2} u}{\partial r^2}+\frac{1}{r^2}\frac{\partial^{2} u}{\partial \theta^2}&=-\frac{1}{r}\frac{\partial u}{\partial r}+\frac{\partial^{2} u}{\partial x^2}+\frac{\partial^{2} u}{\partial y^2} \\
+    \frac{\partial^{2} u}{\partial r^2}+\frac{1}{r^2}\frac{\partial^{2} u}{\partial \theta^2}+\frac{1}{r}\frac{\partial u}{\partial r}&=\frac{\partial^{2} u}{\partial x^2}+\frac{\partial^{2} u}{\partial y^2}, \\
+  \end{align*}
+  which is the identity we wished to show.
+\end{document}

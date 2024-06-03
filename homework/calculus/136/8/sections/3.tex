@@ -1,0 +1,20 @@
+\documentclass{article}
+\begin{document}
+  \begin{problem}
+    Suppose that $f:\R^2\longmapsto\R$ is $C^2$ (has continuous second partials). Fix $\vec{x},\vec{h}\in \R^2$. Let $g:\R\longmapsto\R$, $g(t)=f(\vec{x}+t\vec{h})$. Find $g'(t)$ and $g''(t)$.
+  \end{problem}
+
+  Define $f$ as $f(x,y)$ and let $\vec{x}=(x_1,x_2)$ and $\vec{h}=(h_1,h_2)$.
+
+  Then, let $x=x_1+th_1$ and $y=x_2+th_2$, so $\frac{dx}{dt}=h_1$ and $\frac{dy}{dt}=h_2$.
+
+  Then, \[
+  \frac{dg}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}=h_1 \frac{\partial f}{\partial x}+h_2 \frac{\partial f}{\partial y}
+  .\] 
+
+  Next, \begin{align*}
+    \frac{d^2 g}{dt^2}&=\frac{d}{dt}\left[ h_1 \frac{\partial f}{\partial x}+h_2 \frac{\partial f}{\partial y} \right] \\
+                      &= h_1\left( \frac{\partial^2 f}{\partial x^2} \frac{dt}{dx} + \frac{\partial^2 f}{\partial y \partial x}\frac{dy}{dt} \right) + h_2\left( \frac{\partial^2 f}{\partial x \partial y}\frac{dx}{dt} + \frac{\partial^2 f}{\partial y^2}\frac{dy}{dt} \right) \\
+                      &= {h_1}^2 f_{xx}+h_1h_2(f_{xy}+f_{yx})+{h_2}^2 f_{yy}. \\
+  \end{align*}
+\end{document}

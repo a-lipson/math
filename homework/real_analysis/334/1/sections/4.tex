@@ -1,0 +1,28 @@
+\documentclass{article}
+\begin{document}
+\begin{problem}
+Let \[
+	\inp{f }{g }=\int_{0}^{1} f(x)g(x)\, dx,\quad f,g:[0,1]\longrightarrow\R
+	.\]
+
+Prove \[
+	\left| \int_{0}^{1} f(x)g(x)\,dx \right| \le {\left( \int_{0}^{1} {f(x)}^2\,dx  \right) }^{1 / 2}{\left( \int_{0}^{1} {g(x)}^2\,dx  \right) }^{1/2}
+	.\]
+\end{problem}
+\begin{proof}
+	If $f(x)$ or $g(x)$ are zero $\forall x\in [0,1]$, then the Cauchy-Schwarz inequality holds as both sides are zero.
+
+	So, we now assume $f$ and  $g$ are nonzero somewhere in the unit interval. We assemble a non-negative function  $\forall t\in \R.\ h(t)\ge 0$,
+	\begin{align*}
+		h(t) & = {|f(x)-tg(x)|}^2                                                    \\
+		     & = \inp{f-tg}{f-tg}                                                    \\
+		     & = \int_{0}^{1} \left( f(x)-tg(x) \right)\left( f(x)-tg(x) \right)\,dx \\
+		     & = \int_{0}^{1} {f(x)}^2-2tf(x)g(x)+t^2{g(x)}^2\,dx                    \\
+	\end{align*}
+
+	We see that this function is a quadratic in $t$. We now wish to find the minimum value of this function, which occurs at  \[
+		t_0=\frac{\int_{0}^{1} f(x)g(x)\,dx }{\int_{0}^{1} {g(x)}^2\,dx }
+		.\]
+\end{proof}
+
+\end{document}

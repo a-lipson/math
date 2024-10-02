@@ -4,6 +4,39 @@
 \begin{problem}
 Let $x,y\in \R^{n}$ and $x,y\neq 0$. Prove $\inp{x}{y}=|x||y|\implies \exists \lambda\in \R : x=\lambda y$.
 \end{problem}
+\begin{proof}
+	Note that $\inp{x }{y } = |x||y| \implies $.
+	\begin{equation}
+		0 = {|x|}^2-\frac{\inp{x }{y }}{|y|^2} \tag{*}
+	\end{equation}
+
+	Let $f(t)={|x-ty|}^2$, which is zero when $x=ty$.
+	We will expand $f $ to observe its minimum,
+	\begin{align*}
+		{|x-ty| }^2 & = \inp{x-ty }{x-ty }                   \\
+		            & = {|x|}^2 -2t\inp{x }{y }+t^2 {|y|}^2. \\
+	\end{align*}
+
+	Then, for the minimum at $t=\lambda$,
+	\begin{align*}
+		0       & =f'(\lambda)                      \\
+		        & = 2\lambda{|y|}^2 - 2\inp{x }{y } \\
+		\lambda & = \frac{\inp{x}{y}}{{|y|}^2}.     \\
+	\end{align*}
+
+	So,
+	\begin{align*}
+		f(\lambda) & = {|x|}^2-2\frac{{\inp{x}{y}}^2}{{|y|}^2}+{\left( \frac{\inp{x}{y}}{{|y|}^2} \right)}^2 {|y|}^2 \\
+		           & = {|x|}^2 - \frac{{\inp{x}{y}}^2}{{|y|}^2}                                                      \\
+	\end{align*}
+
+	But, this quantity is zero by (*).
+
+	So, $f(\lambda)={|x-\lambda y|}^2=0$, which occurs when \[
+		x=\lambda y, \quad \lambda = \frac{\inp{x}{y}}{{|y|}^2} = \frac{|x|}{|y|}.
+	\]
+\end{proof}
+
 \end{document}
 
 

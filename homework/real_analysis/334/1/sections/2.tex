@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[..hw1]{subfiles}
 \begin{document}
 \begin{problem}
 Let $x,y\in \R^{n}$. \begin{enumerate}[label=\alph*)]
@@ -25,6 +25,29 @@ Let $x,y\in \R^{n}$. \begin{enumerate}[label=\alph*)]
 			      ,\] as desired.
 	      \end{proof}
 	\item Prove the polarization identity, $\inp{x}{y}=\frac{{|x+y|}^2-{|x-y|}^2}{4}$.
+	      \begin{proof}
+		      We note that, with the commutativity of the inner product,
+		      \begin{align*}
+			      \inp{a+b}{a+b} & = \inp{a}{a+b}+\inp{b}{a+b}                     \\
+			                     & = \inp{a}{a} + \inp{a}{b}+\inp{b}{a}+\inp{b}{b} \\
+			                     & = \inp{a}{a}+2\inp{a}{b}+\inp{b}{b}.            \\
+		      \end{align*}
+
+		      Furthermore, scalars distribute over the inner product. For $x,y\in \R^{n},\ a\in \R$, \[
+			      \inp{x}{ay} = a\inp{x}{y} = \inp{ax}{y}
+			      .\]
+
+		      So, $\inp{x-y}{x-y} = \inp{x}{x} - 2\inp{x}{y} + \inp{y}{y}$.
+
+		      So, the identity can expand,
+		      \begin{align*}
+			      \inp{x}{y} & =\frac{1}{4}\left( \inp{x+y}{x+y}-\inp{x-y}{x-y} \right)                                                              \\
+			                 & = \frac{1}{4} \left( \inp{x}{x}+2\inp{x}{y}+\inp{y}{y} \right) - \left( \inp{x}{x} - 2\inp{x}{y} + \inp{y}{y} \right) \\
+			                 & = \frac{1}{4}\left( 4\inp{x}{y} \right)                                                                               \\
+			                 & = \inp{x}{y},                                                                                                         \\
+		      \end{align*}
+		      as desired.
+	      \end{proof}
 
 \end{enumerate}
 \end{problem}

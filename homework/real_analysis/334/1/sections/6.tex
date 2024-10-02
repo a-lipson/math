@@ -1,9 +1,21 @@
 \documentclass[../hw1]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}
+Let $A$ be a finite set with an odd number of elements.
+
+Let $f:A\longrightarrow A, \ \forall x\in A,\ f(f(x))=x$. Show that $f$ has a fixed point $\exists x.\ f(x)=x$.
+
+What does this mean in the context of a ballroom dance?
+\end{problem}
+\begin{proof}
+	Suppose, for a contradictions, that $\forall x \in A,\ f(x)\neq x$. Let $|A| = 2k+1$ for some $k\in \underset{\ge 0}{\Z}$.
+
+	We will construct pairings of type $A\times A$ where the left hand side contains objects from $A$ in the preimage of  $f$, and the right hand side contains objects in the image. Since $f(x)\neq x$, then each element of $A$ must appear only once per pairing.
+
+	If $x\in A$ appears in a pair, it must be as $x$ in the preimage, or as $f(y)=x$ in the image for some  $y\neq x$ in the preimage. If $x$ appears as  $x$ in the preimage, its pair must be distinct value  $f(x)\in A$. If $x$ appears as  $f(y)$ in the image, its preimage pair must by  $y$ as  $f(f(y))=y$.
+
+	Since $A$ has an odd number of elements  $2k+1$, we cannot form $k$ mutually distinct pairs with all of its elements without leaving one element unpaired. Therefore, to map all elements of $A$ with $f$, we are forced to pair some $x$ with itself, contradicting our assumption that  $f$ had to fixed points.
+\end{proof}
+
+In the context of a ballroom dance, this means that there must be an even number of people in order for all persons to have a dance partner.
 \end{document}

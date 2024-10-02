@@ -3,4 +3,37 @@
 \begin{problem}
 Show $x_1,\ldots,x_m\in \R^n$ and $\forall i\neq j.\  \inp{x_{i}}{x_{j}}=0  \implies {|x_1+\cdots+x_{m}|}^2={|x_1|}^2+\cdots+{|x_m|}^2$.
 \end{problem}
+\begin{proof}
+	We will prove the statement by induction on $m\in \Z^+$.
+
+	For the base case, when $m=2,\ \inp{x_1}{x_2}=0$,
+	\begin{align*}
+		{x_1+x_2}^2 & = \inp{x_1+x_2}{x_1+x_2}              \\
+		            & = {|x_1|}^2+2\inp{x_1}{x_2}+{|x_2|}^2 \\
+		            & = {|x_1|}^2+{|x_2|}^2
+		.\end{align*}
+
+	We will assume that the $m=k$ case holds by the Inductive Hypothesis,  \[
+		{|x_1+\cdots+x_{m}|}^2={|x_1|}^2+\cdots+{|x_m|}^2
+		.\]
+
+	Then, for the following $m=k+1$ case, \[
+		{|x_1+\cdots+x_{m}+x_{m+1}|}^2 = \inp{x_1+\cdots+x_{m}+x_{m+1 }}{x_1+\cdots+x_{m}+x_{m+1}}
+		.\]
+	We distribute only the ${x_{m+1}}^{\text{th}}$ term, \[
+		{|x_1+\cdots+x_{m}+x_{m+1}|}^2 = \inp{x_1+\cdots+x_{m}}{x_1+\cdots+x_{m}}+2\inp{x_{m+1}}{x_1+\cdots+x_{m}}+\inp{x_{m+1}}{x_{m+1}}
+		.\]
+
+	We see that the first term becomes ${|x_1|}^2+\cdots+{|x_{m}|}^2$ by the I.H., and that the last term is ${|x_{m+1}|}^2$.
+	Now, for the middle term, if we distribute $x_{m+1}$ across the right hand side of the inner product, we will be left with inner products of the form $\inp{x_{m+1}}{x_{i}}$ where $1\le i \le m$.
+	However, $m+1\neq i$ for all such $i$.
+	Therefore, by the problem statement, the middle term must be zero.
+
+	Thus, \[
+		{|x_1+\cdots+x_{m+1}|}^2={|x_1|}^2+\cdots+{|x_m+1|}^2
+		.\]
+
+	Since the base case $m=2$ holds, and the inductive case  $m=k+1$ holds when  $m=k$ holds, then the statement is true for all  $m\in \Z^+$.
+
+\end{proof}
 \end{document}

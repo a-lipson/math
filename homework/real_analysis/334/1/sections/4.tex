@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[..hw1]{subfiles}
 \begin{document}
 \begin{problem}
 Let \[
@@ -12,7 +12,7 @@ Prove \[
 \begin{proof}
 	If $f(x)$ or $g(x)$ are zero $\forall x\in [0,1]$, then the Cauchy-Schwarz inequality holds as both sides are zero.
 
-	So, we now assume $f$ and  $g$ are nonzero somewhere in the unit interval. We assemble a non-negative function  $\forall t\in \R.\ h(t)\ge 0$,
+	So, we now assume $f$ and  $g$ are nonzero somewhere in the unit interval. We assemble a non-negative function  $\forall t\in \R.\ h(t)\ge 0$, which gives a notion of closeness to $f$ and $g$ being scalar multiples of one another as in problem 1.
 	\begin{align*}
 		h(t) & = {|f(x)-tg(x)|}^2                                                    \\
 		     & = \inp{f-tg}{f-tg}                                                    \\
@@ -23,6 +23,16 @@ Prove \[
 	We see that this function is a quadratic in $t$. We now wish to find the minimum value of this function, which occurs at  \[
 		t_0=\frac{\int_{0}^{1} f(x)g(x)\,dx }{\int_{0}^{1} {g(x)}^2\,dx }
 		.\]
-\end{proof}
 
+	So, at this $t_0$ and $\forall t\in \R$,
+	\begin{align*}
+		0\le h(t_0)                                                                       & = \int_{0}^{1} {f(x)}^2\,dx -2 \frac{{\left( \int_{0}^{1} f(x)g(x)\,dx  \right) }^2}{\int_{0}^{1} {g(x)}^2\,dx } + {\left( \frac{\int_{0}^{1} f(x)g(x)\,dx }{\int_{0}^{1} {g(x)}^2\,dx  } \right) }^2 \int_{0}^{1} {g(x)}^2\,dx \\
+		                                                                                  & = \int_{0}^{1} {f(x)}^2  \,dx - \frac{{\left( \int_{0}^{1} f(x)g(x) \,dx \right) }^2}{\int_{0}^{1} {g(x)}^2 \,dx}                                                                                                               \\
+		\frac{{\left( \int_{0}^{1} f(x)g(x) \,dx \right) }^2}{\int_{0}^{1} {g(x)}^2 \,dx} & \le \int_{0}^{1} {f(x)}^2 \,dx                                                                                                                                                                                                  \\                                                                                                                                                                                  \\
+		{\left( \int_{0}^{1} f(x)g(x) \,dx \right) }^2                                    & \le \int_{0}^{1} {f(x)}^2 \,dx \int_{0}^{1} {g(x)}^2\,dx                                                                                                                                                                        \\
+		\left|\int_{0}^{1}f(x)g(x)\,dx\right|                                             & \le {\left(\int_{0}^{1}{f(x)}^2\,dx\right)}^{1/2}{\left(\int_{0}^{1}{g(x)}^2\,dx\right)}^{1/2}.
+	\end{align*}
+
+	So, original Schwarz form of the inequality holds.
+\end{proof}
 \end{document}

@@ -1,9 +1,74 @@
 \documentclass[../hw1]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}
+Let $\Q$ be the set of all rationals.
+
+Let $S:=\{(x_1,x_2)\in \R^{2}\ |\  \forall i = 1,2,\ x_{i} \in \Q,\ 0\le x_{i}\le 1\} $.
+\begin{enumerate}[label=\alph*)]
+	\item Describe $\mathring{S}, \partial S$
+	      \begin{proposition}
+		      $\mathring S = \O$.
+	      \end{proposition}
+	      \begin{proof}
+		      For $x\in S$ to be an interior point, it must satisfy the property $\exists r>0.\ B_r(x)\subset S$. However, since there is an irrational between any two rational numbers, if this ball contains another point $x_0\in S$, then it must also contain an irrational number $a$ between $x$ and  $x_0$, so $a\in B_r(x)$. But, $a\not\in S$ by definition of $S$. Thus, $B_r(x)\subset S$ no longer holds.
+
+		      If we restrict the radius of the ball around $x$ to not include any irrationals, we are forced to set $r=0$, which no longer constitutes a neighborhood around $x$
+
+		      Thus $S$ contains no interior points.
+	      \end{proof}
+	      \begin{proposition}
+		      $\partial S = \{(x_1,x_2) \in \R^{2}\ |\ \forall i = 1,2,\ 0\le x_{i}\le 1\}$, the unit square.
+	      \end{proposition}
+	      \begin{proof}
+		      ($\supset$)
+		      Since $S$ is a subset of all rational numbers, $S^{c}$ contains all irrational numbers.
+
+		      By the reasoning in the previous proposition, all balls around $x\in S$ must contain both $x_0\in S$ and $a\in \R\setminus\Q$ as well. Thus, \[
+			      \forall r>0.\ B_r(x)\cap S \neq \O\ \land\ B_r(x)\cup S^{c}\neq\O
+			      .\]
+
+		      So, $S\subset \partial S$.
+
+		      Then, at the same time, we can choose any irrational $y\in R^2$ in the unit square such that a ball around $x$ contains rationals. So, for all such irrational $y$,  \[
+			      \forall r>0.\ B_r(y)\cap S \neq \O\ \land\ B_r(y)\cup S^{c}\neq\O
+			      .\]
+
+		      So, for $T= \{y = (y_1,y_2)\in \R^{2}\ |\ y_1,y_2\in \R\setminus\Q,\ 0\le y_1, y_2\le 1\}$, $T\subset \partial S$.
+
+		      Since $S\subset \partial S$ and $T\subset \partial S$, then $\{(a,b)\in \R^2\ |\ 0\le a,b\le 1\} = S\cup T \subset \partial S$.
+
+		      ($\subset $) If $x\in \partial S$ is rational and in the unit square, then $x\in S$ as well. If $x$ is instead irrational, then it belongs in  $T$. Thus, $\partial S \subset S \cup T$.
+	      \end{proof}
+
+	\item Determine if $S$ in open, and if $S$ is closed.
+	      \begin{proposition}
+		      $S$ is not open.
+	      \end{proposition}
+	      \begin{proof}
+		      We will consider the point (1,1). We see that $(1,1)\in \partial S$ and $(1,1)\in S$. So, $\partial S \cap \neq \O$. Therefore, $S$ is not open.
+	      \end{proof}
+	      \begin{proposition}
+		      $S$ is not closed.
+	      \end{proposition}
+	      \begin{proof}
+		      Let $a\in [0,1]$ be irrational. Then, $(0,a)\in \partial S$, but $(0,a)\not\in S$. So, $\exists x.\ x\in \partial S \land x\not\in S$. Thus, $\partial S \not \subset $, which implies that $S$ is not closed.
+	      \end{proof}
+	\item Describe $\overline{S},\mathring{\overline{S}}$.
+	      \begin{proposition}
+		      $\overline{S}=\partial{S}$.
+	      \end{proposition}
+	      \begin{proof}
+		      $\overline{S}=S\cup \partial{S}$, but $S\subset \partial{S}$. So, $\overline{S}=\partial{S}$.
+	      \end{proof}
+	      \begin{proposition}
+		      $\mathring{\overline{S}}=\{(x_1,x_2)\in \R^{2}\ |\ 0<x_1,x_2<1 \}$.
+	      \end{proposition}
+	      \begin{proof}
+		      First, we note that $\mathring{\overline{S}}\subset \overline{S}$. If $x\in \{(x_1,x_2)\in \R^{2}\ |\ x_1,x_2=0 \lor x_1,x_2=1\}$, then $\exists r>0,\ B_r(x)$ such that $\exists (y_1,y_2)\in B_r(x)$ where $y_1<0$, $y_2<0$, $1<y_1$, or $1<y_2$. But then $B_r(x)$ contains elements outside of $\overline{S}$. Thus, $B_r(x)\cap \overline{S}^{c}\neq \O$, which means that $x$ must have been a boundary point, and not an interior point. So, we restrict $\mathring{\overline{S}}$ to strict inequalities between 0 and 1.
+	      \end{proof}
+
+
+
+\end{enumerate}
+\end{problem}
 \end{document}

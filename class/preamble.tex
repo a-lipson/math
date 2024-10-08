@@ -14,20 +14,41 @@
 \usepackage[skip=15pt,indent=0pt]{parskip} % don't indent paragraphs, leave some space between them
 \usepackage{pgfplots}
 \usepackage{tikz}
-    \usetikzlibrary{calc, intersections, pgfplots.fillbetween, angles, quotes}
+\usetikzlibrary{calc, intersections, pgfplots.fillbetween, angles, quotes}
 \usepackage{subfiles}
 % \usepackage{yamlvars}
 
 % config
 \pgfplotsset{compat=1.18}
-\pgfdeclarelayer{ft} 
-\pgfdeclarelayer{bg} 
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
 \pgfsetlayers{bg,main,ft}
 
 % put x \to \infty below \lim
 \let\svlim\lim\def\lim{\svlim\limits}
 
 % structure labels
+\newtheoremstyle{non-italic-style}
+{1em}
+{.5em}
+{\normalfont}
+{}
+{\bfseries}
+{.}
+{.5em}
+{}
+
+\newtheoremstyle{numbered-theorem}% name of the style to be used
+{\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+{\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+{\normalfont}% name of font to use in the body of the theorem
+{0pt}% measure of space to indent
+{\bfseries}% name of head font
+{.}% punctuation between head and body
+{.5em}% space after theorem head; " " = normal interword space
+{\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
+
+\theoremstyle{non-italic-style}
 \newtheorem*{lemma}{Lemma}
 \newtheorem*{proposition}{Proposition}
 \newtheorem*{theorem}{Theorem}
@@ -40,46 +61,35 @@
 \newtheorem*{observe}{Observe}
 \newtheorem*{property}{Property}
 \newtheorem*{intuition}{Intuition}
-
-\newtheoremstyle{non-italic-style}
-  {3pt}
-  {3pt}
-  {\normalfont}
-  {}
-  {\bfseries}
-  {.}
-  {.5em}
-  {}
-
-\theoremstyle{non-italic-style}
 \newtheorem*{problem}{Problem}
+
 
 % fix spacing
 % http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
 \makeatletter
 \def\thm@space@setup{%
-  \thm@preskip=\parskip \thm@postskip=0pt
+	\thm@preskip=\parskip \thm@postskip=0pt
 }
 
 % lecture sub files
 \def\@lecture{}%
 \newcommand{\lecture}[3]{
-    \ifthenelse{\isempty{#3}}{%
-        \def\@lecture{Lecture #1}%
-    }{%
-        \def\@lecture{Lecture #1: #3}%
-    }%
-    \subsection*{\@lecture}
-    \marginpar{\small\textsf{\mbox{#2}}}
+	\ifthenelse{\isempty{#3}}{%
+		\def\@lecture{Lecture #1}%
+	}{%
+		\def\@lecture{Lecture #1: #3}%
+	}%
+	\subsection*{\@lecture}
+	\marginpar{\small\textsf{\mbox{#2}}}
 }
 
 \newcommand{\exercise}[1]{%
-    \def\@exercise{#1}%
-    \subsection*{Exercise #1}
+	\def\@exercise{#1}%
+	\subsection*{Exercise #1}
 }
 
 \newcommand{\subexercise}[1]{%
-    \subsubsection*{Exercise \@exercise.#1}
+	\subsubsection*{Exercise \@exercise.#1}
 }
 
 % page frame
@@ -123,8 +133,8 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 \newcommand{\incfig}[1]{%
-    \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex}
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
 }
 
 % http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning

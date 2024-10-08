@@ -1,0 +1,51 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[1]
+\
+\begin{enumerate}[label=\alph*.]
+	\item Prove that an infinite union of open sets is open. Where $U_i$ is an open subset of  $\R^{n}$, $\cup_{i=1}^{\infty}\ U_i$ is open.
+
+	      Is the countable size of the collection of sets important?
+
+	\item Give an example of an infinite collection of closed sets $S_i$ whose union  $\cup_{i=1}^{\infty}S_i$ is not closed.
+\end{enumerate}
+\end{problem}
+\begin{proposition}
+	The union of any two open sets $S_1,S_2\in \R^{n}$ is open.
+\end{proposition}
+\begin{proof}[Proof of Proposition]
+	We wish to show that, for $S_1,S_2$ open, $\partial{(S_1\cup S_2)}\cap (S_1\cup S_2)=\O$.
+
+	Since $S_1$ open, $\forall x_1\in S_1.\ \exists r>0.\ B_r(x)\subset S_1\ \implies B_r(x)\subset S_1\cup S_2$.
+
+	Since $S_2$ open, $\forall x_2\in S_2.\ \exists r>0.\ B_r(x)\subset S_2 \implies B_r(x)\subset S_1\cup S_2$.
+
+	Therefore, $\forall x\in S_1\cup S_2.\ \exists r>0.\ B_r(x)\subset S_1\cup S_2$, which means that $S_1\cup S_2$ is open.
+\end{proof}
+\begin{proof}[Proof of a]
+	We will prove the statement by induction on $m\in \Z^+$.
+
+	For the base case, if we choose $m$ as one, we see that the single union of an open set will produce itself, an already open set. Thus, we choose $m=2$, $\cup_{i=1}^{2}U_i=U_1\cup U_2$, which is open by the proposition.
+
+	Assume the $m=k$ case holds, that is, $\cup_{i=1}^k U_i$ in open.
+
+	Then, for the $m=k+1$ case,  \[
+		\cup_{i=1}^{k+1}\ U_i=\left(\cup_{i=1}^k\ U_i\right)\cup U_{k+1}
+		.\] But, we see that the left hand side is open by the I.H., and the right hand side is open by the statement. So, $\cup_{i=1}^{k+1}\ U_i$ is open by the proposition and the $k+1$ case holds.
+\end{proof}
+If we had an uncountable infinity, we could not have performed induction. Is it possible that a sufficiently large infinite union of open sets is no longer open?
+
+\begin{proof}[Proof for b]
+	Consider last week's problem using a set of rationals.
+
+	Let $S_i$ for some index $i$ be a set with a single vector with rational components, $x\in \Q^{n}$. The singleton $S_i$ is closed because, for the only value $x\in S_i$, \[
+		\forall r>0.\ B_r(x)\cap S_i = \{x \} \neq \O \land B_r(x)\cap S_i^c=\R^{n}\setminus \{x \} \neq\O
+		.\]
+
+	But, the infinite (or even finite) union of such closed singletons produces a set whole boundary contains irrationals, as we have seen that the interior of such a union is $\O$.
+
+	Such irrationals are not contained within any $S_i$ as they contain only rational-valued components.
+
+	Thus, we have that $\partial{S}\not\subset S$ where $S=\cup_{i=1}^{\infty}\ S_i$, which means that such a union is not closed.
+\end{proof}
+\end{document}

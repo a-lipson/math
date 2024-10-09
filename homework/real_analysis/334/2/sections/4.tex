@@ -1,0 +1,41 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Let $x_1=\sqrt{2},x_{n+1}=\sqrt{2+x_{n}}$
+
+\begin{enumerate}[label=\alph*]
+	\item Prove $\forall n, \ x_n<2$ and $x_{n+1}>x_{n}$.
+	\item Prove ${(x_{n})}_{n=1}^{\infty}$ converges, and find the limit.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	We will prove the statement by induction on $n$. Let  $n=1$, then  $x_1=\sqrt{2} < 2 $. Next, \[
+		x_2=\sqrt{2+x_1}=\sqrt{2+\sqrt{2} }>\sqrt{2}=x_1
+		,\] which implies that $x_2>x_1$.
+
+	Now, assume that the statement holds for $n=k$,\[
+		x_k<2\ \text{and}\ x_{k+1}>x_k
+		.\]
+
+	Then, \[
+		x_{k+1}=\sqrt{2+x_k}<\sqrt{2+2}=2
+		.\] So $x_{k+1}<2$.
+
+	Also, \[
+		2x_{k+1}>{(x_{k+1})}^2=2+x_k>2x_k
+		.\] So $x_{k+1}>x_k$.
+
+	Since the base case $n=1$ holds, and  $n=k+1$ holds where  $n=k$ holds, then the statement holds for all  $n$.
+\end{proof}
+\begin{proof}[Proof of b]
+	Since $\forall n,\ x_n<2$, then $(x_n)$ is bounded above by 2. Since  $\forall n,\ x_{n+1}>x_n$, $(x_n)$ is monotonically increasing. Thus,  $(x_{n})$ converges by the MBST to its upper boundary.
+\end{proof}
+\begin{proposition}
+	$(x_n)$ converges to 2, $\sup(x_n)=2$.
+\end{proposition}
+\begin{proof}[Proof of Proposition]
+	Suppose, for a contradiction, $\exists\, b < 2$ such that $\sup(x_n)=b$.
+
+	Then, $\forall \epsilon>0,\ \exists x_n,\ b-\epsilon<x_n<b<2$. But, since $b$ is  $\epsilon$ close to 2 for any small  $\epsilon$, then  $b=2$, contradicting the assumption that there was a supremum $b$ smaller than 2.
+\end{proof}
+\end{document}

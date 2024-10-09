@@ -1,0 +1,25 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[5]
+Let $f:\R\longrightarrow\R$ be continuous. Suppose ${(x_n)}_{n=1}^{\infty}$   converges to $x$.
+
+Prove \[
+	\lim\limits_{n\to \infty}\frac{f(x_1)+\cdots+f(x_{n})}{n}=f(x)
+	.\]
+\end{problem}
+\begin{proof}
+	Since $(x_n)$ converges to  $x$,  $\forall \epsilon >0,\ \exists N,\ \forall n\ge N,\ |x_n-x|<\epsilon$.
+
+	So, we will split the limit into two parts, where $f$ maps on  $x_n$ which are  $\epsilon$ close to  $x$, and on  $x_n$ which are far from $x$. \[
+		\lim_{n\to \infty}\left[ \sum\limits_{i=1}^{N-1}\frac{f(x_i)}{n}+\sum\limits_{i=N}^{n}\frac{f(x_i)}{n} \right] = f(x)
+		.\]
+	But, the left sum is a finite value by $n$ which exceeds any number, so this quantity will become to zero. Then, since the $x_i$ for $i\ge N$ approach $x$,  $f(x_i)$ will approach  $f(x)$ by sequential continuity. So,
+	\begin{align*}
+		f(x) & = \lim_{n\to \infty}\sum\limits_{i=N}^{n}\frac{f(x_i)}{n} \\
+		     & = \lim_{n\to \infty}\sum\limits_{i=N}^{n}\frac{f(x)}{n}   \\
+		     & = \lim_{n\to \infty}\left(\frac{n-N}{n}\right)f(x)        \\
+		     & = \lim_{n \to \infty} \left( 1-\frac{N}{n} \right) f(x)   \\
+		     & = f(x)
+		.\end{align*}
+\end{proof}
+\end{document}

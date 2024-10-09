@@ -7,7 +7,6 @@ Let $f:\R^2\longrightarrow\R$,\[
 		0                    & \text{otherwise}.
 	\end{cases}
 \]
-
 Determine all points s.t. $f$ not continuous.
 \end{problem}
 
@@ -17,21 +16,19 @@ Determine all points s.t. $f$ not continuous.
 \begin{proof}
 	First, we will show that $\lim\limits_{(x,y)\to(0,0)}\neq 0 = f(0)$.
 
-	Consider approaching the origin along the path $y=x$,
+	Consider approaching the origin along the path $y=\frac{x^2}{2}$,
 	\begin{align*}
-		\lim\limits_{(x,y)\to(0,0)}\frac{y(y-x^2)}{x^4} & = \lim\limits_{x\to 0} \frac{x(x-x^2)}{x^4}                    \\
-		                                                & = \lim\limits_{x\to 0} \frac{x^2-x^3}{x^4}                     \\
-		                                                & = \lim\limits_{x\to 0}\left( \frac{1}{x^2}-\frac{1}{x} \right)
+		\lim\limits_{(x,y)\to(0,0)}\frac{y(y-x^2)}{x^4} & = \lim\limits_{x\to 0} \frac{\frac{x^2}{2}\left(\frac{x^2}{2}-x^2\right)}{x^4} \\
+		                                                & = \lim\limits_{x\to 0} \frac{\frac{x^4}{4}-\frac{x^4}{2}}{x^4}                 \\
+		                                                & = \lim\limits_{x\to 0}\left( \frac{1}{4}-\frac{1}{2} \right)                   \\
+		                                                & = -\frac{1}{4}\neq 0
 		.\end{align*}
-	We see that this quantity will exceed any number and is not equal to zero.
+	Since $f(0)=0$ but the limit approaching zero along the path $y=\frac{x^2}{2}$ is not zero, then  $f$ is not continuous at zero.
 
-	Since $f(0)=0$ but the limit approaching zero along the path  $y=x$ is not zero, then  $f$ is not continuous at zero.
+	Since $0<y<x^2\implies 0<x^4$, and both the numerator and denominator of $f$ are continuous, then their quotient with non-zero denominator is also continuous outside of the parabola $x^2$ for positive $y$.
 
-	Along the boundary path $y=x^2$, $f$ is continuous as it achieves the value zero  \[
-		\lim\limits_{x\to 0}\frac{x^2(x^2-x^2)}{x^4}=\lim\limits_{x\to 0}0=0=f(S)
-		,\] where $S=\{(x,y)\in \R^{2}\ |\ y\ge x^2\}$.
-
-	Since $0<y<x^2\implies 0<x^4$, and both the numerator and denominator of $f$ are continuous, then their quotient with non-zero denominator is also continuous.
-
+	Along the boundary path $y=x^2$, $f$ is continuous as it achieves the value zero, \[
+		\lim\limits_{y\to x^2}\frac{y(y-x^2)}{x^4}=\frac{x^2(x^2-x^2)}{x^4}=0=f(S)
+		,\] where $S=\{(x,y)\in \R^{2}\ |\ y\ge x^2\}$, the compliment of the main region excluding non-positive $y$.
 \end{proof}
 \end{document}

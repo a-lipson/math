@@ -9,5 +9,22 @@ Determine all $x$ for which  $f(x)$ is continuous.
 	$f$ is continuous for all irrationals and discontinuous for all rationals.
 \end{proposition}
 \begin{proof}
+	First, we will consider all $a$ irrational, where $f(a)=0$. We will consider the interval of rationals containing $a$,  $\left( \frac{n}{m}, \frac{n+1}{m} \right) $ for some integers $m,n$.
+
+	We will then define $\delta=\min \left\{ a-\frac{n}{m}, a-\frac{n+1}{m} \right\}$. Note that $\delta<\frac{n+1}{m}-\frac{n}{m}=\frac{1}{m}$. Now, let $\epsilon>0$ be given and choose an $m$ such that $1 / m<\epsilon$.
+
+	We will now consider $x$ inside of the interval. If $x$ rational, then let $x$ be of the form $\frac{p}{q}$ where $p,q\in \Z$ coprime.
+
+	We see that $|x-a|<\delta$ implies $q>m$ since $\frac{n}{m}<\frac{p}{q}<\frac{n+1}{m}$. So, \[
+		0<f(x)=\frac{1}{q}<\frac{1}{m}<\epsilon
+		,\] which also means $|f(x)-f(a)|<\epsilon$.
+
+	If $x$ irrational, then  $f(x)=0$, so $ |f(x)-f(a)| =0<\epsilon $.
+
+	Thus, $\forall x,\,\forall\epsilon>0,\,\exists\delta>0,\  |x-a| <\delta \implies |f(x)-f(a)| < \epsilon$. So, $f$ is continuous at all irrational numbers.
+
+	Second, we will consider all $a=\frac{p}{q}$ rational, with $f(a)=\frac{1}{q}$.  Then, for $k\in \Z$, let $x=a+\frac{\sqrt{2}}{k}$ be an irrational number.
+
+	Now, $|x-a| = \frac{\sqrt{2}}{k}$ and $f(x)=0$. Then, $\forall \delta>0,\ \exists \epsilon > 0,\ |x-a| =\frac{\sqrt{2} }{k}<\delta \land |f(x)-f(a)| = \frac{1}{q} \ge \epsilon$. Choose $\epsilon=\frac{1}{2q}$ and we're done: $f$ is not continuous for any rational number.
 \end{proof}
 \end{document}

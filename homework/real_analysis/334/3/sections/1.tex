@@ -1,9 +1,21 @@
 \documentclass[../hw3]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[1]
+Give an example of an open cover of the open unit interval $(0,1)$ which does not admit a finite subcover.
+\end{problem}
+\begin{proposition}
+	One such cover $S$ is the union of expanding covers formed by the one-ball centered at $\frac{1}{2}$ with radius given by the sequence $x_k=\frac{1}{2}-\frac{1}{2^k}$ which converges to $\frac{1}{2}$. \[
+		S=\lim_{n \to \infty} S_n,\quad S_n= \bigcup^{n}_{k=1}  B_{x_k}\left( \frac{1}{2} \right) ,\quad x_k = \frac{1}{2}-\frac{1}{2^k}
+		.\]
+\end{proposition}
+\begin{proof}
+	Suppose, for a contradiction, that there exists a finite subcover $S_m$ which covers the open unit interval.
+
+	By the convergence of $x_k$, $\exists N,\ \forall \epsilon>0,\ \forall k\ge N,\ \left|x_k-\frac{1}{2}\right|<\epsilon$. So, $\left|\frac{1}{2}-\frac{1}{2^k}-\frac{1}{2}\right|<\epsilon\implies \frac{1}{2^k}<\epsilon$. Then,  \[
+		k>\log_2\left( \frac{1}{\epsilon} \right)
+		.\]
+	Since $\lim_{x\to 0}\log_2\left( \frac{1}{x} \right) \to \infty$ and $\epsilon$ was arbitrarily small, then  $k$ must be larger than any number.
+
+	But, we wished to find a finite subcover $S_m$, yet
+\end{proof}
 \end{document}

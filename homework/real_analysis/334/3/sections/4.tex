@@ -1,9 +1,17 @@
 \documentclass[../hw3]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[4]
+Suppose $f:\mathbb{S}^{n}\longrightarrow\R^{n}$ is continuous. Note that $x\in \mathbb{S}^{n}\implies-x\in \mathbb{S}^{n}$. Prove $\exists x\in \mathbb{S}^{n}\ :\ f(x)=f(-x)$.
+\end{problem}
+\begin{proof}
+	Let $g(x)=f(x)-f(-x)$. We wish to find an $x$ such that $g(x)=0$.
+
+	Since $g$ is the difference of two continuous functions $f$, then  $g$ is also continuous.
+
+	Since $\mathbb{S}^{n}$ connected by Problem 3, then $g:\mathbb{S}^{n}\longrightarrow\R^{n}$, a continuous function on a connected domain, is connected.
+
+	Notice that $g(-x)=f(-x)-f(x)=-g(x)$. So, $g$ is odd.
+
+	If $g(x)=0$ identically, then we're done. So, there must be an $x$ where $g(x)>0$. Then, since $g$ odd, $g(-x)<0$. But, $g$ is connected, so  $\exists a,\ -x<a<x,\ g(a)=0$.
+\end{proof}
 \end{document}

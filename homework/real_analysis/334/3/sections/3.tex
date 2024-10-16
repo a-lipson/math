@@ -1,9 +1,15 @@
 \documentclass[../hw3]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[3]
+Let $\mathbb{S}^{n}=\{x\in \R^{n+1}\ |\ |x| = 1\} $ be the unit sphere in $\R^{n+1}$. Prove $\mathbb{S}^{n}$ is connected.
+\end{problem}
+\begin{proof}
+	We will show that $\mathbb{S}^{n}$ is path connected. For all $p,q\in \mathbb{S}^{n}$, let $\ell:[0,1]\longrightarrow\R^{n+1}$, $\ell(t)=(1-t)p+tq$ be a linear interpolation between function $p$ and $q$. Clearly, $\ell(0)=p$ and $l(1)=q$.
+
+	But, we wish to show that there is a function that maps to $\mathbb{S}^{n}$, and we might have $\exists t\in [0,1],\ |l(t)|\neq 1$. To ensure that our path connecting  $p$ and  $q$ maps to  $\mathbb{S}^{n}$ for all $t$, then we can normalize  $\ell(t)$.
+
+	Now, let  $\gamma(t)=\frac{\ell(t)}{|\ell(t)|}=\frac{(1-t)p+tq}{|(1-t)p+tq|}$. Thus, $\forall t,\, |\gamma| =1$, so $\gamma:[0,1]\longrightarrow\mathbb{S}^{n}$.
+
+	Next, the linear interpolation function is continuous and the norm function is continuous. So, their composition is continuous. Since their composition is not zero for all  $t$, then their quotient $\gamma$ is continuous. Furthermore, $\gamma(0)=\frac{p}{|p|}=p$ and $\gamma(1)=\frac{q}{|q|}=q$ still holds. So, $\mathbb{S}^{n}$ is path connected for any points $p,q$. Thus, $\mathbb{S}^{n}$ is also connected.
+\end{proof}
 \end{document}

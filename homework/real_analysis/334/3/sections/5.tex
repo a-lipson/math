@@ -1,9 +1,23 @@
 \documentclass[../hw3]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[5]\
+\begin{enumerate}[label=\alph*)]
+	\item Prove $S$ connected  $\implies$ $\overline{S}$ connected.
+	\item Let $S = \{(x,y)\ |\ x>0,\, y=\sin\left( \frac{1}{x} \right) \} \cup \{(0,y)\ |\ y\in [-1,1]\} $ be the topologists' sine curve. Prove $S$ connected.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	For a contradiction, assume $S$ connected but $\overline{S}$ not connected. Then, $\overline{S}=A\cup B$ with $\overline{A}\cup B = A\cup \overline{B} = \O$. So, $A$ and $B$ are disjoint. Then, we can write $S$ as,  \[
+		S=S\cap\overline{S} =S\cap (A\cup B) = (S\cap A)\cup (S\cap B)
+		.\] But, $S\cap A$ and $S\cap B$ are subsets of the disjoint $A$ and $B$ respectively. So, $S$ is a union of disjoint sets, contradicting the assumption that $S$ was connected. So, by contradiction,  $\overline{S}$ must be connected as well.
+\end{proof}
+\begin{proof}[Proof of b]
+	Let the left hand side of the union defining $S$ be  $A$ and the right and side be  $B$. We know that  $A$ is path connected because  $\sin(1 / x)$ is continuous. Thus, $A$ is also connected.
+
+	Next, we will show that  $\overline{A}=A\cup B=S$. First, $\forall k > 0,\, \forall x\ge k$, $A$ closed because it is  the image of the continuous function  $\sin(1 / x)$ over the closed interval $[k,\infty)$ as a subset of the extended reals.
+
+	Next, we will now consider $A$ for $x<k$, which is open. $B$ is the boundary of of this part of  $A$ because,  $\forall r>0,\, \forall b\in B$, $B_r(b)$ will contain some point in $A$ for  $x>0$ and some point in  $A^{c}$ for $x<0$. Thus, $A\cup B = \overline{A}$.
+
+	Since $A$ connected,  then $\overline{A}=S$ connected by part a.
+\end{proof}
 \end{document}

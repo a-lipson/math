@@ -1,9 +1,38 @@
 \documentclass[../hw3]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[2]
+Given $U,V\subset \R^{n}$, define the distance metric, \[
+	d(U,V)=\inf \{|x-y|\ |\ x\in U,\, y\in V\}
+	.\]
+\begin{enumerate}[label=\alph*)]
+	\item Show $(\overline{U}\cap V)\neq\O \lor (U\cap \overline{V})\neq\O \implies d(U,V)=0$.
+	\item Show $U$ compact,  $V$ closed,  $U\cap V = \O\implies d(U,V)>0$.
+	\item Give an example for $U,V\subset \R^{2}$ closed, disjoint, and $d(U,V)=0$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	First, we will consider $\overline{U}\cap V\neq\O$. Then, \[
+		\overline{U}\cap V\neq\O\implies\exists a\in \overline{U}\cap V\implies a\in \overline{U}\land a\in V
+		.\]
+
+	Choose $y=a,\ y\in V$. If $a\in U \subset \overline{U}$, then choose $x=a,\ x \in U$, so $x=y$. Thus, $d(U,V)=0$.
+
+	If $a \in \overline{U}$ but $a \not\in U$, then $a\in \partial{U}$. So, there must be a ball with radius $\epsilon>0$ around  $a$ which contains some  $x_0\in U$. Thus, $a$ must be  $\epsilon$ close to  $x_0$ for some arbitrarily small  $\epsilon$, so choose $x_0=x$ such that $x-y=\epsilon$. Then, $d(U,V)$ is this $\epsilon$, so  $d(U,V)=0$.
+\end{proof}
+\begin{proof}[Proof of b]
+	Since $U$ compact and in $R^{n}$, then $U$ is closed, so  $U$ contains all of its limit points. Since  $V$ is  closed, it contains all of its limit points.
+	For a contradiction, assume $U\cap V=\O$ and $d(U,V)=0$. So, $\exists u_n \in U,\ \exists v_n\in V,\ |u_n-v_n|\to 0$ as $n\to \infty$.
+
+	Since $U$ compact, then all sequences  $(u_n)$ have a convergence subsequence $(u_{n_k})$. Let $u_{n_k} \to u\in U$.
+	Let the sequence $v_{n_k}\in V$ correspond to $u_{n_k}$. Since $|u_n-v_n|\to 0$, then $|u_{n_k}-v_{n_k}|\to 0$. So, $\exists v\in V$ such that $v_{n_k}\to v$.
+
+	Since $u_{n_k}, v_{n_k}$ converge to the same limit point, then $u=v$, which implies $U\cap V \neq\O$, contradicting the assumption that $U$ and  $V$ were disjoint.
+\end{proof}
+\begin{proof}[Proof of c]
+	Let $U = \{(x,0)\ |\ x \ge 1\} $. $U$ is closed because it contains all of its limits points  $(x_0,0),\,x_0>1$.
+
+	Let $V = \{(x,\frac{1}{x})\ |\ x\ge 1\} $ because it contains all of its limit points. % TODO: need more justification!
+
+	But, the sets are disjoint as $\forall x\in \R,\,(x,0)\neq(x,\frac{1}{x})$, so $U\cap V= \O$. Then, as $x\to \infty,\, |(x,\frac{1}{x})-(x,0)| = |(0,\frac{1}{x})| = \frac{1}{x} \to 0$. So, $d(U,V)\to 0$ as well.
+\end{proof}
 \end{document}

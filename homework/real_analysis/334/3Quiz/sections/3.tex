@@ -1,0 +1,42 @@
+\documentclass[../quiz3]{subfiles}
+\begin{document}
+\begin{problem}[3]
+The \textit{limit superior} of a sequence $\{x_n\} \subset \R$ is defined by \[
+	\limsup_{n \to \infty} x_n=\lim_{n \to \infty} \sup\limits_{m\ge n}x_m
+	.\]
+Assume $\{x_n\}$ is bounded.
+\begin{enumerate}[label=(\alph*)]
+	\item Show that $\{s_n\}$ defined by $s_n:=\sup\limits_{m\ge n} x_m$ converges.
+	\item
+	      \begin{enumerate}[label=(\roman*)]
+		      \item Show $x_{n_i}\to L$ convergent subsequence $\implies \forall n,\, \sup\limits_{m\ge n}x_m\ge L$.
+
+		      \item Given $\limsup\limits_{n \to \infty} x_n=M$, find a subsequence $\underset{i\in \N}{\{x_{n_i}\}}$ such that $\lim_{i \to \infty} x_{n_i}=M$.
+		      \item Show that the limit superior is the superior of all subsequential limits \[
+			            \limsup_{n \to \infty} x_n=\sup \left\{\lim_{i \to \infty} x_{n_i}\ \mid\ \underset{i\in \N}{\left\{x_{n_i}\right\} } \text{ is a convergent subsequence}\right\}
+			            .\]
+	      \end{enumerate}
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Since the supremum is concerned only with with the $x_m$ with $m\ge n$, then $s_n$ cannot be an increasing sequence. If $x_n$ was the supremum of  $\{x_m\} $, then all other $x_i\in \{x_m\} $ must have been $x_i\le x_n$. So, for $s_{n+1}$, the supremum could only stay the same or decrease, so $s_n$ is decreasing.
+
+	Since  $\{x_n\}\subset \R $ is bounded, then $\{s_()\} $, which contains all suprema of $x_n$, must also be bounded.
+
+	Since $s_n$ is decreasing and bounded, then $s_n$ must converge by  $1.16$.
+\end{proof}
+\begin{proof}[Proof of b]
+	\begin{enumerate}[label=\textit{(\roman*)}]
+		\item Since $s_n$ takes the supremum of a subset of  $\{x_n\} $ starting with $x_n$, then, \[
+			      \forall n,\, s_n\ge x_n
+			      .\] So, $\lim_{n \to \infty} s_n\ge \lim_{n \to \infty} x_n$.
+
+		      But, if we choose a convergent subsequence $\{x_{n_i}\}$, then $\lim_{n \to \infty} s_n\ge \lim_{i \to \infty} x_{n_i}$ will still hold.
+		      Then, recalling that $s_n$ is decreasing, $\forall n,\, s_n\ge \lim_{n \to \infty} s_n$, and that $x_{n_i}\to L$, we see that $s_n\ge L$.
+		\item We can construct a subsequence which converges to $M$ by taking  $x_{n_{i+1}}$ if $M-x_{n_i}\le M-x_{n_{i+1}}$. Notice that this will ensure that we approach the limit superior from below, since $\lim_{n \to \infty} s_n \ge L$ for all subsequences $x_{n_i}$ which converge to $L$.
+		\item Since $\limsup\limits_{n \to \infty} x_n=M\ge \lim_{i \to \infty} x_{n_i} = L$, then take $x_{n_i}$ with the largest $L$, obtained in (ii), where $L=M$. Thus,  \[
+			      \limsup_{n \to \infty} x_n = \sup \left\{\lim_{i \to \infty} x_{n_i}\right\}
+			      ,\] for all such convergent subsequences $x_{n_i}$.
+	\end{enumerate}
+\end{proof}
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass[../quiz3]{subfiles}
+\begin{document}
+\begin{problem}[1]
+Let $S=\{(x,y)\ \mid\ x>0,\, y=\sin\left( \frac{1}{x} \right) \} \cup \{(0,y)\ \mid\ y_\in [-1,1]\} $ be the topologists' sine curve. Prove $S$ not path connected.
+\end{problem}
+\begin{proof}
+	We will show that part of $S$, for $x \in (0,\pi / 2)$, is not path connected, so all of $S$ is not path connected.
+
+	Let
+	\begin{align*}
+		f : [0,1] & \longrightarrow S        \\
+		f(0)      & \longmapsto (\pi / 2, 1) \\
+		f(1)      & \longmapsto (0,1)
+	\end{align*}
+	be continuous.
+
+	Since $[0,1]$ is a closed interval in $\R$, it is compact and connected by 1.21 and 1.25 respectively.
+
+	Since $f$ is continuous, then the image of $f([0,1])\subset S$ is also compact and connected by 1.22 and 1.26 respectively.
+
+	Since the image of  $f$ is connected, then the first coordinate of $f$ achieves all values $x \in (0,\pi /2)$ while $t\in [0,1]$.
+
+	Since $\forall k\in \Z^{+},\, \sin 2\pi k = 0$, then, for $x=\frac{1}{2\pi k},\, y=\sin\left( \frac{1}{x} \right) =0$.
+	Thus, for all such $k$,  $\exists t_k\in [0,1]$ such that $f(t_k)=\left( \frac{1}{2\pi k}, 0 \right) $.
+	Since $[0,1]$ compact, there is a convergent subsequence of $t_k$ which converges to some  $t_0=\lim_{k \to \infty} t_k$.
+
+	Then, note that, for $t_{k+1},\, f(t_{k+1})=\left( \frac{1}{2\pi(k+1)},0 \right) $. Since $[0,1]$ connected and  $t_{k+1}$ moves the sine function one more time through the period $2\pi$, from 0 to 0, then there exists intermediary $t\in (t_k,t_{k+1})$ for which the sine function achieves values between -1 and 1. So, the second coordinate of $f$ achieves all values  $y \in (-1,1)$ for such intermediary $t$.
+
+	But, by assumption, $f(t_0)=\lim_{k \to \infty} \left( \frac{1}{2\pi k},0 \right) =(0,0)$, yet the second coordinate of $f$ never settles as it ranges between -1 and 1 as  $t$ increases. So, by contradiction,  $S$ is not path connected.
+\end{proof}
+\end{document}

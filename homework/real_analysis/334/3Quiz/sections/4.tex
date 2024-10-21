@@ -1,0 +1,11 @@
+\documentclass[../quiz3]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Let $S\subset \R^{n}$ be compact. Suppose $C_i\subset S$ are nonempty and closed, and are nested, $C_1 \supset C_2 \supset \cdots$. Prove \[
+	\bigcap_{i=1}^{\infty}C_i \neq \O
+	.\]
+\end{problem}
+\begin{proof}
+	Suppose, for a contradiction, that $\bigcap C_i = \O$. Then, there exists some $i_1<i_2$ where $C_{i_1}$ and  $C_{i_2}$ are disjoint. But, since all $C_i$ are nested, the only way for some  $C_{i_1}$ and  $C_{i_2}$ to be disjoint is if $C_{i_1}$ was empty. But, this contradicts the assumption that all $C_i$ were nonempty. Thus, by contradiction, the union over all  $C_i$ must be nonempty.
+\end{proof}
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass[../quiz3]{subfiles}
+\begin{document}
+\begin{problem}[2]\
+\begin{enumerate}[label=(\alph*)]
+	\item Define \begin{align*}
+		      f      & : \R^{2}  \longrightarrow \R             \\
+		      f(x,y) & =  \begin{cases}
+			                  \frac{xy}{x^2+y^2}, & (x,y)\neq(0,0), \\
+			                  0,                  & (x,y)=(0,0).
+		                  \end{cases}
+	      \end{align*}
+	      Determine whether $f$ is continuous.
+	\item Define \begin{align*}
+		      g      & : B_{\frac{1}{4}}(0) \longrightarrow \R                   \\
+		      g(x,y) & = \begin{cases}
+			                 \frac{4xy}{(4x^2+y^2)\log(x^2+4y^2)}, & (x,y)\neq(0,0), \\
+			                 0,                                    & (x,y)=(0,0).
+		                 \end{cases}
+	      \end{align*}
+	      Determine whether $g$ is continuous.
+\end{enumerate}
+\end{problem}
+\begin{proposition}[a]
+	$f$ is not continuous at the origin  $(0,0)$
+\end{proposition}
+\begin{proof}[Proof of a]
+	We will approach on the linear path $y=ax$.
+
+	So, given that $x \neq 0$,  \[
+		f(x,ax)=\frac{ax^2}{x^2+ax^2}=\frac{a}{1+a}
+		.\]
+
+	But then, \[
+		\lim_{(x,y) \to (0,0)} \frac{a}{1+a}=\frac{a}{1+a}
+	\] depends solely on the chosen $a$. For example, if  $a\neq 0$, then $\frac{a}{1+a}\neq 0$. So, $f$ is not continuous at the origin, and the limit at the origin does not exist, so $f$ is not everywhere continuous.
+\end{proof}
+\begin{proposition}[b]
+	$g$ continuous.
+\end{proposition}
+\begin{proof}[Proof of b]
+	We must ensure that the limit as $(x,y)\to (0,0)$ matches the function value of zero.
+
+	First, note that \begin{align*}
+		{(x+y)}^2   & \ge 0     \\
+		x^2+2xy+y^2 & \ge 0     \\
+		|x^2+y^2|   & \ge |2xy| \\
+		2(x^2+y^2)  & \ge |4xy| \\
+		2(4x^2+y^2) & > |4xy|
+		.\end{align*}
+
+	Thus, $g$ is bounded above and below,\[
+		\frac{-2(4x^2+y^2)}{(4x^2+y^2)\log(x^2+4y^2)} < \frac{4xy}{(4x^2+y^2)\log(x^2+4y^2)} < \frac{2(4x^2+y^2)}{(4x^2+y^2)\log(x^2+4y^2)} \\
+		.\]
+	With $(x,y)\neq(0,0)$, we see that $g$ is bounded by two opposite terms, \[
+		\frac{-2}{\log(x^2+4y^2)} < g < \frac{2}{\log(x^2+4y^2)}
+		,\] the denominator of which becomes large as $(x,y)\to (0,0)$, so the bounds go to zero. So, $g$ must also go to zero by being bounded above and below by these two functions which go to zero.
+\end{proof}
+\end{document}

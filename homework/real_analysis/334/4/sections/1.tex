@@ -1,0 +1,15 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}[1]
+Prove $f:\R\longrightarrow\R,\, \exists c\in \R,\, \forall x \in \R,\, |f'(x)|\le c\implies f$ uniformly continuous.
+\end{problem}
+\begin{proof}
+	Let $\epsilon=c \delta$. For  $|x-y|<\delta$, we must also have $y\to x$. So, the limit definition of the derivative can be expressed as $\left|\frac{f(y)-f(x)}{y-x}\right| = |f'(x)|\le c$.
+	Then, \begin{align*}
+		c|x-y|< c\delta                          & = \epsilon \\
+		\left|\frac{f(y)-f(x)}{y-x}\right| |x-y| & < \epsilon \\
+		|f(x)-f(y)|                              & <\epsilon
+		.\end{align*}
+	Thus, $|x-y|<\delta\implies|f(y)-f(x)|<\epsilon$, so $f$ is uniformly continuous.
+\end{proof}
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}[2]
+Let $f:\R^2\longrightarrow\R$ continuous at (0,0), \[
+	f(x,y) = \begin{cases}
+		\frac{x^2 y}{x^2 + y^2}, & (x,y)\neq (0,0), \\
+		0,                       & (x,y)= (0,0).    \\
+	\end{cases}
+\]
+\begin{enumerate}[label=\roman*)]
+	\item Show $\forall v \in \mathbb{S},\, \exists \lim_{t \to 0} \frac{f(tv)-f(0)}{t}$.
+	\item Prove $f$ not differentiable at (0,0).
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of i]
+	Let $v=(x,y)$. Since $f(0)=0$ and $x^2 + y^2={|v|}^2=1$, \begin{align*}
+		\lim_{t \to 0} \frac{f(tv)}{t} & = \lim_{t \to 0} \frac{t^3x^2y}{t{|v|}^2} \\
+		                               & =  \lim_{t \to 0} t^2x^2y                 \\
+		                               & = 0
+		.\end{align*}
+\end{proof}
+\begin{proof}[Proof of ii]
+
+\end{proof}
+\end{document}

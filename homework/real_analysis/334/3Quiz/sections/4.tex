@@ -6,6 +6,20 @@ Let $S\subset \R^{n}$ be compact. Suppose $C_i\subset S$ are nonempty and closed
 	.\]
 \end{problem}
 \begin{proof}
-	Suppose, for a contradiction, that $\bigcap C_i = \O$. Then, there exists some $i_1<i_2$ where $C_{i_1}$ and  $C_{i_2}$ are disjoint. But, since all $C_i$ are nested, the only way for some  $C_{i_1}$ and  $C_{i_2}$ to be disjoint is if $C_{i_1}$ was empty. But, this contradicts the assumption that all $C_i$ were nonempty. Thus, by contradiction, the union over all  $C_i$ must be nonempty.
+	% Suppose, for a contradiction, that $\bigcap C_i = \O$. Then, there exists some $i_1<i_2$ where $C_{i_1}$ and  $C_{i_2}$ are disjoint. But, since all $C_i$ are nested, the only way for some  $C_{i_1}$ and  $C_{i_2}$ to be disjoint is if $C_{i_1}$ was empty. But, this contradicts the assumption that all $C_i$ were nonempty. Thus, by contradiction, the union over all  $C_i$ must be nonempty.
+
+	% Since $S$ is compact then every sequence in $S$ has a convergent subsequence with a limit in $S$. 
+
+	% Then, we must have a sequence $x_i\in C_i$ since 
+
+	Let $U_i=C_i^c$, so each  $U_i$ is open.
+
+	Suppose, for a contradiction, that  $\bigcap_{i=1}^{\infty}C_i = \O $, then $\bigcup_{i=1}^{\infty}U_i = \R^{n}$.
+
+	So $\{U_i\} $ is an open cover of $S$, which has a finite subcover by compactness.
+
+	Thus,  $\exists N$ such that $S\subset \bigcup_{i=1}^{N} U_i$, which implies $\bigcap_{i=1}^{N} C_i = \O$.
+
+	But $C_i$ nested, so $C_n=\bigcap_{i=1}^{N} C_i = \O $, which is a contradiction.
 \end{proof}
 \end{document}

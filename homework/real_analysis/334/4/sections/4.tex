@@ -4,25 +4,23 @@
 Use the linear approximation of $f(x,y,z)=\sqrt{x^2 + y^2 + z^2}$ to approximate the distance between $p=(0.99,-0.97,2.02)$ and  $q=(4.02,0.98,8.01)$.
 \end{problem}
 \begin{proof}
-	The distance between $p$ and  $q$ is given by  $f(q-p)$. So, we will approximate  $f$ near  $q-p$ for some nice integer-valued vector  $r=(3,2,4)\approx q-p$.
+	The distance between $p$ and  $q$ is given by  $f(q-p)$. So, we will approximate  $f$ near  $q-p$ for some nice integer-valued vector  $r=(3,2,6)\approx q-p$.
 
-	Then, $f(r)=\sqrt{3^2+2^2+4^2}=\sqrt{9 + 4 + 16} = \sqrt{29}$. Note that our approximation of the distance between $p$ and  $q$ should be close to this value.
+	Then, $f(r)=\sqrt{3^2+2^2+6^2}=\sqrt{9 + 4 + 36} = \sqrt{49} = 7$. Note that our approximation of the distance between $p$ and  $q$ should be close to this value.
 
-	Then,  $\nabla f (x) = \frac{1}{f(x)}(x,y,z)$, so $\nabla f(r) = \frac{1}{\sqrt{29}(3,2,4) }$.
+	Then,  $\nabla f (x) = \frac{1}{f(x)}(x,y,z)$, so $\nabla f(r) = \frac{1}{7}(3,2,6) $.
 
 	Our linear approximation $L$ at  $r$ is given by,  \[
 		L_r(x)=f(r)+\nabla f(r)\cdot (x-r)
 		.\]
 
 	So, at the point $x=q-p=(3.03,1.95,5.99)$, \begin{align*}
-		L_r(x) & =\sqrt{29}+\frac{1}{\sqrt{29} }(3,2,4)\cdot (0.03,-0.05,-0.01) \\
-		       & = \sqrt{29}+\frac{1}{\sqrt{29}} (0.09-0.1-0.04)                \\
-		       & = \sqrt{29}-\frac{0.05}{\sqrt{29} }                            \\
-		       & = \frac{20\sqrt{29} - \frac{1}{\sqrt{29} } }{20}               \\
-		       & = \frac{29(20)\sqrt{29} -\sqrt{29} }{29(20)}                   \\
-		       & = \frac{29(20)-1}{29(20)}\sqrt{29}                             \\
-		       & = \frac{579}{580}\sqrt{29}
+		L_r(x) & =7+\frac{1}{7}(3,2,6)\cdot (0.03,-0.05,-0.01) \\
+		       & = 7 + \frac{1}{7}(0.09-0.1-0.04)              \\
+		       & = 7 - \frac{0.05}{7}                          \\
+		       & = 7 - \frac{1}{140}                           \\
+		       & = \frac{979}{140}
 		.\end{align*}
-	So, the approximate distance between $p$ and  $q$ is  $\frac{579}{580}\sqrt{29}$, which is indeed close to $\sqrt{29}$.
+	So, the approximate distance between $p$ and  $q$ is  $\frac{979}{140}$, which is indeed close to 7.
 \end{proof}
 \end{document}

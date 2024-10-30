@@ -20,6 +20,25 @@ Let $f:\R^2\longrightarrow\R$ continuous at (0,0), \[
 		.\end{align*}
 \end{proof}
 \begin{proof}[Proof of ii]
+	First, we find $\nabla f(x,y) = \frac{1}{{\left( x^2 + y^2 \right) }^2}(2xy^3,x^2\left( x^2 - y^2 \right) )$. In order for $f$ to be differentiable at  $(0,0)$, then the following must hold,  \[
+		\lim_{h \to 0} \frac{f(h)-f(0)+\nabla f(0)\cdot h}{|h|}=0
+		.\]
+	But, clearly, $\nabla f(0)$ is indeterminate at (0,0). For a contradiction, assume that $\nabla f= (a,b)$. Then, \[
+		\lim_{(x,y ) \to (0,0)} \frac{\frac{x^2y}{x^2 + y^2}- ax-by}{\sqrt{x^2 + y^2} } =0
+		.\]
 
+	Now, if we approach on the path $y=x^2$, then \begin{align*}
+		\lim_{x \to 0} \frac{\frac{x^4}{x^2 + x^4}-ax-bx^2}{\sqrt{x^2 + x^4}} & = \lim_{x \to 0} \frac{\frac{x^2}{1+x^2}-ax-bx^2}{x\sqrt{1+x^2} } \\
+		                                                                      & =  \lim_{x  \to 0} \frac{\frac{x}{1+x^2}-a-bx}{\sqrt{1+x^2} }     \\
+		                                                                      & = a
+		.\end{align*}
+
+	So, along $y=x^2$, if the first coordinate of $\nabla f(0)$ is not zero, then the derivative at the origin does not exist.
+
+	If $\nabla f(0)=(0,0)$, then we must have that $\lim_{h \to \infty} \frac{f(h)}{|h|}=0$.
+
+	But, along the path $y=ax$, \begin{align*}
+		\lim_{x \to 0} \frac{\frac{a^2x^3}{x^2 + a^2x^2}}{\sqrt{x^2 + a^2x^2}} & = \frac{a^2}{{(1 + a^2)}^{\frac{3}{2}}}
+		,\end{align*} which is depends on some $a$ as well. So, the derivative does not exist at the origin.
 \end{proof}
 \end{document}

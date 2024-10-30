@@ -8,13 +8,24 @@ Let $S_1=\{(x,y,z)\ \mid\ y + z^3=2\} $ and $S_2=\{(x,y,z)\ \mid\ x^2 + xy + y^4
 \end{enumerate}
 \end{problem}
 
-For $(a)$, we note that $S_1$ is a cylinder in $x$, and  $S_2$ is a cylinder in $z$.  So, we can construct a level set diagram for $S_1$...
+For $(a)$, we note that $S_1$ is a cylinder in $x$, and  $S_2$ is a cylinder in $z$.  So, we can construct level set diagrams for $S_1$ and $S_2$. The diagram that best visualizes their intersection $C$ is level sets of the $z$-axis. Let $f(x,y)=x^2 + xy + x^4 - 21$ and $g(y)={(y-2)}^{\frac{1}{3}}$. Then, we will consider the preimages $f^{-1}(c)$ and $ g^{-1}(c)$ for several $c$. The $z$-axis best illustrates  $C$.
 \begin{proposition}[b]
-	The tangent line to $C$ at $p$ is given by $\ell(t)=(4-8t,1+9t,1-3t)$.
+	The tangent line to $C$ at $p$ is given by $\ell(t)=(4-24t,1+27t,1-9t)$.
 \end{proposition}
 \begin{proof}
-	First, we will consider the change in $z$ of $C$ at $p$. This is given solely by $S_1$.  So, with the we will use the $\R^2$ function for cylinder surface of $S_1$, $y=2-z^3$, we will consider $\frac{dy}{dz}=-3z^2$ at the $z$-coordinate of $p$,  $z=1$,  $y'(1)=-3$. So the change in  $z$ is -3.
+	% First, we will consider the change in $z$ of $C$ at $p$. This is given solely by $S_1$.  So, with the we will use the $\R^2$ function for cylinder surface of $S_1$, $y=2-z^3$, we will consider $\frac{dy}{dz}=-3z^2$ at the $z$-coordinate of $p$,  $z=1$,  $y'(1)=-3$. So the change in  $z$ is -3.
+	%
+	% Second, we will consider the changes in $x$ and  $y$. We will form the function $f(x,y)=x^2 + xy + x^4 - 21$, which parametrizes the surface $S_2$. Then, $\nabla f(x,y) = (2x+y, x+4y^3)$. At the $x$ and  $y$ coordinates of $p$,  $(x,y)=(4,1)$,  $\nabla f(4,1) = (9,8)$. But, recalling that $\nabla f \perp f$, we know that the tangent line will change in $x$ and  $y$ by -8  and 9  respectively. So, the tangent line will have the direction vector of $(-8,9,-3)$ at the point $(4,1,1)$. Thus, the tangent line is parametrized by $(4,1,1)+(-8,9,-3)t$.
+	Let $f(x,y,z)=x^2 +xy + x^4 - 20$ and $g(x,y,z)=y+z^3-2$.
 
-	Second, we will consider the changes in $x$ and  $y$. We will form the function $f(x,y)=x^2 + xy + x^4 - 21$, which parametrizes the surface $S_2$. Then, $\nabla f(x,y) = (2x+y, x+4y^3)$. At the $x$ and  $y$ coordinates of $p$,  $(x,y)=(4,1)$,  $\nabla f(4,1) = (9,8)$. But, recalling that $\nabla f \perp f$, we know that the tangent line will change in $x$ and  $y$ by -8  and 9  respectively. So, the tangent line will have the direction vector of $(-8,9,-3)$ at the point $(4,1,1)$. Thus, the tangent line is parametrized by $(4,1,1)+(-8,9,-3)t$.
+	We will find $\nabla f$ and $\nabla g$ which are both perpendicular to $f$ and $g$ respectively. Thus, the cross product of these gradient vectors will produce a vector tangent to both  $f$ and  $g$, which will allow us to construct a tangent line.
+
+	First, $\nabla f= (2x + y, x + 4y^3, 0)$ and $\nabla g(0, 1, 3z^2)$.
+
+	Then, at $p$, $\nabla f(p) = (9,8,0)$ and $\nabla g(p) = (0,1,3)$.
+
+	So, $\nabla f(p) \times \nabla g(p) = (9,8,0)\times (0,1,3) = (24,-27,9)$.
+
+	Thus, the tangent line at $p$ is given by  $\ell(t)=(4,1,1)-(24,-27,9)t$.
 \end{proof}
 \end{document}

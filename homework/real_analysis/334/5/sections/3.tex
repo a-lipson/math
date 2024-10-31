@@ -1,0 +1,28 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}[3]
+Find the absolute max and min of $f(x,y)=2x + 3y$ on $\sqrt{x} + \sqrt{y}=5,\, x,y\ge 0$.
+\end{problem}
+\begin{proof}
+	Let $g(x,y)=\sqrt{x} + \sqrt{y}$.
+	We wish to optimize $f$ on  $g$.
+	Then, with  $\nabla f = (2,3)$ and $\nabla g = \frac{1}{2}(\frac{1}{\sqrt{x}},\frac{1}{\sqrt{y}})$, \[
+		\nabla f = \lambda \nabla g \implies 2 = \frac{\lambda}{2\sqrt{x}},\, 3 = \frac{\lambda}{2\sqrt{y}} \implies 2\sqrt{x}=3\sqrt{y}
+		.\]
+
+	Assume $x,y \neq 0$ and recall the constraint $\sqrt{x} + \sqrt{y}=5$. The above becomes,
+	\begin{align*}
+		\frac{2}{3}\sqrt{x} & = 5-\sqrt{x} \\
+		\frac{5}{3}\sqrt{x} & = 5          \\
+		\sqrt{x}            & = 3          \\
+		x                   & = 9
+		.\end{align*} Then, $y=4$. So, there exists a critical point on the boundary at (9,4).We must also check the boundary points (25,0) and (0,25).
+	\begin{align*}
+		f(25,0) & = 50 \\
+		f(0,25) & = 75 \\
+		f(9,4)  & = 30
+		.\end{align*}
+
+	So, the absolute minimum of $f$ on  $g$ is 30 at (9,4) and the absolute maximum is 75 at (0,25).
+\end{proof}
+\end{document}

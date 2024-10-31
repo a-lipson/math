@@ -1,0 +1,35 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}[2]
+Let $V\ge 0$.
+Let $\{S_V\}$ be the set of rectangular prisms with volume $\le V$.
+Find the minimum surface area of a prism in $\{S_V\}$.
+Is there a maximum possible surface area?
+\end{problem}
+\begin{proof}
+	Let the volume function be $V(x,y,z)=xyz$.
+	Let the surface area function be  $A(x,y,z)=2(xy+xz+yz)$.
+
+	First, we see that for a prism with zero volume,  $x=y=z=0$, then the area will also be zero.
+	So, this is the minimum surface area for  $V\ge 0$.
+
+	Next, we will use Lagrange multipliers, optimizing $A$ with respect to  $V$.
+	So, $\nabla A = 2(y+z,x+z,x+y)$ and $\nabla V = (yz,xz,xy)$. With $\nabla A = \lambda\nabla V$ and $x,y,z\neq 0$, we are given the following equations,
+	\begin{align*}
+		yz & =2\lambda(y+z)  \\
+		xz & = 2\lambda(x+z) \\
+		xy & = 2\lambda(x+y)
+		.\end{align*}
+
+	Considering the first and last equations, we have
+	\begin{align*}
+		\frac{yz}{y + z} & = \frac{xy}{x + y} \\
+		(x + z)y         & = (y + z)x         \\
+		xy + yz          & = xy + xz          \\
+		yz               & = xz               \\
+		y                & = x
+		.\end{align*} We can perform a similar computation so see that a critical point occurs at $x=y=z$.
+	For the minimum, have already seen that these values must all be zero.
+	However, for the maximum, since $V$ can be any number, so too can $A$. Thus, there is no maximum possible surface area.
+\end{proof}
+\end{document}

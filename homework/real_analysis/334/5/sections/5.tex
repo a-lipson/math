@@ -1,0 +1,32 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}[5]
+(AMGM inequality) $\forall x_i\ge 0$, \[
+	{\left( \prod\limits_{i=1}^{n}x_i\right) }^{\frac{1}{n}}\le \frac{1}{n} \sum\limits_{i=1}^{n}x_i
+	.\]
+Prove AMGM inequality using Lagrange multipliers subject to the constraint $x_1 + \cdots + x_n=1$.
+\end{problem}
+\begin{proof}
+	Let $g = {\left( \prod\limits_{i=1}^{n}x_i\right) }^{\frac{1}{n}}$.
+	We will optimize $\log{g}$ which increases as  $g$ increases.
+	Let \[
+		G=\log{g}=\frac{1}{n}\log{\left( \prod\limits_{i=1}^{n}x_i \right) } = \frac{1}{n}\sum\limits_{i=1}^{n}\log{x_i}
+		.\]
+	So, $\frac{\partial G}{\partial x_i}=\frac{1}{nx_i}$.
+	Then, with the constraint $a=\sum\limits_{i=1}^{n}x_i$, $\frac{\partial a}{\partial x_i}=1$.
+	With $\nabla G = \lambda \nabla a$, we have that $\frac{1}{nx_i} = \lambda$, which implies that all $x_i$ must be equal.
+	So, with the constraint $a$, $\forall i,\, x_i=\frac{1}{n}$ provides the critical point.
+
+	Next, we will use the Hessian matrix $H$.
+	If we look at the pure second partials, we see that $\frac{\partial^{2} G}{\partial x_i^2}=-\frac{1}{nx_i^2}$, while the mixed partials are zero.
+	Thus, $H_G$ contains only negative diagonal entries, since  $\forall x_i \ge 0$, $-\frac{1}{nx_i^2}<0$.
+	Since $H_G$ is a diagonal matrix with all negative eigenvalues, it is negative definite.
+	Since $H_G$ is negative definite, then the critical point given by  $\forall i,\, x_i=\frac{1}{n}$ is a maximum.
+
+	Then, indeed, \[
+		{\left( \prod\limits_{i=1}^{n}x_i\right) }^{\frac{1}{n}} = {\left({{\left( \frac{1}{n} \right) }^n}\right)}^{\frac{1}{n}} = \frac{1}{n} \le \frac{1}{n}
+		.\]
+
+	So, the geometric and arithmetic means will be equal when all compared values are equal, but the geometric mean will be less than the arithmetic if the compared values are distinct.
+\end{proof}
+\end{document}

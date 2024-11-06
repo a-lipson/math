@@ -1,0 +1,33 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}[3]
+Let $\epsilon>0$ and assume $D$ has zero content.
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that there is a finite set of open intervals $\{I_i\}_{i=1}^{L}$ which satisfy $D_{\epsilon}\subset \bigcup\limits_{i=1}^{L}I_i$ and $\sum\limits_{i=1}^{L}\text{len}{(I_i)}<\epsilon$.
+	\item Show that, for any partition $P$ of  $I_i$, then  $\sum\limits_{i=1}^{L}(U_{P}^{I_i}f - L_{P}^{I_i}f)<(M-m)\epsilon$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Since $D_\epsilon$ compact by (2b), then it admits a finite subcover $\bigcup\limits_{i=1}^{L}I_i$.
+	Since $D$ has zero content, then it has a finite cover $C$ with  $C\subset \bigcup\limits_{i=1}^{\infty} B_{r_i}(x_i) \land \sum\limits_{i=1}^{\infty}r_i<\epsilon$.
+	Since these balls are in $\R$, then they are open intervals.
+	So, set $\text{len}{(I_i)}=2r_i$.
+	Then, $\sum\limits_{i=1}^{L} \text{len}{(I_i)}<\frac{\epsilon}{2}<\epsilon$.
+\end{proof}
+\begin{proof}[Proof of b]
+	By definition, we have \[
+		L_P^{I_i}f = \sum_{j} m_j (x_j-x_{j-1}) \text{ and } U_P^{I_i}f = \sum_{j} M_j (x_j-x_{j-1})
+		.\] where $m_i = \inf\limits_{[x_{j-1},x_j]}f(x)$ and $M_i = \sup\limits_{[x_{j-1},x_j]}f(x)$.
+
+	Since $P$ partitioned  $I_i$, then by (3a),  \[
+		\sum_{i=1}^{L} \sum_{j} (x_j-x_{j-1})= \sum_{i=1 }^{L} \text{len}{(I_i)}<\epsilon
+		.\]
+
+	Since $P$ partitions  $I_i$ which covers  $[a,b]$, then the upper and lower sums will be bounded by the infimum and supremum of $f$,  \[
+		m \sum_{i=1 }^{L} \text{len}{(I_i)}\le \sum_{i=1 }^{L} L_P^{I_i} f \le \sum_{i=1 }^{L} U_P^{I_i} f \le M\sum_{i=1 }^{L} \text{len}{(I_i)}
+		.\]
+	So \[
+		\sum_{i=1 }^{L} (U_P^{I_i}f-L_P^{I_i}f)=(M-m)\sum_{i=1 }^{L} \text{len}{(I_i)}<(M-m)\epsilon
+		.\]
+\end{proof}
+\end{document}

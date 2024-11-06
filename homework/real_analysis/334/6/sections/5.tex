@@ -1,0 +1,33 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}[5]
+Let $\epsilon>0$.
+Note that  $I_i$ and  $J_i$ form a finite open cover of $[a,b]$.
+Let  $E$ be the set of all endpoints of  $I_i$ and  $J_i$.
+\begin{enumerate}[label=(\alph*)]
+	\item Show $\exists P$ partition of $[a,b]$ such that  $\forall [x_{j-1},x_j]$ in $P$ is completely contained in some $I_i$ or $J_i$.
+	\item  Using (3) and (4), show $U_P f - L_P f\le C\epsilon$ where $C=(b-a)(2+(M-m))$.
+	\item Conclude $f$ Reimann integrable.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	First, we will consider $E$.
+	But, we cannot use $E$ alone to form $P$ because the intervals between the endpoints of $E$ may not be contained by the open sets $I_i$ or $J_i$.
+	So, for $x \in E,\, a,b\neq x$, we can construct a closed interval around $x \in [a_x,b_x]$, such that two closed intervals $[a_0,x],[x,b_0]$ which shared the endpoint $x$ now become three closed intervals with $a_x,b_x$ as shared boundary points.
+
+	Since $x$ was an endpoint of either $I_i$ or  $J_i$, then  $[a_0,a_x]$ and $[b_x,b_0]$ must be fully contained by $I_i$ or $J_i$.
+	Then, $[a_x,b_x]$ will be contained in both, thus satisfying the containment condition.
+
+	Perform this procedure for all such $x \in E$ to arrive at $P$.
+\end{proof}
+\begin{proof}[Proof of b]
+	From (3b) we have that $\sum_{i=1 }^{L} (U_P^{I_i} f - L_P^{I_i} f) < (M-m)\epsilon$, and, from (4c), $U_P^{J} f - L_P^{J} f < 2\epsilon\,\text{len}{(J)}$.
+	But, $J$ could not be longer than $b-a$, so (4c) becomes $U_P^{J} f - L_P^{J} f < 2(b-a)\epsilon$.
+	Then, with the partition $P$ from (5a), all subintervals belong in either the partitions for $I_i$ or  $J$.
+	So, $P$ must be bounded above by the sum of the two other partition bounds, \[
+		U_P f - L_P f \le (2(b-a)+(M-m))\epsilon = C\epsilon.\]
+\end{proof}
+\begin{proof}[Proof of c]
+	Since $\exists P,\, \forall \epsilon>0,\, U_P f - L_P f < C\epsilon$, then $f$ is Reimann integrable by Lemma 4.5.
+\end{proof}
+\end{document}

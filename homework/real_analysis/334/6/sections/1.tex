@@ -1,0 +1,23 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+We will prove
+\begin{theorem}
+	Suppose $f:[a,b]\longrightarrow\R$ bounded, continuous on $[a,b]\setminus D$, where $D$ has (Lebesgue) measure zero, then $f$ is (Reimann) itegrable.
+\end{theorem}
+\begin{definition}
+	The \textit{oscillation} of $f$ at $x$ is  \[
+		\text{osc}(f,x)=\lim_{\delta \to 0^+} \sup \{|f(y)-f(z)|\ \mid\ y,z\in B_{\delta}(x)\}
+		.\]
+\end{definition}
+Let $D_s = \{x \in [a,b] \ \mid\ \text{osc}(f,x)\ge s\} $.\\
+Let $D = \{x \in [a,b]\ \mid\ f \text{ discontinuous at } x \} $.\\
+Let $m=\inf f$ and  $M = \sup f$.
+
+\begin{problem}[1]
+Show that if $S$ has measure zero, then any subset of $S$ also has measure zero.
+\end{problem}
+\begin{proof}
+	Since $S$ has measure zero, then  $\forall \delta>0$, $S$ has a cover $C\subset \bigcup\limits_{i=1}^{\infty} B_{r_i}(x_i)$ with $\sum\limits_{i=1}^{\infty} r_i < \delta$.
+	Then, any subset can use the same cover, giving such a subset measure zero as well.
+\end{proof}
+\end{document}

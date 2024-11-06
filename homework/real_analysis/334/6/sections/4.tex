@@ -1,0 +1,38 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Let $\epsilon>0$. Let $I=\bigcup_{i=1}^{L}I_i$. Let $K=[a,b]\setminus I$.
+\begin{enumerate}[label=(\alph*)]
+	\item Show $K$ closed and bounded, and therefore compact.
+	\item Show $\forall x \in K,\, \exists \delta_x>0,\, y,z\in B_{\delta_x}(x)\implies |f(y)-f(z)|<2\epsilon$.
+	\item The intervals $J_x = (x-\delta_x, x+\delta_x)$ form an open cover of $K$.
+	      \begin{enumerate}[label=(\roman*)]
+		      \item Show $\exists x_i,\, \forall i\in [1,N]$ with $J_i=J_{x_i}$, then $K\subset \bigcup_{i=1}^{N}J_i$.
+		      \item Show $\forall P$ partition of $J\subset J_i \implies U_P^J f - L_P^J f < 2\epsilon\, \text{len}{(J)}$
+	      \end{enumerate}
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Since $K\subset [a,b]$ bounded, then  $K$ bounded.
+	Since each $I_i$ open, then the finite union $I$ is also open.
+	Since a closed set minus an open set is open, and $[a,b]$ closed with $I$ open, then $K$ is closed.
+	Since $K$ is closed and bounded, then it is also compact.
+\end{proof}
+\begin{proof}[Proof of b]
+	Since $I$ covered $D_\epsilon$ by (3a), then $K\cap D_\epsilon = \O$.
+	So $K\subset D_0$.
+	Since $\forall x \in D_0$, $f$ is uniformly continuous by (2a), then $\forall x \in K$, $f$ must be uniformly continuous as well.
+	Since $f$ uniformly continuous on  $a$, then the statement holds.
+\end{proof}
+\begin{proof}[Proof of c]
+	Since $K$ compact, then it admits a finite subcover  $\bigcup_{i=1}^{N} J_i$.
+
+	First, we have that $U_P^J f - L_P^J f = \sum_{j} (M_j-m_j)(x_j-x_{j-1})$ with $m_j,M_j$ the infimum and supremum of the partitioned intervals respectively.
+	So, $\sum_{j} (x_j-x_{j-1}) = \text{len}{(J)} $
+
+	Then, by (4b), $\forall \epsilon > 0,\, \exists \delta_x >0,\, \forall x \in K,\, \forall y,z\in B_{\delta_x}(x) \implies |f(y)-f(z)|<\epsilon$. So \[
+		\sup_{x \in J}f(x) - \inf_{x \in J} f(x) < \epsilon.
+	\]
+	So, $U_P^J f - L_P^J f < \epsilon\, \text{len}{(J)}$.
+\end{proof}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}[2]\
+\begin{enumerate}[label=(\alph*)]
+	\item Show $D=\bigcup_{s>0}D_s$
+	\item Prove $D_s$ closed and bounded for  $s>0$, and therefore compact.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	First, we will show that $\text{osc}(f,x) = 0 \implies f$ is continuous.
+	So, with the given definition of oscillation, with $0<\delta\to 0$ and $\forall \epsilon>0$, then $ |y-z|<\delta \implies |f(y)-f(z)| =0<\epsilon$. So $f$ is uniformly continuous and therefore continuous on $D_0$.
+
+	However, for $s>0$ and some $\epsilon > 0$, we have that $\text{osc}(f,x) \ge s > \epsilon$, so $f$ is discontinuous on $D_s$. Since  $D$ contains all $x$ for which  $f$ is discontinuous, it must contain  $D_s$ for all  $s$, which is  $\bigcup\limits_{s>0}D_s$.
+\end{proof}
+\begin{proof}[Proof of b]
+	Since $D_s$ is a subset of the bounded set $[a,b]$, then  $D_s$ is bounded as well.
+
+	We will now consider the sets $T_{\delta} = \{x\ \mid\ \exists y,z \in B_{\delta}(x) \land |f(y)-f(z)|\ge s\} $ such that $\bigcap\limits_{\delta>0}T_{\delta}=D_s$.
+	Then, for any convergent sequence $\{x_n\} \subset \bigcap\limits_{\delta>0} T_{\delta}$ with $x_n\to x$, we will show that $x$ belongs in the intersection as well.
+
+	Suppose $\forall \delta>0$ and $ \{x_n\} \subset T_{\delta} $, then, even if $x \not\in K_{\delta}$, we will have $x \in T_{2\delta}$.
+	% Then, certainly, $x \in \bigcap\limits_{\delta>0} T_{2\delta}$. 
+	But, $T_{2\delta}\subset \bigcap\limits_{\delta>0} T_{\delta}$.
+	So, $x$ must belong to the intersection $\bigcap\limits_{\delta>0} T_{\delta}$ whenever $x_n\to x$ and $\{x_n\}$ is a subset of the intersection as well.
+	So, $D_s=\bigcap\limits_{\delta>0} T_{\delta}$ contains all of its limit points and is therefore closed.
+
+	Since $D_s$ closed and bounded, it is also compact.
+\end{proof}
+\end{document}

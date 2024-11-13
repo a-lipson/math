@@ -1,9 +1,35 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[4]
+Let $E$ be the square pyramid in $\R^3$ with vertices at $(\pm 1,\pm 1,0)$ and apex (0,0,1). Find $\iiint_E f\,dV$ where $f(x,y,z)=e^{x + y}$.
+\end{problem}
+First, we note that $f$ is symmetrical about the  plane $x=y$,
+so we will evaluate $f$ on half of $E$ divided by this plane,
+and then double the result.
+
+We will integrate over the half of $E$ where $y<x$ by slicing out triangles of $E$ in the $z$ axis.
+So, we have the range for $z \in [0,1]$.
+We will further slice these triangular sections in the $y$ axis.
+Thus, we wish to find bounds for $x$ which depend on $z$, and bounds for $y$ which depend on both $x$ and $z$.
+
+Since  $E$ is a square pyramid with apex (0,0,1) and edges along $( \pm 1, \pm 1,0)$, then its sides have a slope of $1$.
+So, considering the projection of $E$ in $y$-$z$ plane, we see that $y(z)$ (for y<x) is given by $y=z-1$.
+Thus, we have that $y \in [z-1,x]$.
+
+Similarly, for the projection of $E$ in the $x$-$z$ plane, we have the range of $x \in [z-1,1-z]$.
+So, we can construct our iterated integral, $2\int_{0}^{1} \int_{z-1}^{1-z} \int_{z-1}^{x}  f(x,y,z) \,dy\,dx\,dz$.
+
+Finally, we will compute using the given $f$,
+\begin{align*}
+	\iiint_E e^{x+y} \,dV & = 2\int_{0}^{1} \int_{z-1}^{1-z} \int_{z-1}^{x} e^{x+y} \,dy\,dx\,dz                                        \\
+	                      & = 2\int_{0}^{1} \int_{z-1}^{1-z} e^x {\left[ e^y \right]}_{y=z-1}^{y=x} \,dx\,dz                            \\
+	                      & = 2\int_{0}^{1} \int_{z-1}^{1-z} e^{2x}-e^{x+z-1} \,dx\,dy                                                  \\
+	                      & = 2\int_{0}^{1} {\left[ \frac{e^{2x}}{2}-e^{x+z-1} \right]}_{x=z-1}^{x=1-z}\,dz                             \\
+	                      & = 2\int_{0}^{1} \left( \frac{e^{2(1-z)}}{2}-1 \right) - \left( \frac{e^{2(z-1)}}{2}-e^{2(z-1)} \right) \,dz \\
+	                      & = 2\int_{0}^{1} \frac{e^{2(1-z)}}{2}-1+\frac{e^{2(z-1)}}{2} \,dz                                            \\
+	                      & = \int_0^1 e^{2(1-z)}+e^{2(z-1)}-2 \, dz                                                                    \\
+	                      & = {\left[ -\frac{e^{2(1-z)}}{2}+\frac{e^{2(z-1)}}{2} -2z\right] }_0^1                                       \\
+	                      & = -2 - \left( -\frac{e^2}{2} + \frac{e^{-2}}{2} \right)                                                     \\
+	                      & = e^2/2 - 2 - e^{-2}/2 \approx 1.6.
+\end{align*}
 \end{document}

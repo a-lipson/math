@@ -1,9 +1,41 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[3]
+Let $f : {[0,1]}^2 \longrightarrow \R$ be defined by \[
+	f(x,y) = \begin{cases}
+		\frac{1}{y^2},  & 0<x<y<1,          \\
+		-\frac{1}{x^2}, & 0<y<x<1,          \\
+		0,              & \text{otherwise}.
+	\end{cases}
+\]
+\begin{enumerate}[label=(\alph*)]
+	\item Show $f$ not integrable on the square  ${[0,1]}^2$.
+	\item Show, for any fixed $y$, that  $x \mapsto f(x,y)$ is integrable on $[0,1]$,
+	      and, similarly, that, for any fixed  $x$,  $y\mapsto f(x,y)$ is integrable on [0,1].
+	\item Show by explicit computation that \[
+		      \int_{0}^{1} \int_{0}^{1} f(x,y) \,dx \,dy \neq \int_{0}^{1} \int_{0}^{1} f(x,y) \,dx \,dy
+		      .\]
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Since $f$ is unbounded, it cannot have convergent upper and lower sums.
+	In particular, around the origin, the infimum of $f$ is  $-\infty$, while the supremum is $\infty$.
+\end{proof}
+\begin{proof}[Proof of b, c]
+	First, we will fix $y$ to find the function $g(x)=\int_{0}^{1} f(x,y) \,dy$.
+	\begin{align*}
+		g(x) & =\int_{0}^{1} -\frac{1}{x^2} \,dy + \int_{x}^{1} \frac{1}{y^2} \,dy \\
+		     & = -\frac{1}{x} + 1 + \frac{1}{x}                                    \\
+		     & = 1.                                                                \\
+	\end{align*}
+
+	Next, we will fix $x$ to find $h(y)=\int_{0}^{1} f(x,y) \,dx$.
+	\begin{align*}
+		h(y) & = \int_{0}^{1} \frac{1}{x^2} \,dx + \int_{y}^{1} -\frac{1}{x^2} \,dx \\
+		     & = \frac{1}{y} - 1 + \frac{1}{y}                                      \\
+		     & = -1.
+	\end{align*}
+
+	So, we see that both  $f(x,y)$ can be integrated for fixed  $x$ or  $y$ respectively, but that these sums are not the same, thus  the statement in (c) holds.
+\end{proof}
 \end{document}

@@ -1,9 +1,18 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[5]
+Rewrite $\int_{0}^{2} \int_{0}^{x^2} \int_{0}^{y} f(x,y,z) \,dz \,dy \,dx$ in the order $dx\,dy\,dz$.
+\end{problem}
+Since $x$ and $y$ depend solely on one other variable, we can construct the reordered integral by looking at the  $y$-$z$ and $x$-$y$ planes. 
+
+First, for the $x$-$y$ plane, we have that $0<y<x^2$ and $0<x<2$. 
+We wish to have $x$ depend on $y$ instead as  $dx$ is on the inside of  $dy$ in the desired order. So, we can rearrange these to give $\sqrt{y}<x<2$ and $0<y<4$. 
+
+But, we wish to have $y$ dependent on $z$. 
+So, for the $y$-$z$ plane, we see that $0<z<y$. 
+Then, switching the order and recalling that $0<y<4$, we get $z<y<4$ and  $0<z<4$.
+
+So, we can construct our iterated integral as \[
+\int_{0}^{4} \int_{z}^{4} \int_{\sqrt{y} }^{2} f(x,y,z) \,dx \,dy \,dz
+.\] 
 \end{document}

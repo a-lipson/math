@@ -1,9 +1,13 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}[1]
+Show $\chi_{\Q}$ is not Reimann integrable on [0,1].
+\end{problem}
+\begin{proof}
+	Consider any partition $P$ of the closed unit interval.
+	Then, the lower sums $L_P \chi_{\Q}$ will be equal to infimum of zero, while the upper sums $U_P \chi_{\Q}$ will be equal to the supremum of one.
+	Since the upper and lower sums do not converge, then the indicator function for the rationals is not Reimann integrable.
+
+	Furthermore, from class, we have that $\chi_{\Q}$ is not Jordan measurable as the boundary $\partial{\chi_{\Q}} = \{x \in [0,1],\, x \in \R\setminus\Q\} $ does not have measure zero. Since the indicator set is not Jordan measurable, is it also not Reimann integrable.
+\end{proof}
 \end{document}

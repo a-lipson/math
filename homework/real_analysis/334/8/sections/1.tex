@@ -1,0 +1,66 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}[1]
+Let $I_n = \int_{\R^{n}}\exp{(- {|x|}^2)}\,dx$ converge,
+such that, $\forall K_1\subset K_2\subset \cdots$ compact with $\bigcup K_i = \R^{n}$, \[
+	\lim_{i \to \infty} \int_{K_i} \exp{(- {|x|}^2)} \,dx = I_n
+	.\]
+\begin{enumerate}[label=(\alph*)]
+	\item With a sequence of compact sets, show \[
+		      \int_{\R^2}\exp{( - {|x|}^2)}\,dx = \left( \int_{\R} \exp{(-x_1^2)} \,dx_1 \right) \left( \int_{\R} \exp{(-x_2^2)} \,dx_2 \right)
+		      .\]
+	\item With a different sequence of compact sets, and using a change of variables, evaluate $\int_{\R^2} \exp{(- {|x|}^2)} \,dx$.
+	\item Conclude that $\int_{\R} \exp{(-x^2)} \,dx = \sqrt{\pi}$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	We will show that the equivalent statement, $I_2=I_1^2$ holds.
+
+	Let $K_m={[-m,m]}^2$. $K_m$ is clearly nested, closed, and bounded.
+	So,  $K_m$ is compact and $\bigcup K_m = \R^2$.
+
+	Then, $\forall m$,  \[
+		\int_{K_m}\exp{(-{|x|}^2)}\,dx=\iint_{K_m}\exp{(-(x_1^2 + x_2^2))}\,dx_1\,dx_2 = \int_{-m}^{m} \int_{-m}^{m} \exp(-x_1^2)\exp(-x_2^2)  \,dx_1\,dx_2
+		.\]
+
+	Since $x_1$ is constant in $x_2$ and vise versa, then the above is \[
+		\int_{-m}^{m} \exp(-x_1^2) \,dx_1
+		\int_{-m}^{m} \exp(-x_2^2) \,dx_2
+		.\]
+
+	By assumption, $\lim_{m \to \infty} \int_{K_m}\exp(-{|x|}^2)\,dx=I_2$ and $\lim_{m \to \infty} \int_{-m}^m \exp(-x^2)\,dx=I_1$.
+	So,\[
+		I_2 = \lim_{m \to \infty} \int_{K_m}\exp(-{|x|}^2)\,dx =
+		\left( \lim_{m \to \infty} \int_{-m}^m \exp(-x_1^2)\,dx_1 \right)
+		\left( \lim_{m \to \infty} \int_{-m}^m \exp(-x_2^2)\,dx_2 \right) = I_1^2
+		.\]
+\end{proof}
+\begin{proof}[Proof of b]
+	Let $K_r = \{x_1,x_2\in \R^2\ \mid\ x_1^2 + x_2^2\le r^2\} $. Clearly, $K_r$ is nested and compact.
+	Also, $\bigcup K_r = \R^2$.
+
+	We will evaluate the integral in $\R^2$ using polar coordinates with radius $\rho$ and angle $\theta$.
+	The Jacobian determinant for this transformation is then $\rho$.
+	Since ${|x|}^2=\rho^2$, then \[
+		\int_{K_r}\exp(-{|x|}^2)\,dx
+		= \int_{0}^{2\pi}\int_{0}^{r} \exp(-\rho^2)\rho \,d\rho  \,d\theta
+		= \int_{0}^{2\pi}\,d\theta \int_{0}^{r} \exp(-\rho^2) \,d\rho
+		.\]
+
+	Let $u=-\rho^2,\, du=-2\rho d\rho$ so the above becomes, \[
+		2\pi\left( \frac{-1}{2} \right) \int_{u(0)}^{u(r)} \exp(u) \,du
+		= -\pi(\exp{(-r^2)}-1)
+		= \pi(1-\exp{(-r^2)})
+		.\]
+	Then, by assumption, \[
+		I_2=\lim_{r \to \infty} \int_{K_r} \exp(-{|x|}^2) \,dx
+		=\lim_{r \to \infty} \pi(-\exp(-r^2)) =\pi
+		.\]
+	So, $I_2=\pi$.
+\end{proof}
+\begin{proof}[Proof of c]
+	By (a), $I_2=I_1^2$.
+	Since $\forall x,\, \exp(x)>0$, the integral of $\exp(x)$ must have positive signed area above the $x$-axis.
+	Thus, $\int_{\R}\exp(-x^2)\,dx=I_1=\sqrt{\pi}$ (and not $-\sqrt{\pi}$).
+\end{proof}
+\end{document}

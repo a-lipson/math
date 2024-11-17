@@ -1,0 +1,44 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}[2]
+Let $E \subset \R^3$ be the region inside the surface $x^2 + y^2 + z^2=4$ and outside the surface $4x^2 + 4y^2 - z^2=1$.
+Let the density of $E$ be given by  $f(x,y,z)=z^2$.
+Write an iterated integral for the mass of $E$ using spherical coordinates.
+\end{problem}
+\begin{proof}
+	The outside surface is a sphere of radius 2.
+	The inside surface is a hyperboloid of one sheet with a minimum radius of $\frac{1}{2}$.
+
+	We will proceed with spherical coordinates where the angle $\phi$ gives altitude and  $\theta$ gives azimuth.
+
+	So, with  $r^2=x^2 + y^2$ as in cylindrical coordinates, we can form the spherical radius $\rho$ from the right triangle with the radius $r$ of any point projected onto the $xy$-plane, and the height  $z$.
+	With  $z$ adjacent to the azimuth  $\phi$ and  $r$ opposite, we see that $z=\rho\cos\phi$ and $r=\rho\sin\phi$.
+	But, with $x=r\cos\theta$ and $y=r\sin\theta$, we have $x=\rho\sin\phi\cos\theta$ and $y=\rho\sin\phi\sin\theta$.
+
+	Now, we will parametrize the bounding surfaces as $\rho(\theta,\phi)$.
+	The sphere has a constant radius of 2 and is given by $\rho=2$.
+	The hyperboloid can be parametrized as follows: \begin{align*}
+		4(x^2 + y^2) - z^2                       & = 1 \\
+		4{(\rho\sin\phi)}^2 + {(\rho\cos\phi)}^2 & = 1 \\
+		\rho^2(4\sin^2\phi-\cos^2\phi)           & = 1 \\
+		\rho^2(5\sin^2\phi-1)                    & = 1 \\
+		\rho=\frac{1}{\sqrt{5\sin^2\phi-1} }
+		.\end{align*}
+
+	Since we wish to parametrize all around the sphere and hyperboloid, we will let $\theta\in [0,2\pi]$.
+	Next, we will find the intersection points of the bounding surfaces which will give us bounds for $\phi$.
+	\begin{align*}
+		2             & = {(5\sin^2\phi-1)}^{-\frac{1}{2}}    \\
+		5\sin^2\phi-1 & = \frac{1}{4}                         \\
+		\sin^2\phi    & = \frac{1}{4}                         \\
+		\sin\phi      & =  \pm \frac{1}{2},\  \phi\in [0,\pi] \\
+		\phi          & = -\frac{\pi}{6},\frac{\pi}{6}
+		.\end{align*}
+	So, $\phi\in \left[-\frac{\pi}{6},\frac{\pi}{6}\right]$.
+
+	Then, the integrand $z^2$ in polar coordinates becomes $\rho\cos^2\phi$.
+	With the Jacobian determinant for spherical coordinates, $\rho^2\sin\phi$, the mass of $E$ is given by  \[
+		\int_{0}^{2\pi}\int_{-\frac{\pi}{6}}^{\frac{\pi}{6}}\int_{{(5\sin^2\phi-1)}^{-\frac{1}{2}}}^{2}\rho^4\cos^2\phi\sin\phi  \,d\rho  \,d\phi  \,d\theta
+		.\]
+\end{proof}
+\end{document}

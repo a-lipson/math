@@ -1,0 +1,20 @@
+\documentclass[../hw9]{subfiles}
+\begin{document}
+\begin{problem}[1]
+Let $\textbf{F}\subset \R^3$ be defined by $\textbf{F}=(2y - z, y - z, -x)$.
+Let $C=\{(x,y,z)\ \mid\ x^2 + y^2 = 1\}\cap \{(x,y,z)\ \mid\ z=y\}$ positively oriented when viewed from the positive $z$-axis.
+Find $\int_C \textbf{F}\cdot \,d \textbf{x}$.
+\end{problem}
+\begin{proof}
+	We will parametrize $C$ by  $\gamma(t) = (\cos{t}, \sin{t}, \sin{t})$ with $t\in [0,2\pi]$.
+	Because of the $x$ and  $y$ components, we see that  $C$ is traversed anticlockwise through  $t$.
+
+	We will construct the line integral $\int_{0}^{2\pi} \textbf{F}(\gamma(t))\cdot \gamma'(t) \,dt$.
+	So, $\gamma'(t)=(-\sin{t}, \cos{t},\cos{t})$.
+
+	Then, $\textbf{F}(\gamma(t))=(\sin{t},0,-\cos{t})$.
+	So,  $\textbf{F}(\gamma(t))\cdot \gamma'(t)= -\sin^2{t}-\cos^2{t}=-1$.
+
+	Thus, $\int_{0}^{2\pi} -1 \,dt = -2\pi$.
+\end{proof}
+\end{document}

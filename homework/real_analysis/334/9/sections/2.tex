@@ -1,0 +1,34 @@
+\documentclass[../hw9]{subfiles}
+\begin{document}
+\begin{problem}[2]
+Let $\textbf{F}:\R^2\longrightarrow\R^2$ be an everywhere continuous, path-independent vector field.
+$\forall x \in \R^2$, set $f(\textbf{x})=\int_{0}^{\textbf{x}} \textbf{F}\cdot \,d\textbf{x}$ as the line integral on any piecewise $C^1$ path from 0 to $x$.
+
+Prove $f:\R^2\longrightarrow\R$ is $C^1$ and satisfies  $\nabla f = \textbf{F}$.
+\end{problem}
+\begin{proof}
+	Since $\textbf{F}$ is path-independent, then $f$ will be a well defined function regardless of the path chosen from 0 to  $x$.
+
+	We will split the arbitrary $C^1$ path into vertical and horizontal components.
+
+	So, considering a horizontal then vertical decomposition of the path, we have \[
+		f(x,y)=\int_{0}^{x} \textbf{F}_1(t,0) \,dt + \int_{0}^{y} \textbf{F}_2(x,t) \,dt
+		.\]
+
+	Similarly, we can construct a vertical then horizontal decomposition, \[
+		f(x,y)=\int_{0}^{y} \textbf{F}_2(0,t) \,dt + \int_{0}^{x} \textbf{F}_1(t,y) \,dt
+		.\]
+
+	We see that, if we take the $\frac{\partial f}{\partial y}$ of the first form of $f$, the integral over the horizontal interval  $[0,x]$ will vanish, leaving, \[
+		\frac{\partial f}{\partial y}
+		= \frac{d}{dy}\int_{0}^{y} \textbf{F}_2(x,t) \,dt
+		= \textbf{F}_2(x,y)
+		.\]
+
+	Likewise, for the second form of $f$, the vertical integral will vanish, so  \[
+		\frac{\partial f}{\partial x} = \textbf{F}_1(x,y)
+		.\]
+
+	So, we have shown that, by each component, $\nabla f = \textbf{F}$. Since each component of $\textbf{F}$ was continuous, then  $f$ as the sum of integrals of continuous functions  $\textbf{F}_1$ and  $\textbf{F}_2$ is also continuous.
+\end{proof}
+\end{document}

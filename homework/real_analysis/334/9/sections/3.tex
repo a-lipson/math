@@ -1,0 +1,31 @@
+\documentclass[../hw9]{subfiles}
+\begin{document}
+\begin{problem}[3]
+$S\subset \R^{n}$ \textit{star-shaped} $\impliedby \exists a \in S : \forall a \neq x \in S$, there is a straight line segment from $a$ to  $x$.
+\begin{enumerate}[label=(\alph*)]
+	\item Give an example of a star-shaped set that is not convex.
+	      A set $S\subset \R^{n}$ is convex $\impliedby \forall a,x \in S$, the line segment from $a$ to  $x$ is contained in  $S$.
+	\item Prove that any star-shaped set is simply connected.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Consider a pacman shaped set.
+	Since this set is like a disk with a slice missing, then all points can be reached from the center of the disk which would cover this pacman set.
+	However, between the top and bottom of the pacman mouth (the vertices between the arc of the circle and the straight line slices) no straight path can be drawn such that the line stays completely within the body of the pacman, which is the set.
+\end{proof}
+\begin{proof}[Proof of b]
+	We will show that all closed loops inside $S$ are homotopic to the star point.
+
+	First, we translate $S$ such that the star point lies on the origin.
+
+	Then Let the map $\gamma : [0,1]\times \varphi(\mathbb{S}^1)\longrightarrow \R^2$ defined by $(t,x) \mapsto (1-t)x$ be a continuous map from any point $x \in \varphi(\mathbb{S}^1)$ on the loop to the star point.
+
+	Since $(1-t)x$ is a linear interpolation between the points $x$ on the loop and the star point, then all points on this straight path must also belong in $S$ since $S$ is star shaped.
+
+	So, $\gamma$ defines a homotopy between any closed loop $\varphi(\mathbb{S}^1)$ and the star point 0.
+
+	% Since a loop is the image of a continuous map $\varphi$ on a compact set $\mathbb{S}^1$, then a loop is compact.
+
+	Since  all closed loops in $S$ are homotopic to a point by $\gamma$, then $S$ is simply connected.
+\end{proof}
+\end{document}

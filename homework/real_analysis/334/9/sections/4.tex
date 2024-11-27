@@ -1,0 +1,23 @@
+\documentclass[../hw9]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Find a simple closed curve $\gamma$, positively oriented, that maximizes the line integral $\int_{\gamma}\textbf{F}\cdot d \textbf{x}$ where $\textbf{F} = (y^3, 3x-x^3)$.
+\end{problem}
+\begin{proof}
+	Since $\gamma$ is a closed and positively oriented loop, using Green's theorem, we have that, with $\textbf{F} = (P(x,y),Q(x,y))$,
+	\[
+		\int_{\gamma}\textbf{F}\cdot d \textbf{x}
+		= \iint_D (Q_x-P_y)\,dA
+		= \iint_D (3-3x^2-3y^2)\,dA
+		.\]
+
+	So, we wish to find a region $D$ such that the integrand of 2D curl  $Q_x-P_y$ is positive on the interior of $D$ and negative on the exterior of  $D$,
+	and, therefore, zero on the  boundary of $D$.
+
+	If the integrand were positive on the exterior of $D$, then we could have chosen a better region $D$ to further increase the value of the integral.
+
+	Considering a region  $D$ such that  $3-3x^2-3y^2=0$ yields $x^2 + y^2=1$, or the unit circle.
+
+	So, the curve which maximizes  $\int_{\gamma} \textbf{F}\cdot d \textbf{x}$ is the positively oriented unit circle.
+\end{proof}
+\end{document}

@@ -1,0 +1,62 @@
+\documentclass[../9extra]{subfiles}
+\begin{document}
+\begin{problem}[1]
+Let $K\subset \R^{n}$ be compact.
+Let $f:K\longrightarrow K$ be a \textit{shrinking map}.
+$\forall x,y \in K,\, x \neq y \implies |f(x)-f(y)| < |x-y|$.
+
+Prove that $f$ has a unique fixed point  $x \in K : x = f(x)$.
+\end{problem}
+
+If $K$ compact with  $K \supset C_1 \supset C_2 \supset \cdots$ nested sequence of non-empty closed subsets $C_i$, then \[
+	\bigcap_{i=1}^{\infty} C_i \neq \O \tag{*}
+	.\]
+
+\begin{proposition}[Continuity of the shrinking map]
+	$f$ is uniformly continuous.
+\end{proposition}
+\begin{proof}[Proof of Continuity Proposition]
+	Choose $\delta = \epsilon$.
+	Then, $\forall \epsilon>0,\, \exists \delta>0$, \[
+		|f(x)-f(y)| < |x-y| < \delta = \epsilon
+		.\]
+	So, $f$ is uniformly continuous as  $\delta$ depends solely on  $\epsilon$.
+\end{proof}
+
+\begin{proposition}[Uniqueness of the fixed point]
+	The fixed point of $f$ is unique.
+\end{proposition}
+\begin{proof}[Proof of Uniqueness Proposition]
+	Suppose, for a contradiction, that there were $x,y$ fixed points with  $x \neq y$
+	and $f(x)=x$,  $f(y)=y$.
+
+	Then,  $|f(x)-f(y)| = |x-y|$.
+	But we had, by the definition of  $f$, $|f(x)-f(y)| < |x-y|$, which is a contradiction.
+
+	Thus, $x=y$ and the fixed point is unique.
+\end{proof}
+
+\begin{proof}[Proof of Problem]
+	Let $g : K \longrightarrow \R$ be the distance between $x$ and its image under $f$, \[
+		g(x)= |f(x)-x|
+		.\]
+	Since $f$ is continuous, then $g$, the difference between two continuous functions, is also continuous.
+
+	Since  $K$ is compact and  $g$ is continuous and positive, then, by EVT, there is a minimum of $g$ at $x \in K$, \[
+		0\le \underset{x \in K}{\min{g}} = g(a)
+		.\]
+	We wish to show that $g(a)$ must be zero.
+	This $a$ is the fixed point of $f$.
+
+	First, if $g(a)=0$, then we're done.
+
+	Next, if  $g(a)>0$, we will consider the image of $f(a)$ under $g$.
+	But, the definition of $f$ bounds this value, \[
+		g(f(a))=|f(a)-f(f(a))| < |a - f(a)| = g(a)
+		.\]
+
+	So, we have that $g(f(a))<g(a)$, contracting the fact that $g(a)$ was the minimum of  $g$.
+
+	Thus,  $g(a)=0$ and the fixed point of  $f$ occurs at  $x=a$.
+\end{proof}
+\end{document}

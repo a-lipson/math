@@ -23,40 +23,102 @@ If $K$ compact with  $K \supset C_1 \supset C_2 \supset \cdots$ nested sequence 
 	So, $f$ is uniformly continuous as  $\delta$ depends solely on  $\epsilon$.
 \end{proof}
 
-\begin{proposition}[Uniqueness of the fixed point]
-	The fixed point of $f$ is unique.
+% \begin{proposition}[Uniqueness of the fixed point]
+% 	The fixed point of $f$ is unique.
+% \end{proposition}
+% \begin{proof}[Proof of Uniqueness Proposition]
+% 	Suppose, for a contradiction, that there were $x,y$ fixed points with  $x \neq y$
+% 	and $f(x)=x$,  $f(y)=y$.
+%
+% 	Then,  $|f(x)-f(y)| = |x-y|$.
+% 	But we had, by the definition of  $f$, $|f(x)-f(y)| < |x-y|$, which is a contradiction.
+%
+% 	Thus, $x=y$ and the fixed point is unique.
+% \end{proof}
+
+\begin{proposition}[Successive applications of the map form a nested sequence]
+	Let $C_0 = K$, and  $C_{i + 1} = f(C_i)$.
+	\begin{enumerate}[label=(\alph*)]
+		\item $C_i$ closed.
+		\item $C_i$ non-empty.
+		\item $C_i$ nested such that $K \supset C_1 \supset C_2 \supset \cdots$
+	\end{enumerate}
 \end{proposition}
-\begin{proof}[Proof of Uniqueness Proposition]
-	Suppose, for a contradiction, that there were $x,y$ fixed points with  $x \neq y$
-	and $f(x)=x$,  $f(y)=y$.
 
-	Then,  $|f(x)-f(y)| = |x-y|$.
-	But we had, by the definition of  $f$, $|f(x)-f(y)| < |x-y|$, which is a contradiction.
-
-	Thus, $x=y$ and the fixed point is unique.
+\begin{proof}[Proof of Sequence Proposition (a)]
+	By induction, since $f$ continuous and $C_0$ compact, then $\forall i$, $C_i$ is compact as well.
 \end{proof}
 
-\begin{proof}[Proof of Problem]
-	Let $g : K \longrightarrow \R$ be the distance between $x$ and its image under $f$, \[
-		g(x)= |f(x)-x|
+\begin{proof}[Proof of Sequence Proposition (b)]
+	Since $f$ maps from $K$ to $K$ and $C_0 = K$ is non-empty, then each $C_i$, as the image of $f$, must be non-empty.
+\end{proof}
+
+\begin{proof}[Proof of Sequence Proposition (c)]
+	% Let $S\subset K$. So, \[
+	% 	|f(x)-f(y)| < |x-y|
+	% 	\implies \underset{x,y \in S}{\sup} |f(x)-f(y)| < \underset{x,y \in S}{\sup} |x-y|
+	% 	\implies \text{diam}\,{f(S)} < \text{diam}\,{S}
+	% 	.\]
+	% Since $f$ maps from  $K$ to $K$,
+	% and $\forall S \subset K,\, \text{diam}\,{f(S)} < \text{diam}\,{S}$,
+	% then $f(K)\subset K$.
+	% So, by induction, $C_{i+1} \subset C_i$.
+	By induction, since $f(K)\subset K$ and $C_{i+1} = f(C_i)$, then $C_{i+1}\subset C_i$.
+\end{proof}
+
+\begin{proof}[Proof of Problem 1]
+
+	Let $S\subset K$. So, \[
+		|f(x)-f(y)| < |x-y|
+		\implies \underset{x,y \in S}{\sup} |f(x)-f(y)| < \underset{x,y \in S}{\sup} |x-y|
+		\implies \text{diam}\,{f(S)} < \text{diam}\,{S}
 		.\]
-	Since $f$ is continuous, then $g$, the difference between two continuous functions, is also continuous.
+	Since $f$ maps from  $K$ to $K$,
+	and $S, C_i \subset K$, then $ \text{diam}\,{f(S)} < \text{diam}\,{S} \implies \text{diam}\,{C_{i+1}} < \text{diam}\,{C_i}$.
 
-	Since  $K$ is compact and  $g$ is continuous and positive, then, by EVT, there is a minimum of $g$ at $x \in K$, \[
-		0\le \underset{x \in K}{\min{g}} = g(a)
-		.\]
-	We wish to show that $g(a)$ must be zero.
-	This $a$ is the fixed point of $f$.
+	Let $(x_n)\subset \R$ be the sequence defined by $x_i = \text{diam}\,{C_i}$.
+	So, $\lim_{n \to \infty} x_n = \text{diam}\,S$.
 
-	First, if $g(a)=0$, then we're done.
+	Since $\text{diam}\,{C_{i+1}} < \text{diam}\,{C_i}$, then $(x_n)$ is decreasing.
+	Since $\text{diam}\,{C_i}\ge 0$, then $x_n$ is bounded below by zero.
+	Since $(x_n)\subset \R$ is decreasing and bounded below, it must converge.
 
-	Next, if  $g(a)>0$, we will consider the image of $f(a)$ under $g$.
-	But, the definition of $f$ bounds this value, \[
-		g(f(a))=|f(a)-f(f(a))| < |a - f(a)| = g(a)
-		.\]
+	Suppose, that $(x_n)$ converges to $m>0$.
 
-	So, we have that $g(f(a))<g(a)$, contracting the fact that $g(a)$ was the minimum of  $g$.
+	Then, $S=\bigcap C_i$ must contain at least two points $x,y$ such that $|x-y| = m$
+	But, $\forall i,\, x,y \in C_i$ means that we could not have $\text{diam}\,{C_{i+1}} < \text{diam}\,{C_i}$,
+	which is a contraction.
+	Thus, $(x_n)$ must converge to zero.
 
-	Thus,  $g(a)=0$ and the fixed point of  $f$ occurs at  $x=a$.
+	Since $(x_n)\to 0$, then $\text{diam}\,S = 0$.
+
+	By (*), $\forall i,\, \bigcap_{i=1}^{\infty} C_i \neq \O$. %, the infinite intersection of $C_i$ is non-empty.
+
+	Since $\text{diam}\,{S} = 0$ and $S\neq \O$,
+	then $S = \{x\}$.
+	Since $x \in C_i \implies f(x) \in C_{i+1}$,
+	then $f(x) \in S$.
+	So, $f(x) = x$.
+
+	% Let $g : K \longrightarrow \R$ be the distance between $x$ and its image under $f$, \[
+	% 	g(x)= |f(x)-x|
+	% 	.\]
+	% Since $f$ is continuous, then $g$ is also continuous.
+	% Since  $K$ is compact and $g$ is continuous and non-negative, then, by EVT, there is a minimum of $g$ at $x \in K$, \[
+	% 	0\le \underset{x \in K}{\min{g}} = g(a)
+	% 	.\]
+	% We wish to show that $g(a)$ must be zero.
+	% This $a$ is the fixed point of $f$.
+	%
+	% First, if $g(a)=0$, then we're done.
+	%
+	% Next, if  $g(a)>0$, we will consider the image of $f(a)$ under $g$.
+	% But, the definition of $f$ bounds this value, \[
+	% 	g(f(a))=|f(a)-f(f(a))| < |a - f(a)| = g(a)
+	% 	.\]
+	%
+	% So, we have that $g(f(a))<g(a)$, contracting the fact that $g(a)$ was the minimum of  $g$.
+	%
+	% Thus,  $g(a)=0$ and the fixed point of  $f$ occurs at  $x=a$.
 \end{proof}
 \end{document}

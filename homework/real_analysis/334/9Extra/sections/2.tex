@@ -3,15 +3,14 @@
 \begin{problem}[2]
 Give an example of a shrinking map that is not a contraction map.
 \end{problem}
-\begin{proposition}[2]
-	$\forall \epsilon : 0<\epsilon<1$, the map $ f:[0,1]\longrightarrow \R$ defined as $f(x)=(1-\epsilon)x - \frac{x^2}{2}$ is a shrinking map that is not a contraction map.
-\end{proposition}
-\begin{proof}[Proof of 2]
+\begin{proof}[Proof of Problem 2]
 	Since a contraction map requires, for some fixed $\alpha \in (0,1)$, that $\forall x,y \in K,\, x \neq y$, \[
 		|f(x)-f(y)| < \alpha|x-y|
 		,\]
 	then we wish to find a map such that this relationship will not hold for any fixed choice of $\alpha$.
 
-	As $x$ approaches zero,  $f'(x)$ can get arbitrarily close to 1, but no fixed  $\alpha$ will work as we can always choose a smaller  $\epsilon$.
+	$f:[0,1]\longrightarrow \R$ defined as $f(x)=x - \frac{x^2}{2}$ is a shrinking map that is not a contraction map.
+
+	As $x$ approaches zero, $f'(x)=1-x$ will get arbitrarily close to 1, so no fixed $\alpha$ will work.
 \end{proof}
 \end{document}

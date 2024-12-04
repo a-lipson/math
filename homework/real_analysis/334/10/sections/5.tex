@@ -1,0 +1,47 @@
+\documentclass[../hw10]{subfiles}
+\begin{document}
+\begin{problem}[5]
+Let $\mathbf{G} = (-yz^2,xz^2,\exp{(-z^2)})$ and $\mathbf{F}=\text{curl}\,\mathbf{G}$.
+Let $S$ be the surface defined in cylindrical coordinates by  $r=1+z^2, r\le 3$ oriented with normals pointing towards the $z$-axis.
+Divide  $S$ into the portion  $S_+$ in positive  $z$, and  $S_-$ in negative  $z$.
+
+Determine whether the flux of  $\mathbf{F}$ through $S_+$ or  $S_-$ is larger.
+\end{problem}
+\begin{proof}
+	By stoke theorem, we have \[
+		\iint_S \mathbf{F}\cdot d\mathbf{S} = \iint_S \text{curl}\,\mathbf{G}\cdot d\mathbf{S} = \oint_C \mathbf{G}\cdot d\mathbf{x}
+	\] where $\partial{S}=C$ and $C$ is positively oriented.
+
+	So, we will consider the boundary curves of $S_+$ and $S_-$, which we will call $C_+$ and  $C_-$ respectively.
+
+	We will set up a difference equation for the upper and lower surfaces, \[
+		\iint_{S_+}\mathbf{F}\cdot d\mathbf{S}-\iint_{S_-}\mathbf{F}\cdot d\mathbf{S}
+		= \oint_{C_+}\mathbf{G}\cdot d\mathbf{x}-\oint_{C_-}\mathbf{G}\cdot d\mathbf{x}
+		.\]
+
+	Since the image of $S$ in the $xy$-plane is a unit circle ($r=1$ where $z=0$), then the part of the boundaries $C_+$ and $C_-$ on the unit circle will be traversed in opposite directions.
+	Therefore the line integrals over these paths will cancel each other in the difference equation.
+
+	So, we are left with the parts of $C_+$ and  $C_-$ that bound $r=3$ at $z= \pm \sqrt{2} $ respectively.
+	We will call these curves $\gamma_+$ and  $\gamma_-$.
+
+	We will begin by parametrizing $C_+$ with $\gamma_+(t)=(3\cos{t},3\sin{t},\sqrt{2})$.
+	Since the normals of $S$ point towards the  $z$-axis, to maintain continuity of the normals, we must have an anticlockwise orientation for  $\gamma_+$.
+	So, $t\in [0,2\pi]$.
+	Then, $\gamma'_+(t)=(-3\sin{t},3\cos{t},0)$ and
+	$\mathbf{G}(\gamma_+(t))=(-6\sin{t},6\cos{t},e^{-2})$.
+
+	So, \[
+		\oint_{\gamma_+}\mathbf{G}\cdot d\mathbf{x}
+		= \int_{0}^{2\pi} \mathbf{G}(\gamma_+(t))\cdot \gamma'_+(t) \,dt
+		= \int_{0}^{2\pi} 18 \,dt
+		= 36\pi
+		.\]
+
+	For $\gamma_-$, we will perform the same, except the  $z$ coordinate of the parametrization will be  $-\sqrt{z}$, and the direction will be reversed.
+	This will not impact the integrand, but rather the bounds for the integral, which will be reversed.
+	So, the line integral around $\gamma_-$ will be  $-36\pi$.
+
+	Thus, the difference equation is will be positive, indicating that the flux on $\mathbf{F}$ through $S_+$ is larger than that over $S_-$.
+\end{proof}
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[../hw10]{subfiles}
+\begin{document}
+\begin{problem}[1]
+The \textit{Laplacian} of a function $f:\R^{n}\longrightarrow \R$ is defined by $\Delta f = \text{div} (\nabla f)$.
+We will work in $\R^3$. Let $\mathbf{r} = (x,y,z)$ and $g(\mathbf{r})=\frac{1}{|\mathbf{r}|}$.
+\begin{enumerate}[label=(\alph*)]
+	\item Compute $\nabla g$ at $\mathbf{r}\neq 0$.
+	\item Show that $\Delta g = 0$ at  $\mathbf{r}\neq 0$.
+	\item Consider any sphere $S$ with outward orientation centered at the origin. \\
+	      Show directly that $\iint_S \nabla g \cdot d\mathbf{S} = -4\pi$.
+	\item Explain why (b) and (c) do not contradict the divergence theorem.
+	\item Let $E\subset \R^3$ be a regular domain with piecewise smooth boundary $R = \partial{E}$.
+	      Suppose that $E$ contains the origin.
+	      Show that $\iint_R \nabla g \cdot d\mathbf{S} = -4\pi$.
+\end{enumerate}
+\end{problem}
+\begin{proof}
+	(a) With $\frac{1}{|\mathbf{r}|}= {(x^2 + y^2 + z^2)}^{-\frac{1}{2}}$, we have that $\nabla g=- \frac{\mathbf{r}}{{|\mathbf{r}|}^3}$.
+
+	(b) For $\div (\nabla g)$, we will first consider the $x$ partial,
+	\begin{align*}
+		\frac{\partial}{\partial x} \left[ - \frac{\mathbf{r}}{{|\mathbf{r}|}^3} \right] & =
+		\frac{{|\mathbf{r}|}^3-x\left( 2x \left( \frac{3}{2} {(x^2 + y^2 + z^2)}^{\frac{1}{2}} \right)  \right) }{{|\mathbf{r}|}^{6}}                   \\
+		                                                                                 & = \frac{{|\mathbf{r}|}^3-3x^2|\mathbf{r}|}{{|\mathbf{r}|}^6} \\
+		                                                                                 & = \frac{{|\mathbf{r}|}^2-3x^2}{{|\mathbf{r}|}^5}
+		.\end{align*}
+	Then, repeating for the $y$ and  $z$ partials, we have \[
+		\Delta g = \frac{1}{{|\mathbf{r}|}^5}(3{|\mathbf{r}|}^2- 3(x^2 + y^2 + z^2)) = 0
+		.\]
+
+	(c) Let the sphere $S$ with radius $R$ be parametrized by \[
+		\mathbf{r}(u,v)=(R\cos u \sin v,R\sin u \sin v,R\cos v),\, u\in [0,2\pi],\, v\in [0,\pi]
+		.\]
+
+	So,
+	\begin{align*}
+		\mathbf{r}_u                     & = (-R\sin u \sin v, R\cos u \sin v, 0)                             \\
+		\mathbf{r}_v                     & = (R\cos u \sin v , R \sin u \cos v , - R \sin v)                  \\
+		\mathbf{r}_u \times \mathbf{r}_v & = (-R^2\cos{u}\sin^2{v},-R^2\sin{u}\sin^2{v},-R^2(\cos{v}\sin{v})) \\
+		.\end{align*}
+
+	But, we must flip the direction of the normal vector to ensure outward-facing normals,  \[
+		\mathbf{r}_u\times \mathbf{r}_v = R^2(\cos{u}\sin^2{v},\sin{u}\sin^2{v},\cos{v}\sin{v})
+		.\]
+
+	Since the magnitude of all $\mathbf{r}$ on $S$ is the radius $R$, then $\nabla  g (\mathbf{r}(u,v)) = -\frac{\mathbf{r}}{R^3}$.
+
+	Then,
+	\begin{align*}
+		\nabla g \cdot (\mathbf{r}_u\times \mathbf{r}_v) & =
+		-(\cos^2{u}\sin^3{v} + \sin^2{u}\sin^3{v} + \cos^2{v}\sin{v})                                             \\
+		                                                 & = -\sin{v}(\sin^2{v}(\cos^2{u} + \sin^2{u})+\cos^2{v}) \\
+		                                                 & = -\sin{v}
+		.\end{align*}
+
+	So, we can compute, \[
+		-\int_{0}^{\pi} \int_{0}^{2\pi } \sin{v} \,du \,dv = -2\pi \int_{0}^{\pi} \sin{v} \,dv = -4\pi
+		.\]
+
+	(d) The divergence theorem requires the vector field $\mathbf{F}$ to be defined everywhere on the domain $E$ bounded by $S$,
+	however,  $\mathbf{F}$ is not defined at the origin.
+
+	(e) Since $E$ is a regular domain that contains the origin, we can split  $E$ up into subdomains, one of which can be a small sphere around the origin, while the others can be simply connected.
+	Since  $\Delta g = 0$ where  $\mathbf{r}\neq 0$, then the flux integral on the domains that do not contain the origin will vanish, and we will be left with the sole contribution of the domain containing the origin, which is $-4\pi$.
+\end{proof}
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass[../hw10]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Let $S\subset \R^3$ be the surface defined by $(x^2 + y^2)z = 1,\, z\in [1,334]$ and oriented with normals pointing away from the $z$-axis.
+Let  $E\subset \R^3$ be a regular domain bounded by  $S$ and  $z\in [1,334]$.
+\begin{enumerate}[label=(\alph*)]
+	\item Find a parametrization for $S$, and write an iterated integral which represents the flux  $\iint_S \mathbf{F}\cdot d\mathbf{S}$ where $\mathbf{F} = (0,0,z)$.
+	\item  Find the volume of the region $E$.
+	\item Let $\mathbf{G} = (\exp{(y^2)},\sin{(x^2)},z)$.
+	      Find the vector surface integral $\iint_S \mathbf{G}\cdot d\mathbf{S}$.
+\end{enumerate}
+\end{problem}
+\begin{proof}
+	(a) We will parametrize $S$ with  $\mathbf{r}(u,v) = (u\cos{v},u\sin{v},\frac{1}{u^2})$ where $u\in [\frac{1}{\sqrt{334}}, 1]$ and $v\in [0,2\pi]$.
+
+	So,
+	\begin{align*}
+		\mathbf{r}_u                   & = (\cos{v},\sin{v},\frac{-2}{u^3})                               \\
+		\mathbf{r}_v                   & = (-u\sin{v},u\cos{v},0)                                         \\
+		\mathbf{r}_u\times\mathbf{r}_v & = \left( \frac{-2}{u^2}\cos{v}, \frac{-2}{u^2}\sin{v}, u \right)
+		.\end{align*}
+
+	Since this normal vector has a positive $z$ component, it agrees with the given normals of $S$.
+
+	Then,  $\mathbf{F}(\mathbf{r}(u,v)) = (0,0,\frac{1}{u^2})$, so $\mathbf{F}\cdot d\mathbf{S} = \frac{1}{u}\,du\,dv$.
+
+	So, \[
+		\int_{0}^{2\pi} \int_{\frac{1}{\sqrt{334}}}^{1} \frac{1}{u} \,du \,dv
+		= 2\pi \log{u}\big\vert_{{(334)}^{-\frac{1}{2}}}^1
+		= \pi\log 334
+		.\]
+
+	(b) We see that $\text{div}\,\mathbf{F} = 1$.
+	So, by the divergence theorem, the volume of the region $E$ is given by the closed surface  $S'$, which is  $S$ combined with a top disk at $z=334$ with radius $\frac{1}{\sqrt{334}}$, $S_t$ with upward normals, and bottom disk at $z=1$ with radius 1, $S_b$ with downward normals.
+
+	The parametrization of $S_t$ will have a fixed $z$ component of 334 and, as a disk with upward normals, a normal vector given by $(0,0,u)$.
+	So, our vector surface integral in the field $\mathbf{F}$ will have an integrand $334u$.
+	With a typical parametrization of a disk, our integral might look like $\int_{0}^{2\pi} \int_{0}^{\frac{1}{\sqrt{334}}} 334u \,du \,dv = \pi$.
+
+	Similarly, $S_b$ will have an integrand of $-u$, due to having downward normals.
+	Then, $\int_{0}^{2\pi} \int_{0}^{1} -u \,du  \,dv = -\pi$.
+
+	So, the flux contributed by $S_t$ and $S_b$ cancel, and we are left with the surface integral from (a),  $\pi\log 334$ as the volume of $E$.
+
+	(c) Since $\text{div}\,\mathbf{G} = 1$, and $\mathbf{G}$ is defined everywhere on $E$, then, by the divergence theorem, the flux thru $S$ on  $\mathbf{G}$ is the same as in (a).
+\end{proof}
+\end{document}

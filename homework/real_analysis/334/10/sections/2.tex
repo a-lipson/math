@@ -1,0 +1,56 @@
+\documentclass[../hw10]{subfiles}
+\begin{document}
+\begin{problem}[2]
+Fix $0<a<b$ and consider the torus  $T\subset \R^3$ formed by revolving the circle ${(x-b)}^2 + z^2=a^2$ in the $xz$-plane about the  $z$-axis.
+\begin{enumerate}[label=(\alph*)]
+	\item Find the surface area of $T$.
+	\item Find the volume enclosed by $T$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	First, we will parametrize the cross sections of the torus, a circle in the $xz$-plane given by  \[
+		(b+a\cos{\theta},0,a\sin{\theta}),\, \theta\in [0,2\pi]
+		.\]
+	Then, we can repeat for the $y$-coordinate as well,
+	\[
+		(b+a\cos{\theta},b+a\cos{\theta},a\sin{\theta}),\, \theta\in [0,2\pi]
+		.\]
+
+	Next, we can rotate $x$ and $y$  components about the $z$-axis, \[
+		(\cos{u}(b+a\cos{v}),\sin{u}(b+a\cos{v}),a\sin{v}),\, u,v\in [0,2\pi]
+		.\]
+	So,
+	\begin{align*}
+		\mathbf{r}_u                     & = (-\sin{u}(b+a\cos{v}),\cos{u}(b+a\cos{v}),0)                                   \\
+		\mathbf{r}_v                     & = (\cos{u}(-a\sin{v}),\sin{u}(-a\sin{v}),a\cos{v})                               \\
+		\mathbf{r}_u\times \mathbf{r}_v  & = (a\cos{u}\cos{v}(b+a\cos{v}),a\sin{u}\cos{v}(b+a\cos{v}),a\sin{v}(b+a\cos{v})) \\
+		                                 & = a(b+a\cos{v})(\cos{u}\cos{v},\sin{u}\cos{v},\sin{v})                           \\
+		|\mathbf{r}_u\times\mathbf{r}_v| & = a(b+a\cos{v})\sqrt{\cos^2{v}(\cos^2{u}+\sin^2{u})+\sin^2{v}}                   \\
+		                                 & = a(b+a\cos{v})
+		.\end{align*}
+
+	We can now compute the surface area integral,
+	\begin{align*}
+		\iint_S dS & = \int_{0}^{2\pi} \int_{0}^{2\pi} a(b+a\cos{v})\,du\,dv \\
+		           & = 4\pi^2 ab + 2\pi a^2 \int_{0}^{2\pi} \cos{v}\,dv      \\
+		           & = 4\pi^2 ab
+		.\end{align*}
+\end{proof}
+\begin{proof}[Proof of b]
+	For the volume enclosed by $T$, by the divergence theorem, we wish to find an  $\mathbf{F}$ such that $\text{div}\,\mathbf{F} = 1$.
+	We will use $\mathbf{F} = (0,0,z)$.
+
+	Then, $\mathbf{F}(\mathbf{r}(u,v)) = a\sin{v}$.
+
+	So, with $T$ enclosing the region  $E$,
+	\begin{align*}
+		\text{vol}\,E & = \iiint_E \text{div}\,\mathbf{F}\,dV = \oiint_T \mathbf{F}\cdot d\mathbf{S} \\
+		              & = \int_{0}^{2\pi} \int_{0}^{2\pi} a\sin{v}(a\sin{v}(b+a\cos{v}))\,du\,dv     \\
+		              & = 2\pi a^2 \int_{0}^{2\pi} \sin^2{v}(b+a\cos{v})\,dv                         \\
+		              & = 2\pi a^2 (b\pi + a \int_{0}^{2\pi}\cos{v}\sin^2{v}\,dv)                    \\
+		              & = 2\pi a^2 (b\pi + a \int_0^0 x^2\,dx),\quad x = \sin{v}                     \\
+		              & = 2\pi^2 a^2 b
+		.\end{align*}
+
+\end{proof}
+\end{document}

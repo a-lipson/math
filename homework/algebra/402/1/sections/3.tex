@@ -1,0 +1,17 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[3]
+Express 1 as a linear combination of 1003 and 456.
+\end{problem}
+From Problem 2, we have the remainders of 1003 / 456 and 456 / 91,
+\begin{align*}
+	91 & = 1\cdot 1003 - 2\cdot 456 \\
+	1  & = 1\cdot 456 - 5\cdot 91
+	.\end{align*}
+Then, we replace 91 in the second equation by its expression in terms of 1003 and 456,
+\begin{align*}
+	1 & = 1\cdot 456 - 5 (1\cdot 1003 - 2\cdot 456) \\
+	1 & = 11\cdot 456 - 5\cdot 1003
+	,\end{align*}
+which is our linear combination of 1 using 1003 and 456.
+\end{document}

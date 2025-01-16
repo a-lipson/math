@@ -1,0 +1,24 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Prove $\forall n \in \Z_{>0},\, 9|n \iff 9$ divides the sum of the digits of $n$.
+\end{problem}
+\begin{proof} ($\implies$)
+	Note that, $\forall k \ge 0$, we can write $10^{k} = 1 + \sum_{j=1}^{k-1} 9(10^j)$.
+
+	Clearly, 9 divides the second term, so $10^k\equiv 1 + 0 = 1 \pmod{9}$.
+	So, \[
+		\forall k \ge 0,\, 10^k\equiv 1 \pmod{9} \tag{*}
+		.\]
+
+	Let $n=\sum_{j=0}^{k}10^j a_j$ represent the decomposition of each digit $a_j$ of  $n$ into powers of ten.
+
+	By (*) and Theorem 2.6, $n\equiv \sum_{j=0}^{k}a_j \pmod{9}$.
+
+	But $9|n \implies n\equiv 0 \pmod{9}$ by assumption, So $9|\sum_{j=0}^{k}a_j$ as well.
+
+	Thus, the sum of the digits $a_j$ of $n$ is divisible by $9$ when $n$ itself is divisible by $9$.
+
+	($\impliedby$) Follows directly from reversing the proof, multiplying each digit $a_j$ by $10^j$.
+\end{proof}
+\end{document}

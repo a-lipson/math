@@ -1,0 +1,20 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[9]
+Prove there are infinitely many primes.
+\end{problem}
+\begin{proof}
+	For a contraction, assume that there are $k$ finitely many primes $p_1,\ldots,p_k$.
+
+	Let $n = 1 + \prod_{i_1}^k p_i$. Since the right term of $n$ has a factor of each prime,
+	then $\forall i \in [1,k]$, \[
+		n \equiv 1 \pmod{p_i}
+		.\]
+
+	Thus, $n$ is not divisible by any of the primes. So, $n$ must be a prime itself or have a prime factor not included in the finitely many $k$ primes.
+
+	Since we have found a prime that is not in our original finite list, then our assumption must be false.
+
+	Therefore, there must be infinitely many primes.
+\end{proof}
+\end{document}

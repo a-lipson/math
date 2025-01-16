@@ -1,0 +1,11 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[1]
+Prove $\forall a,b\in \Z,\, 11|(2+a) \land 11|(35-b) \implies 11|(a+b)$.
+\end{problem}
+\begin{proof}
+	Since 11 divides both $2+a$ and $35-b$, then, by Theorem 2.2, $2+a \equiv 35-b \pmod{11}$.
+
+	Adding $b$ and subtracting 2 gives, $a+b\equiv 33 \equiv 0 \pmod{11}$. Thus, 11 divides $a+b$.
+\end{proof}
+\end{document}

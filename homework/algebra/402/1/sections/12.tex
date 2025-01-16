@@ -1,0 +1,40 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[12]
+Solve the following for $x$:
+\begin{enumerate}[label=\alph*)]
+	\item $x^2+x=[0]$ in $\Z_5$
+	\item $x^2+x=[0]$ in $\Z_6$
+	\item Prove for $p$ prime,  the only solutions of $x^2+x=[0]$ in $\Z_p$ are $[0]$ and $[p-1]$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (a)]
+	By part (c), $x=[0],[4]$.
+\end{proof}
+\begin{proof}[Proof of b]
+	By factoring, we have that \[
+		x(x+1)\equiv 0 \pmod{6}
+		.\]
+
+	First, we have $x=[0]$.
+
+	Then, we have the canonical representation factors of $6$ which are congruent to zero: {1,6}, {2,3}, and {3,4}.
+
+	So,  $2(2+1)\equiv 0 \pmod{6} \implies x = [2]$ and $3(3+1)\equiv 0 \pmod{6} \implies x = [3]$
+
+	However, 1 and 6 are not consecutive integers, so they do not satisfy the equation.
+
+	Thus, $x = [0], [2], [3]$.
+\end{proof}
+\begin{proof}[Proof of c]
+	By factoring, we have that \[
+		x(x+1)\equiv0\pmod{p}
+		.\]
+
+	By Theorem 1.5, $x\equiv 0 \pmod{p}$ or $x+1\equiv 0 \pmod{p}$.
+
+	So, $x=[0]$ or $x\equiv -1 \equiv p-1 \pmod{p}$.
+
+	Thus, $x = [0], [p-1]$ are the solutions to the equation where $p$ is prime
+\end{proof}
+\end{document}

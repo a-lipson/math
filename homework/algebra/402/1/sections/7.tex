@@ -1,0 +1,29 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[7]
+Prove $\forall a,b,c \in \Z_{>0},\, c^2=ab,\, (a,b)=1 \implies a,b$ are perfect squares.
+\end{problem}
+\begin{proof}
+	We wish to show that all primes factors of $a$ and $b$ must have even powers, this implies that  $a$ and  $b$ are themselves perfect squares.
+
+	Let the prime factorization of  $a$ and  $b$ be given respectively by  \[
+		\prod_{i=1}^{k}p_i^{\alpha_i}\text{ and } \prod_{j=1}^{m}q_j^{\beta_j}
+		.\]
+
+	So, by the commutativity of multiplication, \[
+		ab =  \prod_{i=1}^{k}\prod_{j=1}^{m}p_i^{\alpha_i}q_j^{\beta_j}
+		.\]
+
+	Since $c^2=ab$, then the prime factorization of $ab$ must have only even exponents.
+
+	So, whenever  $p_i = q_j$ for some  $i,j$, then  $\alpha_i+\beta_j$ must be even.
+
+	But,  $(a,b)=1\implies a,b$ share no common factors.
+
+	So, we will never have $p_i = q_j$ for any $i,j$.
+
+	So, $\forall i,j$, $\alpha_i$ and $\beta_j$ must be even already.
+
+	Since all exponents of the prime factors of  $a$ and  $b$ are even, then  $a$ and $b$ must be perfect squares.
+\end{proof}
+\end{document}

@@ -1,0 +1,15 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[8]
+Prove for $p$ prime,  $1\le k < p,\, p | \binom{p}{k},\quad \binom{p}{k} \frac{p!}{k!(p-k)!}$.
+\end{problem}
+\begin{proof}
+	Note that, for $1\le k < p$, all factors of $k!(p-k)!$ will be less than $p$. So $(p,k!(p-k)!)=1$.
+
+	Hence, $\frac{p!}{k!(p-k)!}$ will have one factor of $p$ in the numerator, allowing us to write, \[
+		\binom{p}{k}=p \left( \frac{(p-1)!}{k!(p-k)!} \right)
+		.\]
+
+	Thus, $p|\binom{p}{k}$ by Corollary 1.6.
+\end{proof}
+\end{document}

@@ -1,0 +1,16 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+A class of 28 students is divided into seven teams of four for a group assignment.
+In addition, in each team one person is designated to be the leader.
+How many ways can the teams and leaders be assigned? (Assume all teams are doing the same assignment.)
+\\\\
+There are $28!$ arrangements of students
+Yet, we must also choose one leader from each of the groups, there are $4^7$ ways to do this.
+But, we can swap students inside of each of the seven groups; there are  $4!^7$ ways to do this.
+We can also swap the groups themselves; there are  $7!$ ways to do this.
+
+So, multiplying by the first two independent choices and dividing by the ways we achieve equivalent choices through swaps, we find the total count is \[
+	\frac{28!4^7}{4!^7 7!}=\frac{28!}{3!^7 7!}=\frac{28!}{6^7 7!}\approx 2.16\cdot 10^{20}
+	.\]
+\\
+\end{document}

@@ -1,0 +1,16 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+Let $C$ be a set with $n$ elements. Prove that the number of ordered pairs $(A,B)$ of sets such that $A \cup B = C$ is $3^n$.
+\begin{proof}
+	$\forall x \in C$, there are three possibilities:
+	\[
+		\begin{array}{l r}
+			x \in A     & \land \quad x \in B,     \\
+			x \in A     & \land \quad x \not\in B, \\
+			x \not\in A & \land \quad x \in B.
+		\end{array}
+	\]
+	Each choice of $x$ from the  $n$-element set  $C$ is independent.
+	So, the total product of  $n$ independent choices of 3 is $3^n$
+\end{proof}
+\end{document}

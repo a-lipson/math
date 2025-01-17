@@ -1,0 +1,13 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+Consider an $n \times n$ checkerboard, which consists of $n^2$ small squares arranged in a square grid. Prove that the number of rectangles which are unions of small squares is $\binom{n+1}{2}^2$.
+\\\\
+Note that the $n\times n$ checkerboard is equivalent to a grid of $n+1$ lines.
+Consider forming a rectangle by choosing 2 of the $n+1$ grid lines for both the vertical and horizontal sides of the rectangle.
+These choices are independent.
+Furthermore, the order of the choices does not matter as a rectangle with a given top and bottom (or left and right) bound would be the same as one with the bottom and top (or right and left) bound.
+
+So, we will have $\binom{n+1}{2}$ choices for each pair of parallel sides of the rectangle.
+Since these choices are independent, we have a total of ${\binom{n+1}{2}}^2$ choices for all of the two sides.
+\\
+\end{document}

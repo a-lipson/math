@@ -1,0 +1,45 @@
+\documentclass{subfiles}
+\begin{document}
+You are trying to create a password using the twenty-six characters A--Z and ten characters 0--9. (Assume no other characters, such as lower-case letters or punctuation, are allowed.)
+\begin{enumerate}
+	\item How many $n$-character passwords can be created if you must use at least one letter and at least one number?
+	      \\\\
+	      The total number of $n$-character passwords is $36^n$.
+	      The number of  $n$-character passwords with no numbers is  $26^n$, and the number with no letters is $10^n$.
+	      Note that the passwords with no numbers and the passwords with no letters have no overlap.
+	      So, the total number of $n$-character passwords with at least on letter and at least one number is  $36^n-26^n-10^n$.
+	      \\
+	\item How many $n$-character passwords can be created if you must use at least one letter, at least one number, and no character can be used more than once?
+	      \\\\
+	      Note that $n\le 36$ in order to have no repeat characters.
+	      First, we will pick $n$ characters from the 36 possible, which is $\binom{36}{n}$.
+	      But, we care about order, so we have $n!$ ways to arrange each selection of  $n$ characters.
+	      Hence, we have  $\binom{36}{n}n! = \frac{36!}{(36-n)!}$ ways to create $n$-character passwords with no duplicate letters.
+	      However, we wish to remove those which contain no letters and no numbers as well. Similarly, these counts are given by $\frac{26!}{(26-n)!}$ and $\frac{10!}{(10-n)!}$ respectively.
+	      \\
+	\item In terms of $n$, approximately how many digits do your answers to (a) and (b) have?
+	      \\\\
+	      For (a), the count is approximately $36^n$.
+	      So, the number of digits of this number can be found with $\log_{10}{36^n} = n\log_{10}{36} \approx 1.56n$.
+
+	      For (b), the dominant term of the count is $\frac{36!}{(36-n)!}$.
+	      We can use Stirling's approximation formula \[
+		      \log_{10}{n!}\approx \left( n+\frac{1}{2} \right) \log_{10}{n} -\frac{n}{\log{10} }+\frac{1}{2}\log_{10}{2\pi}
+	      \] to approximate the number of digits for this number in terms of $n$.
+
+	      Then $\log_{10}{\frac{36!}{(36-n)!}} = \log_{10}{(36!)} - \log_{10}{\left( (36-n)! \right)}$.
+	      So,
+	      {\renewcommand{\arraystretch}{1.5}
+			      \[
+				      \begin{array}{r l}
+					      \log_{10}{(36!)}        & \approx \left( 36+\frac{1}{2} \right) \log_{10}{36} - \frac{36}{\log{10} }+\frac{1}{2}\log_{10}{2\pi}          \\
+					      -  \log_{10}{((36-n)!)} & \approx \left( 36-n+\frac{1}{2} \right)  \log_{10}{(36-n)} - \frac{36-n}{\log{10} }+\frac{1}{2}\log_{10}{2\pi} \\
+					      \hline
+					                              & = \frac{73}{2}\log_{10}{36}-\left( \frac{73}{2}-n \right) \log_{10}{(36-n)} + \frac{n}{\log{10} }              \\
+					                              & \approx \left( n-\frac{73}{2} \right) \log_{10}{(36-n)} + \frac{n}{\log{10} } + 57                             \\
+				      \end{array}
+				      .\] }
+\end{enumerate}
+\end{document}
+
+

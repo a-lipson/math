@@ -1,10 +1,15 @@
-\documentclass[oneside,12pt]{memoir}
+% \documentclass[oneside,12pt]{memoir}
+\documentclass[oneside]{memoir}
+\input{../../../../class/preamble.tex}
+\input{../../../../class/combinatorics/preamble.tex}
+
+\title{Math 402 Homework 1}
 
 \makeoddhead{myheadings}{Math 461}{Combinatorial Theory}{\thepage}
 \pagestyle{myheadings}
 
-\setlist[enumerate,1]{left=0pt .. \parindent}
-\setlist[enumerate,2]{label = (\alph*)}
+% \setlist[enumerate,1]{left=0pt .. \parindent}
+% \setlist[enumerate,2]{label = (\alph*)}
 
 % due Thursday, January 16
 
@@ -15,30 +20,12 @@
 \end{center}
 
 \begin{enumerate}
-
-	\item You are trying to create a password using the twenty-six characters A--Z and ten characters 0--9. (Assume no other characters, such as lower-case letters or punctuation, are allowed.)
-	      \begin{enumerate}
-		      \item How many $n$-character passwords can be created if you must use at least one letter and at least one number?
-		      \item How many $n$-character passwords can be created if you must use at least one letter, at least one number, and no character can be used more than once?
-		      \item In terms of $n$, approximately how many digits do your answers to (a) and (b) have?
-	      \end{enumerate}
-
-	\item A class of 28 students is divided into seven teams of four for a group assignment. In addition, in each team one person is designated to be the leader. How many ways can the teams and leaders be assigned? (Assume all teams are doing the same assignment.)
-
-	\item You are arranging a collection of $n$ different books on a bookshelf. Among these books are The Lord of the Rings 1, 2, and 3.
-	      \begin{enumerate}
-		      \item How many ways are there to arrange the books if The Lord of the Rings books must be next to each other, in the correct order?
-		      \item How many ways are there to arrange the books if The Lord of the Rings books must be next to each other, but not necessarily in the correct order?
-		      \item How many ways are there to arrange the books if The Lord of the Rings books must be in the correct order, but not necessarily next to each other?
-	      \end{enumerate}
-
-	\item Consider an $n \times n$ checkerboard, which consists of $n^2$ small squares arranged in a square grid. Prove that the number of rectangles which are unions of small squares is $\binom{n+1}{2}^2$.
-
-	\item Let $C$ be a set with $n$ elements. Prove that the number of ordered pairs $(A,B)$ of sets such that $A \cup B = C$ is $3^n$.
-
-	\item For each nonnegative integer $n$, let $f(n)$ be the number of subsets of $[100]$ which sum to $n$. For example, $f(6) = 4$ because there are 4 subsets of $[100]$ which sum to 6, specifically $\{6\}$, $\{1,5\}$, $\{2,4\}$, and $\{1,2,3\}$. Prove that $f(2000) = f(3050)$.
-
-	      \emph{Hint:} What is $1 + 2 + \dots + 100$?
+	\item \subfile{sections/1}
+	\item \subfile{sections/2}
+	\item \subfile{sections/3}
+	\item \subfile{sections/4}
+	\item \subfile{sections/5}
+	\item \subfile{sections/6}
 \end{enumerate}
 
 \end{document}

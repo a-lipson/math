@@ -1,0 +1,31 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+For each nonnegative integer $n$, let $f(n)$ be the number of subsets of $[100]$ which sum to $n$.
+For example, $f(6) = 4$ because there are 4 subsets of $[100]$ which sum to 6,
+specifically $\{6\}$, $\{1,5\}$, $\{2,4\}$, and $\{1,2,3\}$.
+Prove that $f(2000) = f(3050)$.
+
+\emph{Hint:} What is $1 + 2 + \dots + 100$?
+\begin{proof}
+	Note that the 100th triangle number is $5050=\frac{100(101)}{2}$.
+
+	In order to show that $f(2000) = f(3050)$, we wish to find a bijection between subsets of [100] which sum to 2000 and 3050 respectively.
+
+	Consider the set $S: \{ s \in [100]\ \mid\ \text{sum of elements of }\,s = 2000\} $.
+	Then, the complement of $S$ in [100], $S^{c}$, must contain the rest of the numbers, which sum to $5050-2000=3050$.
+	So, the sum of the elements of $S^{c}$ is 3050.
+
+	Similarly, if we start with $S^{c}$ whose sum is 3050, then $(S^{c})^{c}=S$ will have a sum of 2000.
+
+	Hence, we can define a bijection $f: S \longmapsto S^{c}$ by the mapping $s \mapsto [100]\setminus s$.
+
+	This map is well defined because every  $s \in S$ has exactly one complement.
+
+	This map is invertible, $[100]\setminus s \mapsto [100]\setminus ([100] \setminus s) = s  \implies f \circ f = f$.
+	So $f$ is its own inverse.
+
+	Thus, $f$ is a bijection.
+
+	Since $f$ is a bijection, then $f(2000) = |S| = |S^{c}| = f(3050)$, which is what we wished to show.
+\end{proof}
+\end{document}

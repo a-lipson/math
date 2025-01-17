@@ -1,0 +1,19 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+You are arranging a collection of $n$ different books on a bookshelf. Among these books are The Lord of the Rings 1, 2, and 3.
+\begin{enumerate}
+	\item How many ways are there to arrange the books if The Lord of the Rings books must be next to each other, in the correct order?
+	      \\\\
+	      Consider the three adjacent ordered LOTR books to be one unit. Then, there are $(n-2)!$ was to arrange the books while preserving the LOTR unit.
+	      \\
+	\item How many ways are there to arrange the books if The Lord of the Rings books must be next to each other, but not necessarily in the correct order?
+	      \\\\
+	      Consider the result from (a), then multiply by the $3! = 6$ permutations of the three LOTR books. This gives a $6(n-2)!$.
+	      \\
+	\item How many ways are there to arrange the books if The Lord of the Rings books must be in the correct order, but not necessarily next to each other?
+	      \\\\
+	      First, we will choose 3 spots from the $n$ possible to place the LOTR books in order. This is $\binom{n}{3}$.
+	      Then, we will arrange the $n-3$ remaining books. We have  $(n-3)!$ ways to do so.
+	      Thus, the total permutation count is the product of these independent actions, $\binom{n}{3}(n-3)!$.
+\end{enumerate}
+\end{document}

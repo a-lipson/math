@@ -1,0 +1,32 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[5]
+Let $f(x)=1$ on $[n,n+2^{-n}]$ for $n \in \Z_{>0}$ and $f(x)=0$ elsewhere.
+\begin{enumerate}[label=\alph*)]
+	\item Show $\int_{0}^{\infty} f(x) \,dx$ converges to one, yet $f(x)\not{\to}0$ as $x\to \infty$.
+
+	      The integral of $f$ can actually be expressed using a sum, since the area under the graph of $f$ consists of rectangles with height one and with  $2^{-n}$, which is the length of each interval where $f(x)=1$.
+
+	      Thus, by the explicit formula for the geometric series,
+	      $\int_{0}^{\infty} f(x) \,dx = \sum_{1}^{\infty} 2^{-n} = \sum_{0}^{\infty} {(\frac{1}{2})}^n - 1 = \frac{1}{1-\frac{1}{2}} - 1 = 1$.
+
+	\item Modify $f$ to a function  $g$ such that  $\int_{0}^{\infty} g(x) \,dx$ converges yet $g$ is not bounded as  $x\to \infty$.
+
+	      If we desire $g$ to be unbounded, then we will need to shrink the intervals where  $g\neq 0$ so that the increasing value of $g$ has a proportionally decreasing contribution to the final integral.
+
+	      Let  $g(x)=\begin{cases}
+			      x, & \forall n \in \Z_{>0},\, x \in [n,n+\frac{1}{2^n n}], \\
+			      0, \text{otherwise}.
+		      \end{cases}$
+
+	      So, $\int_{0}^{\infty} g(x) \,dx \approx \sum_{1}^{\infty} 2^{-n}\cdot \frac{n}{n}$, which converges as seen above.
+
+	      Furthermore, we can create an inequality by considering that each $n$th interval will have a value of  $g$ less than  $n+1$.
+	      This gives  \[
+		      \int_{0}^{\infty} g(x) \,dx < \sum_{1}^{\infty} 2^{-n}\left( \frac{n+1}{n} \right) < \infty
+		      .\]
+
+	      So the integral of $g$ converges while $g$ grows without bound.
+\end{enumerate}
+\end{problem}
+\end{document}

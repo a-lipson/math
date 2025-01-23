@@ -1,0 +1,25 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[3]
+\begin{enumerate}[label=\alph*)]
+	\item Prove that $[a]$ unit in $\Z_n \implies [a]$ is not a zero divisor.
+	\item Prove that $[a]$ zero divisor in $\Z_n \implies [a]$ is not a unit.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	For a contradiction, suppose that $[a]$ is both a unit and a zero divisor; \\
+	$\exists x,y \in \Z_n,\, x,y\neq 0\ :\ ax=1,\, ay=0$.
+
+	Then,
+	\begin{align*}
+		         & ax=ax+0=ax+ay=a(x+y) \\
+		\implies & a(x+y)=ax            \\
+		\implies & x+y = x              \\
+		\implies & y = 0
+		,\end{align*}
+	which is a contradiction with the assumption that $ay=0$ had a nonzero solution.
+\end{proof}
+\begin{proof}[Proof of b]
+	Follows from the contrapositive of (a).
+\end{proof}
+\end{document}

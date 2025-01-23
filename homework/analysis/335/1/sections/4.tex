@@ -1,0 +1,22 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Let $f_p(x)=x^{-1}{(\log{x})}^{-p}$ with $p>0$.
+\begin{enumerate}[label=\alph*)]
+	\item Given $p,\epsilon>0$, show for large $x$, \[
+		      x^{-1-\epsilon}<f_p(x)<x^{-1}
+		      .\]
+
+	      $\forall x>e,\, \forall p>0,\, {(\log{x} )}^p>1 \implies f_p(x)=x^{-1}{(\log{x} )}^{-p} < x^{-1}$.
+
+	      With the same qualifications, $\lim_{\epsilon \to 0} x^{\epsilon} = 1 < {\log{x}}^p \implies f_p(x)=x^{-1}{(\log{x} )}^{-p}<\lim_{\epsilon \to 0} x^{-1-\epsilon}$.
+
+	\item For which $p$ does  $\int_{2}^{\infty} f_p(x) \,dx$ converge?
+
+	      Let $u=\log{x}$. So, $e^u = x$ and  $e^u\,du = dx$.
+
+	      Then, the above integral becomes  $\int_{\log{2}}^{\infty} e^{-u}u^{-p} e^u\,du = \int_{\log{2} }^{\infty} u^{-p} \,du$,
+	      which converges when $p<1$.
+\end{enumerate}
+\end{problem}
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[6]
+Let $f(x)=x^2(x-\sin{x})$ and $g(x)=(e^{x}-1){(\cos{2x}-1 )}^2$.
+\begin{enumerate}[label=\alph*)]
+	\item Compute $T_5$ at  $x_0=0$.
+
+	      With the fifth order Taylor polynomial of sine, $\sum_{j=0}^{5} \frac{(-1)^j x^{2j+1}}{(2j+1)!}$,
+	      \begin{align*}
+		      T_5(f) & = x^2\left( x - \left( x-\frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} - \frac{x^{11}}{11!} \right)  \right) \\
+		             & = \frac{x^5}{3!} - \frac{x^7}{5!} + \frac{x^9}{7!} - \frac{x^{11}}{9!} + \frac{x^{13}}{11!}
+		      .\end{align*}
+
+	      Then, using the expansions of cosine and the exponential function,
+	      \begin{align*}
+		      T_5(g) & = \left( \sum_{0}^{5} \frac{x^k}{k!}-1  \right) {\left( \sum_{0}^{5} \frac{(-1)^k {(2x)}^{2k}}{(2k)!} -1\right)}^2 \\
+		             & = \left( \sum_{0}^{5} \frac{x^k}{k!}  \right) {\left( \sum_{1}^{5}  \frac{(-1)^k {(2x)}^{2k}}{(2k)!}\right) }^2
+		      .\end{align*}
+
+	      Since each of the leading terms in both sums if one, then we can expand the above to,
+	      \[
+		      \left( x + \frac{x^2}{2} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} \right) \left( - 2x^2 + \frac{2x^4}{3} - \frac{{(2x)}^6}{6!}  +  \frac{{(2x)}^8}{8!} - \frac{{(2x)}^{10}}{10!}\right)
+		      .\]
+
+	\item Use (a) to find $\lim_{x \to \infty} \frac{f(x)}{g(x)}$ without L'Hopital.
+
+	      To consider $x\to \infty$, we will use the largest order terms.
+
+	      From $f$, this is  $\frac{x^{13}}{11!}$.
+	      From $g$, this is $\frac{x^5}{5!}\left( -\frac{{(2x)}^{10}}{10!} \right) = \frac{-2^{10} x^{15}}{5! 10!}$
+
+	      So $\frac{f}{g} = O(\frac{1}{x^2})$, which goes to zero as $x\to \infty$.
+	      Thus, $\lim_{x \to \infty} \frac{f(x)}{g(x)} = 0$ as well.
+\end{enumerate}
+\end{problem}
+\end{document}

@@ -1,0 +1,23 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[5]
+Prove that the product of units in $\Z_n$ is also a unit.
+\end{problem}
+\begin{proof}
+	Let $a,b$ be units in  $\Z_n$. Let $c=ab$.
+
+	Since $a,b$ are units, then $\exists a^{-1},b^{-1}\in \Z_n\ :\ a\cdot a^{-1}=1,\, b\cdot b^{-1}=1$.
+
+	We wish to show that $\exists c^{-1}\ :\ c\cdot c^{-1}=1$.
+
+	Consider the following, \[
+		c\cdot (a^{-1}\cdot b^{-1})=(a\cdot b)\cdot (a^{-1}\cdot b^{-1})
+		.\]
+	By the commutativity and associativity of multiplication in $\Z_n$, we have that \[
+		(a\cdot b)\cdot (a^{-1}\cdot b^{-1}) = (a\cdot a^{-1}) \cdot (b\cdot b^{-1}) = 1\cdot 1 = 1
+		.\]
+	Therefore $\exists c^{-1}=(a^{-1}\cdot b^{-1}) \in \Z_n$.
+
+	Since $c$ has a multiplicative inverse in  $\Z_n$, then it is a unit.
+\end{proof}
+\end{document}

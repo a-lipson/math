@@ -1,0 +1,40 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[4]
+Solve the following using exercise Hungerford 2.3.13.
+\begin{enumerate}[label=\alph*)]
+	\item $15x=9$ in  $\Z_{18}$.
+	\item $25x=10$ in  $\Z_{65}$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	We have that $a=15,\, b=9,\, n=18$.
+	Then, $(a,n)=(15,18)=3=d$; we check that $3|9 \implies d|b$.
+	Next,
+	\begin{align*}
+		a=da' & \implies 15=3\cdot 5 \implies 5=a' \\
+		b=db' & \implies 9=3\cdot 3 \implies 3=b'
+		.\end{align*}
+
+	By Theorem 1.8, $(15,18)=3$ affords a linear combination such that  $\exists u,v$ where \[
+		15u+18v=3 \implies u=-1,\, v=1
+		.\]
+
+	Thus, by exercise (13), the solutions are [-3],[-3+18],[-3+36].
+
+	Simplifying these classes into their canonical representations gives the single solution to the equation, [15].
+
+	Therefore $x=15$ is a solution to  $15x=9$ in  $\Z_{18}$.
+\end{proof}
+\begin{proof}[Proof of b]
+	We have $(25,65)=5$, so  $a=25,\, b=10,\, d=5,\, n=65$.
+
+	Then, the linear combination $25u+65v=5 \implies u = -5,\,  v = 2$.
+
+	Thus, by (13), the solutions are [-10],[-10+65],[-10+130],[-10+195],[-10+260].
+
+	The canonical representation of these classes is [55].
+
+	Therefore $x=55$ is a solution to the  $25x=10$ in  $\Z_{65}$.
+\end{proof}
+\end{document}

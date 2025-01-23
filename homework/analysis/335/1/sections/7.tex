@@ -1,0 +1,27 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[7]
+  Estimate $\int_{0}^{1} e^{-x^2} \,dx$ with error less than $10^{-3}$.
+\end{problem}
+
+Let $g(x)=e^{-x}=\sum_{0}^{\infty} \frac{(-1)^n x^n}{n!}=P_k(x) + R_k(x)$.
+
+Corollary 2.61 $\implies \forall x \in [0,1]$,
+\begin{align*}
+	| R_k(x) | & \le \left( \underset{x \in [0,1]}{\sup}\ g^{(k+1)}(x) \right)  \frac{x^{k+1}}{(k+1)!} \\
+	           & \le \left( \underset{x \in [0,1]}{\sup}\ e^{-x} \right)  \frac{x^{k+1}}{(k+1)!}       \\
+	           & \le \frac{1}{(k + 1)!}
+	.\end{align*}
+
+Then,
+\begin{align*}
+  \left| \int_{0}^{1} \left( e^{-x^2}-P_k(x^2) \right)\,dx \right| &\le \int_{0}^{1} |R_k(x^2)| \,dx \\ 
+                                                                   &\le \int_{0}^{1} \frac{dx}{(k+1)!} \\ 
+                                                                   &= \frac{1}{(k+1)!} \\
+                                                                   &\le 10^{-3}
+.\end{align*}
+
+Since $(k+1)!\ge 10^3 \implies k \ge 7$, then we must use a Taylor polynomial of at least order seven. 
+
+Plugging in to a calculator, we see that $\int_{0}^{1} e^{-x^2} \,dx \approx 0.7468$.
+\end{document}

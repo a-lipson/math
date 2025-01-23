@@ -1,0 +1,18 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[6]
+Find and prove the condition for when $a\neq 0, ac=ab \implies c=b$ holds in $\Z_n$.
+\end{problem}
+\begin{proposition}
+	This property holds where $\Z_n$ is an integral domain by Theorem 3.7.
+	$\Z_n$ is an integral domain when $n$ is prime.
+\end{proposition}
+\begin{proof}
+	$ac=ab\implies a(b-c)=0$.
+	Since $\Z_n$ is an integral domain, $a\neq 0\implies b-c = 0$.
+
+	Otherwise, $a$ would be a zero divisor, contradicting the integral domain condition.
+
+	Therefore, $b=c$.
+\end{proof}
+\end{document}

@@ -1,0 +1,60 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[3]
+Determine whether the following integrals converge.
+\begin{enumerate}[label=\roman*)]
+	\item $\int_{0}^{\infty} \frac{\sqrt{x} }{e^x-1} \,dx$
+
+	      Note that (i) has a singularity at zero.
+
+	      So, we will split the integral into two regions $[0,\epsilon]$ and $[\epsilon,\infty)$.
+
+	      Near $x=0$,  $e^x-1 \approx x$, so  $\frac{\sqrt{x} }{e^x-1} = O(x^{-1 / 2})$, which converges on $[0,\epsilon]$.
+
+	      For large  $x\to \infty$, \[
+		      \lim_{x \to \infty} \frac{\sqrt{x}}{e^x-1} \overset{LH}{=} \lim_{x \to \infty} \frac{\frac{1}{2}x^{-1 / 2}}{e^x} = 0
+		      .\]
+
+	      So, the integral of $[\epsilon, \infty)$ converges.
+
+	      Since the integral converges on both subregions, then it converges on their union which was the given interval.
+
+
+	\item $\int_{0}^{\infty} x^{-1 / 5}\sin{(\frac{1}{x})}  \,dx$
+
+	      First, we will split the integral into two regions $[0,1]$ and $[0,\infty)$.
+	      Note that $|\sin{(\frac{1}{x})}|\le 1 $.
+
+	      For the first interval, let $y=\frac{1}{x}$. So $x\to 0 \implies y\to \infty$.
+	      Then, $x=\frac{1}{y}$ and $dx = -\frac{1}{y^2}\,dy$.
+
+	      So,
+	      \begin{align*}
+		      \int_{0}^{1} x^{- 1 / 5}\sin{(\frac{1}{x})}  \,dx & = \int_{\infty}^{1} y^{1 / 5}\sin{y} (-\frac{1}{y^2})  \,dy \\
+		                                                        & = \int_{1}^{\infty} y^{-9 / 5}\sin{y} \,dy
+		      ,\end{align*}
+	      which converges by comparison with $y^{- 9 / 5}$ (given that the sine term is bounded) on $y \in [1,\infty)$ because $\frac{9}{5}>1$.
+
+	      For the second interval,
+	      since the sine term is bounded by one,
+	      then $|x^{-1 / 5}\sin{(\frac{1}{x})}| \le x^{-\frac{1}{5}}$.
+
+	      Therefore the second interval converges on $[0,1]$ by comparison with  $x^{-\frac{1}{5}}$ since $\frac{1}{5}<1$.
+
+	      Since (ii) converges on both subintervals, then it also converges on their union.
+
+	\item $\int_{-\infty}^{\infty} \frac{e^x}{e^x + x^2} \,dx$
+
+	      We will split the integral of (iii) into two regions about $x=0$.
+	      We will now show that the integral over the positive interval diverges.
+
+	      For large $x$, $\frac{e^x}{e^x+x^2} = 0(1)$.
+	      In particular, using the Taylor expansion of $e^x$,
+	      we see that $\forall x>0,\, e^x>x^2 \implies \frac{e^x}{e^x + x^2} > \frac{e^x}{2e^x} = \frac{1}{2}$.
+
+	      Then, for large $x\ge N$, $\int_{N}^{\infty} \frac{e^x}{e^x + x^2} \,dx > \int_{N}^{\infty} \frac{dx}{2} = \infty$.
+
+	      Since (iii) diverges on the positive subinterval, then (iii) diverges across the union of both subintervals.
+\end{enumerate}
+\end{problem}
+\end{document}

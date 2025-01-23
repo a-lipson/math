@@ -1,0 +1,64 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[1]
+\\
+\begin{enumerate}[label=\alph*)]
+	\item Prove $66 | 43^{101} + 23^{101}$.
+	\item Prove $\forall n \in \Z_{\ge 0},\, 133|11^{n+2} + 12^{2n+1}$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	We will check the divisibility of the prime factors of 66: 2,3,11 separately.
+
+	By Theorem 2.3, the equivalence of congruence classes, working in $\Z_2$,
+	$23\equiv 43\equiv 1 \implies 23^{101} \equiv 43^{101}\equiv 1$.
+	So $43^{101} + 23^{101}\equiv 1+1 = 0\implies 2 | 43^{101} + 23^{101}$.
+
+	Similarly, in $\Z_3$, $23\equiv 2$ and $43\equiv 2$.
+
+	Note that $2^{101}\equiv 2^{2\cdot 50+1}\equiv 4^{50}\cdot 2\equiv 1^{50}*2 = 2$ in $\Z_3$.
+
+	Then, $23^{101}\equiv 2^{101}\equiv 2$ and $43^{101}\equiv 1^{101}=1$.
+
+	So, $43^{101} + 23^{101}\equiv 1+2\equiv 0 \implies 3 | 43^{101} + 23^{101}$.
+
+	Again, but with $\Z_{11}$, $23\equiv 1$ and $43\equiv -1$.
+
+	So $23^{101}\equiv 1^101= 1$ and $43^{101}\equiv (-1)^{101} = -1 \implies 43^{101} + 23^{101} \equiv 1-1 = 0 \implies 11 | 43^{101} + 23^{101}$.
+
+	Since 2,3,11 each divide $43^{101} + 23^{101}$, then their product 66 must as well.
+\end{proof}
+\begin{proof}[Proof of b]
+	We will check the divisibility of the prime factors of 133, 7 and 19.
+
+	First, in $\Z_7$, $11\equiv 4$ and $12\equiv 5 \implies 11^{n+2} + 12^{2n+1} \equiv  4^{n+2}+5^{2n+1}$.
+
+	The powers of 4 have a period of 3 in $\Z_7$, so $4^{n+2}$ will depend on  $n+2 \mod{3}$.
+
+	The powers of 5 have a period of 6 in $\Z_7$, so $5^{2n+1}$ will depend on $2n+1 \mod{6}$.
+
+	We will combine $4^{n+2} + 5^{2n+1}$ for all unique values of each of the powers of 4 and 5 produced by choices of  $n$ and check divisibility by 7.
+	\[
+		\begin{array}{c c c c}
+			n & 4^{n+2} & 5^{2n+1} & 4^{n+2} + 5^{2n+1} \\
+			0 & 2       & 5        & 0                  \\
+			1 & 1       & 6        & 0                  \\
+			2 & 4       & 3        & 0                  \\
+		\end{array}
+		.\]
+
+	Next, for $\Z_{19}$, the powers of 11 have a period of 3 and the powers of 12 have a period of 6.
+
+	Proceeding as above,
+	\[
+		\begin{array}{c c c c}
+			n & 11^{n+2} & 12^{2n+1} & 11^{n+2} + 12^{2n+1} \\
+			0 & 7        & 12        & 0                    \\
+			1 & 1        & -1        & 0                    \\
+			2 & 11       & 8         & 0                    \\
+		\end{array}
+		.\]
+
+	Since both 7 and 19 divide $11^{n+2} + 12^{2n+1}$, then so does their product 133.
+\end{proof}
+\end{document}

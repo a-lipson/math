@@ -1,0 +1,26 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[7]
+Let $p,q$ be distinct primes.
+Show  $\varphi(pq)=(p-1)(q-1)$ where  $\varphi$ is Euler's totient function.
+\end{problem}
+\begin{proof}
+	$\varphi(pq)$ gives the numbers in  $I=[1,pq]$ which are coprime to $pq$.
+	These numbers are not divisible by  $p$ or  $q$.
+
+	We will count the numbers in  $I$ which are divisible by  $p$ or  $q$ and subtract the count from the total  $pq$ numbers.
+
+	The numbers in $I$ divisible by $p$ are  $p,2p,\ldots,(q-1)p$; there are $q-1$ such numbers.
+
+	The numbers in $I$ divisible by  $q$ are  $q,2q,\ldots,(p-1)q$; there are $p-1$ such numbers.
+
+	The number in  $I$ divisible by both  $p$ and  $q$  is $pq$; there is one such number.
+
+	So, there are  $(q-1)+(p-1)+1=p+q-1$ numbers in  $I$ divisible by  $p$ or  $q$.
+
+	Then, the total numbers in  $I$ not divisible by  $p$ or  $q$ is  \[
+		pq-(p+q-1)=pq-p-q+1=(p-1)(q-1)
+		.\]
+	Thus, $\varphi(pq) = (p-1)(q-1)$.
+\end{proof}
+\end{document}

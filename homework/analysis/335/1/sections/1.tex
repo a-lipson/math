@@ -1,0 +1,35 @@
+\documentclass{subfiles}
+\begin{document}
+\begin{problem}[1]
+Determine whether the following integrals converge.
+\begin{enumerate}[label=\roman*)]
+	\item $\int_{0}^{\infty} x^2e^{-x^2} \,dx$
+
+	      Using IBP, we see that the above integral becomes $-\frac{x}{2}e^{-x^2}\big\vert_0^{\infty}-\int_{0}^{\infty} -\frac{1}{2}e^{-x^2} \,dx$.
+
+	      The left term is zero as $\lim_{x \to \infty} -\frac{x}{2e^{x^2}}=0$.
+	      The right term can be split into $\int_{0}^{\infty} e^{-x^2} \,dx$, which has no singularities and is finite;
+	      and $\int_{1}^{\infty} e^{-x^2} \,dx$, which converges by comparison with $x^{-2}$ on $x\in [1,\infty)$.
+	      So (i) converges.
+	\item $\int_{3}^{\infty} \frac{\sin{4x}}{x^2-x-2} \,dx$
+
+	      Note that the integrand is less than $\frac{1}{x^2-x-2} = f(x)$.
+	      Let $g(x)=x^{-2}$.
+
+	      Then, $\lim_{x \to \infty} \frac{f(x)}{g(x)}=\lim_{x \to \infty} \frac{x^2}{x^2-x-2} = 1$.
+
+	      Since $\int_{3}^{\infty} x^{-2} \,dx$ converges and the limit as $x\to \infty$ of the ratio of $f$ and $g$ is finite, then  $\int f$ converges by the comparison theorem.
+
+	      Since $f$ converges and (ii) is bounded above by $f$, then (ii) converges as well.
+
+	\item $\int_{1}^{\infty} \tan{\frac{1}{x}} \,dx$
+
+	      Note that $\forall \theta\in [0,\frac{\pi}{2} ),\, \tan\theta>\theta$.
+
+	      Therefore, for large $x$, say $x>N$, $\tan{\frac{1}{x}}>\frac{1}{x}$.
+
+	      So, $\int_{N}^{\infty} \tan{\frac{1}{x}} \,dx > \int_{N}^{\infty} \frac{dx}{x}$.
+	      Thus, by comparison with $x^{-1}$, (iii) diverges.
+\end{enumerate}
+\end{problem}
+\end{document}

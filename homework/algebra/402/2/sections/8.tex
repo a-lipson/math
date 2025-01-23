@@ -1,0 +1,55 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[8]
+Prove $\forall n \in \Z_{\ge 0},\, \forall a,b\in \Z,\, 10^{3n+1}\neq a^3 + b^3$.
+\end{problem}
+\begin{proof}
+	First, we will consider cubes in $\Z_7$.
+	\begin{align*}
+		0^3 & \equiv 0       \\
+		1^3 & \equiv 1       \\
+		2^3 & = 8 \equiv 1   \\
+		3^3 & = 27 \equiv 6  \\
+		4^3 & = 64 \equiv 1  \\
+		5^3 & = 125 \equiv 6 \\
+		6^3 & = 216 \equiv 6
+	\end{align*}
+
+	So, the sums of two cubes in $\Z_7$ is any combinations of 0,1,6.
+	\begin{align*}
+		0 + 0   & \equiv 0 \\
+		0 +  1  & \equiv 1 \\
+		0 + 6   & \equiv 6 \\
+		1 + 1   & \equiv 2 \\
+		1  +  6 & \equiv 0 \\
+		6 + 6   & \equiv 5
+	\end{align*}
+
+	Thus, the possible values of $a^3 + b^3$ in $\Z_7$ are 0,1,2,5,6.
+	Note that 3 and 4 are not possible values.
+
+	Now, we will check the values of $10^{3n + 1}$ in $\Z_7$.
+	First, $10\equiv 3\implies 10^{3n+1} \equiv 3^{3n+1}$.
+
+	We will now calculate the powers of 3 in $\Z_7$.
+	\begin{align*}
+		3^0 & \equiv 1           \\
+		3^1 & \equiv 3           \\
+		3^2 & \equiv 2           \\
+		3^3 & \equiv 6           \\
+		3^4 & \equiv 18 \equiv 4 \\
+		3^5 & \equiv 12 \equiv 5 \\
+		3^6 & \equiv 15 \equiv 1
+	\end{align*}
+
+	So, powers of 3 in $\Z_7$ have a period of 6.
+	Since $3n + 1 \mod{6} \equiv 1,4$, then \[
+		3^{3n+1}\equiv 3^{3n + 1 \mod{6}}\equiv 3^1,3^4\equiv 3,4
+		.\]
+	So, $10^{3n+1}\equiv 3,4$ in $\Z_7$.
+
+	But, the possible values of $a^3 + b^3$ in $\Z_7$ were 0,1,2,5,6, which do not contain the possible values of $10^{3n+1}$, which were 3 and 4.
+
+	So, we have shown that, since this equality cannot hold in $\Z_7$, it cannot hold in $\Z$.
+\end{proof}
+\end{document}

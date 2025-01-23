@@ -1,0 +1,35 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}[8]
+Let $f\in C^k(I)$ with $a \in I$ open.
+\[
+	\forall i \in [1,k-1],\, f^{(i)}(a)=0.\quad f^{(k)}(a)\neq 0.
+	.\]
+Use Corollary 2.60 to show
+\begin{enumerate}[label=\roman*)]
+	\item $k$ even  $\implies f$ attains local extrema at $a$ where
+	      \begin{align*}
+		      f^{(k)}(a)<0 & \implies \text{max at } a \\
+		      f^{(k)}(a)>0 & \implies \text{min at } a
+		      .\end{align*}
+	\item $k$ odd  $\implies f$ has no local extrema.
+\end{enumerate}
+\end{problem}
+Since all derivatives except for the $k$th are zero, and $P_{a,k}(h)$ then
+\begin{align*}
+	P_{a,k}(h)                & =f(a) + \frac{f^{(k)}(a)}{h!}h^k                 \\
+	f(a+h)                    & =f(a) + \frac{f^{(k)}(a)}{h!}h^k  + R_{a,k}(h)   \\
+	\frac{f(a + h)-f(a)}{h^k} & = \frac{f^{(k)}(a)}{k!} + \frac{R_{a,k}(h)}{h^k}
+	.\end{align*}
+
+Since $f \in C^k(I)$, then by Corollary 2.60, \[
+	\lim_{h \to 0} \frac{f(a + h) - f(a)}{h^k} = \frac{f^{(k)}(a)}{k!} + 0
+	.\]
+
+So these terms must have the same signs.
+
+With $k$ even, then  $h^k>0$.
+Then, $f^{(k)}(a)<0 \implies f(a)>f(a+h) \implies f(a)$ is a local max, and same with the local min.
+
+With $k$ odd, then $h^k$ changes signs when approaching $h\to 0$, so $f(a)$ is not a local extrema.
+\end{document}

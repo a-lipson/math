@@ -1,0 +1,22 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}[10]
+Define multiplication in $\Z$ by $\forall a,b\in \Z,\, ab=0$.
+Show that, with ordinary addition and the new multiplication, $\Z$ is a commutative ring.
+\end{problem}
+\begin{proof}
+	Since we are modifying the multiplication operation, we need to ensure that closure and associativity for multiplication and distributivity are maintained.
+
+	Note that the multiplication operation maps all pairs of numbers in $\Z$ to $0\in \Z$, so the new multiplication operation is closed.
+
+	For associativity, $a(bc) = a\cdot 0 = 0 = 0\cdot c = (ab)c$, so multiplication is associative.
+
+	For distributivity, since $b+c\in \Z$ by the closure of addition already satisfied in $\Z$, then $a(b+c) = 0$ by the definition of the new multiplication operation.
+
+	But,  $a(b+c)=ab+bc=0+0=0$, so the new multiplication satisfies distributivity.
+
+	Since all axioms are maintained, $\Z$ is still a ring with the new multiplication operation.
+
+	Since $\forall a,b\in \Z,\, ab=0=ba$, then $\Z$ with the new multiplication operation is also a commutative ring.
+\end{proof}
+\end{document}

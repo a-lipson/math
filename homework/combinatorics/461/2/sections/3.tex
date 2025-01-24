@@ -1,0 +1,17 @@
+\documentclass{article}
+\begin{document}
+Find the number of 5-tuples $(a_1,a_2,a_3,a_4,a_5)$ where each $a_i$ is an odd positive integer and $\sum_{i=1}^5 a_i = 25$.
+\begin{proof}
+	We will use a stars and bars argument with 25 stars and 4 bars.
+	Since each $a_i$ must be an odd positive integer, then  $\forall i,\, a_i\ge 1$.
+
+	So, we will first place 5 stars with 4 bars in between.
+
+	We have $25-5=20$ remaining stars, but we must add these stars in groups of 2 to ensure that all  $a_i$ remain odd (odd + even = odd); so we have 10 units to add.
+
+	So, this process is equivalent to a weak completion of  10 into 5 parts, each of the $a_i$.
+	This is  \[
+		\binom{10+5-1}{5-1}=\binom{14}{4}
+		.\]
+\end{proof}
+\end{document}

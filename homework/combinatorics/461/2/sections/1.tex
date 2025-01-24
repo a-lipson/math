@@ -1,0 +1,20 @@
+\documentclass{subfiles}
+\begin{document}
+How many ways can 10 people sit in a row of 30 chairs, if there must be at least one chair between each person?
+\begin{proof}
+	First, we will place 10 people in chairs with 9 gaps in between them, so there are 20 chairs remaining.
+	Note that there are $10!$ ways to permute these people.
+
+	Since there must be at least 1 chair between each person, we will use 9 chairs to accomplish this, leaving 20-9=11 chairs remaining.
+
+	Now, we must distribute 11 chairs between the now 11 gaps (the former 9 plus the outside 2 for the first and last person) where each gap could have 0 or more chairs.
+	This is a weak completion of 11 into 11 parts, or $\binom{11 + 11 - 1}{11}=\binom{21}{11}$.
+
+	Given the $10!$ ways to permute the 10 people, which is independent of choosing our gaps, the two choices produce
+	\[
+		10!\binom{21}{11}=10!\frac{21!}{11!(21-11)!}=\frac{21!}{11!}
+	\] ways to place 10 people into a row of 30 chairs with at least one chair between each person.
+\end{proof}
+\end{document}
+
+

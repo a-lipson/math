@@ -1,0 +1,31 @@
+\documentclass{article}
+\begin{document}
+Let $n$ and $k$ be positive integers with $k \le n/2$. Prove that
+\[
+	\binom{n}{k-1} < \binom{n}{k}.
+\]
+What if $k > n/2$?
+\begin{proof} (i)
+	We will consider the ratio
+	\[
+		\frac{\binom{n}{k}}{\binom{n}{k-1}}=\frac{\frac{n!}{k!(n-k)!}}{\frac{n!}{(k-1)!(n-k+1)!}}=\frac{n-k+1}{k}
+		.\]
+
+	Then, $k\le \frac{n}{2} \implies 2k\le n \implies k\le n-k+1$.
+
+	Therefore,
+	\[
+		\frac{n-k+1}{k}\ge 1 \implies  \binom{n}{k-1} \le \binom{n}{k}
+		.\]
+
+	This inequality is strict unless $n=\frac{k}{2}$, where $n$ is even and the binomial coefficients are equal for  $k=\frac{n}{2},\frac{n}{2} + 1$.
+
+	(ii)
+	When $k>\frac{n}{2}$, we have $n-k+1<k$.
+
+	So the order flips,
+	\[
+		\binom{n}{k-1}>\binom{n}{k}
+		.\]
+\end{proof}
+\end{document}

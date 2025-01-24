@@ -1,0 +1,19 @@
+\documentclass{article}
+\begin{document}
+Find a closed formula for
+\[
+	\sum_{k=1}^n k^2 \binom{n}{k}.
+\]
+\begin{proof}
+	\begin{align*}
+		\sum_{k=0}^{n} \binom{n}{k} x^k         & = {(x+1)}^n                             \\
+		\sum_{k=1}^{n} \binom{n}{k} kx^{k-1}    & = n{(x+1)}^{n-1}                        \\
+		\sum_{k=1}^{n} \binom{n}{k} kx^{k}      & = nx{(x+1)}^{n-1}                       \\
+		\sum_{k=1}^{n} \binom{n}{k} k^2 x^{k-1} & = n{(x+1)}^{n-1}+n(n-1)x{(x + 1)}^{n-2} \\
+		\sum_{k=1}^{n} \binom{n}{k} k^2 1^{k-1} & = n{(1+1)}^{n-1}+n(n-1)x{(1 + 1)}^{n-2} \\
+		\sum_{k=1}^{n} \binom{n}{k} k^2         & = n\cdot 2^{n-1}+n(n-1)2^{n-2}          \\
+		                                        & = n \cdot 2^{n-2}\cdot (2+n-1)          \\
+		                                        & = (n+1)n 2^{n-2}
+		.\end{align*}
+\end{proof}
+\end{document}

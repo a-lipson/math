@@ -1,0 +1,56 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Let $d\in \Z$ be not a perfect square.
+Show $\Q(\sqrt{d} ) = \{ a + b\sqrt{d}\ \mid\ a,b \in \Q \} $ is a subfield of $\C$.
+\end{problem}
+\begin{proof}
+	Since $d$ is not a perfect square, then  $\sqrt{d}$ cannot be simplified.
+
+	Note that $d<0 \implies \sqrt{d} = i\sqrt{(-d)} \in \C$, so $\Q(\sqrt{d})$ would contain complex elements.
+	If $d\ge 0$, then we still have $\Q(\sqrt{d})\subset \R\subset \C$.
+	Thus, $\Q(\sqrt{d})\subset \C$.
+
+	$\Q(\sqrt{d})$ is closed under addition as in $\Q$, \[
+		(a+b\sqrt{d})+(a'+b'\sqrt{d})=(a+a')+(b+b')\sqrt{d}
+		.\]
+
+	For closure under multiplication, consider
+	\begin{align*}
+		(a+b\sqrt{d})(a'+b'\sqrt{d}) & = aa'+ab'\sqrt{d}+ba'\sqrt{d}+bb'(\sqrt{d})^2 \\
+		                             & = (aa'+bb'd)+(ab'+ba')\sqrt{d}
+		.\end{align*}
+	Since the product of $d\in \Z$ with elements is $\Q$ belongs to $\Q$ and $\Q$ is closed under addition and multiplication,
+	then $\Q(\sqrt{d})$ is closed under multiplication.
+
+	Next, we have the zero element $0+0\sqrt{d}=0$.
+
+	We have the additive inverse of any $a+b\sqrt{d}\in \Q(\sqrt{d})$ as $(-a)+(-b)\sqrt{d})$, where \[
+		(a+b\sqrt{d})+((-a)+(-b)\sqrt{d}) = (a+(-a)) + (b+(-b))\sqrt{d} = 0+0\sqrt{d} = 0
+		.\]
+
+	We also have the multiplicative identity element $1+0\sqrt{d}$, where $\forall a,b\in \Q$ \[
+		(1+0\sqrt{d})(a+b\sqrt{d})=a+b\sqrt{d}
+		.\]
+
+	For the multiplicative inverse, we have that $(a+b\sqrt{d})(a'+b'\sqrt{d})=(aa'+bb'd)+(ab'+ba')\sqrt{d}$ from above.
+
+	So, $(aa'+bb'd)+(ab'+ba')\sqrt{d}=1+0\sqrt{d}\implies ab+ba' = 0 \land aa'+bb'd=1$.
+
+	Set $b'=\frac{-ba'}{a}$ so that we have,
+	\begin{align*}
+		aa'+b \left( \frac{-ba'}{a}\right) d & = 1                                            \\
+		a' \left(a- \frac{b^2 d}{a} \right)  & = 1                                            \\
+		a'(a^2-b^2 d )                       & = a                                            \\
+		a'                                   & = \frac{a}{a^2-b^2 d}                          \\
+		b'                                   & = -\frac{b}{a}\left(\frac{a}{a^2-b^2 d}\right) \\
+		                                     & = -\frac{b}{a^2-b^2 d}
+		.\end{align*}
+	So, ${(a+b\sqrt{d} )}^{-1} = \frac{1}{a^2-b^2 d}(a-b\sqrt{d} )$.
+	Note that this is very similar to the inverse in $\C$!
+
+	Since $\frac{1}{a^2-b^2 d}(a-b\sqrt{d} )\in \Q(\sqrt{d})$, then every element in $\Q(\sqrt{d})$ has an inverse.
+
+	Since $\Q(\sqrt{d})\subset \C$ satisfies the ring axioms (with the ordinary add. \& mul. ops. as in $\C$) and has both a multiplicative inverse and identity, then it is a subring and subfield of $\C$.
+\end{proof}
+\end{document}

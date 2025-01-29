@@ -1,0 +1,31 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Let $S$ be the set of all rationals that can be written with an odd denominator. \\
+Prove that  $S$ is a subring of  $\Q$ and that $S$ is not a field.
+\end{problem}
+\begin{proof}[Proof of subring]
+	First, we see that $S$ is a subset of $Q$ because all rationals that can be written with an odd denominator are also themselves rationals in the first place.
+
+	$S$ has a zero element because $0$ can be expressed as $0=\frac{0}{1}$.
+
+	$S$ has an additive inverse because, $\forall x \in S$, $-x$ will have the same odd denominator where $x + (-x) = 0$.
+
+	Since we can add two rational numbers by cross-multiplying their denominators, such a sum will have the product of odd numbers as a denominator.
+	Since the product of two odd numbers is odd, then the sum of two elements in $S$ can be written with an odd denominator.
+	So, $S$ is closed under addition.
+
+	Similarly, the product of two elements in $S$, where denominators are multiplied together, will also have an odd denominator.
+	So, $S$ is closed under multiplication.
+
+	Since $S$ is closed under addition and multiplication, has an additive inverse, and has a zero element, then the ring axioms hold for $S$, so $S$ is a subring of  $\Q$
+\end{proof}
+
+\begin{proof}[Proof of not a field]
+	We will show that some elements in $S$ do not have multiplicative inverses.
+
+	Consider $\frac{2}{1}\in S$. Note that ${\left( \frac{1}{2} \right) }^{-1} = \frac{1}{2} \not\in S$ because the denominator $2$ is not odd.
+
+	So, $\exists a\in S\ :\ a^{-1}\not\in S \implies S$ is not a field.
+\end{proof}
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Which of the following are subrings of $M(\R)$ and which have identity?
+\end{problem}
+\begin{enumerate}[label=\alph*)]
+	\item $\begin{pmatrix} 0 & r \\ 0 & 0 \end{pmatrix} ,\, r\in \Q$.
+
+	      This is a subset of $M(\R)$ and contains the zero matrix. \\
+	      This set is closed under addition as $\Q$ is closed under addition. \\
+	      Similarly, this set has an additive inverse given that $-r\in \Q$ as well. \\
+	      This set is closed under multiplication because multiplication maps only to the zero matrix.
+	      This set does not have an identity because all multiplication maps to zero, so there cannot be an element 1 such that $\forall a,\, 1\cdot a = a$ because we already have $1\cdot a=0$.
+	      Since this the ring axioms hold for this set, then this set forms a subring of $M(\R)$.
+
+	\item $\begin{pmatrix} a & b \\ 0 & c \end{pmatrix},\, a,b,c\in \Z$.
+
+	      The addition properties of closure, an inverse, and a zero, are satisfied as in $\Z$. \\
+	      Furthermore, we see that the multiplication of two elements from this set produce only a zero in the bottom left entry of the product matrix, and a linear combination of other elements of $\Z$ elsewhere. Thus the set is closed under multiplication because $\Z$ is closed under linear combinations and the bottom left entry remains zero. \\
+	      This set contains an identity element which is the $2\times 2$ matrix identity $I$.
+	      Since the ring axioms and identity hold for this set, then it forms a subring with identity.
+
+	\item $\begin{pmatrix} a & b \\ c & 0 \end{pmatrix},\, a,b,c\in \R$.
+
+	      This set is not closed under multiplication. Consider the bottom right entry of a product matrix, it can be nonzero and therefore an element not belonging to this set. \\
+	      So, this set does not form a subring.
+
+	\item $\begin{pmatrix} a & 0 \\ a & 0 \end{pmatrix} ,\, a\in \R$.
+
+	      This set is closed under addition and has both a zero and an additive inverse given as in $\R$. \\
+	      Consider multiplication for $a,b\in \R$, \[
+		      \begin{pmatrix} a & 0 \\ a & 0 \end{pmatrix} \begin{pmatrix} b & 0 \\ b & 0 \end{pmatrix} = \begin{pmatrix} ab & 0 \\ ab & 0 \end{pmatrix}
+		      .\] We see that multiplication is closed as it is for scalars in $\R$, and also that we have the identity element $\begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix} $.
+	      Since this set conforms to the axioms of a ring and also has identity, then it is a subring with identity.
+
+	\item $\begin{pmatrix} a & 0 \\ 0 & a \end{pmatrix},\, a\in \R$.
+
+	      We see that this set is just a scalar matrix of the form $aI$ where  $I$ is the $2\times 2$ identity matrix. \\
+	      So, this set is closed under addition and multiplication and there exists both additive and multiplicative inverses and identities given that the same holds for scalars $a\in \R$. \\
+	      Thus, this set forms a subfield of $M(\R)$, and therefore a subring with identity as well.
+
+	\item $\begin{pmatrix} a & 0 \\ 0 & 0 \end{pmatrix} ,\, a\in \R$.
+
+	      This set is closed under addition, has a zero, and has an additive inverse, given as in $\R$. \\
+	      This set is closed under multiplication as the only entry in a product matrix will be the top left and $\R$ is closed under multiplication. \\
+	      The identity element is given by $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} $. \\
+	      Since this set conforms to the ring axioms and has an identity, then it is a subring with identity.
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+$kI = \begin{pmatrix} k & 0 \\ 0 & k \end{pmatrix} ,\, k\in \R$ is a scalar matrix.
+\begin{enumerate}[label=\alph*)]
+	\item Prove that the set of scalar matrices is a subring of $M(\R)$.
+	\item Show that $\forall A\in M(\R),\, KA=AK$ where $K$ is a scalar matrix.
+	\item  Show that, for $K\in M(\R),\, \forall A\in M(\R),\, KA=AK \implies K$ is a scalar matrix.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	First, we see that $\forall k\in \R,\,  kI \subset M(\R)$.
+
+	Next, scalar matrices are closed under addition, have a zero element, and have an additive inverse as in $\R$.
+
+	Since we can write scalar matrices as $kI$ where  $I$ is the identity matrix, then products are of the form  $(aI)(bI)=(ab)(II)=(ab)I$.
+	So, scalar matrices are closed under multiplication.
+
+	Therefore, the set of scalar matrices forms of subring of $M(\R)$.
+\end{proof}
+
+\begin{proof}[Proof of b]
+	Let $K=kI$ where  $k\in \R$ and $I$ is the $2\times 2$ identity matrix.
+
+	Then, \[
+		KA=(kI)A = k(IA) = kA = k(AI) = A(kI) = AK
+		.\]
+\end{proof}
+
+\begin{proof}[Proof of c]
+	Let $K = \begin{pmatrix} a & b \\ c & d \end{pmatrix} $.
+	First, let $A=\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} $
+
+	Then,
+	\begin{align*}
+		KA    & = \begin{pmatrix} a & b \\ c & d \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} a & 0 \\ c & 0 \end{pmatrix} \\
+		AK    & = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} a & b \\ c & d \end{pmatrix}= \begin{pmatrix} a & b \\ 0 & 0 \end{pmatrix} \\
+		KA=AK & \implies \begin{pmatrix} a & 0 \\ c & 0 \end{pmatrix} = \begin{pmatrix} a & b \\ 0 & 0 \end{pmatrix}                                      \\
+		      & \implies b = 0 \land c = 0
+		.\end{align*}
+
+	Now, let $A = \begin{pmatrix} 0&1\\0&0 \end{pmatrix} $.
+	\begin{align*}
+		KA    & = \begin{pmatrix} a & b \\ c & d \end{pmatrix}\begin{pmatrix} 0&1 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0&a \\ 0&c \end{pmatrix}   \\
+		AK    & = \begin{pmatrix} 0&1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} a & b \\ c & d \end{pmatrix}= \begin{pmatrix} c&d \\ 0 & 0 \end{pmatrix} \\
+		KA=AK & \implies \begin{pmatrix} 0&a \\ 0&c \end{pmatrix} = \begin{pmatrix} c&d \\ 0 & 0 \end{pmatrix}                                        \\
+		      & \implies a=d
+		.\end{align*}
+
+	Therefore, $K= \begin{pmatrix} a&0\\0&a \end{pmatrix} =aI$, which is a scalar matrix.
+\end{proof}
+\end{document}

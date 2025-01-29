@@ -1,0 +1,23 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Prove or disprove: The set of units in a ring $R$ with identity is a subring of  $R$.
+\end{problem}
+This statement does not hold.
+
+For an example, consider the ring $\Z$ with units $\{1,-1\} $. This set is not closed under addition, $1+(-1)=0\not\in \{1,-1\} $.
+\begin{proposition}
+	The set of units in a ring $R$ with identity cannot form a subring of  $R$.
+\end{proposition}
+\begin{proof}
+	Recall the definition of a unit in $R$ with identity, $a\in R$ is a unit if it has an inverse in $R$.
+
+	The units of  $R$ will never include 0 because 0 is not an inverse.
+	So, this new subset of units will not be able to satisfy the additive identity axiom.
+
+	Since the subset of units of $R$ does not contain zero, then it cannot satisfy the ring addition axioms and therefore is not a ring.
+
+	So, the subset of units of  $R$ is not a subring of  $R$ either.
+\end{proof}
+
+\end{document}

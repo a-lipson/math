@@ -1,0 +1,46 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Prove Theorem 3.1. \\
+Let $R,S$ be rings.
+\begin{enumerate}[label=\roman*)]
+	\item Define addition and multiplication on the Cartesian product  $R\times S$ by
+	      \begin{align*}
+		      (r,s)+(r',s')      & = (r + r', s + s')         \\
+		      (r,s)\cdot (r',s') & = (r \cdot r', s \cdot s')
+		      .\end{align*}
+	      Then $R\times S$ is a ring.
+
+	\item  $R,S$ commutative  $\implies$ $R\times S$ commutative.
+	\item  $R,S$ with identity  $\implies$ $R\times S$ with identity.
+\end{enumerate}\end{problem}
+\begin{proof}[Proof of i]
+	The closure and inverse of addition are retained from the properties of addition in the rings $R$ and $S$.
+
+	We add only elements from $R$ to other such elements and the same with $S$.
+	Explicitly, we could also write \[
+		(r,s) {\bigcirc\mkern-16mu+}_{R\times S}(r',s') = (r {\bigcirc\mkern-16mu+}_R r', s {\bigcirc\mkern-16mu+}_S s')
+		.\]
+
+	The zero element of  $R\times S$ is given by $(0_R,0_S)$ where  \[
+		(r,s)+(0_R,0_S)=(r+0_R,s+0_S)=(r,s)
+		.\]
+
+	Similarly, the closure under multiplication is retained as well.
+\end{proof}
+\begin{proof}[Proof of ii]
+	$R,S$ commutative implies that $rr'=r'r$ and $ss' = s's$ .
+	Then, \[
+		(r,s)(r',s')=(rr',ss')=(r'r,s's)=(r',s')(r,s)
+		.\]
+\end{proof}
+\begin{proof}[Proof of iii]
+	$R,S$ with identity gives that there are both $1_R$ and  $1_S$.
+	Then,  $1_{R\times S} = (1_R,1_S)$.
+	We see that, for left multiplication, \[
+		(r,s)(1_R,1_S)=(r\cdot 1_R,s\cdot 1_S)=(r,s)
+		.\]
+	The same holds for right multiplication given that $1\cdot a = a = a\cdot 1$.
+
+\end{proof}
+\end{document}

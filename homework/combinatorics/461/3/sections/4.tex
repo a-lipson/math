@@ -1,0 +1,40 @@
+\documentclass{subfiles}
+\begin{document}
+\begin{problem}
+Let $k$, $n$, and $r$ be positive integers. Come up with a formula for the number of weak compositions of $k$ into $n$ parts with no part equal to $r$. Your formula can involve a sum with at most $n+1$ terms.
+\end{problem}
+\begin{proof}
+	Let $A$ be the total number of weak completions of $k$ into $n$ parts,  \[
+		|A| =\binom{k + n-1}{n-1}
+		.\]
+
+	Let $A_i$ be the weak compositions with $i$ parts equal to $r$.
+	There can be at most $\left\lfloor \frac{k}{r} \right\rfloor = m$ such parts.
+
+	Then, for each $A_i$, having distributed $i\cdot r$ into $i$ parts already, we are left with a weak completion of $k-ir$ into $n-i$ parts.
+	So,  \[
+		|A_i| = \binom{k-ir+n-i-1}{n-i-1}
+		.\]
+
+	We have that \[
+		\bigcup_{j=1}^{m} A_j = \sum_{S\subset [m],\, S\neq \O} (-1)^{|S| - 1} \left| \bigcap_{i\in S}A_i \right|
+		.\]
+
+	Suppose $|S| = i$.
+	Then we have exactly the parts indexed by $S$ equal to $r$;
+	there are $\binom{n}{i}$ ways to choose those $i$ parts.
+	So,  \[
+		\left|\bigcup_{j=1}^{m} A_j \right| = \sum_{i=1}^{\left\lfloor \frac{k}{r} \right\rfloor} (-1)^{i - 1}\binom{n}{i} \binom{k-ir+n-i-1}{n-i-1}
+		.\]
+
+	Thus, we have
+	\begin{align*}
+		|A| - \left| \bigcup_{j=1}^{m} A_j \right| & = \binom{k+n-1}{n-1}-\sum_{i=1}^{\left\lfloor \frac{k}{r} \right\rfloor} (-1)^{i - 1}\binom{n}{i} \binom{k-ir+n-i-1}{n-i-1} \\
+		                                           & = \sum_{i=0}^{\left\lfloor \frac{k}{r} \right\rfloor} (-1)^{i}\binom{n}{i} \binom{k-ir+n-i-1}{n-i-1}
+		.\end{align*}
+
+	Note that we are splitting $k$ into  $n$ parts and  $i$ of which are equal to  $r$.
+	So we must have that  $i\le n$.
+	Since $i$ ranges from 0 to at most $n$, then the sum at has at most  $n+1$ terms.
+\end{proof}
+\end{document}

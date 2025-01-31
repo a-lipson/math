@@ -1,0 +1,53 @@
+\documentclass[../astro_4]{subfiles}
+\begin{document}
+\begin{problem}
+Mars and Venus are at very different distances from the Sun and Venus is twice the size of Mars,
+yet their atmospheric compositions are nearly identical.
+
+How can this be given their dramatic physical differences?
+
+Explain using the data and equations above.
+(Note: you may need to do some calculations here to backup your reasoning).
+\end{problem}
+
+% Mars and Venus are different enough in distance from the Sun and in their size in exactly the right ways to render their temperature and escape velocity ratio close enough to each other to retain the same gasses.
+
+Since Mars is further from the Sun than Venus, it is colder.
+Since Mars is colder, gasses in its atmosphere will have a lower average velocity.
+
+However, since Venus is twice the size of Mars, then it will have a stronger gravitational force.
+Since Venus has stronger gravity, then its gas retention velocity will be greater.
+
+These two effects are equally strong enough to render the similar atmospheric compositions of Mars and Venus.
+
+We have previously seen that Mars, with an gas retention velocity of 833 m/s, can retain all gasses in Table 3 except for hydrogen.
+
+First, We will find the distance from Venus to the Sun, 0.72 AU.
+\footnote{\url{https://science.nasa.gov/venus/venus-facts/\#h-size-and-distance}.}
+
+Then, we will convert this into surface temperature using the model as before.
+This gives a temperature of around 466 K.
+
+Next, we will compute an abridged average gas velocity table for Venus in order to place bounds on its escape velocity.
+\[
+	\begin{array}{c | c}
+		\text{gas}  & \text{average velocity (m/s)}        \\
+		\hline
+		\text{H}_2  & 157\sqrt{\frac{466}{2}} \approx 2397 \\
+		\text{CH}_4 & 157\sqrt{\frac{466}{16}} \approx 847 \\
+		\vdots      & \vdots                               \\
+	\end{array}
+\]
+So, the gas retention velocity of Venus must be between 847 and 2397 m/s.
+
+We can verify our guess by research; Venus' escape velocity is about 10360 m/s.
+\footnote{\url{https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html}.}
+So, we have that $\frac{1}{6}10360\approx 1727$ m/s, which does indeed fall into the range [847,2397].
+
+% We can then consider that escape velocity is given when the kinetic energy of the gas molecule exceeds the gravitational potential energy of the planet, i.e.,
+% \footnote{Note that gravitational potential energy is inversely proportional to linear radial distance, as opposed to gravitational force, which is inversely proportional to the square of distance.}
+% \[
+% 	\frac{1}{2}mv^2\ge \frac{GMm}{r} \implies v^2\propto \frac{M}{r}
+% 	.\]
+% Since we know that Venus is twice the size of Mars, we will be able to verify our computation by showing that gas retention velocity bounds can account for the mass of Venus. 
+\end{document}

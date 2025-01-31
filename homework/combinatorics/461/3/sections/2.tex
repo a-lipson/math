@@ -1,0 +1,29 @@
+\documentclass{subfiles}
+\begin{document}
+\begin{problem}
+Let $n \ge 3$ be an integer.
+\begin{enumerate}
+	\item How many functions $f : [n] \to [n]$ satisfy $f(1) = f(2)$ or $f(2) = f(3)$?
+	\item How many functions $f : [n] \to [n]$ satisfy at least one of $f(1) = f(2)$, $f(2) = f(3)$, $f(3) = f(4)$, \dots, $f(n-1) = f(n)$?
+
+	      \emph{Hint:} It's easier not to use PIE.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	First, note that in either case $f(1)=f(2)$ or  $f(2)=f(3)$, we have $n$ choices for all other mapping pairs except for the pair of outputs which are equal, so there are $n^{n-1}$ such functions in either case.
+
+	However, we are over-counting functions where $f(1)=f(2)=f(3)$.
+	In a similar fashion, we have  $n$ choices except for the three equal outputs, so there are  $n^{n-2}$ functions where this condition holds.
+
+	Thus, we have $2n^{n-1}-n^{n-2}$ total functions which satisfy $f(1)=f(2)$ or  $f(2)=f(3)$.
+\end{proof}
+\begin{proof}[Proof of b]
+	We will count the compliment of this set, where $\forall i,\, f(i)\neq f(i + 1)$, and subtract it from the total number of functions from  [n] to [n],  $n^{n}$.
+
+	If we have $n$ choices for  $f(i)$, then we have  $n-1$ choices for  $f(i+1)$.
+	Proceeding inductively, we will have $n-1$ choices for each other image of  $i\in [n]$.
+	So, the total number of such functions with non equal images of consecutive integers is $n(n-1)^{n-1}$.
+
+	Thus, we have $n^n-n(n-1)^{n-1}$ as the total number of functions where at least one pair of consecutive integers in the domain produce equal images in the codomain.
+\end{proof}
+\end{document}

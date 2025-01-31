@@ -1,0 +1,17 @@
+\documentclass{subfiles}
+\begin{document}
+\begin{problem}
+How many ways are there to arrange the letters of the word ESTATE so that no two consecutive letters are the same?
+\end{problem}
+\begin{proof}
+	There are $\frac{6!}{(2!)^2}=180$ total arrangements of the letters in the word.
+
+	Using PIE, subtract the cases where two E's are consecutive as well as those where two T's are consecutive, then add back the cases where both two E's and two T's are consecutive.
+
+	First, with two consecutive E's or T's, we will consider the pair as a unit; we have $5!/2! = 60$ choices, where there are 5 options to arrange, and a $2!$ ways to order the possible non-consecutive other pair of letters.
+
+	Next, with two consecutive E's and T's we will consider both pairs each as a unit, so we have $4! = 24$ ways to arrange the remaining options.
+
+	Thus, we have $180-(2*60-24) = 84$ ways to arrange the letters so that no two consecutive letters are the same.
+\end{proof}
+\end{document}

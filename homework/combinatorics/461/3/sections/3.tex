@@ -1,0 +1,25 @@
+\documentclass{subfiles}
+\begin{document}
+\begin{problem}
+How many $2 \times 2$ matrices are there with entries from $\{0,1,\dots,n\}$ and no zero rows and no zero columns? (A ``zero row'' is a row with all zeroes.)
+\end{problem}
+\begin{proof}
+	We will count the total number of matrices and take away the number with zero rows as well as the number with zero columns, and finally add back the number with both zero rows and zero columns.
+
+	However, the last set has only one element, the zero matrix is the only matrix with both zero rows and zero columns.
+
+	For the total number of $2\times 2$ matrices, we have 4 entries with $n+1$ possible entries each, for a total of  $(n+1)^4$.
+
+	Since we can change a matrix with a zero column into one with a zero row using the transpose, which is invertible and therefore a bijection, the size of the sets of matrices with zero rows and zero columns is the same.
+
+	We will look at matrices with zero rows; either the top or the bottom row must be zero.
+	Then, there are $(n+1)^2$ choices for the other 2 entries.
+	So, we have $2(n+1)^2$ possible zero row matrices, and the same number for zero column matrices as well.
+
+	Thus, we have \[
+		(n+1)^4-2(2(n+1)^2)+1 = ((n+1)^2-2)^2
+	\] matrices with no zero rows and no zero columns.
+
+	Note that it is interesting to see the squared term here, it seems to suggest some sort of symmetry with the matrix?
+\end{proof}
+\end{document}

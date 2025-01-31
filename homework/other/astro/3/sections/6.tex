@@ -1,0 +1,43 @@
+\documentclass[../astro_4]{subfiles}
+\begin{document}
+\begin{problem}
+Which gases from Table 3 could Mars retain?
+\end{problem}
+Mars has an escape velocity of 5000 m/s, so it can contain gases moving at less than $\frac{1}{6}5000 \approx 833$ m/s.
+
+Mars is located 1.5 AU away from the Sun, this temperature is not directly given on Table 2,
+but we expect it to be between 283 and 400 K (the temps for 2 and 1 AU respectively).
+
+We can research the average temperature on mars to see that is is slightly colder, at around 250 K.
+\footnote{\url{https://www.britannica.com/question/What-is-the-temperature-on-Mars}.}
+
+However, we used a value of 400 K for the temperature of earth for this exercise, that's equivalent to around 260 F, which is much hotter than the actual earth.
+
+So, we should attempt to determine what temperature Table 2 would give at a distance of 1.5 AU, noting that our value ought to be within the range [283,400].
+
+We can create an regression given the data in Table 2 of the form $T~\frac{a}{\sqrt{r}}+b$, where $T$ is temperature, $r$ is distance from the world to the sun, and $a$ and $b$ are constants.
+
+We arrive at this form given that the energy received per area is inversely proportional to the square of distance.
+
+But, our form has $\frac{1}{\sqrt{r}}$ and not $\frac{1}{r^2}$; we also must consider the Stefano-Boltzmann law that energy is proportional to the fourth power of temperature.
+
+Thus, $\frac{1}{r^2}\propto T^4 \implies T \propto \frac{1}{r^{1 / 2}}$.
+
+Our model now produces a graph with an $R^2$ of about 0.9998, coefficients $a=392.41373$ and $b=3.83379$, and a predicted temperature of 324 K at 1.5 AU.
+\footnote{Using Desmos graphing calculator.}
+
+We will compute the average velocity for each gas in Table 3 as if it were in the Martian atmosphere at 324 K.
+\[
+	\begin{array}{c | c}
+		\text{gas}         & \text{average velocity (m/s)}           \\
+		\hline
+		\text{H}_2         & 157\sqrt{\frac{324}{2}} \approx 1998    \\
+		\text{CH}_4        & 157\sqrt{\frac{324}{16}} \approx 707    \\
+		\text{NH}_3        & 157\sqrt{\frac{324}{17}} \approx    685 \\
+		\text{H}_2\text{0} & 157\sqrt{\frac{324}{18}} \approx   666  \\
+		\text{N}_2         & 157\sqrt{\frac{324}{28}} \approx   534  \\
+		\text{CO}_2        & 157\sqrt{\frac{324}{44}} \approx  426   \\
+	\end{array}
+\]
+Since Mars has an escape velocity of 833 m/s, it can retain all gases within the table moving slower, which include all but hydrogen.
+\end{document}

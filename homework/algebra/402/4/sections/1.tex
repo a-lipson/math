@@ -1,0 +1,30 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $F$ be a field. Let $A=\begin{pmatrix} a&b\\c&d \end{pmatrix} $ be a matrix in $M(F)$.
+\begin{enumerate}[label=\alph*)]
+	\item Prove $A$ invertible  $\iff ad-bc\neq 0_F$.
+	\item  Prove $A$ is a zero divisor  $\iff ad-bc = 0_F$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	The inverse of the $2\times 2$ matrix $A$ is given by  \[
+		A^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d&-b\\-c&a \end{pmatrix}
+	\] where $A A^{-1} = I = A^{-1} A$ and $I$ is the identity matrix.
+	This matrix only exists where $ad-bc\neq 0_F$.
+\end{proof}
+\begin{proof}[Proof of b]
+	($\impliedby$)
+	Consider $B=\begin{pmatrix} d&-b\\-c&a \end{pmatrix} $.
+	We have that, \[
+		AB=\begin{pmatrix} ad-bc&ad-bc\\ad-bc&ad-bc \end{pmatrix} =BA
+		.\]
+	But $ad-bc = 0_F \implies AB=BA = O_{M(F)}$, so $A$ is a zero divisor since $B\in M(F)$.
+
+	($\implies$)
+	If $A$ is a zero divisor, then $\exists B$ such that \[
+		AB=BA=0_{M(F)}
+		.\]
+	We have already seen a $B$ for which this holds, and all matrix entries of the product are  $ad-bc$, which therefore must be zero.
+\end{proof}
+\end{document}

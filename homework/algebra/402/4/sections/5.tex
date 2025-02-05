@@ -1,0 +1,39 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that if $f:\Z\to \Z$ is an isomorphism, then $f$ is the identity map.
+\end{problem}
+\begin{proof}
+	Since $f$ is an isomorphism, then  $f$ is bijective and homomorphic.
+
+	Since $f$ is homomorphic, then we have that
+	\begin{align*}
+		f(a+b) & = f(a)+f(b) \\
+		f(ab)  & = f(a)f(b)
+		.\end{align*}
+
+	So,
+	\begin{align*}
+		f(a) & =f(a+0)=f(a)+f(0)            \\
+		     & =f(a+0+\cdots+0)=f(a)+n f(0)
+		.\end{align*}
+	But $f(a)=f(a)+n f(0)\ \forall n \implies f(0)=0$.
+
+	Similarly,  \[
+		f(1)=f(1\cdot 1) = f(1)f(1) = \cdots = n f(1)
+		.\]
+	So, $f(1)=nf(1)\ \forall n \implies f(1) = 1$
+
+	Then, by the associativity of addition,
+	\begin{align*}
+		f(1+1)   & =f(1)+f(1)=2f(1)         \\
+		f(1+1+1) & = f(1)+f(1)+f(1) = 3f(1) \\
+		         & \vdots                   \\
+		f(n)     & =nf(1)
+		.\end{align*}
+
+	But, $f(n)=n f(1)\ \forall n \implies f(n)=n$.
+
+	Thus, $f$ must be the identity map.
+\end{proof}
+\end{document}

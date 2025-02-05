@@ -1,0 +1,39 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $\varphi:R[x]\to R$ be the function that maps each polynomial in $R[x]$ onto its constant term in $R$.
+Prove  $\varphi$ is a surjective homomorphism of rings.
+\end{problem}
+\begin{proof}
+	First, we will show that $\varphi$ is surjective.
+
+	$\forall r\in R,\, r\in R[x]$ as well. So, the entire codomain is covered by the map $\varphi$ from just the constant polynomials already in  $R[x]$.
+
+	There are infinitely many polynomials with a given constant term  $r$,
+	but we have that all such  $r\in R$ are covered as they belong in $R[x]$ as well.
+
+	Next, we will show that  $\varphi$ is a homomorphism.
+
+	Let  $f(x)=r+a_1x+\cdots+a_n x^n$ and $g(x)=s+b_1x+\cdots b_mx^m$.
+
+	Then, for addition,
+	\begin{align*}
+		\varphi(f(x)+g(x)) & = \varphi(r + s + a_1 x + b_1 x + \cdots + b_m x^m + \cdots + a_n x^n) \\
+		                   & = r+s                                                                  \\
+		                   & = \varphi(r+a_1x+\cdots+a_n x^n)+\varphi(s+b_1x+\cdots b_mx^m)         \\
+		                   & = \varphi(f(x))+\varphi(g(x))
+		.\end{align*}
+
+	For multiplication,
+	\begin{align*}
+		\varphi(f(x)g(x)) & = \varphi(a_n b_m x^{n+m}+ \cdots + a_1 b_1 x^2 + a_1 s x + b_1 r x + rs) \\
+		                  & = rs                                                                      \\
+		                  & = \varphi(r+a_1x+\cdots+a_n x^n)\varphi(s+b_1x+\cdots b_mx^m)             \\
+		                  & = \varphi(f(x))\varphi(g(x))
+		.\end{align*}
+
+	So, $f$ is a homomorphism.
+
+	Thus,  $f$ is a surjective homomorphism.
+\end{proof}
+\end{document}

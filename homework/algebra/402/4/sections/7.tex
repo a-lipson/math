@@ -1,0 +1,19 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that is $F$ is a field, then  $F[x]$ is not a field.
+\end{problem}
+\begin{proof}
+	Consider $x \in F[x]$.
+
+	The identity in $F[x]$ is the polynomial 1.
+
+	Note that,  $\forall p(x)\in F[x],\, \deg{p(x)}\ge 0$ (except when $p(x)=0 \implies \deg{p(x)}=-\infty$).
+
+	Then, $x\cdot f(x)=1$ has the solution $f(x)=x^{-1}$, but $\deg{f(x)}=-1<0$, which means that $f(x) \not\in F[x]$.
+
+	So, an element  $x \in F[x]$ does not have an inverse in $F[x]$.
+
+	Thus, $F[x]$ is not a field.
+\end{proof}
+\end{document}

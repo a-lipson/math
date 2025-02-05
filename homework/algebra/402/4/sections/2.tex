@@ -1,0 +1,38 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $A=\begin{pmatrix} a&b\\c&d \end{pmatrix} $  in $M(\Z)$.
+Prove the following:
+\begin{enumerate}[label=\alph*)]
+	\item $ad-bc= \pm 1 \implies A$ invertible in $M(\Z)$.
+	\item $ad-bc\neq 0, \pm 1 \implies A$ is neither a unit nor a zero divisor in $M(\Z)$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	We will show that, when $ad-bc= \pm 1, \exists A^{-1}\in M(\Z)$.
+	We know that the inverse matrix $A^{-1}$ is given by $\frac{1}{ad-bc}\begin{pmatrix} d&-b\\-c&a \end{pmatrix} $, so $A^{-1}\in M(\Z)$ only when $\frac{1}{ad-bc}\in \Z$, which occurs when $ad-bc= \pm 1$ as all integers can be expressed as a rational number with denominator of $ \pm 1$.
+\end{proof}
+\begin{proof}[Proof of b]
+	We have already show that $A$ is invertible iff $ad-bc= \pm 1$.
+
+	So, if $ad-bc\neq  \pm 1$, then $A$ is not invertible and therefore cannot be a unit.
+
+	If $ad-bc=0$, then $A$ is also not invertible as in Problem 1,
+	so $A$ cannot be a unit under those conditions either.
+
+	If $ad-bc =  \pm 1$, then $A$ is a unit and therefore not a zero divisor.
+
+	Suppose, for a contradiction, that $A$ is a zero divisor when $ad-bc \neq 0$.
+	Then,  $\exists B\neq 0_{M(\Z)}$ such that $AB=0_{M(\Z)}$.
+
+	Note that $\forall A,B$ matrices, $\det{AB}=\det{A}\det{B}$.
+
+	So, $\det{AB}=\det{0_{M(\Z)}} = 0 = \det{A}\det{B}$.
+
+	But $B\neq 0_{M(\Z)}\implies\det{B } \neq 0 \implies \det{A }= 0$.
+
+	Then, $\det{A } = 0 \implies ad-bc = 0$, contradicting the assumption that $ad-bc\neq 0$.
+
+	Thus, $A$ must not have been a zero divisor.
+\end{proof}
+\end{document}

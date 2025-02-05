@@ -1,0 +1,32 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Prove $\R$ is isomorphic to the ring $S$ of  $2\times 2$ matrices of the form $\begin{pmatrix} a&0\\0&a \end{pmatrix},\, a\in \R$.
+\end{problem}
+\begin{proof}
+	We will construct an isomorphism $f:\R\to S$.
+	We will show that $f$ is a bijection and a homomorphism.
+
+	First, let $f$ be defined by the map  \[
+		a \mapsto \begin{pmatrix} a&0\\0&a \end{pmatrix}
+		.\]
+	Clearly, this is invertible $\left(  \begin{pmatrix} a&0\\0&a \end{pmatrix} \mapsto a \right) $.
+
+	So, $f$ is a bijection.
+	We can also write the map as $a \mapsto aI$, where $I$ is the  $2\times 2$ identity matrix.
+
+	Now, we will consider the addition and multiplication operations under the image of the map.
+	We have that, \[
+		f(a+b)=(a+b)I = aI+bI = f(a)+f(b)
+		.\]
+	We also have that,
+	\[
+		f(ab)=abI = abI^2 = aI\,bI=f(a)f(b)
+		.\]
+	So, $f$ is a homomorphism.
+
+	Since  $f$ is bijective and homomorphic, then  $f$ is an isomorphism.
+
+	Since there exists the isomorphism  $f$ between $\R$ and $S$, then these rings are isomorphic.
+\end{proof}
+\end{document}

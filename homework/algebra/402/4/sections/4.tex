@@ -1,0 +1,35 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $\Q(\sqrt{2})= \{r + s\sqrt{2}\ \mid\ r,s \in \Q  \} $.
+Prove $f:\Q(\sqrt{2 } ) \to \Q(\sqrt{2 } )$ given by $a + b\sqrt{2 } \mapsto a-b\sqrt{2} $ is an isomorphism.
+\end{problem}
+\begin{proof}
+	We see that $f$ is invertible because we can simply flip the sign of the  $\sqrt{2} $ part.
+	So, $f$ is a bijection.
+
+	Let  $x=a + b\sqrt{2 } $ and $y=c+d\sqrt{2} $.
+
+	We will show that $f$ is a homomorphism.
+
+	For addition, \[
+		f(x + y)
+		= f((a + c) + (b + d)\sqrt{2} )
+		= (a + c)-(b + d)\sqrt{2}
+		= (a-b\sqrt{2})+(c-d\sqrt{2} )
+		=f(x)+f(y)
+		.\]
+
+	For multiplication, \[
+		f(xy)
+		= f((ac+2bd)+(ad+bc)\sqrt{2} )
+		= ac - ad\sqrt{2}-bc\sqrt{2}+2bd
+		= (a-b\sqrt{2} )(c-d\sqrt{2} )
+		=f(x)f(y)
+		.\]
+
+	So, $f$ is a homomorphism.
+
+	Since  $f$ is a bijection and a homomorphism, then $f$ is an isomorphism.
+\end{proof}
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $\varphi:\Z[x]\to \Z_n[x]$ be the function that maps polynomials $a_0+a_1x+\cdots+a_kx^k$ in $\Z[x]$ onto polynomials $[a_0]+[a_1]x+\cdots+[a_k]x^k$ where $[a]$ denotes the congruence class of  $a$ in  $\Z_n$.\\
+Prove $\varphi$ is a surjective homomorphism of rings.
+\end{problem}
+\begin{proof}
+	First, we will show that $\varphi$ is surjective.
+
+	Consider  $f(x) \in \Z_n[x]$.
+	Then, the canonical representation of every such polynomial also belongs in $\Z[x]$.
+
+	So, all elements in the codomain are mapped to by $\varphi$ by at least  $f(x)\in \Z[x]$.
+
+	Thus, $\varphi$ is surjective.
+
+	Next, we will show that  $\varphi$ is a homomorphism.
+
+	Let  $f(x)=a_0+a_1x+\cdots+a_n x^n$ and $g(x)=b_0+b_1x+\cdots b_mx^m$. WLOG assume $m<n$.
+
+	Note that $[a+b]=[a]+[b]$ and $[ab]=[a][b]$.
+
+	Then, for addition,
+	\begin{align*}
+		\varphi(f(x)+g(x)) & = \varphi((a_0+b_0)+(a_1+b_1)x+\cdots+(a_m+b_m)x^m+a_{m+1}x^{m+1}+\cdots+a_nx^n) \\
+		                   & = [a_0+b_0]+[a_1+b_1]x+\cdots+[a_m+b_m]x^m+[a_{m+1}]x^{m+1}+\cdots+[a_n]x^n      \\
+		                   & = [a_0]+[a_1]x+\cdots+[a_n] x^n + [b_0]+[b_1]x+\cdots [b_m]x^m                   \\
+		                   & = \varphi(f(x))+\varphi(g(x))
+		.\end{align*}
+
+	For multiplication,
+	\begin{align*}
+		\varphi(f(x)g(x)) & = \varphi(a_0b_0+a_0b_1x+a_1b_0x+\cdots+a_nb_mx^{n+m}) \\
+		                  & = []                                                   \\
+		.\end{align*}
+\end{proof}
+\end{document}

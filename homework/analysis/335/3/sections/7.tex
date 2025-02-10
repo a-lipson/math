@@ -1,0 +1,33 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f(x)=\sum_{1}^{\infty} \frac{\sin{nx} }{n^2}$.
+Prove $f$ continuous on  $\R$ and \[
+	\int_{0}^{\frac{\pi}{2} } f(x) \,dx = \forall k\in \Z_{\ge 0},\, \sum_{n=2k+1}^{\infty} \frac{1}{n^3}  + 2\sum_{n=4k+2}^{\infty} \frac{1}{n^3}
+	.\]
+\end{problem}
+\begin{proof}[Proof of continuity]
+	Since  sine is bounded by 1, then $f_n$ converges uniformly by Weierstrass with  $M_n=\frac{1}{n^2}$.
+
+	Since $f_n$ is continuous  $\forall x \in \R$ and $f_n$ converges uniformly, then  $f$ is continuous on  $\R$ by Theorem 7.10.
+\end{proof}
+\begin{proof}[Proof of sum identity]
+
+	Note that $\cos{\left( \frac{\pi}{2}n \right) } =\forall k \in \Z_{\ge 0},\, \begin{cases}
+			0,  & n = 2k+1, \\
+			1,  & n = 4k,   \\
+			-1, & n = 4k+2. \\
+		\end{cases}$
+
+	Since $f_n$ is continuous an uniformly convergent, then, by Theorem 7.13,
+	\begin{align*}
+		\int_{0}^{\frac{\pi}{2} } \left[ \sum \frac{\sin{nx} }{n^2} \right] \,dx & = \sum \int_{0}^{\frac{\pi}{2} } \frac{\sin{nx} }{n^2} \,dx                   \\
+		                                                                         & = \sum_1^{\infty}\left[\frac{-\cos{nx}}{n^3}\right]_{x=0}^{x=\pi/2}           \\
+		                                                                         & = \sum_1^{\infty}\left(\frac{1-\cos{\left(\frac{n\pi}{2}\right)}}{n^3}\right)
+		.\end{align*}
+
+	Then, with the cosine table table above, we have that the above sum becomes, \[
+		\sum_{k=1}^{\infty} \left[ \frac{1}{(2k+1)^3} + \frac{2}{(4k+2)^3} \right]
+	\] as desired.
+\end{proof}
+\end{document}

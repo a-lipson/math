@@ -1,0 +1,22 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f_k$ be continuous on  $[a,b]$.
+Prove $f_k \rightrightarrows$ on $(a,b) \implies f_k \rightrightarrows f$ on $[a,b]$.
+\end{problem}
+\begin{proof}
+	We will consider the endpoints $x=a,b$.
+
+	$f_k \rightrightarrows f$ on $(a,b) \implies \forall \epsilon, \exists K\ :\ \forall x \in (a,b), \forall k>K,\, |f_k(x)-f(x)|<\epsilon$.
+
+	$f_k$ continuous  $\implies |f_k(a)-f_k(x)|<\frac{\epsilon}{2} \forall x \in [a,a+\delta] \forall \delta>0$.
+
+	Similarly, continuity gives $|f_k(b)-f_k(x)|<\frac{\epsilon}{2} \forall x \in [b-\delta,b] \forall \delta>0$.
+
+	Since $a+\delta \in  (a,b)$, then $\forall k > K, \forall x \in  (a,b)$, \[
+		|f(x)-f_k(x)|+|f_k(x)-f_k(a)|<\epsilon \implies |f(x)-f_k(a)|<\epsilon \implies f_k \rightrightarrows f
+	\] at $x=a$.
+
+	We can repeat the same for  $x=b$ to conclude that  $f_k \rightrightarrows f$ on $[a,b]$.
+\end{proof}
+\end{document}

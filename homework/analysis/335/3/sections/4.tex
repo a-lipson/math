@@ -1,0 +1,36 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Show that $\sum_{1}^{\infty} \frac{1}{x^2-n^2}$ converges uniformly on any compact interval that does not contain $x \in \Z\setminus \{0\} $.
+Conclude that the sum is continuous on $\R\setminus(\Z\setminus \{0\} )$.
+\end{problem}
+\begin{proof}
+	First, note that, if $n=x_\in \Z\setminus \{0\} $, then $f_n(n)=\frac{1}{n^2 - n^2}$, which is not defined.
+
+	Then, for a fixed $0<\epsilon<\frac{1}{2}$, we will consider $x$ in $I = [k+\epsilon,k + 1-\epsilon],\, \forall k\in \Z$, or $x \in [-1+\epsilon,1-\epsilon]$.
+
+	We wish to find a convergent sequence $M_n$ which bounds  $f_n(x)$ for all $n$.
+
+	We see that, when  $x$ is close to  $n$, then  $x^2-n^2$ will be small, so $f_n$ will be large.
+
+	We will consider $f_n$ for  $n$ in three cases, $n<k$, $n=k$ (the important case), and  $n>k$.
+
+	First,  $n<k\implies 1 < k^2-n^2 < x^2 - n^2$.
+	So $\frac{1}{|x^2-n^2|} < 1$.
+
+	Next, $n=k \implies (n+\epsilon)^2\le x^2 \implies 2n\epsilon+\epsilon^2\le x^2-n^2$.
+	% Next, $n=k \implies \forall \delta\in (0,1),\, |x^2-n^2| = {(n + \delta)}^2-n^2 = n\delta + \delta^2 > \delta$.
+	So, $\frac{1}{|x^2-n^2|} \le \frac{1}{2n\epsilon-\epsilon^2}$ for some fixed epsilon.
+
+	Finally, $n>k \implies x^2 < n^2$.
+	Then  $|x^2 - n^2|\ge n^2-{(k+1)}^2 \approx n^2$ for large $n$.
+
+	So $\frac{1}{|x^2-n^2|}\le \frac{1}{n^2 - {(k + 1)}^2}\approx \frac{1}{n^2}$.
+
+	But, we only have finitely many finite terms of $M_n$ where $n\le k$.
+
+	Since the tail $\sum_{k+1}^{\infty} \frac{1}{n^2}$ converges, then the entire $\sum M_n$ will converge as well.
+
+	Thus, $f_n$ is uniformly convergent by Weierstrass.
+\end{proof}
+\end{document}

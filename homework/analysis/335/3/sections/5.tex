@@ -1,0 +1,22 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Prove $\sum_{1}^{\infty}\frac{{(-1)}^{n-1}}{x^2 + n} $  converges uniformly on $x \in  \R$ but conditionally at all points.
+\end{problem}
+\begin{proof}
+	By the Alternating Series Test, the series will converge if $\frac{1}{x^2 + n} \to  0$ as $n\to \infty$.
+
+	Then, $\forall x \in \R,\,  \lim_{n \to \infty} \frac{1}{x^2 + n} = 0$.
+
+	So the series converges.
+
+	But, the absolute value of the terms in the series are $\frac{1}{x^2+n}\approx O\left( \frac{1}{n} \right)$ on the order of $\frac{1}{n}$, which diverges.
+	So, the series converges conditionally and not absolutely at any given $x$.
+
+	Next, for uniform convergence, we will consider  \[
+		\lim_{n \to \infty} \sup_{x \in \R} \left| \frac{{(-1)}^{n-1}}{x^2 + n} - \right| = \lim_{n \to \infty} \frac{1}{n} = 0
+		.\]
+
+	Thus, the series converges uniformly.
+\end{proof}
+\end{document}

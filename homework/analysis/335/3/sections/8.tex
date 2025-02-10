@@ -1,0 +1,54 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f_k(x)=x\arctan{kx}$.
+Prove the following:
+\begin{enumerate}[label=\alph*)]
+	\item $\lim_{k \to \infty} f_k(x)=\frac{\pi}{2}|x|$.
+	\item  $\exists \lim_{k \to \infty} f'_k(x)$ for all $x$ including zero, but that  $f'_k$ does not converge uniformly on any interval containing zero.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Note that  $\lim_{y \to \infty} \arctan{y} =\frac{\pi}{2} $ and $\lim_{y \to-\infty} \arctan{y} =-\frac{\pi}{2} $.
+
+	So, $\lim_{k \to \infty} \arctan{kx}=\begin{cases}
+			\frac{\pi}{2},  & x>0, \\
+			0,              & x=0, \\
+			-\frac{\pi}{2}, & x<0. \\
+		\end{cases} $
+
+	Multiplying by $x$ will produce a positive produce for all  $x$, which is  $\frac{\pi}{2}|x|$ as desired.
+\end{proof}
+\begin{proof}[Proof of b]
+	Note that $f'_k(x)=\arctan{kx} + \frac{kx}{1+{(kx)}^2} $.
+
+	So, $f_k\in C^1$. We also have that $f_k$ converges at pointwise from (a).
+
+	We wish to show that $f'_k$ converges for every $x$, but only uniformly for intervals not containing zero.
+
+	We have that, $\forall x>0,\, \lim_{k \to \infty} f'_k(x)=\frac{\pi}{2} + O(1 / kx) = \frac{\pi}{2} $.
+
+	Similarly, for $x<0,\, \lim_{k \to \infty} f'_k(x)=-\frac{\pi}{2} $.
+
+	Also, for $x=0,\, \lim_{k \to \infty} f'_k(0)=\arctan{0}+\frac{0}{1+0}=0$.
+
+	So, we now have that $f'_k(x) \to \begin{cases}
+			\frac{\pi}{2},  & x>0, \\
+			0,              & x=0, \\
+			-\frac{\pi}{2}, & x<0, \\
+		\end{cases}$
+	which supports the fact that $f(x)=\frac{\pi}{2}|x|$.
+
+	However, uniform convergence preserves continuity, so we cannot have $f'_k(x)$ continuous converge uniformly to a discontinuous function $f'(x)$.
+
+	Thus, $f'_k(x)$ cannot converge uniformly on an interval containing the discontinuity $x=0$.
+
+	Then, we will show that $f'_k(x)$ converges uniformly for  $x>0$ or  $x<0$.
+
+	From above, we have \[
+		\lim_{k \to \infty} \sup_{x>0}\left| \arctan{kx} + \frac{kx}{1 + (kx)^2} - \frac{\pi}{2} \right|  \to 0
+		.\]
+
+	So, $f'_k(x)$ converges uniformly for $x>0$; this holds for $x<0$ as well.
+\end{proof}
+\end{document}

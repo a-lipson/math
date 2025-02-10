@@ -1,0 +1,39 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f_k(x)=g(x)x^k$ where  $g$ is continuous on  $[0,1]$ and  $g(1)=0$.
+Show $f_k \rightrightarrows 0 on [0,1]$.
+\end{problem}
+\begin{proof}
+	Note that $\forall x \in  [0,1),\, x^{k}\to 0$.
+
+	We have that $f_k(1)=0$. So we can also write  $\forall x \in [0,1],\, f_k\to 0$.
+
+	For uniform convergence, we wish to show that, as $k\to \infty$, \[
+		\sup_{x \in [0,1]}f_k(x)-0 |=\sup_{x \in  [0,1]}\left| g(x)x^k \right| \to 0
+		.\]
+
+	Since $g$ is continuous on a closed interval, then  $g$ is bounded.
+
+	Thus,  $\exists M>0\ :\ \forall x \in [0,1],\, |g(x)|\le M$.
+
+	So, \[
+		\sup_{x \in [0,1]}\left| g(x)x^k \right| \le M \sup_{x \in  [0,1]} x^k
+		.\]
+
+	But, $x^k=1$ when  $x=1$ for all $k$, so we will consider the above supremum on two intervals,  $[0,1-\delta]$ and  $[1-\delta,1]$.
+
+	Since  $1-\delta<1$, then  $M \sup_{x \in [0,1-\delta]}x^k = M{(1-\delta)}^k \to 0$ as $k\to \infty$.
+
+	Next, since $\sup_{[1-\delta,1]}x^k =1$, $g$ continuous, and $g(1)=0$,
+	then  $\forall \epsilon>0,\, \exists \delta\ :\ \forall x \in [1-\delta,1],\, |g(x)|<\epsilon $.
+
+	Then, $\sup_{[1-\delta,1]} \left| g(x)x^k \right| \le \delta $.
+
+	But $\delta$ was arbitrary, so this vanishes as  $k\to \infty$.
+
+	Hence,  \[
+		\sup_{x \in  [0,1]} f_k(x) \to  0 \text{ as } k\to \infty \implies f_k \rightrightarrows 0
+		.\]
+\end{proof}
+\end{document}

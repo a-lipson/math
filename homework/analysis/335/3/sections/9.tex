@@ -1,0 +1,38 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+$\forall x \not\in \Z\setminus \{0\}$, let $f(x)=2x \sum_{1}^{\infty} \frac{1}{x^2-n^2}$.
+Show $f\in C^1$ on the given domain and \[
+	f'(x)=-\sum_{1}^{\infty} \left[ \frac{1}{(x-n)^2}+\frac{1}{(x+n)^2} \right]
+	.\]
+\end{problem}
+\begin{proof}
+	We have that, for $x \neq n \in \Z\setminus \{0\}$, \[
+		f_n'(x)=\frac{2(x^2 - n^2) - 4x^2}{(x^2 - n^2)^2}=\frac{-2(x^2  + n^2)}{(x^2 - n^2)^2}=-\frac{(x-n)^2 + (x+n)^2}{((x-n)(x+n))^2}=-\left( \frac{1}{(x-n)^2} + \frac{1}{(x+n)^2} \right)
+		.\]
+
+	So, $f_n \in  C^1$ on such a domain.
+
+	We have seen that $\sum_{1}^{\infty} \frac{1}{x^2 - n^2}$ will converge on this domain in Problem 4.
+
+	So, $2x \sum_{1}^{\infty} \frac{1}{x^2 - n^2}$ will converge as well.
+
+	We now wish to show that  $f_n'(x)$ converges uniformly to $-\left( \frac{1}{(x-n)^2} + \frac{1}{(x+n)^2} \right)$.
+
+	Consider $x \in [k+\epsilon, k+1-\epsilon],\,  \forall 0<\epsilon<\frac{1}{2}, \forall k\in \Z\setminus \{0\}$ as in Problem 4.
+
+	Then, we will construct a bounding sequence $|f_n|\le M_n,\,  \forall n$ such that $\sum M_n$ converges.
+
+	Since $x \in [k+\epsilon, k+1-\epsilon]$, we have $|x|\le \epsilon < 1$.
+
+	So, $|x \pm n| \ge n - |x| > n - 1$. Then, $(x \pm n)^2 > (n-1)^2$.
+
+	Thus, $\left|\frac{1}{(x + n)^2} + \frac{1}{(x-n)^2}\right| < \frac{2}{(n-1)^2}\approx 1 / n^2$.
+
+	Since $\sum M_n = \sum \frac{2}{(n-1)^2}$ converges by comparison to $\sum n^{-2}$, then $f_n'(x)$ converges uniformly by Weierstrass.
+
+	Thus, by Theorem 7.13, we have that \[
+		f'(x)=-\sum_{1}^{\infty} \left[ \frac{1}{(x-n)^2}+\frac{1}{(x+n)^2} \right]
+		,\] which is what we wanted to prove.
+\end{proof}
+\end{document}

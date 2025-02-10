@@ -1,0 +1,41 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Test for absolute and uniform convergence.
+State the intervals of convergence.
+Check for the continuity of the sum.
+\begin{enumerate}[label=\roman*)]
+	\item $\sum_{0}^{\infty} \frac{x^n}{n^2 + n + 1}$.
+	\item $\sum_{1}^{\infty} \frac{ \cos{nx}  }{n^3}$.
+	\item $\sum_{1}^{\infty} n^{-x}$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of i]
+	Let $f_n(x)=\frac{x^n}{{(n+1)}^2}$.
+	Then, $\forall |x|\le 1,\, |f_n(x)|\le \frac{1}{{(n + 1)}^2}$.
+
+	Since $\sum_{0}^{\infty} \frac{1}{{(n + 1)}^2}$ converges, then $f_n$ will converge absolutely and uniformly by Weierstrass.
+
+	Since  $f_n \rightrightarrows f$ and $f_n$ is a polynomial and therefore continuous, then  $f$ is continuous by Theorem 7.8.
+\end{proof}
+\begin{proof}[Proof of ii]
+	Note that, \[
+		\forall x \in \R,\, \left| \frac{\cos{nx} }{n^3} \right| \le \frac{1}{n^3}
+		.\]
+
+	Since $\sum \frac{1}{n^3} $ converges, then (ii) will converge absolutely and uniformly by Weierstrass.
+
+	Since (ii) converges uniformly and  $\frac{\cos{nx} }{n^3}$ is continuous for all $n$, then the sum  is also continuous by Theorem 7.8.
+\end{proof}
+\begin{proof}[Proof of iii]
+	We need $n^{-x}\to 0$ as $n\to \infty$.
+	This occurs when $x>1$ by comparison to  \[
+		\int_{1}^{\infty} x^{-p} \,dx
+		,\] which converges $\forall x > 1$ and $p > 1$.
+
+	So, we have that (iii) converges when $x>1$.
+	Then, $\left|n^{-x}\right| = \frac{1}{n^{x}} \to  0$ as $n\to \infty$, we also have that (iii) converges absolutely and uniformly by Weierstrass.
+
+	Since we have uniform converge and  $n^{-x}$ is continuous for all $n,x$, then the sum is also continuous by Theorem 7.8.
+\end{proof}
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $W$ be a walk with at least two vertices which begins and ends at the same vertex. Prove that $W$ either contains a cycle or has an edge that repeats immediately (i.e., at some point the walk goes across an edge and then immediately back across the same edge).
+\end{problem}
+\begin{proof}
+	We will consider two cases whether or not $W$ contains a cycle.
+	A cycle is a subwalk in which a vertex is visited more than once without immediate backtracking.
+
+	First, if $W$ revisits a vertex (at least the starting and ending one) without immediate backtracking,
+	then $W$ must contain a cycle.
+
+	Second, if $W$ does not contain a cycle, then it must backtrack each time it revisits a vertex;
+	i.e., whenever  $W$ reaches a vertex that it has already seen, then it will immediately return to the previous vertex along the same edge.
+	If  $W$ uses a parallel edge instead of backtracking, we have a cycle, which is a contradiction.
+	This means, at some point,  $W$ must traverse an edge and backtrack immediately.
+	Thus, if $W$ does not contain a cycle, it must contain an edge that repeats immediately.
+
+	Since these two cases cover all possibilities, $W$ must either contain a cycle or have an edge that is repeated immediately
+\end{proof}
+\end{document}

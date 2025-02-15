@@ -1,0 +1,19 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $G$ be the graph whose vertex set is $\{0,1\}^n$, with an edge between $x$ and $y$ if $x$ and $y$ differ at exactly two positions. How many connected components does $G$ have?
+\end{problem}
+\begin{proof}
+	Each vertex in $G$ can be represented by an  $n$-bit binary string.
+	Such strings haves either an even or odd parity, given by an even or odd number of 1s respectively.
+	Note that flipping two bits does not change the parity of a string.
+
+	We claim that $G$ is bipartite between even and odd parity vertices.
+
+	We can reach every vertex in each subgraph by flipping any two bits and maintaining parity.
+
+	Thus, each parity class subgraph forms a connected component as adding any vertex of opposing parity would make the graph disconnected as there is no way to reach opposing parity by flipping two bits.
+
+	Since there are two parity subgraphs, each of which is connected, then $G$ has two connected components.
+\end{proof}
+\end{document}

@@ -1,0 +1,20 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Let $G$ be the graph whose vertex set is $\{0,1\}^n$, with an edge between $x$ and $y$ if $x$ and $y$ differ at exactly one position.
+\begin{enumerate}
+	\item What is the degree of each vertex of $G$?
+	\item How many edges does $G$ have?
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	There are $n$ ways that a vertex in  $\{0,1\}^n$ can change by one position, so each vertex in $G$ must have degree  $n$.
+\end{proof}
+\begin{proof}[Proof of b]
+	Note that there are $|\{0,1\}^n| = 2^n$ vertices in $G$.
+	Then, by the handshake Lemma, we have, for all vertices $v$ and edge set $E$, \[
+		2^n \deg{v} = 2|E| => n2^{n-1} = |E|
+		.\]
+	So there are $n 2^{n-1}$ edges in $G$.
+\end{proof}
+\end{document}

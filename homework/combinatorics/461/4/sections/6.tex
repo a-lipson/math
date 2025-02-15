@@ -1,0 +1,45 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that every $n$ vertex graph with at least $n$ edges contains a cycle.
+\end{problem}
+\begin{proposition}
+	A tree with $n$ vertices has  $n-1$ edges.
+\end{proposition}
+\begin{proof}[Proof of Proposition]
+	We will proceed by induction.
+	A tree with 1 vertex has 0 edges.
+	Suppose that a tree with $n$ vertices has  $n-1$ edges.
+
+	Now, construct a tree with  $n+1$ vertices from the previous.
+	The new vertex must be a leaf because a tree cannot have cycles.
+	Since the new vertex is a leaf, it adds one edge to the tree.
+	Thus, a tree with $n+1$ vertices has  $n-1+1=n$ edges.
+\end{proof}
+\begin{proof}[Proof of Problem]
+	Let $G$ be a graph with $n$ vertices and $n$ edges that has no cycles.
+	We will consider two cases, whether or not  $G$ is connected.
+
+	First, assume $G$ is connected.
+	Since $G$ is connected and has no cycles, then $G$ is a tree of $n$ vertices.
+	By the Proposition, it must have $n-1$ edges.
+	But $G$ has  $n$ edges, so the  $n^{\text{th}}$ edge must connect two already connected vertices,
+	which makes a cycle.
+	So, when $G$ is connected, $G$ must contain a cycle.
+
+	Second, assume $G$ is not connected, so $G$ is a forest.
+	Suppose that $G$ has $k$ connected components, and none of which have a cycle.
+	So, each connected component of $G$ must be a tree.
+
+	Since $G$ is composed of $k$ trees, each with $n_i$ vertices where $1\le i\le k$ and $\sum_{k}n_i = n$,
+	then it must have $\sum_{1 }^{k} (n_i-1) = n - k$ edges.
+
+	But, $G$ has at least $n$ edges, so $n \le n - k \implies k \le 0$,
+	which is a contradiction since $G$ must have at least one component to have $n$ vertices.
+
+	So, $G$ is either connected, and has a cycle by the first case,
+	or the assumption that each connected component was acyclic was false, so $G$ has a cycle.
+
+	Thus, a graph $G$ with $n$ vertices and  $n$ edges must have a cycle.
+\end{proof}
+\end{document}

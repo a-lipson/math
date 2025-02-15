@@ -1,0 +1,23 @@
+\documentclass[../hw4]{subfiles}
+\begin{document}
+\begin{problem}
+Consider a league with two divisions of 13 teams each.
+Is it possible to schedule a season with each team playing nine games against teams within its division and four games against teams in the other division?
+\end{problem}
+\begin{proof}
+	Consider only the intra-division games.
+	We can create a subgraph graph of of such games for one division where each of the 13 teams in a vertex and each game played is an edge.
+
+	If each team must play 9 games within the division, then each edge must have a degree of 9.
+
+	However, the total number of edges in this graph is $13\cdot 9=117$, which is odd.
+	By the handshake Lemma, the number of edges must be even, which is a contradiction.
+
+	Therefore, this setup is not possible.
+	% Since each division must play 9 intra-division games, we have that \[
+	% 	\frac{13\text{ teams }\cdot 9\text{ games}}{2 \text{ teams per game}} = 58.5 \not\in \Z
+	% 	.\]
+	%
+	% With this setup, we must play a non-integer number of intra-division games, which is not possible.
+\end{proof}
+\end{document}

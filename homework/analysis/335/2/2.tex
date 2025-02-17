@@ -1,0 +1,49 @@
+\documentclass{article}
+\input{../../../../class/preamble.tex}
+\input{../../../../class/analysis/preamble.tex}
+\title{Math 335 Extra Credit Problem}
+\begin{document}
+\maketitle
+\begin{problem}
+$a_n > 0,\, \sum a_n$ converges $\implies \sum \frac{1}{n}\left( a_n + a_{n+1} + \cdots + a_{2n}\right)$ converges.
+\end{problem}
+\begin{proof}
+	% We wish to show that $\sum \frac{1}{n} \sum_{k=n }^{2n} a_k$ also converges using the Dirichlet test for convergence.
+	We will show that the series converges using the Dirichlet test.
+
+	Note that we can express the sum inside the series as a difference of partial sums of $a_n$, \[
+		% \sum_{k=n }^{2n} a_k = S_{2n}-S_{n-1}
+		a_n + a_{n+1} + \cdots + a_{2n} = S_{2n}-S_{n-1}
+		,\] where $S_n = \sum_{k=1}^{n} a_n$.
+
+	So, the given series can be written as, \[
+		\sum \frac{1}{n} \left( S_{2n}-S_{n-1}\right)
+		.\]
+
+	We will now show that $S_{2n}-S_{n-1}$ is uniformly bounded for all $n$.
+
+	Since $S_n$ converges, then it must be bounded.
+	So, there exists some  $M$ such that,  $|S_n|\le M$ for all $n$.
+
+	Then, we have that $|S_{2n}|\le M$ and $|S_{n-1}|\le M$ as well.
+
+	Thus, by the triangle inequality,  \[
+		|S_{2n}-S_{n-1}|\le |S_{2n}| + |S_{n-1}| \le 2M
+		.\]
+
+	So, $S_{2n}-S_{n-1}$ is uniformly bounded for all $n$.
+
+	% Since $\sum a_n$ converges, then its sequence of partial sums $S_n$ is Cauchy. \\
+	% So, for all $\epsilon$, there exists an $N$ such that, for all  $m > n > N$, \[
+	% 	|S_m-S_n| < \epsilon
+	% 	.\]
+	% Particularly, for large $N$, we have  \[
+	% 	|S_{2n}-S_{n-1}|\le \epsilon
+	% 	.\]
+	% Since $S_n$ converges to  $S$, the difference $S_{2n}-S_{n-1}$ is bounded by an arbitrarily small $\epsilon$ as $n \to \infty$.
+
+	Since $\frac{1}{n} \to 0$ as $n\to \infty$ and $S_{2n}-S_{n-1}$ is uniformly bounded for all $n$, then  \[
+		\sum \frac{1}{n} \left( S_{2n}-S_{n-1}\right) = \sum \frac{1}{n} \left( a_n+a_{n+1}+\cdots+a_{2n} \right)
+	\] converges by the Dirichlet test.
+\end{proof}
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Determine if the give polynomial is reducible.
+\begin{enumerate}[label=\alph*)]
+	\item $x^2 - 3$ in $\Q[x]$ and in $\R[x]$.
+	\item $x^2 + x-2$ in $\Z_3[x]$ and in $\Z_7[x]$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	The polynomial of degree 2 has no rational roots, so it is irreducible over $\Q[x]$.
+	In $\R[x]$, it factors as $(x + \sqrt{3} )(x - \sqrt{3} )$.
+\end{proof}
+\begin{proof}[Proof of b]
+	$x^2  + x - 2 = x^2 + x + 1 = (x+2)(x+2)$ in $\Z_3[x]$, so the polynomial is reducible over $\Z_3[x]$.
+
+	$x^2 + x-2=x^2+x+5$ in $\Z_7[x]$ factors as $(x+2)(x+6)$ in  $\Z_7[x]$, so it is a reducible polynomial.
+\end{proof}
+\end{document}

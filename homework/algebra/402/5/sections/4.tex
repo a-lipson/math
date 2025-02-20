@@ -1,0 +1,45 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Find remained when $f(x)$ is divided by  $g(x)$.
+\begin{enumerate}[label=\roman*)]
+	\item $f(x)=x^{10}+x^8$, $g(x)=x-1$ in  $\Q[x]$.
+	\item $f(x)=2x^5-3x^4+x^3+2x+3$,  $g(x)=x-3$ in  $\Z_5[x]$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	% \[\polylongdiv{x^{10}+x^8}{x-1}\]
+	We will perform polynomial long division, noting that the middle coefficients are the result of a repeated production and cancellation of the term $2x^k$ for $1\le k\le 7$.
+	\[\begin{array}{r}
+			x^9+x^8+2x^7+\cdots+2x+2                                                                   \\
+			x-1 \big) \overline{\phantom{aa}  x^{10}\phantom{+x^90}+x^8\phantom{+0x^7+\cdots+0x+00}  } \\
+			\underline{ -x^{10}+x^9 }\phantom{+x^8+0x^7+\cdots+0x+00}                                  \\
+			x^9+x^8\phantom{+0x^7+\cdots+0x+00}                                                        \\
+			\underline{-x^9+x^8}\phantom{+0x^7+\cdots+0x+00}                                           \\
+			2x^8\phantom{+0x^7+\cdots+0x+00}                                                           \\
+			\underline{-2x^8+2x^7}\phantom{+\cdots+0x+0.}                                              \\
+			\ddots \phantom{+0x^2+0x+}                                                                 \\
+			2x^2\phantom{+0x+00}                                                                       \\
+			\underline{-2x^2+2x}\phantom{+00}                                                          \\
+			2x \phantom{+00}                                                                           \\
+			\underline{ -2x+2 }                                                                        \\
+			2                                                                                          \\
+		\end{array}\]
+
+	So, the remainder of $f(x)$  divided by $g(x)$ is 2.
+\end{proof}
+\begin{proof}[Proof of b]
+	\[\begin{array}{r}
+			2x^4+3x^3\phantom{+0x0}+2                                         \\
+			x-3 \big) \overline{\phantom{aa}  2x^5-3x^4+\phantom{0} x^3+2x+3} \\
+			\underline{-2x^5+6x^4}\phantom{+0x^3+0x+00}                       \\
+			3x^4+\phantom{0}  x^3\phantom{+0x+00}                             \\
+			\underline{-3x^4+9x^3}\phantom{+0x+00}                            \\
+			2x+3                                                              \\
+			\underline{-2x+6}                                                 \\
+			4
+		\end{array}\]
+
+	Thus, the remainder of $f(x)$ divided by  $g(x)$ is 4.
+\end{proof}
+\end{document}

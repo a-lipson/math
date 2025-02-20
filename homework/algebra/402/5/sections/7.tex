@@ -1,0 +1,24 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+$a\in F$ is a multiple root of $f(x)\in F[x]$ iff $(x-a)^k$ is a factor of  $f$ for  $k \ge 2$.
+\begin{enumerate}[label=\alph*)]
+	\item Prove that $a\in \R$ is a multiple root of $f(x)\in \R[x]$ iff it is a root of both $f$ and  $f'$,  the derivative of $f$.
+	\item  Prove for $f(x)\in \R[x]$, if $f$ is relatively prime to  $f'$, then  $f$ has no multiple roots in  $\R$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a] ($\implies$)
+	Let $f(x)=(x-a)^k g(x)$ for some  $k\ge 2$.
+
+	Then, $f'(x)=(x-a)^{k-1}(kg(x)+(x-a)g'(x))$.
+
+	Thus, $a$ is a root of both $f$ and  $f'$.
+
+	($\impliedby$)
+	As above, let $f'(x)=(x-a)(2g(x)+(x-a)g'(x))$.
+
+	Then, $f(x)=(x-a)^2g(x)$.
+
+	So, $a$ is a multiple root of  $f$.
+\end{proof}
+\end{document}

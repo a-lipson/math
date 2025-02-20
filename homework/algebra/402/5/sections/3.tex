@@ -1,0 +1,33 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+\begin{enumerate}[label=\alph*)]
+	\item Prove $x^2 + 2$ is irreducible in $\Z_5[x]$.
+	\item Factor $x^4-4$ as a product of irreducibles in  $\Z_5[x]$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Suppose $x^2 + 2$ was reducible in $\Z_5[x]$.
+	Then, it must have integer roots.
+	But, \[
+		\begin{array}{r l}
+			0^2 + 2 =  & 2 \neq 0        \\
+			1^2  + 2 = & 3 \neq  0       \\
+			2^2+2 =    & 6 = 1 \neq  0   \\
+			3^2+2 =    & 11 = 1 \neq 0   \\
+			4^2+2 =    & 18 = 3 \neq  0. \\
+		\end{array}\]
+	Since $x^2+2$ has no integer roots, then it must be irreducible.
+\end{proof}
+\begin{proof}[Proof of b]
+	We can factor by the difference of squares, \[
+		x^4-4 = (x^2+2)(x^2-2)
+		.\]
+	By part a, $x^2+2$ is irreducible.
+	So, we wish to show that $x^2-2 = x^2+3$ is irreducible.
+
+	By the table above, $x^2 + 2$ was never congruent to 4 mod 5, so $x^2 + 2 + 1=x^2+3=x^2-2$ in $\Z_5[x]$ has no rational roots.
+
+	Thus, $x^4-4=(x^2+2)(x^2+3)$ is a product of irreducible polynomials.
+\end{proof}
+\end{document}

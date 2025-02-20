@@ -1,0 +1,38 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let $\Q[\sqrt{2}]$ be the set of reals of the form \[
+	r_0+r_1\sqrt{2}+r_2(\sqrt{2} )^2 +\cdots+r_n(\sqrt{2} )^n
+	,\] with $n\ge 0$ and $r_i \in \Q$.
+\begin{enumerate}[label=\alph*)]
+	\item Prove $\Q[\sqrt{2}]$ is a subring of $\R$.
+	\item  Prove $\theta:\Q[x]\to \Q[\sqrt{2} ]$ defined by $\theta(f(x))\mapsto f(\sqrt{2} )$ is epimorphic, but not monomorphic.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Firstly, we have that $\Q[\sqrt{2} ]\subset \R$.
+
+	Note that we have the additive identity zero in $\Q[\sqrt{2} ]$.
+
+	Then, addition in $\Q[\sqrt{2} ]$ is closed because we add corresponding coefficients for each power of $\sqrt{2} $ and addition is closed under $\Q$.
+
+	Similarly, for multiplication, we have that all the new coefficients of a product come from adding and multiplying the coefficients in the factors. Since multiplication is closed under $\Q$, then it is also closed under $\Q[\sqrt{2}]$.
+
+	Since $\Q[\sqrt{2} ]\subset \R$ and $\Q[\sqrt{2} ]$ is closed under the operations of addition and multiplication, then $\Q[\sqrt{2} ]$ is a subring of $\R$.
+\end{proof}
+\begin{proof}[Proof of b]
+	We see that the image of $f$ on  $\sqrt{2}$, $f(\sqrt{2})$ is a subset of the image of $f$ on all $x \in \R$, so the map $\theta$ with $f(x)\mapsto f(\sqrt{2})$ is surjective.
+
+	Note that, $\forall x \in \R,\, x \neq \sqrt{2} $ is not mapped under $\theta$, so  $@q
+	$ is not injective, and therefore cannot be bijective.
+
+	Now, we will show that  $\theta$ is a homomorphism.  $\forall f,g \in \Q[x]$, we have for addition \[
+		f(\sqrt{2} )+g(\sqrt{2} )=(f(x)+g(x))(\sqrt{2} )=\theta(f(x)+g(x))=\theta(f(x))+\theta(g(x))=f(\sqrt{2} )+g(\sqrt{2} )
+		,\] and for multiplication, \[
+		f(\sqrt{2} )g(\sqrt{2} )=(f(x)g(x))(\sqrt{2} )=\theta(f(x)g(x))=\theta(f(x))\theta(g(x))=f(\sqrt{2} )g(\sqrt{2} )
+		.\]
+	Therefore $\theta$ is a ring homomorphism.
+
+	Since  $\theta$ is a homomorphism and a surjection, then  $\theta$ is an epimorphism.
+\end{proof}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let $G$ be a connected graph, and let $T$ and $T'$ be spanning trees of $G$. Let $e$ be an edge of $T$ not in $T'$. Prove there is an edge $e'$ of $T'$ not in $T$ such that $T - e + e'$ is a spanning tree of $G$.
+\end{problem}
+\begin{proof}
+	Consider $T-e$.
+	Deleting  $e\in T$ from $T$ disconnects  $T$ into two connected components which are also trees;
+	label these components $C_1$ and $C_2$.
+	Let the endpoints of $e$ be  $u\in C_1$ and  $v\in C_2$.
+
+	Since $T'$ is a tree, then between any two vertices in  $T'$, there is a unique path.
+	So, there must be a unique path from  $u$ to  $v$, call it $P$.
+	Since  $u,v$ are in different components, then there must be an edge $e'$ in  $P$ that connects the components.
+
+	If every edge of  $P$ were also in  $T$, then adding $e$ to that path would create a new path between  $u$ and  $v$, and thus a cycle in  $T$.
+	But  $T$ is a tree and thus cannot have a cycle.
+
+	So, at least one edge of  $P$ is not in  $T$, let this edge be  $e'$.
+	Then, by construction, we have that $e'\in T'\setminus T$.
+
+	Now, consider $T-e + e'$.
+	$T-e$ had two connected components  $C_1$ and $C_2$.
+	But $e'$ goes between  $C_1$ and $C_2$, so $T-e+e'$ connects all vertices in  $G$.
+
+	Since we have only replaced one edge with another, the total edge count remains the same.
+	Therefore,  $T-e+e'$ is a connected subtree of  $G$ with the same number  of edges as a spanning tree $T$, thus it is a spanning tree as well.
+\end{proof}
+\end{document}

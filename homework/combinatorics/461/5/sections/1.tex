@@ -1,0 +1,19 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let $T$ be a tree which has a vertex of degree of $d$. Prove that $T$ has at least $d$ leaves.
+\end{problem}
+\begin{proof}
+	Since $T$ is a tree, then it is connected and acyclic.
+	So, if we start at vertex  $v$ with degree  $d$ and follow any edge, we must eventually reach a leaf.
+	Since $T$ is a cyclic, all paths must terminate.
+
+	We have that $v$ is connected to  $d$ subtrees. Since these are also acyclic, they must end in at least one leaf.
+
+	Specifically, $T-v$ has  $d$ connected components, each of which has at least one vertex and no cycles.
+	If the component has exactly one vertex, then it is already a leaf adjacent to  $v$.
+	If the component has more than one vertex, then it has at least two leaves, where one of which is adjacent to $v$.
+
+	Thus,  there must be at least  $d$ leaves in  $T$ because each of the  $d$ subtrees adjacent to  $v$ must contribute at least one leaf.
+\end{proof}
+\end{document}

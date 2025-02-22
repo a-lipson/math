@@ -1,0 +1,20 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let $G$ be a bipartite graph with bipartition $\{X,Y\}$. Suppose every vertex of $G$ has the same degree. Prove that $|X| = |Y|$.
+\end{problem}
+\begin{proof}
+	Since each vertex has the same degree, call it $d$, then the sum of the degrees in  $X$ is  $d|X|$.
+	Since  $G$ is bipartite, then every vertex in  $X$ has an edge to a vertex in  $Y$.  \[
+		N(X)=Y
+		.\]
+	Hence, the total number of edges is exactly this count, \[
+		|E| = d|X|
+		.\]
+	By the same reasoning, $N(Y)=X\implies |E| = d|Y|$, which counts the same edges as before, just from the other side.
+
+	Thus,  \[
+		d|X| = |E| = d|Y| \implies |X| = |Y|
+		.\]
+\end{proof}
+\end{document}

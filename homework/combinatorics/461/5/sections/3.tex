@@ -1,0 +1,35 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let $G = (V,E)$ be a connected graph with a weighting $w : E \to \bb R_{\ge 0}$ on its edges. Prove that every minimum spanning tree of $G$ has the same multiset of edge weights.
+% \emph{Hint:} Use the previous problem.
+\end{problem}
+\begin{proof}
+	Suppose $T=(V,E)$ and  $T=(V,E')$ are two different minimum spanning trees (MST) of $G$.
+	Then, they differ by at least one edge.
+	Let  $e\in E\setminus E'$ and $e'\in E'\setminus E$.
+
+	WE must be able to pick such edges since $T$ and  $T'$ both span  $G$,
+	otherwise $T=T'$, so there is only one spanning which must already be minimum with one multiset.
+
+	By the announcement, both $T-e+e'$ and  $T'-e'+e$ are spanning trees of  $G$.
+
+	Since  $T$ and $T'$ are both MSTs, then they must both have the same total weight, call it  $w$.  \[
+		w(E)=w(E')=w
+		.\]
+	The new spanning trees cannot have a smaller weight than the MST weight $w$, otherwise $T$ and  $T'$ would not have been MSTs.
+	So, we have  \[
+		w(E)\le w(E-e+e')=w(E)-w(e)+w(e')\implies w(e)\le w(e')
+		.\]
+	We also have \[
+		w(E')\le w(E'-e'+e)=w(E')-w(e')+w(e)\implies w(e')\le w(e)
+		.\]
+	Thus,  \[
+		w(e)=w(e')
+		.\]
+	Hence, whenever $T$ and  $T'$ differ by an edge, the differing edges must have the same weight.
+	Repeating this for all differing edges implies that  $T$ and  $T'$ share the same multiset of weights.
+
+	Since  $T$ and  $T'$ were arbitrary MSTs, then every MST of  $G$ must have the same multiset of edge weights.
+\end{proof}
+\end{document}

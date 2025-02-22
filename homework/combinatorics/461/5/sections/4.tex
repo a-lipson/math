@@ -1,0 +1,34 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Determine whether the graphs from Problems 2 and 3 of Homework 4 are bipartite.
+
+Let $d_H(x,y)$ be the Hamming distance between two binary strings, which represents the number of bit positions in which  $x$ and  $y$ differ.
+
+We can label each binary string with an even or odd parity based on the sum of bits mod 2 (0 is even parity and 1 is odd parity).
+\begin{enumerate}[label=\alph*)]
+	\item $G_1=\{\{0,1\}^n, \{xy\ \mid\ x,y \in V,\ d_H(x,y)=1 \}  \} $.
+	\item $G_2=\{\{0,1\}^n, \{xy\ \mid\ x,y \in V,\ d_H(x,y)=2 \}  \} $.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	We claim that $G$ is bipartite by vertex parity.
+
+	Since every edge connects vertices of opposite parity, we must have a bipartition $\{X,Y\}$ where $X$ contains vertices of even parity and $Y$ contains vertices of odd parity.
+
+	Since there are no edges between vertices of the same parity, we have established a bipartition.
+\end{proof}
+\begin{proof}[Proof of b]
+	We will first consider $n=1$.
+	0 and 1 are the only vertices.
+	Since they do not differ by two bits, they have no edge between them and are thus bipartite.
+
+	For  $n=2$, we have that 01 and 10 are connected, as well as 00 and 11.
+	So, we have a bipartition  $\{\{01,00\},\, \{10,11\}\}$ of $G_2$ when $n=2$.
+
+	For $n\ge 3$, we have a three cycle or vertices that contain the following substrings: 001, 010, and 100, each of which differ by two bits, so they form an odd cycle.
+	This set of substrings has the same parity, they must be contained in at least one of the connected components of $G_2$ when $n\ge 3$.
+
+	Since there is an odd cycle in $G_2$, then $G_2$ is not bipartite for $n\ge 3$.
+\end{proof}
+\end{document}

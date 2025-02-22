@@ -1,0 +1,28 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that a connected bipartite graph has exactly one bipartition.
+\end{problem}
+Note that the bipartition $\{X,Y\} $ is the same as $\{Y,X\} $ since we can just swap labels.
+\begin{proof}
+	% Suppose that there were two distinct partitions $\{X,Y\} $ and $\{X',Y'\} $, 
+	% where $X\neq X'$ and $Y\neq Y'$ and also that there partitions are not just exchanged as in the note, $X\neq Y'$ and $Y\neq X'$. 
+
+	% So, there must be a $v$ whose membership differs between these two set partitions. 
+
+	% WLOG, suppose  $v\in X\cap Y'$.
+	% Then, there must be no edges between $v$ and $X$ (as well as with $Y'$). 
+	Suppose that there were two distinct set partitions that are not just exchanges as in the note.
+
+	Then, there must be at least one vertex $v$ whose membership differs between the two set partitions; i.e., we can move  $v$ between partitions and we will still have a connected bipartite graph $G$.
+
+	Let $\{X,Y\} $ be a bipartition of  $G-v$.
+	Now, if we set $v \in X$, then there must be no edges between $v$ and any  $x \in X$.
+	Similarly, if $v\in Y$, then there are no edges between $v$ and any  $y \in Y$.
+
+	But, since $X$ and $Y$ contain all vertices of $G-v$,
+	then $v$ is not connected to any other vertex of $G-v$, which contradicts the assumption that $G$ was connected.
+
+	Thus, we cannot have two distinct set partitions of a connected graph.
+\end{proof}
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f(x)=\sum_{0}^{\infty} a_n x^n$ with radius of convergence $R>0$.
+For all $x$ in the radius of convergence, show that
+\begin{enumerate}[label=\roman*)]
+	\item $f(-x)=f(x)$, $f$ even iff $\forall a_n = 0$ when $n$ is odd, and
+	\item $f(-x)=-f(x)$,  $f$ odd iff  $\forall a_n = 0$ when $n$ is even.
+\end{enumerate}
+\end{problem}
+\begin{proof}
+	Note that even functions satisfy $f(-x)=f(x)$ and have only even powers.
+
+	If $a_n$ for all  $n$ odd, then the series must only have even powers.
+	So, by definition, the series must be an even function satisfying $f(-x)=f(x)$.
+
+	Similarly,  $f(-x)=-f(x)$ for odd functions, which only have odd powers.
+
+	If  $a_n=0$ for all even  $n$, then the series must have only odd powers, so it must be an odd function where $f(-x)=-f(x)$ is satisfied.
+\end{proof}
+\end{document}

@@ -1,0 +1,22 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+For $k\in \Z_{\ge 0}$, let the Bessel function of order $k$ be defined as  \[
+	J_k(x)=\sum_{0}^{\infty} \frac{(-1)^n}{n!(n+k)!}{\left( \frac{x}{2} \right) }^{2n+k}
+	.\]
+\begin{enumerate}[label=\alph*)]
+	\item Verify $J_k(x)$ converges for all  $x$.
+
+	      Using the ratio test, we see that  \[
+		      \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| =\lim_{n \to \infty}  \left| \frac{x^2}{4(n+1)(n+k+1)} \right| = 0
+	      \] for all fixed $x$ since the ratio is of order  $\frac{1}{n^2}$.
+	\item  Show that $(x^k J_k(x))' = x^k J_{k-1}(x)$.
+
+	      We have that \[
+		      x^k J_{k-1}(x) = \sum_{0}^{\infty} \frac{(-1)^n x^{2n+2k-1}}{2^{2n+k-1}n!(n+k-1)!}
+		      .\]
+
+	      We will take termwise derivatives
+\end{enumerate}
+\end{problem}
+\end{document}

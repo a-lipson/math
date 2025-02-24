@@ -1,0 +1,49 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Use series expansions from the previous problem to compute the following with an error less than $10^{-3}$.
+\end{problem}
+\begin{enumerate}[label=\alph*)]
+	\item $\int_{0}^{1} e^{-t^2} \,dt$.
+
+	      We have that, $\forall x \in [0,1],\, |R_k(x)|\le \sup{|f^{(k+1)}(x)|}\frac{x^{k+1}}{(k+1)!}$.
+
+	      As in Homework 1 Question 7, we will let $g(x)=e^{-x}$.
+	      Then, $\forall x \in [0,1]$, \[
+		      |R_k(x)|\le \left|\sup{g^{(k+1)}(x)}\right|\frac{x^{k+1}}{(k+1)!} \le \frac{|\sup{e^{-x}}|}{(k+1)!}=\frac{1}{(k+1)!}
+		      .\]
+
+	      Then, \[
+		      \left| \int_{0}^{1} \left( e^{-t^2}-P_k(t) \right)  \,dt \right| \le \int_{0}^{1} |R_k(t^2)| \,dt \le \int_{0}^{1} \frac{dt}{(k+1)!} = \frac{1}{(k+1)!} \le 10^{-3}
+		      .\]
+
+	      So, we have that $(k+1)!\ge 10^3 \implies k \ge 7$.
+	      Then, using the $7^{\text{th}}$ order Taylor Expansion in a calculator, we have that, at $x=1$, \[
+		      \sum_{0}^{7} \frac{(-1)^n}{(2n+1)n!}\approx 0.7468
+		      .\]
+
+	\item $\int_{0}^{1} \cos{t^2}  \,dt$.
+
+	      Similar to the above, $g(x)=\cos{x}$ has all derivatives bounded by 1.
+	      So, $|R_k(x)|\le \frac{1}{(k+1)!}$ and $k\ge 7$ will work as well.
+
+	      Then, at $x=1$,  \[
+		      \sum_{0}^{7} \frac{(-1)^n}{(4n+1)(2n)!}\approx 0.9045
+		      .\]
+
+	\item $\int_{0}^{\frac{1}{2}} t^{-1}\log{(1+2t)} \,dt$.
+
+	      At $x=\frac{1}{2}$, we have $\sum_{1}^{\infty} \frac{(-1)^{n+1}}{n^2}$
+	      \footnote{This is Dirichlet $\eta (2) = \frac{\pi^2 }{12}$.}
+
+	      Note that, by AST, the difference between the sum of the series and the $N^{\text{th}}$ partial sum is bounded by $ \frac{1}{(N+1)^2}$.
+
+	      So,  \[
+		      \frac{1}{(N+1)^2}\le 10^3\implies N \ge 10^{\frac{3}{2}}-1 \approx 31
+		      .\]
+
+	      So, the $31^{\text{st}}$ partial sum will give an error within the desired bound, \[
+		      \sum_{1}^{31}  \frac{(-1)^{n+1}}{n^2} \approx 0.8230
+		      .\]
+\end{enumerate}
+\end{document}

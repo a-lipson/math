@@ -1,0 +1,20 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Show that for all sequences $a_n$, the radius of convergence of $\sum_{0}^{\infty} a_n x^n= {\left( \limsup_{n \to \infty} {|a_n|}^{\frac{1}{n}} \right)}^{-1} $.
+\end{problem}
+\begin{proof}
+	Consider the root test on power series.
+	Let $L=\limsup_{n \to \infty} {|a_n|}^{\frac{1}{n}}$.
+	We wish to show that the radius of convergence $R = \frac{1}{L}$.
+
+	We have that, \[
+		\limsup_{n \to \infty} {|a_n x^n|}^{\frac{1}{n}}=\limsup_{n \to \infty} {|a_n|}^{\frac{1}{n}}|x|=L|x|
+		.\]
+	So, the given series converges when $L|x|<1 \implies |x|<\frac{1}{L}$ by the root test.
+
+	But, we had $|x|<R$ as the radius of  convergence as well.
+
+	Thus, we must have $R=\frac{1}{L}$.
+\end{proof}
+\end{document}

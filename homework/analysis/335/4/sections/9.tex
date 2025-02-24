@@ -1,0 +1,37 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Consider $f(x)=\int_{0}^{x} \arctan{t}  \,dt$.
+\end{problem}
+\begin{enumerate}[label=\alph*)]
+	\item Integrate to evaluate $f$ in terms of elementary functions.
+
+	      By IBP, \[
+		      \int_{0}^{x} \arctan{t}  \,dt  = \left[ t\arctan{t}-\frac{1}{2}\log{(1+t^2)}   \right]_0^x = x\arctan{x}-\frac{1}{2}\log{(1+x^2)}
+		      .\]
+
+	\item Using the arctangent series, compute the Taylor Series of $f$ and show that it converges when $|x| \le 1$.
+
+	      We have that, \[
+		      \sum_{0}^{\infty} \frac{(-1)^n x^{2n+1}}{2n+1} = \arctan{x},\,  \forall |x|<1
+		      .\]
+
+	      Then, \[
+		      \int_{0}^{x} \arctan{t}  \,dt = \sum_{0}^{\infty} \int_{0}^{x} \frac{(-1)^nt^{n+1}}{2n+1} \,dt = \sum_{0}^{\infty} \frac{(-1)^n x^{2n+2}}{(2n+1)(2n+2)}
+		      .\]
+
+	      Note that, for all fixed $|x|\le 1$, this series is of order  $\frac{1}{4n^2}$, which converges.
+
+	\item Conclude that \[
+		      1-\frac{1}{2} - \frac{1}{3}  + \frac{1}{4} + \frac{1}{5}  - \frac{1}{6}  - \frac{1}{7}  + \cdots = \frac{\pi}{4} - \frac{1}{2}\log{2}
+		      .\]
+	      We have that \[
+		      \int_{0}^{1} \arctan{t}  \,dt = \arctan{1}-\frac{1}{2}\log{(1+1^2)}  = \frac{\pi}{4}-\frac{1}{2}\log{2}
+		      .\] .
+
+	      We also have that \[
+		      \sum_{0}^{\infty} \frac{(-1)^n}{(2n+1)(2n+2)} = \sum_{0}^{\infty} (-1)^n \left( \frac{1}{2n+1} - \frac{1}{2n+2}\right) = 1-\frac{1}{2} - \frac{1}{3}  + \frac{1}{4} + \frac{1}{5}  - \frac{1}{6}  - \frac{1}{7}  + \cdots
+		      .\]
+	      Thus, the statement holds.
+\end{enumerate}
+\end{document}

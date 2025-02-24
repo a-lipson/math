@@ -1,0 +1,41 @@
+\documentclass[../hw3]{subfiles}
+\begin{document}
+\begin{problem}
+Show that the following functions have a power series expansion centered at the origin.
+Find the expansion and give the interval of validity.
+\end{problem}
+\begin{enumerate}[label=\alph*)]
+	\item $\int_{0}^{x} e^{-t^2} \,dt$.
+
+	      We have that $e^x$ is uniformly convergent for all  $x$.
+	      So, \[
+		      e^{-t^2}=\sum_{0}^{\infty} \frac{(-t^2)^n}{n!}=\sum_{0}^{\infty} (-1)^n \frac{t^{2n}}{n!}
+		      .\]
+
+	      Then, we can integrate termwise, \[
+		      \sum_{0}^{\infty} \frac{(-1)^n}{n!}\int_{0}^{x} t^{2n} \,dt = \sum_{0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)n!}
+		      ,\] which holds for all $x$.
+
+	\item $\int_{0}^{x} \cos{t^2}  \,dt$.
+
+	      Since $\cos{x} $ is uniformly convergent for all $x$, then  \[
+		      \cos{t^2} = \sum_{0}^{\infty} (-1)^n \frac{t^{4n}}{(2n)!}
+		      .\]
+
+	      So, we can integrate termwise.
+	      This gives, for all $x$, \[
+		      \int_{0}^{x} \cos{t^2}  \,dt = \sum_{0}^{\infty} \frac{(-1)^n}{(2n)!}\int_{0}^{x} t^{4n} \,dt = \sum_{0}^{\infty} \frac{(-1)^nx^{4n+1}}{(4n+1)(2n)!}
+		      .\]
+
+	\item $\int_{0}^{x} t^{-1}\log{( 1+2t )} \,dt$.
+
+	      We have that  $\log{( 1+x )}$ is uniformly convergent for all $x \in (-1,1]$.
+	      So, \[
+		      t^{-1}\log{(1+2t)} = \sum_{1}^{\infty} \frac{(-1)^{n+1} 2^n t^{n-1}}{n}
+	      \] is valid for all $t \in \left( -\frac{1}{2},\frac{1}{2}  \right]$.
+
+	      Thus, \[
+		      \int_{0}^{x} t^{-1}\log{(1+2t)}  \,dt = \sum_{1}^{\infty} \frac{(-1)^{n+1}2^n}{n}\int_{0}^{x} t^{n-1} \,dt = \sum_{1}^{\infty} \frac{(-1)^{n+1}(2x)^n}{n^2}
+		      ,\] which is valid for all $x \in \left( -\frac{1}{2},\frac{1}{2}  \right]$
+\end{enumerate}
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that for $p$ prime,  $f(x)=x^{p-1}+x^{p-2}+\cdots+x^2 + x + 1$ is irreducible in $\Q[x]$.
+\end{problem}
+\begin{proposition}
+	If $f(x+c)$ is irreducible over $F[x]$ $f(x)$, then so is $f(x)$.
+\end{proposition}
+\begin{proof}[Proof of Proposition]
+	We will prove the contrapositive.
+	$f(x)$ is reducible in  $F[x]$ iff there is a root $a$ of $f$ such that  $f(a)=0$.
+
+	Then,  for $x=a-c$, $f(a-c+c)=f(a)=0$ is a root of $f(x+c)$.
+
+	Thus, $f(x+c)$ is reducible in $F[x]$ as well.
+\end{proof}
+\begin{proof}[Proof of Problem]
+	Note that \[
+		(x-1)f(x)=x^p-1 \implies f(x)=  \frac{x^p-1}{x-1}
+		.\]
+
+	We will consider \[
+		f(x+1)=\frac{(x+1)^p-1}{x}
+		.\]
+
+	By the binomial expansion, we have \[
+		(x+1)^p = \sum_{0}^{p} \binom{p}{k} x^k \cdot 1^{p-k} = \sum_{0}^{p} \binom{p}{k} x^k
+		.\]
+
+	So, \[
+		f(x+1)=\frac{1}{x}\left( \sum_{0}^{p} \binom{p}{k} x^k - 1 \right) = \sum_{1}^{p} \binom{p}{k} x^{k-1}
+		.\]
+
+	For $k=p$,  $\binom{p}{p} = 1$, so $p$ is coprime with the leading coefficient.
+
+	Note that $\forall 0<k<p,\, p\mid \binom{p}{k}$.
+	So, $p$ divides all the other coefficients.
+
+	Then, at $k=1$, $\binom{p}{1} = p$ but $p^2\nmid p$.
+	So, the conditions of Einstein's Criterion are satisfied.
+	Thus, $f(x+1)$ is irreducible in  $\Q[x]$.
+
+	Hence, by the Proposition, $f(x)$ is irreducible in  $\Q[x]$ as well.
+\end{proof}
+\end{document}

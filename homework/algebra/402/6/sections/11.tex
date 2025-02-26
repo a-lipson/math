@@ -1,0 +1,65 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Write the addition  and multiplication tables for the congruence class ring $F[x]/(p(x))$;
+in each case, is $F[x]/(p(x))$ a field?
+\end{problem}
+\begin{enumerate}[label=\roman*)]
+	\item $\Z_3[x]/(x^2+1)$.
+
+	      The congruence classes are $3^2=9$ polynomials of degree 1:
+	      $0,1,2,x,2x,x+2,x+2,2x+1,2x+1$.
+
+	      Note that, in the following tables, we have omitted the brackets around each of the congruence classes, but this table holds for all members of each congruence class respectively.
+	      \[\begin{array}{r | r r r r r r r r r}
+			      +    & 0    & 1    & 2    & x    & 2x   & x+1  & x+2  & 2x+1 & 2x+2 \\
+			      \hline
+			      0    & 0    & 1    & 2    & x    & 2x   & x+1  & x+2  & 2x+1 & 2x+2 \\
+			      1    & 1    & 2    & 0    & x+1  & 2x+1 & x+2  & x    & 2x+2 & 2x   \\
+			      2    & 2    & 0    & 1    & x+2  & 2x+2 & x    & x+1  & 2x   & 2x+1 \\
+			      x    & x    & x+1  & x+2  & 2x   & 0    & 2x+1 & 2x+2 & 1    & 2    \\
+			      2x   & 2x   & 2x+1 & 2x+2 & 0    & x    & 1    & 2    & x+1  & x+2  \\
+			      x+1  & x+1  & x+2  & x    & 2x+1 & 1    & 2x+2 & 2x   & 2    & 0    \\
+			      x+2  & x+2  & x    & x+1  & 2x+2 & 2    & 2x   & 2x+1 & 0    & 1    \\
+			      2x+1 & 2x+1 & 2x+2 & 2x   & 1    & x+1  & 2    & 0    & x+2  & x    \\
+			      2x+2 & 2x+2 & 2x   & 2x+1 & 2    & x+2  & 0    & 1    & x    & x+1  \\
+		      \end{array}\]
+	      \[\begin{array}{r | r r r r r r r r r}
+			      \times & 0 & 1    & 2    & x    & 2x   & x+1  & x+2  & 2x+1 & 2x+2 \\
+			      \hline
+			      0      & 0 & 0    & 0    & 0    & 0    & 0    & 0    & 0    & 0    \\
+			      1      & 0 & 1    & 2    & x    & 2x   & x+1  & x+2  & 2x+1 & 2x+2 \\
+			      2      & 0 & 2    & 1    & 2x   & x    & 2x+2 & 2x+1 & x+2  & x+1  \\
+			      x      & 0 & x    & 2x   & 2    & 1    & x+2  & x+1  & 2x+2 & 2x+1 \\
+			      2x     & 0 & 2x   & x    & 1    & 2    & 2x+1 & 2x+2 & x+1  & x+2  \\
+			      x+1    & 0 & x+1  & 2x+2 & x+2  & 2x+1 & 0    & 2    & 2x   & 1    \\
+			      x+2    & 0 & x+2  & 2x+1 & x+1  & 2x+2 & 1    & 0    & 2    & 2x   \\
+			      2x+1   & 0 & 2x+1 & x+2  & 2x+2 & x+1  & 2x   & 2    & 0    & 1    \\
+			      2x+2   & 0 & 2x+2 & x+1  & 2x+1 & x+2  & 1    & 2x   & 1    & 0    \\
+		      \end{array}\]
+
+	      Since we have zero entries in the multiplication table, then we have zero divisors, so $\Z_3[x]/(x^2 + 1)$ is not a field.
+
+	\item $\Z_2[x]/(x^2+1)$.
+
+	      We have the congruence classes of $0,1,x,x+1$.
+	      \[\begin{array}{r | r r r r}
+			      +   & 0   & 1   & x   & x+1 \\
+			      \hline
+			      0   & 0   & 1   & x   & x+1 \\
+			      1   & 1   & 0   & x+1 & x   \\
+			      x   & x   & x+1 & 0   & 1   \\
+			      x+1 & x+1 & x   & 1   & 0   \\
+		      \end{array}\]
+	      \[\begin{array}{r | r r r r}
+			      \times & 0 & 1   & x   & x+1 \\
+			      \hline
+			      0      & 0 & 0   & 0   & 0   \\
+			      1      & 0 & 1   & x   & x+1 \\
+			      x      & 0 & x   & 1   & x+1 \\
+			      x+1    & 0 & x+1 & x+1 & 0   \\
+		      \end{array}\]
+
+	      Since $x^2+1$ is reducible in $Z_2[x]$ and its factor $x+1$ represents a congruence class, then  $Z_2[x]/(x^2+1)$ has zero divisors and is thus not a field.
+\end{enumerate}
+\end{document}

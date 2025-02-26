@@ -1,0 +1,41 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Factor each polynomial as a product of irreducibles in $\Q[x]$, $\R[x]$, and $\C[x]$.
+\end{problem}
+\begin{enumerate}[label=\alph*]
+	\item $x^4-2$.
+
+	      $x^4-2$ is irreducible in  $\Q[x]$ by the Rational Root Theorem.
+
+	      Then, $x^4-2=(x^2+2^{\frac{1}{2}})(x-2^{\frac{1}{4}})(x+2^{\frac{1}{4}}) \in \R[x]$,
+	      where the remaining quadratic term has a negative discriminant and is therefore irreducible in $\R[x]$.
+
+	      However, in $\C[x]$, all irreducible polynomials are linear, so we must have \[
+		      x^4-2=(x-2^{\frac{1}{4}}i)(x+2^{\frac{1}{4}}i)(x-2^{\frac{1}{4}})(x+2^{\frac{1}{4}}) \in  \C[x]
+		      .\]
+
+	\item $x^3+1$.
+
+	      First, $x^3+1=(x+1)(x^2-x+1)$. Since $x^2-x+1$ has a negative discriminant, then it is irreducible in both $\Q[x]$ and $\R[x]$.
+
+	      So, the above is a product of irreducibles for $\Q[x]$ and $\R[x]$.
+
+	      Then, we have \[
+		      x^3+1 = (x+1)\left( x- \left( \frac{1 \pm \sqrt{3}i }{2} \right)  \right) \in \C[x]
+	      \] by the quadratic formula, which is a product of linear and therefore irreducible polynomials in $\C[x]$.
+
+	\item $x^3 - x^2 - 5x + 5$.
+
+	      We have a root at $x=1$, so  $x-1$ is a factor of this polynomial.
+
+	      This gives $(x-1)(x^2-5)$.
+	      Since $x^2-5$ is irreducible in $\Q[x]$, then the this is a product of irreducibles is  $\Q[x]$.
+
+	      But, in $\R[x]$, we have \[
+		      x^3 - x^2  - 5x + 5 = (x-1)(x-\sqrt{5} )(x + \sqrt{5} )\in \R[x]
+		      .\]
+
+	      Since all of these factors are linear polynomials, then this factoring also holds in $\C[x]$.
+\end{enumerate}
+\end{document}

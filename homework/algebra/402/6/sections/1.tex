@@ -1,0 +1,19 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Show that $\sqrt{p}$ is irrational for all positive prime integers $p$.
+\end{problem}
+\begin{proof}
+	We will consider all $p>1$ because  $1=\sqrt{1}$ is a rational positive prime integer.
+
+	Consider the polynomial $x^2-p$ which has roots $ \pm \sqrt{p} $.
+
+	By the Rational Root Theorem,
+	if $x^2-p$ has a rational root $q$, then it must be $ \pm p$ or $ \pm 1$.
+
+	But, $( \pm p)^2-p \neq 0$ and $ ( \pm 1)^2-p\neq 0$ for all $p>1$.
+
+	So,  $x^2-p$ has no rational roots,
+	hence its roots $ \pm \sqrt{p} $ must not be rational.
+\end{proof}
+\end{document}

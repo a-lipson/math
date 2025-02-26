@@ -1,0 +1,21 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Show that there are infinitely many integers $k$ such that $x^9+12x^5-21x+k$ is irreducible in  $\Q[x]$.
+\end{problem}
+\begin{proof}
+	We wish to satisfy Einstein's Criterion in order to show that the given polynomial is irreducible in $\Q[x]$.
+
+	We have that the leading coefficient of this polynomial is 1, which is coprime to all primes $p$.
+
+	Then, we must have $p\mid 12$, $p\mid 21$, and $p\mid k$.
+	Since $(12,21)=3$, then $p=3$.
+
+	We need $p\mid k$ but not $p^2\mid k$.
+	So, we must have $k=3^{2n+1},\, \forall n \in \Z_{\ge 0}$.
+	This gives $3\mid 3^{2n+1}$ but not $3^2\mid 3^{2n+1}$ as desired.
+
+	Thus, $f$ is irreducible over $\Q[x]$ by Einstein's Criterion,
+	and there are infinitely many such $k$ of the form  $k=3^{2n+1},\, \forall n \in \Z_{\ge 0}$ which satisfy these conditions.
+\end{proof}
+\end{document}

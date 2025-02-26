@@ -1,0 +1,15 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that if $p(x)$ is irreducible in  $F[x]$ and $f(x)g(x)\equiv 0_F\mod{p(x)}$,
+then $f(x)\equiv 0_F\mod{p(x)} $ or $g(x)\equiv 0_F \mod{p(x)} $.
+\end{problem}
+\begin{proof}
+	This is analogous to the fact that $\Z_p$ is field and therefore has no zero divisors when $p$ is prime.
+	So, we will show that the polynomial ring $F[x]$ is a field when  $p(x)$ is irreducible.
+
+	Since $f(x)g(x) \equiv 0 \mod{p(x)} $, then $p(x)\mid f(x)g(x)$.
+	By Theorem 4.12, $F[x]$ is a unique factorization domain when  $p(x)$ is irreducible; e.g., $p(x)$ irreducible and $p(x)\mid f(x)g(x) $ implies that $p(x)$ divides  $f(x)$ or $p(x)$ divides  $g(x)$.
+	Thus, $f(x)\equiv 0 \mod{p(x)} $ or $g(x)\equiv 0 \mod{p(x)} $ and we are done.
+\end{proof}
+\end{document}

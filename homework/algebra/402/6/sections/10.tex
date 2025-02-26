@@ -1,0 +1,14 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that, when $f(x)$ and $p(x)$ are coprime in $F[x]$, then $f(x)$ is a unit in $F[x]/(p(x))$.
+\end{problem}
+\begin{proof}
+	This is Theorem 5.9.
+	We wish to show that there exists a $g(x)\in F[x]$ such that $f(x)g(x)\equiv 1_F \mod{p(x)} $.
+
+	By Theorem 4.8, since $(f(x),p(x))=1$, then there exist some $g(x),q(x)\in F[x]$ such that we have the linear combination $f(x)g(x)+p(x)q(x)=1$.
+
+	Then, if we consider this equation in mod  $p(x)$, we have that  $f(x)g(x)\equiv 1 \mod{p(x)}$, so we are done.
+\end{proof}
+\end{document}

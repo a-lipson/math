@@ -13,10 +13,75 @@ For $k\in \Z_{\ge 0}$, let the Bessel function of order $k$ be defined as  \[
 	\item  Show that $(x^k J_k(x))' = x^k J_{k-1}(x)$.
 
 	      We have that \[
-		      x^k J_{k-1}(x) = \sum_{0}^{\infty} \frac{(-1)^n x^{2n+2k-1}}{2^{2n+k-1}n!(n+k-1)!}
+		      x^k J_{k-1}(x) = \sum_{1}^{\infty} \frac{(-1)^n x^{2n+2k-1}}{2^{2n+k-1}n!(n+k-1)!}
 		      .\]
 
-	      We will take termwise derivatives
+	      We will take termwise derivatives to show that the above is the same as the left-hand side of the given equation. \[
+		      \sum_{0}^{\infty}\frac{d}{dx} \frac{(-1)^n x^{2n+2k}}{2^{2n+k}n!(n+k)!}
+		      = \sum_{1}^{\infty} \frac{(-1)^n 2(n+k) x^{2n+2k-1}}{2^{2n+k} n!(n+k)!}
+		      = \sum_{1}^{\infty} \frac{(-1)^n x^{2n+2k-1}}{2^{2n+k-1}n!(n+k-1)!}
+		      ,\]
+	      which indeed matches the above.
+
+	\item Show that $(x^{-k}J_k(x))'=-x^{-k}J_{k+1}(x)$.
+
+	      First, we have that \[
+		      -x^{-k}J_{k+1}(x) = \sum_{0}^{\infty} \frac{(-1)^{n+1} x^{2n+1}}{2^{2n+k+1}n!(n+k+1)!}
+		      .\]
+
+
+	      Then, performing differentiation on the left hand side of the given equation,
+	      \begin{align*}
+		      \sum_{0}^{\infty} \frac{d}{dx} \frac{(-1)^n x^2n}{2^{2n+k}n!(n+k)!} & = \sum_{1}^{\infty} \frac{ 2n (-1)^n x^{2n-1} }{2^{2n+k}n!(n+k)!}                   \\
+		                                                                          & = \sum_{n=1}^{\infty} \frac{(-1)^n x^{2n-1}}{2^{2n+k-1}(n-1)!(n+k)!}                \\
+		                                                                          & = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}x^{2(n+1)-1}}{2^{2(n+1)+k-1}(n+1-1)!(n+k+1)!} \\
+		                                                                          & = \sum_{0}^{\infty} \frac{(-1)^{n+1}x^{2n+1}}{2^{2n+k+1}n!(n+k+1)!}
+		      ,\end{align*}
+	      which is the same as the above, so the given equation holds.
+
+	\item Show that $u=J_k(x)$ satisfies the differential equation  \[
+		      x^2 u''  +xu' + (x^2-k^2)u = 0
+		      .\]
+
+	      By part b, we have \[
+		      \frac{d}{dx}[x^k J_k(x)] = kx^{k-1}J_k(x) + x^k J'_k(x) =x^k J_{k-1}(x)
+		      .\]
+
+	      This gives, \[
+		      J'_k(x)=x^{-k}(x^kJ_{k-1}(x)-kx^{k-1}J_k(x))=J_{k-1}(x)-\frac{k}{x}J_k(x)
+		      .\]
+
+	      By part c, we have \[
+		      \frac{d}{dx}[x^{-k}J_k(x)]=-kx^{-k-1}J_k(x)+x^{-k}J'_k(x)=-x^{-k}J_{k+1}(x)
+		      .\]
+
+	      This gives, \[
+		      J'_k(x)=x^k(kx^{-k-1}J_k(x) - x^{-k}J_{k+1}(x)) = \frac{k}{x}J_k(x)-J_{k+1}(x)
+		      .\]
+
+	      % Equating the above equations for $J'_k(x)$, we have,  \[
+	      %  \frac{k}{x}J_k(x)-J_{k+1}(x)=J_{k-1}(x)-\frac{k}{x}J_k(x)
+	      %  \implies J_{k-1}(x)+J_{k+1}(x)=\frac{2k}{x}J_k(x)
+	      %  .\]
+
+	      Differentiating one form of $J'_k(x)$, we have
+	      \begin{align*}
+		      J''_k(x) & =J'_{k-1}(x)+\frac{k}{x^2}J_k(x)-\frac{k}{x}J'_k(x)                                                         \\
+		               & = \frac{k-1}{x}J_{k-1}(x)-J_k(x)+\frac{k}{x^2}J_k(x)-\frac{k}{x}\left( J_{k-1}(x)-\frac{k}{x}J_k(x) \right) \\
+		               & = -\frac{1}{x}J_{k-1}(x)+\frac{k^2+k-x^2}{x^2}J_k(x)
+		      .\end{align*}
+
+	      Now, we wish to show that  \[
+		      x^2J''_k(x)=-x J'_k(x)+(k^2-x^2)J_k(x)
+		      .\]
+
+	      Using the derived equations above,
+	      \begin{align*}
+		      x^2\left(-\frac{1}{x}J_{k-1}(x)+\frac{k^2+k-x^2}{x^2}J_k(x)
+		      \right)                            & = -x \left( J_{k-1}(x)-\frac{k}{x}J_k(x) \right) + (k^2-x^2)J_k(x) \\
+		      -xJ_{k-1}(x)+(k^2 + k - x^2)J_k(x) & = -x J_{k-1}(x)+ (k^2 + k - x^2)J_k(x)
+		      ,\end{align*}
+	      which is indeed true, so the differential equation holds.
 \end{enumerate}
 \end{problem}
 \end{document}

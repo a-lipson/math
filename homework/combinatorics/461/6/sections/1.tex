@@ -1,0 +1,26 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Let $G$ be a graph with bipartition $\{X,Y\}$. Suppose that every vertex in $X$ has degree $a$, and every vertex in $Y$ has degree $b$, and $a \ge b \ge 1$. Prove there is a matching of $G$ such that every element of $X$ is covered.
+\end{problem}
+\begin{proof}
+	We wish to show that $\forall S\subset X,\, |S| \le |N(S)|$.
+
+  Consider any $S\subset X$. 
+  The number of edges from $S$ is  $a|S| $. 
+
+  These edges go into the vertices $N(S)\subset Y$, which have at most $b|N(S)|$ edges. 
+  So, $a|S| \le b|N(S)|$. 
+
+	Since $1\le b\le a$, then we have $b / a \le 1$ and $|S| / |N(S)| \le b / a \le 1$, 
+  which means that $|S| \le |N(S)|$.
+
+  Since this holds for any $S\subset X$, then, by Hall's Theorem, we must have a matching covering $X$. 
+\end{proof}
+\end{document}
+	% We will count the number of edges in $G$ in two ways.
+	% Since every vertex in $Y$ has degree $b$, then we must have $b|Y|$ edges.
+	% Since every vertex in $Y$ has degree $a$, then we must have $a|X|$ edges.
+	%
+	% So, $a|X| = b|Y| \implies |X| / |Y| = b / a$.
+	% Since $a\ge b\ge 1$, we have $b / a \le 1$, which means that $|X| \le |Y| $.

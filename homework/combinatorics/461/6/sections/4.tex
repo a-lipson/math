@@ -1,0 +1,20 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Determine all pairs $(m,n)$ of positive integers such that $K_{m,n}$ has an Eulerian walk.
+\end{problem}
+\begin{proof}
+	If $m$ and  $n$ are even, then all vertices of  $K_{m,n}$ must have an even degree, which means that we have an Eulerian circuit and thus and Eulerian walk as well.
+
+	If we have $K_{r,2}$ or $K_{2,r}$ such that $r$ is odd, then we will have exactly two vertices of odd degree, which means that we also have an Eulerian walk.
+
+	For $K_{1,1}$, we also have an Eulerian walk.
+
+	If $m>1$ and  $n>1$ are both odd, then we must have  $m+n>2$ odd vertices, which prevents us from having an Eulerian walk.
+
+	Thus, the valid pairings, which we can write irrespective of order, are:
+	$(m,n)$ for $m$ and $n$ even, $(2,r)$ for $r$ odd, and $(1,1)$.
+
+	All other pairings will have more than 2 odd vertices, and therefore will not have an Eulerian walk.
+\end{proof}
+\end{document}

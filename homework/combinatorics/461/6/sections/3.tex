@@ -1,0 +1,52 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Players 1 and 2 are playing a game on a graph $G$. Player 1 starts by choosing a vertex $v_1$. Player 2 then chooses a vertex $v_2$ different from $v_1$ and adjacent to $v_1$. Player 1 then chooses a vertex $v_3$ different from $v_1$ and $v_2$, and adjacent to $v_2$. Player 2 then chooses a vertex $v_4$ different from $v_1$, $v_2$, and $v_3$, and adjacent to $v_3$. And so on. If a player has no vertices they can choose on their turn, they lose and the other player wins.
+\begin{enumerate}
+	\item Prove that if $G$ has a perfect matching, then Player 2 has a strategy to always win.
+	\item Prove that if $G$ does not have a perfect matching, then Player 1 has a strategy to always win.
+
+	      \emph{Hint:} Consider a matching with a maximum number of edges, and have Player 1 start at an unmatched vertex.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Let $M$ be the perfect matching of  $G$.
+	For whichever vertex that P1 chooses, P2 can choose the matched vertex from  $M$.
+
+	If there is no vertex adjacent to P2's choice, then P2 wins.
+
+	Otherwise, P1 will pick an adjacent vertex, call it $v$, which cannot be matched to any previously chosen vertices as P2 only chooses vertices that complete the perfect matching according to $M$.
+
+	Since $G$ has a perfect matching, then $v$ will also have a matched vertex $v'$, which P2 can choose.
+
+	Thus, there are either zero or at least two vertices remaining.
+
+	Repeat the above steps until there are zero vertices remaining, at which point P2 will have chosen the last vertex and thereby win as P1 will have no unmatched choices remaining.
+\end{proof}
+\begin{proof}[Proof of b]
+	Consider the maximum matching $M$ of $G$.
+	Since  $G$ does not have a perfect matching, then there must be at least one unmatched vertex in  $G$.
+
+	P1 should start by choosing such an unmatched vertex $u$.
+
+	If there are no edges incident to $u$, then P2 cannot make any moves, so P1 wins.
+
+	Otherwise, there must be another vertex $v$ adjacent to $u$ which must be matched to a vertex $w$ in $M$.
+
+	If $v$ was unmatched, then we could have constructed larger matching than $M$ by adding an edge between the $u$,
+	which was unmatched as well, and its neighbor $v$.
+
+	After P2 chooses their only option $v$, then P1 must choose its partner $w$ in $M$.
+
+	P2 must then choose an adjacent unused vertex, which cannot be matched to any previously chosen vertex since $u$ was unmatched and $v$ and $w$ were matched.
+
+	P1 can continue to follow the strategy given in part (a):
+	whenever P2 chooses a vertex $x$, P1 responds by choosing the vertex $y$ matched with  $x$ in $M$.
+	This creates an $M$-alternating path $P$ in $G$ which starts at the unmatched vertex $u$.
+
+	Since $M$ is a maximum matching, then there cannot be an  $M$-augmenting path in $G$.
+	Therefore, $P$ cannot end at another unmatched vertex.
+
+	Eventually, P2 will be forced into a position where they have no valid move and lose, which means P1 wins.
+\end{proof}
+\end{document}

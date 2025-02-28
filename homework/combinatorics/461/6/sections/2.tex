@@ -1,0 +1,49 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Let $\binom{[n]}{k}$ denote the set of $k$-element subsets of $[n]$. Using Problem 1, prove that if $k < n/2$, then there is an injective map $f : \binom{[n]}{k} \to \binom{[n]}{k+1}$ such that $S \subset f(S)$ for all $S \in \binom{[n]}{k}$.
+\end{problem}
+\begin{proof}
+	We will construct a graph with the bipartition $\left\{X = \binom{[n]}{k} ,Y =\binom{[n]}{k+1} \right\}$.
+	%where edges are given by the mapping $f$.
+
+	For every $k$ element subset of $[n]$, there are  $n-k$ ways to choose the  ${k+1}^{\text{th}}$ element. \\
+	So, the degree of each vertex in $X$ is $n-k$.
+
+	For every $k+1$ element subset of $[n]$, there are  $k+1$ ways to remove an element down to  $k$ elements. \\
+	So, the degree of each vertex in $Y$ is $k+1$.
+
+	Since $\frac{n}{2}>k$, then we have  $\frac{n}{2}+1>k+1$ and $n-k>n-\frac{n}{2} = \frac{n}{2}$.
+
+	So, $n-k+1>\frac{n}{2}+1>k+1$.
+	Since $n$ and  $k$ are integers, then  $n-k \ge k+1$.
+
+	By Problem 1, $n-k\ge k+1\ge 1$ implies that we must have a matching covering $X$,
+	which means that every vertex in $Y$ is matched to at most one vertex in  $X$.
+
+	Thus, we can define an injective mapping $f$ given by the edges from $X=\binom{[n]}{k}$ to $Y=\binom{[n]}{k+1}$.
+
+	% Let $X = \binom{[n]}{k}$ be the set of all $k$-element subsets of $[n]$, and $Y = \binom{[n]}{k+1}$ be the set of all $(k+1)$-element subsets of $[n]$.
+	%
+	% We construct a bipartite graph $G$ with vertex partition $\{X, Y\}$ and edge set $E$ defined as follows:
+	% $$(S, T) \in E \iff S \in X, T \in Y, \text{ and } S \subset T$$
+	%
+	% That is, there is an edge between $S \in X$ and $T \in Y$ if and only if $S$ is a subset of $T$.
+	%
+	% For any $S \in X$, the degree of $S$ in $G$ is $n-k$, because there are exactly $n-k$ elements in $[n] \setminus S$ that can be added to $S$ to form a $(k+1)$-element set.
+	%
+	% For any $T \in Y$, the degree of $T$ in $G$ is $k+1$, because there are exactly $k+1$ ways to remove one element from $T$ to form a $k$-element set.
+	%
+	% Given that $k < \frac{n}{2}$, we have $\frac{n}{2} > k$, which implies $n - k > \frac{n}{2}$. Also, since $k < \frac{n}{2}$, we have $k+1 \leq \frac{n}{2} + \frac{1}{2}$ if $n$ is odd, or $k+1 \leq \frac{n}{2}$ if $n$ is even. In either case, since $k$ and $n$ are integers, we have $n-k \geq k+1$.
+	%
+	% Thus, every vertex in $X$ has degree $n-k$, every vertex in $Y$ has degree $k+1$, and $n-k \geq k+1 \geq 1$. By Problem 1, there exists a matching $M$ in $G$ that covers every vertex in $X$.
+	%
+	% We now define the function $f: \binom{[n]}{k} \to \binom{[n]}{k+1}$ as follows: for each $S \in \binom{[n]}{k}$, let $f(S) = T$ where $(S, T) \in M$. This function is well-defined because $M$ is a matching that covers $X$, so each $S \in X$ is matched to exactly one $T \in Y$.
+	%
+	% The function $f$ is injective because $M$ is a matching, meaning each vertex in $Y$ is matched to at most one vertex in $X$.
+	%
+	% Furthermore, by the construction of the edge set $E$, if $(S, T) \in M$, then $S \subset T$. Since $f(S) = T$ for $(S, T) \in M$, we have $S \subset f(S)$ for all $S \in \binom{[n]}{k}$.
+	%
+	% Therefore, we have constructed an injective function $f: \binom{[n]}{k} \to \binom{[n]}{k+1}$ such that $S \subset f(S)$ for all $S \in \binom{[n]}{k}$, as required.
+\end{proof}
+\end{document}

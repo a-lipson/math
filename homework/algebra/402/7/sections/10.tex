@@ -1,0 +1,59 @@
+\documentclass[../hw7]{subfiles}
+\begin{document}
+\begin{problem}
+Consider the ring of integers Z.
+\begin{enumerate}[label=\alph*)]
+	\item  Show that for each nonnegative integer $n$, $(n)$ is an ideal of $\Z$, and that all these ideals are distinct.
+	\item Prove that these are all the ideals of $\Z$.
+\end{enumerate}
+% Hint: Show that if I is a nonzero ideal of Z, then I must contain a smallest
+% positive integer c. Then show that I = (c).
+\end{problem}
+\begin{proof}[Proof of a]
+	First, $(n)$ is non empty for all nonnegative integers $n$.
+
+	Second $(n)$ is closed under subtraction.
+	For $a, b \in  (n)$, $k_1,k_2\in \Z$, \[
+		a+b = nk_1-nk_2=n(k_1-k_2)\in (n)
+		.\]
+
+	Third, $(n)$ is closed under multiplication with  $\Z$.
+	For $a = nk \in (n)$ and $r,k\in \Z$, then \[
+		ra = n(rk)\in (n)
+		.\]
+
+	So $(n)$ is an ideal in  $\Z$ for any nonnegative integer.
+\end{proof}
+\begin{proof}[Proof of b]
+	Let $I$  be a nonzero ideal of $\Z$.
+	Since $I$  is nonzero, it contains at least one nonzero element.
+
+	Since $I$ contains nonzero elements, it must contain some positive integers (if $x \in I$ is negative, then $-x \in I$ is positive because ideals are closed under multiplication by -1).
+
+	Let $c$  be the smallest positive integer in $I$.
+	%such a smallest $c$ must exist since integers are ordered.
+	%This c exists by the well-ordering principle for positive integers.
+
+	First, $(c) \subset I$.
+	Since $c\in I$, and $I$  is an ideal, then $c\cdot k\in I \forall k\in \Z$.
+	Since all multiples of $c$ are in $I$, then  $(c)\subset I$.
+
+	Next, $I\subset (c)$.
+	For any $a\in I$, we have, by the division algorithm, $a=cq+r$ where $0\le r\le c$.
+
+	So, $r=a-cq$.
+	Since  $a,c\in I$, which is an ideal,
+	then $r=a-cq\in I$.
+
+	But $c$ is the smallest positive integer in  $I$,
+	so if  $r>0$, then this contradicts the minimality of  $c$.
+
+	Therefore $r=0$ and $a=cq \in (c)$, which implies that $I \subset (c)$.
+
+	Thus $I=(c)$, so every nonzero ideal of $\Z$ is of the form $(c)$ for some positive integer $c$.
+
+	(0) is also included as (0) = {0}.
+
+	Thus, all ideals of $\Z$  are of the form $(n)$ for some nonnegative integer $n$ .
+\end{proof}
+\end{document}

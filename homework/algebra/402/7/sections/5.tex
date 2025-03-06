@@ -1,0 +1,31 @@
+\documentclass[../hw7]{subfiles}
+\begin{document}
+\begin{problem}
+If $f(x) \in  F[x]$ has degree $n$, prove that there exists an extension field $E$  of $F$ such that
+$f(x) = c_0(x - c_1)(x - c_2)\cdots(x - c_n)$ for some (not necessarily
+distinct) $c_i \in E$. In other words, $E$  contains all the roots of $f(x)$.
+\end{problem}
+\begin{proof}
+	We will construct the extension field $E$ inductively.
+
+	For the base cases, consider $n=0$ and $n=1$.
+	For $n=0$,  $f(x)$ is a constant polynomial of the form $c_0$.
+	For $n=1$,  $f(x)$ is a linear polynomial which can be expressed as  $c_0(x-c_1)$.
+
+	Assume the result holds for all polynomials less than degree $n$.
+
+	If $f(x)$ already has a root $r$ in $F$, then we can write \[
+		f(x) = (x - r)g(x)
+	\] where $g(x)$ has degree $n-1$.
+	By the inductive hypothesis, there is an extension field $E'$ of $F$  where $g(x)$ factors completely.
+	So $E = E'$ works for $f(x)$ as well.
+
+	If $f(x)$ has no roots in  $F$, then we must construct a different  extension field.
+
+	Consider the extension field $F[x]/(f(x))$ where $f(x)$ is a non-constant irreducible polynomial with root $\alpha$.
+
+	We can write $f(x)=(x-\alpha)q(x)$ where  $f(x)$ has degree  $n-1$.
+	By the inductive hypothesis, there is an extension field where  $q(x)$ factors completely as $d_0(x-d_1)\cdots(x-d_{n-1})$.
+	Thus, $f(x)=(x-\alpha)d_0(x-d_1)\cdots(x-d_{n-1})$, so this extension field allows $f$ to factors completely and we're done.
+\end{proof}
+\end{document}

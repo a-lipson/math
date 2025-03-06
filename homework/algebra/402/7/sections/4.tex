@@ -1,0 +1,24 @@
+\documentclass[../hw7]{subfiles}
+\begin{document}
+\begin{problem}
+Prove $\Q[\sqrt{2} ] \cong \Q[x]/(x^2-2)$.
+\end{problem}
+\begin{proof}
+	Define $\varphi:Q[x]\to Q[\sqrt{2} ]$ by $f(x)\mapsto f(\sqrt{2} )$.
+	It follows quickly that $\varphi$ is homomorphic.
+
+	Note that  $\ker{\varphi}=\{f(x)\in \Q[x]\ \mid\ f(\sqrt{2} )=0\} $.
+	So, $x^2-2\in \ker{\varphi}$.
+
+	Since $x^2-2$ is irreducible in $\Q[x]$ and $x^2-2$ is the minimal polynomial in $\Q[x]$ with root $\sqrt{2}$,
+	then, by the same reasoning as in lecture, we have that \[
+		(x^2-2)=\ker{\varphi}
+		.\]
+
+	Since for any $ a\sqrt{2}+b \in \Q[\sqrt{2} ] $, there is $ax+b\in \Q[x]$ such that $\varphi(ax+b)=a\sqrt{2}+b $, then $\varphi$ is surjective.
+
+	Thus, by the First Isomorphism Theorem, since  $\varphi$ is epimorphic, then  \[
+		\Q[\sqrt{2} ] \cong \Q[x]/(x^2-2)
+		.\]
+\end{proof}
+\end{document}

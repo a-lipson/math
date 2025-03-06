@@ -1,0 +1,21 @@
+\documentclass[../hw7]{subfiles}
+\begin{document}
+\begin{problem}
+Determine the rules for addition and multiplication of the congruence classes of $\Q[x]/(x^2-2)$.
+\end{problem}
+\begin{proof}
+	Addition follows directly, \[
+		[ax+b]+[cx+d]=[(a+c)x+(b+d)]
+		.\]
+
+	By Problem 4, we have that $\Q[x]/(x^2-2) \cong Q[\sqrt{2} ]$ with isomorphism $ax+b \mapsto a\sqrt{2}+b $.
+
+	For multiplication, consider \[
+		(a\sqrt{2}+b )(c\sqrt{2}+d )=(ad+bc)\sqrt{2}+(bd + 2ac)
+		,\] which, by the above isomorphism, maps back to $(ad+bc)x+(bd+2ac)$.
+
+	So, \[
+		[ax+b][cx+d]=[(ad+bc)x+(bd+2ac)]
+		.\]
+\end{proof}
+\end{document}

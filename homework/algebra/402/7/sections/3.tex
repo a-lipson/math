@@ -1,0 +1,30 @@
+\documentclass[../hw7]{subfiles}
+\begin{document}
+\begin{problem}
+Show that $[f(x)]$ is a unit in $F[x]/(p(x))$ and find its inverse.
+\begin{enumerate}[label=\alph*)]
+	\item $[f(x)]=[2x-3]\in \Q[x]/(x^2-2)$.
+
+	      Note that $2x-3$ is irreducible in $\Q[x]/(x^2-2)$ because it is linear.
+
+	      Consider $-(2x+3)$.
+	      Then,  \[
+		      -(2x+3)(2x-3)=-(4x^2-9)=1-4(x^2-2)\equiv 1 \mod{(x^2-2)}
+		      .\]
+
+	      Thus, $-2x-3$ is the inverse of  $2x-3$ in  $\Q[x]/(x^2-2)$.
+
+	\item $[f(x)]=[x^2 + x + 1]\in \Z_3[x]/(x^2+1)$.
+
+	      Note that $[x^2 + x + 1]=[x]$ in $\Z_3[x]/(x^2+1)$, so $[x^2+x+1]$ is irreducible.
+
+	      We will consider the system of equations for $a,b,c,d$ given by the linear representation  \[
+		      1=(x^2+x+1)(ax+b)+(x^2+1)(cx+d)
+		      ,\] which becomes \[
+		      1=(x^2+1)(x+1)-x(x^2+x+1)
+		      .\]
+
+	      So, $[-x]$ is the inverse of  $[x^2 + x + 1]$.
+\end{enumerate}
+\end{problem}
+\end{document}

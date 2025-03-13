@@ -1,0 +1,54 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+\begin{enumerate}[label=\alph*)]
+	\item Prove that for $p \in \Z,\, p\neq 0$, $p$ prime iff the ideal $(p)$ is maximal in  \Z.
+	\item Let $F$ be a field and $p(x)\in F[x]$.
+	      Prove that $p(x)$ is irreducible iff the ideal  $(p(x))$ is maximal in  $F[x]$.
+\end{enumerate}
+\end{problem}
+\begin{proposition}
+	For a principal ideal domain (PID) $R$,  $p \in \R $ is irreducible iff the principal ideal $(p)$ is maximal in $R$.
+\end{proposition}
+\begin{proof}[Proof of Proposition]
+	$(\implies)$ Suppose that $p$ is irreducible in  $R$.
+	Then,  $(p)\subsetneq I\subsetneq R$ for some ideal $I$.
+
+	Since $R$ is a PID, then $I=(a)$ where $a\in R$.
+
+	Then, $(p)\subsetneq (a)\implies a\mid p$, so $p = ab$ for some $b \in R$.
+
+	By Theorem 10.1, $p$ irreducible implies that  either $a$ or  $b$ is  a unit in  $R$.
+
+	If $a$ is a unit, then  $(a)=R$, contradicting the assumption that  $I\neq R$.
+
+	If $b$ is a unit, then  $p$ and  $a$ must be associates, so $(p)=(a)$, contradicting the assumption that  $(p)\neq I$.
+
+	Therefore, there is not an ideal $I$ between  $(p)$ and $R$.
+
+	Thus,  $(p)$ is maximal.
+
+	$(\impliedby)$ Suppose that $(p)$ is maximal and  $p$ is reducible in  $R$.
+
+	Then, $p=ab$ for some  $a,b\in R$ which are not units.
+
+	Consider the principal ideal $(a)$, $a \mid p \implies (p)\subseteq (a)$,
+	but $a$ is not a unit,
+	so  $(a)\neq R$.
+
+	Since $b$ is not a unit, then  $p \not\in (a)$,
+	otherwise $a\mid p \implies a | ab$, where $b$ would be a unit.
+
+	Therefore, $(p)\subsetneq (a)\subsetneq R$, contradicting the maximality of $(p)$.
+
+	Thus, $p$ must be irreducible.
+\end{proof}
+\begin{proof}[Proof of a]
+	$\Z$ is a PID, and the irreducibles in $\Z$ are primes.
+	So, by the Proposition, $p \in \Z $ is a prime iff $(p)$ is maximal in  $\Z$.
+\end{proof}
+\begin{proof}[Proof of b]
+	$F[x]$ is a PID;
+	By the Proposition, the polynomial $p(x)\in F[x]$ is irreducible iff $(p(x))$ is maximal in  $F[x]$.
+\end{proof}
+\end{document}

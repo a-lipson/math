@@ -1,0 +1,26 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Use norms to show in $\Z[i]$
+\begin{enumerate}[label=\alph*)]
+	\item $2+5i$ is not a factor of  $1+6i$.
+	\item $1+2i$ is not a factor of  $7+3i$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Suppose there exists $a+bi \in \Z[i]$  such that $(2+5i)(a+bi)=1+6i$.
+	Then,
+	\begin{align*}
+		N((2+5i)(a+bi)) & =N(1+6i)  \\
+		N(2+5i)N(a+bi)  & = N(1+6i) \\ \\
+		29(a^2+b^2)     & =37
+		.\end{align*}
+	But, $(29,37)=1$, so there is no such  $a^2 + b^2\in \Z$ such that the above holds.
+
+	Thus, $2+5i$ is not a factor of $1+6i$.
+\end{proof}
+\begin{proof}[Proof of b]
+	Similarly, $N(1+2i)=5$, and  $N(7+3i)=58$.
+	But, $(5,58)=1$, therefore  $1+2i$ is not a factor of  $7+3i$.
+\end{proof}
+\end{document}

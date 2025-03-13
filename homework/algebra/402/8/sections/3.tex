@@ -1,0 +1,49 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Assume $\Z[\sqrt{2} ]$ is a ring.
+Define $f:\Z[\sqrt{2} ]\to \Z[\sqrt{2} ]$ by $a+b\sqrt{2}\mapsto a-b\sqrt{2}$.
+Show the following:
+\begin{enumerate}[label=\alph*)]
+	\item $f$ epimorphic.
+	\item $f$ isomorphic by Theorem 6.11, assuming  $\sqrt{2}\not\in \Q\implies \sqrt{2} \not\in \Z $.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	Let $t=a + b\sqrt{2}\in \Z[\sqrt{2} ] $.
+
+	Then, for all $t\in {f}\subset \Z[\sqrt{2} ]$, there is an $s \in \Z[\sqrt{2} ]$ such that $f(s)=t$ where $s=a+(-b)\sqrt{2}$.
+
+	Thus, $f$ is surjective.
+
+	We have that
+	\begin{align*}
+		f((a+b\sqrt{2} )+(c+d\sqrt{2} )) & = f((a+c)+(b+d)\sqrt{2})           \\
+		                                 & =(a+c)-(b+d)\sqrt{2}               \\
+		                                 & = (a-b\sqrt{2})+(c-d)\sqrt{2}      \\
+		                                 & = f(a+b\sqrt{2}) + f(c+d\sqrt{2} )
+		,\end{align*}
+	and
+	\begin{align*}
+		f((a+b\sqrt{2} )(c+d)\sqrt{2} ) & = f((ac+2bd)+(ad+bc)\sqrt{2} )   \\
+		                                & = (ac+2bd)-(ad+bc)\sqrt{2}       \\
+		                                & = (a-b\sqrt{2} )(c-d\sqrt{2} )   \\
+		                                & = f(a+b\sqrt{2} )f(c+d\sqrt{2} )
+		,\end{align*}
+	so $f$ is a homomorphism.
+
+	Since $f$ is a subjective homomorphism, then $f$ is a epimorphism.
+\end{proof}
+\begin{proof}[Proof of b]
+	We will show that $\ker{f} = (0_R) $.
+
+	By definition, $\ker{f}=\{a+b\sqrt{2}\in \Z[\sqrt{2} ]\ \mid\ a-b\sqrt{2}=0  \}  $,
+	which only occurs when $a=b=0$.
+
+	So,  $\ker{f} = \{0\}=(0_R)  $.
+
+	Thus, by Theorem 6.11, $f$ is injective.
+
+	Since  $f$ is injective and epimorphic, then it must be isomorphic as well.
+\end{proof}
+\end{document}

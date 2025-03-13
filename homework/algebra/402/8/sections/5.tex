@@ -1,0 +1,21 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Use the First Isomorphism Theorem to show that $\Z_{20} / (5) \cong \Z_5 $.
+\end{problem}
+\begin{proof}
+	Let $f:\Z_{20}\to \Z_5$ be a map with kernel $(5)$.
+
+	We will show that  $f$ is surjective.
+
+	Consider  $\ker{f}=(5)=\{x \in \Z_{20}\ \mid\ x\equiv 0 \mod{5}\}  $.
+
+	Since $0,1,2,3,4 \in \Z_{20}$ are mapped to themselves in $\Z_5$ respectively by $f$,
+	then all elements in the codomain $\Z_5$ are mapped by $f$,
+	so $f$ is surjective.
+
+	Thus, by the First Isomorphism Theorem, since $f$ is surjective, then \[
+		\Z_{20} / (5) \cong \Z_5
+		.\]
+\end{proof}
+\end{document}

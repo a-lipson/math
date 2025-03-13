@@ -1,0 +1,39 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Let $I,J$ be ideals in the ring $R$.
+Define $f:R \to  R / I \times  R / J$ by $a \mapsto (a+I,a+J)$.
+\begin{enumerate}[label=\alph*)]
+	\item Prove $f$ homomorphic.
+	\item Is $f$ surjective?
+	\item Find $\ker{f} $.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	We have that \[
+		f(a+b)=(a+b+I,a+b+J)=(a+I,a+J)+(b+I,b+J)=f(a)+f(b)
+	\] and \[
+		f(ab)=(ab+I,ab+J)=((a+I)(b+I),(a+J)(b+J))=(a+I,a+J)(b+I,b+J)=f(a)f(b)
+		.\]  Thus, $f$ is homomorphic.
+\end{proof}
+\begin{proof}[Proof of b]
+	Consider the example case $\Z \to  \Z / (2) \times  \Z / (4)$.
+
+	The element $(1,0) \in \Z / (2) \times \Z / (4)$  does not exist in the image of $f$ because
+	$a\equiv 1 \mod{2}$ implies that $a$ must be odd, but $a\equiv 0 \mod{4}$ must be even, a contradiction.
+
+	So, $f$ is not necessarily surjective.
+\end{proof}
+\begin{proof}[Proof of c]
+	We have that $\ker{f}=\{a\in R\ \mid\ a+I=a+J=0\}$.
+
+	So, for all $a\in R$, $a\equiv 0 \mod{I}$ and $a\equiv 0 \mod{J}$.
+
+	Thus, we must have that $a=bc$ where  $b\in I$ and $c\in J$,
+	which implies that $a\in I \cap J$.
+
+	Since $a$ was an arbitrary element of $R$, then we must have that \[
+		\ker{f} = I\cap J
+		.\]
+\end{proof}
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Do the following isomorphism hold?
+\begin{enumerate}[label=\alph*)]
+	\item $\Z_5\times \Z_{12}\cong\Z_3\times \Z_{20} $.
+	\item  $\Z_4\times \Z_{35}\cong\Z_5\times \Z_{28} $.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of a]
+	By the Chinese Remainder Theorem,
+	\begin{align*}
+		(3,4)=1 & \implies \Z_{12} \cong \Z_3\times \Z_4, \\
+		(4,5)=1 & \implies \Z_{20}\cong\Z_4\times \Z_5
+		.\end{align*}
+
+	Thus, \[
+		\Z_5\times (\Z_3\times \Z_4)\cong\Z_3\times (\Z_4\times \Z_5)
+		.\]
+\end{proof}
+\begin{proof}[Proof of b]
+	Similarly,
+	\begin{align*}
+		(5,7)=1 & \implies \Z_{35}\cong\Z_5\times \Z_7, \\
+		(4,7)=1 & \implies \Z_{28}\cong\Z_4\times \Z_7.
+		.\end{align*}
+	Thus, \[
+		\Z_4\times (\Z_5\times \Z_7)\cong \Z_5\times (\Z_4\times \Z_7)
+		.\]
+\end{proof}
+\end{document}

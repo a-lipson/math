@@ -1,0 +1,34 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Prove that the principal ideal $(x-1)$ in  $\Z[x]$ is prime but not maximal
+\end{problem}
+\begin{proof}[Proof of primeness]
+	We will to show that $\Z[x] / (x-1)$ is an integral domain and hence the ideal $(x-1)$ is prime.
+
+	Consider  $f(x)g(x)=0$ in $\Z[x] / (x-1)$.
+	Then we must have that $x-1 \mid f(x)g(x) $.
+
+	Since $x-1$ is a linear and therefore irreducible polynomial in  $\Z[x]$,
+	then we must have that either $f(x)=0$ or  $g(x)=0$ in $\Z[x] / (x-1)$.
+
+	Thus, there are no zero divisors, hence $\Z[x] / (x-1)$  is an integral domain.
+\end{proof}
+\begin{proof}[Proof of non maximality]
+	We will show that there exists an ideal $I$ in $\Z[x]$ such that $(x-1)\subsetneq I\subsetneq \Z[x]$.
+
+	Consider $I=(x-1,2)$.
+	Clearly  $(x-1)\subset (x-1,2)$.
+
+	But, $2\in (x-1,2)$ yet $2\not\in (x-1)$, so $(x-1)\subsetneq (x-1,2)$.
+
+	Then, for all $h(x)\in (x-1,2)$, $h(x)=(x-1)f(x)+2g(x)$ for some  $f,g\in \Z[x]$.
+
+	Then, at $x=1$, $h$ must be even.
+	Therefore, the constant function $1\not\in (x-1,2)$, but $1 \in \Z[x]$.
+
+	So, $(x-1,2)\subsetneq \Z[x]$.
+
+	Thus, $(x-1)$ is not maximal.
+\end{proof}
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Let $F$ be a field, and $R$ a nonzero ring. Let $f:F\to R$ be an epimorphism.
+Prove that $f$ is an isomorphism.
+\end{problem}
+\begin{proof}
+	Since $f$ is an epimorphism, it is surjective and homomorphic.
+
+	Let $K$ be the kernel of $f$.
+	By Theorem 6.10, $K$ is an ideal in $F$.
+
+	We will show that $K=0$, meaning that $f$ is injective and therefore an isomorphism.
+
+	Since $F$ is a field, then the only ideals in $f$ are  $(0)$ and  $F$ itself.
+
+	Suppose that $I$ is a nonzero ideal of  $F$.
+	Then, for $a\in I$, for all $b\in F$, we have that $ab\in I$.
+	Particularly, for $a^{-1}\in F$, we have that $1=aa^{-1}\in I \implies I = F$;
+	so any nonzero ideal must be equal to $F$.
+
+	If $K=F$, then  $f(F)=\{0\} \neq R$, a contradiction with the fact that $f$ is surjective.
+
+	Thus we must have $K=0$, so  $f$ is injective.
+
+	Since  $f$ is injective, surjective, and homomorphic, then $f$ is an isomorphism.
+\end{proof}
+\end{document}

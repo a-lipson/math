@@ -1,0 +1,49 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+\begin{enumerate}[label = \alph*)]
+	\item Prove that the Gaussian Integers $\Z[i]$ are a subring of $\C$,
+	      and prove that $M=\{a+bi \ \mid\ 3\mid a \land 3\mid b  \} $ is a maximal ideal in $\Z[i]$.
+	\item Show that $\Z[i] / M$ is a field with nine elements.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof af a]
+	Clearly, $\Z[i]\subset \C$.
+	Then, there is a zero element, $0\in \Z[i]$.
+
+	We have that $\Z[i]$ is closed under addition by the closure of $\Z$.
+
+	We also have that \[
+		(a+bi)(c+di)=(ac-bd)+(ad+bc)i
+		,\] so $\Z[i]$ is closed under multiplication by the closure of $\Z$ under addition and multiplication.
+
+	Therefore $\Z[i]$ is a subring of $\C$.
+
+	Now, consider $z = a+bi \in \Z[i]$ where $z\not\in M$.
+
+	$z \not\in M$ gives that either 3 does not divide $a$ or does not divide $b$.
+
+	We will show that  $3$ does not divide  $N(z)=a^2 + b^2$.
+
+	Suppose that $3\mid a^2 + b^2 = (a+bi)(a-bi)$.
+	However, there is no such $a,b\in \Z$ with one not divisible by 3 which satisfy the above.
+
+	So we must have that 3 does not divide the factor $a+bi$ either, which means that  $3\not\in M$.
+
+	Since $3 \in \Z[i]$, then $M\subsetneq \Z[i]$.
+
+	But, $1\in a+bi$ as $3$ does not divide  $1=a$.
+
+	So any ideal containing such $a+bi$ and  $M$ must be  $\Z[i]$.
+
+	Hence $M$ is maximal.
+\end{proof}
+\begin{proof}[Proof  of b]
+	Since $M$ is maximal, then  $\Z[i]/M$ is a field.
+
+	Consider the cosets $(a+bi)+M\in \Z[i] / M$.
+	There are three choice for  each $a$ and $b$, \[
+		0,\, 1,\, 2,\, i,\, 2i,\, 1+i,\, 2+i,\, 1+2i, 2+2i
+		,\] these canonical representations form the congruence classes of the field $\Z[i]/M$
+\end{proof}
+\end{document}

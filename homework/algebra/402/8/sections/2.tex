@@ -1,0 +1,17 @@
+\documentclass[../hw8]{subfiles}
+\begin{document}
+\begin{problem}
+Define the homomorphism of rings $\varphi : \R[x] \to \R$ by $f(x)\mapsto f(2)$.
+Find $\ker{\varphi} $.
+\end{problem}
+\begin{proof}
+	By Theorem 4.16 with the field $\R$, for $f(x)\in \R[x]$ and $a\in \R$,
+	$a$ is a root of $f$ iff $x-a$ is a factor of  $f$.
+
+	By definition, we have that $\ker{\varphi}=\{f(x) \in \R[x]\ \mid\ f(2)=0\}$,
+	which is the set of polynomials in $\R[x]$ with a root at 2;
+	these are the all polynomials of the form \[
+		\ker{\varphi}= (x-2)g(x),\, \forall g(x)\in \R[x]
+		.\]
+\end{proof}
+\end{document}

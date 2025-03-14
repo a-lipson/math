@@ -1,0 +1,19 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f\in C^2([-\pi,\pi])$, $f(-\pi)=f(\pi)$, and $f'(-\pi)=f'(\pi)$.
+Prove $c_n ~ O(n^{-2})$ as $n\to \infty$.
+\end{problem}
+\begin{proof}
+	We can perform IBP twice on $c_n$ because $f\in C^2$.
+	\begin{align*}
+		c_n & = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-inx} \,dx                                                                                               \\
+		    & = \frac{1}{2\pi}\left( f(x)\left( \frac{-e^{-inx}}{in} \right)\bigg\vert_{-\pi}^{\pi}   +\int_{-\pi}^{\pi} f'(x) \frac{e^{-inx}}{in}\,dx\right)   \\
+		    & \text{the left summand vanishes because $f(\pi)-f(-\pi)=0$}                                                                                       \\
+		    & = \frac{1}{2\pi}\left( f'(x)\left( \frac{e^{-inx}}{n^2} \right)\bigg\vert_{-\pi}^{\pi}  -\int_{-\pi}^{\pi} f''(x) \frac{e^{-inx}}{n^2}\,dx\right) \\
+		    & \text{the left summand vanishes because $f'(\pi)-f'(-\pi)=0$}                                                                                     \\
+		    & = \frac{1}{2\pi n^2}\int_{-\pi}^{\pi} f''(x)e^{-inx} \,dx  \sim O(n^{-2})
+		.\end{align*}
+	Thus, $c_n \sim O(n^{-2})$.
+\end{proof}
+\end{document}

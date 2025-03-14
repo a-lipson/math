@@ -1,0 +1,57 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+\begin{enumerate}
+	\item $f(x)=e^{bx},\, b>0$.
+	\item  $f(x)=x(\pi- |x|)$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (i)]
+	We will consider the complex Fourier coefficient,
+	\begin{align*}
+		c_n & = \frac{1}{2\pi }\int_{-\pi }^{\pi } f(x)e^{-inx} \,dx                 \\
+		    & = \frac{1}{2\pi }\int_{-\pi }^{\pi } e^{(b-in)x} \,dx                  \\
+		    & = \frac{1}{\pi }\left[ \frac{e^{(b-in)x}}{b-in} \right]^{\pi }_{-\pi } \\
+		    & = \frac{1}{2\pi(b-in) }\left( e^{(b-in)\pi }-e^{-(b-in)\pi } \right)   \\
+		;\end{align*}
+	by Euler's identity, at $x=\pi$, we have that $e^{ \pm i n \pi} = (-1)^n$.
+	So, with the hyperbolic sine identity $2\sinh{b\pi}=e^{b\pi }-e^{-b\pi } $, the above becomes, \[
+		\frac{(-1)^n \sinh{b\pi } }{\pi(b-in) }
+		.\]
+
+	Thus, we have \[
+		f(x)=\sum_{-\infty}^{\infty} c_n e^{inx} = \frac{ \sinh{b\pi}}{\pi }\sum_{-\infty}^{\infty} \frac{(-1)^n}{b-in}e^{inx}
+		.\]
+\end{proof}
+\begin{proof}[Proof of (ii)]
+	Since $f$ is an odd function,  then $a_n=0$ for all  $n$.
+
+	So,
+	\begin{align*}
+		b_n & = \frac{1}{\pi}\int_{-\pi }^{\pi } x(\pi- |x| )\sin{nx}  \,dx                                                                                                    \\
+		    & = \frac{1}{\pi }\int_{-\pi }^{0 } x(\pi-(-x) )\sin{nx}  \,dx
+		+ \frac{1}{\pi }\int_{0}^{\pi } x(\pi-x )\sin{nx}  \,dx                                                                                                                \\
+		    & = \frac{1}{\pi }\int_{\pi }^{0} (-u)(\pi-u )\sin{(-nu)}(-1)  \,du
+		+\frac{1}{\pi } \int_{0}^{\pi } u(\pi-u )\sin{nu}  \,du                                                                                                                \\
+		    & = \frac{1}{\pi }\int_{0}^{\pi } u(\pi-u )(\sin{nu}-\sin{(-nu)}  ) \,du                                                                                           \\
+		    & = \frac{2}{\pi }\int_{0}^{\pi } x(\pi-x )\sin{nx}  \,dx                                                                                                          \\
+		    & = 2 \int_{0}^{\pi } x\sin{nx} \,dx - \frac{2}{\pi }\int_{0}^{\pi } x^2\sin{nx}  \,dx                                                                             \\
+		    & = 2\left( {\frac{-x\cos{nx} }{n}}\bigg\vert_0^{\pi }+\int_{0}^{\pi } \frac{\cos{nx} }{n } \,dx \right)
+		- \frac{2}{\pi }\left( {\frac{-x^2\cos{nx} }{n}}\bigg\vert_0^{\pi }+\int_{0}^{\pi } \frac{2x \cos{nx} }{n} \,dx \right)                                                \\
+		    & = 2\left( \frac{-\pi\cos{n\pi}}{n}+ {\left[ \frac{\sin{nx}}{n} \right]}_0^{\pi }   \right)
+		-\frac{2}{\pi }\left( \frac{-\pi^2 \cos{n\pi } }{n} + 2\left( \frac{x\sin{nx} }{n^2}\bigg\vert_0^{\pi } + \int_{0 }^{\pi } \frac{\sin{nx} }{n^2} \,dx \right)  \right) \\
+		    & = 2\left( \frac{\sin{n\pi } }{n^2} - \frac{\pi \cos{n\pi }  }{n}\right)
+		+ \left( \frac{2\pi\cos{n\pi }}{n} - \frac{4}{\pi }\left( \frac{\pi\sin{n\pi }  }{n^2} + {\left[ \frac{\cos{nx} }{n^3} \right] }_0^{\pi } \right)  \right)             \\
+		    & =  \frac{2\sin{n\pi } }{n^2} - \frac{2\pi \cos{n\pi }  }{n}
+		+ \frac{2\pi\cos{n\pi}}{n}-\frac{4\sin{n\pi}}{n^2}-\frac{4}{\pi}\left( \frac{\cos{n\pi }-1 }{n^3} \right)                                                              \\
+		    & = -\frac{2\sin{n\pi}}{n^2}  -\frac{4}{\pi} \left( \frac{\cos{n\pi}-1 }{n^3}\right)
+		.\end{align*}
+	This quantity vanishes for even $n$, and $b_n = \frac{8}{\pi n^3}$ for odd $n$.
+
+	So, for odd $n$, \[
+		f(x)=\frac{8}{\pi}\sum_{n=1}^{\infty} \frac{\sin{nx} }{n^3}
+		,\] which is \[
+		\frac{8}{\pi}\sum_{0}^{\infty} \frac{\sin{(2k+1)x}}{{(2k+1)}^3}
+		.\]
+\end{proof}
+\end{document}

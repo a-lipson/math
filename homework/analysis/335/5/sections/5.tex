@@ -1,0 +1,22 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f$ be $2\pi$-periodic and monotonously decreasing on $(0,2\pi)$.
+Prove that the Fourier coefficient $b_n\ge 0$ for all $n$.
+\end{problem}
+\begin{proof}
+	Note that $\sin{n(2\pi-x)}=-\sin{nx}$.
+	We will change the region of integration according to this identity.
+	\begin{align*}
+		b_n & = \frac{1}{\pi}\left( \int_{0}^{\pi} f(x)\sin{nx}\,dx + \int_{\pi}^{2\pi}f(x)\sin{nx}\,dx\right)             \\
+		    & = \frac{1}{\pi}\left( \int_{0}^{\pi} f(x)\sin{nx}  \,dx + \int_{0}^{\pi} f(2\pi-x)\sin{n(2\pi-x)}\,dx\right) \\
+		    & = b_n \frac{1}{\pi}\int_{0}^{\pi} (f(x)-f(2\pi-x))\sin{nx}\,dx                                               \\
+		.\end{align*}
+
+	Since $f$ is monotonously decreasing on $(0,2\pi)$, then, for all $x \in (0,\pi)$, we have that $x\le 2\pi-x \implies f(x)\ge f(2\pi-x)$, or $f(x)-f(2\pi-x)\ge 0$.
+
+	Then, with $\sin{nx}\ge 0$ for all $x \in (0,\pi)$ and $n\ge 0$, we have that \[
+		b_n = \frac{1}{\pi}\int_{0}^{\pi} (f(x)-f(2\pi-x))\sin{nx} \,dx \ge 0 \implies b_n \ge 0
+		.\]
+\end{proof}
+\end{document}

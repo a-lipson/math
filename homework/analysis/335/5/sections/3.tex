@@ -1,0 +1,66 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+\begin{enumerate}
+	\item $f(x)=\begin{cases}
+			      \frac{1}{a} & |x|<a, \\ -\frac{1}{\pi-a} & a < |x| < \pi,
+		      \end{cases}$ for $a \in (0,\pi)$. \\
+	      The values of $f$ are chosen to make the area under the curve of $f$  on $[0,a]$ and  $[a,\pi]$ both equal to one.
+	\item $f(x)=\begin{cases}
+			      \frac{a- |x|}{a^2} & |x|<a, \\ 0 & a < |x| < \pi,
+		      \end{cases}$ for $a \in (0,\pi)$. \\
+	      The constraints on $f$ are chosen such that the area under the triangle in the graph of $f$ is equal to one.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (i)]
+	Since $f$ is an even function, then  $b_n=0$ for all  $n$.
+
+	Since the graph of $f$ has equal positive and negative areas between the $x$-axis (both one) between 0 and $\pi$, and $f$ is an even function, then \[
+		\frac{1}{2}a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x) \,dx = 0
+		.\]
+
+	Next,
+	\begin{align*}
+		a_n & = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \cos{nx }  \,dx                                               \\
+		    & = \frac{1}{\pi}\int_{-\pi}^{-a} -\frac{1}{\pi-a}\cos{nx}  \,dx
+		+ \frac{1}{\pi}\int_{a}^{\pi} -\frac{1}{\pi-a}\cos{nx } \,dx
+		+ \frac{1}{\pi}\int_{-a }^{a} \frac{1}{a}\cos{nx } \,dx                                                   \\
+		    & = \frac{1}{\pi}\int_{\pi}^{a} -\frac{1}{\pi-a}\cos{(-nx)}(-1) \,dx
+		+ \frac{1}{\pi}\int_{a}^{\pi} -\frac{1}{\pi-a}\cos{nx} \,dx\
+		+ \frac{1}{a\pi}{\left[ \frac{\sin{nx} }{n}\right]}_{-a}^{a}                                              \\
+		    & = \frac{1}{\pi}\int_{a}^{\pi} -\frac{1}{\pi-a}(\cos{nx}+\cos{nx}) \,dx
+		+ \frac{1}{a \pi n}(\sin{na}-\sin{(-na)}  )                                                               \\
+		    & = -\frac{2}{\pi(\pi-a)}{\left[ \frac{\sin{nx} }{n} \right] }_a^{\pi}+ \frac{2\sin{na} }{a \pi n}    \\
+		    & = -\frac{2}{\pi(\pi-a)}\left( \frac{\sin{n\pi} - \sin{na} }{n} \right) + \frac{2\sin{na} }{a \pi n} \\
+		    & = \frac{2\sin{na} }{\pi(\pi-a)n}+\frac{2\sin{na} }{a \pi n}                                         \\
+		    & = \frac{2a \sin{na} + 2(\pi-a)\sin{na} }{a \pi (\pi - a) n}                                         \\
+		    & = \frac{(2a+2\pi-2a)\sin{na} }{a \pi (\pi-a) n}                                                     \\
+		    & = \frac{2\sin{na}}{a (\pi-a ) n}
+		.\end{align*}
+	Thus, \[
+		f(x)=\frac{2}{a(\pi-a)}\sum_{n=1}^{\infty} \frac{\sin{na} }{n}\cos{nx}
+		.\]
+\end{proof}
+\begin{proof}[Proof of (ii)]
+	Since $f$ is even, then $b_n=0$ for all $n$.
+
+	Since the area under the curve of the graph of $f$ on $(-\pi,\pi)$ is one, then \[
+		\frac{1}{2}a_0 = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x) \,dx = \frac{1}{2\pi}
+		.\]
+
+	Next,
+	\begin{align*}
+		a_n & = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)\cos{nx} \,dx                                                                                                                   \\
+		    & = \frac{1}{\pi}\int_{-a }^{a} \frac{a- |x|}{a^2}\cos{nx}\,dx                                                                                                          \\
+		    & = \frac{2}{\pi}\int_{0}^{a} \frac{a-x}{a^2}\cos{nx} \,dx                                                                                                              \\
+		    & = \frac{2}{\pi}\int_{0}^{a} \left( \frac{\cos{nx}}{a}-\frac{x\cos{nx}}{a^2} \right) \,dx                                                                              \\
+		    & = \frac{2}{\pi}\left[ \frac{\sin{nx} }{an}\bigg\vert_0^a - \left( \frac{x\sin{nx} }{a^2 n}\bigg\vert_0^a - \int_{0}^{a} \frac{\sin{nx} }{a^2 n} \,dx \right)  \right] \\
+		    & = \frac{2}{\pi} \left[ \frac{\sin{na} }{an}- \frac{a\sin{na} }{a^2 n} - {\left[ \frac{\cos{nx} }{a^2n^2} \right] }_0^a \right]                                        \\
+		    & = \frac{2}{a^2 \pi} \left( \frac{1-\cos{na} }{n} \right)
+		.\end{align*}
+
+	Thus, \[
+		f(x) = \frac{1}{2\pi} + \frac{2}{\pi}\sum_{n=1}^{\infty} \frac{1-\cos{na} }{a^2n^2}\cos{nx}
+		.\]
+\end{proof}
+\end{document}

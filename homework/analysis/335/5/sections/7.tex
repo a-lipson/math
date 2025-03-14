@@ -1,0 +1,32 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Find the following limits.
+\begin{enumerate}
+	\item $\lim_{\lambda \to \infty} \int_{0}^{\infty} \frac{\cos^2{\lambda x} }{1 + x^2} \,dx$.
+	\item $\lim_{\lambda \to \infty} \int_{-\pi}^{\pi} \sin^2{\lambda x}\,dx$.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (i)]
+	We have that $\cos^2{\lambda x} = \frac{1 + \cos{2\lambda x} }{2} $.
+	So, \[
+		\lim_{\lambda \to \infty} \int_{0}^{\infty} \frac{1+\cos{2\lambda x}}{2(1 + x^2)} \,dx
+		= \frac{1}{2} \lim_{\lambda \to \infty} \int_{0}^{\infty} \left( \frac{1}{1+x^2} + \frac{\cos{2\lambda x} }{1+x^2} \right)  \,dx
+		.\]
+	since $\frac{1}{1 + x^2}$ is integrable over $(0,\infty)$, then the right summand vanishes by the Reimann-Lebesgue Lemma.
+
+	So, we have that the above limit becomes \[
+		\frac{1}{2}\int_{0}^{\infty} \frac{dx}{1 + x^2} = \frac{1}{2}\arctan x \Big\vert_0^{\infty} = \frac{\pi}{4}
+		.\]
+\end{proof}
+\begin{proof}[Proof of (ii)]
+	We have that $\sin^2{\lambda x} = \frac{1-\cos{2\lambda x} }{2} $. So, \[
+		\frac{1}{2} \lim_{\lambda \to \infty} \int_{-\pi}^{\pi} (1-\cos{2\lambda x} ) \,dx
+		= -\frac{1}{2}\lim_{\lambda \to \infty} \int_{-\pi}^{\pi} \cos{2\lambda x}\,dx
+	\] because 1 is an even function.
+
+	Since the unit function 1 is also integrable on $[-\pi,\pi]$, then the above vanishes by the Reimann-Lebesgue Lemma.
+
+	Hence, the limit in (ii) is zero.
+\end{proof}
+\end{document}

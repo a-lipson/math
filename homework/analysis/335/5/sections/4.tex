@@ -1,0 +1,23 @@
+\documentclass[../hw5]{subfiles}
+\begin{document}
+\begin{problem}
+Let the Fourier coefficients of $f$  be $a_n$ and  $b_n$.
+Find the Fourier coefficients $A_n$ and  $B_n$ of $g(x)=f(x)\sin{x}$.
+\end{problem}
+\begin{proof}
+	We have that,
+	\begin{align*}
+		f(x)\sin{x} = \left( \frac{1}{a}a_0 + \sum_{n=1}^{\infty} (a_n\cos{nx}+b_n\sin{nx}  ) \right) \sin{x}
+		= \frac{\sin{x}}{2}a_0 + \sum_{n=1}^{\infty} (a_n \cos{nx}\sin{x} + b_n \sin{nx}\sin{x}    )
+		.\end{align*}
+
+	By the product identities, the above series becomes \[
+		\frac{1}{2}\sum_{n=1}^{\infty} (a_n(\sin{(n+1)x}-\sin{(n-1)x})+b_n(\cos{(n-1)x}-\cos{(n+1)x}))
+		.\]
+
+	Considering the Fourier series of $g(x)=\frac{1}{2}A_0+\sum_{n=1}^{\infty}(A_n\cos{nx}+B_n \sin{nx})$ and collecting the sine and cosine terms,
+	we have that \[
+		A_n = \frac{1}{2}(b_{n-1}-b_{n+1})\text{ and } B_n = \frac{1}{2}(a_{n+1}-a_{n-1})
+		,\] which are the Fourier coefficients of $f(x)\sin{x} $.
+\end{proof}
+\end{document}

@@ -1,9 +1,27 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}
+\begin{enumerate}
+	\item Prove that if $G$ is a simple planar graph with no triangles and at least three vertices, then $E \le 2V-4$.
+	\item Use this to prove that $K_{3,3}$ is not planar.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (a)]
+	Since $G$  is simple and planar with no triangles, then every face must have at least length 4.
+
+	So, \[
+		4F \le \sum_{f\in F} \text{length}{(f)} = 2E \implies F \le \frac{1}{2}E
+		.\]
+
+	Then, substituting the above into Euler's formula we have, \[
+		2=V-E+F \le V-\frac{1}{2}E \implies E \le 2V-4
+		.\]
+\end{proof}
+\begin{proof}[Proof of (b)]
+	We have that, for $K_{3,3}$, $V=6$ and $E=9$.
+
+	But, $V>2V-4$ as  $9>2\cdot 6 - 4 = 8$.
+
+	Therefore, $K_{3,3}$ is not planar.
+\end{proof}
 \end{document}

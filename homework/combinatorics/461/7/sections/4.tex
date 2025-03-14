@@ -1,9 +1,15 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}
+\item A polyhedron has 26 faces, 20 of which are triangles and 6 of which are quadrilaterals. Find the number of vertices and edges of this polyhedron.
+\end{problem}
+\begin{proof}
+	We have that, \[
+		2E = \sum_{f\in F} \text{length}(f) = 20\cdot 3 + 6\cdot 4 = 84 \implies E = 42
+		.\]
+
+	Then, by Euler's formula, \[
+		V-E+F = V-42+26=2 \implies V = 18
+		.\]
+\end{proof}
 \end{document}

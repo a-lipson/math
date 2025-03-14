@@ -1,9 +1,39 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}
+\item An \emph{$n$-gonal pyramid} is a polyhedron formed by connecting each vertex of an $n$-sided polygon with one additional vertex.
+\begin{enumerate}
+	\item What is the dual polyhedron of an $n$-gonal pyramid?
+	\item What is the chromatic number of an $n$-gonal pyramid?
+\end{enumerate}
+\end{problem}
+\begin{proposition}
+	An $n$-gonal pyramid is its own dual.
+\end{proposition}
+\begin{proof}[Proof of Proposition and (a)]
+Let $N$ be the $n$-gonal pyramid and  $N^*$ be its dual.
+
+Then, for  $N$, $V=n+1$ for the vertices in the base  $n$-gon and the apex. 
+
+ $F=n+1$ for the  $n$-gon base and the $n$ triangular faces. 
+
+  $E=2n$ for the  $n$ edges in the base $n$-gon and the  $n$  edges connecting the base vertices to the apex. 
+
+Next, for $N^*$, there is a vertex at each face of  $N$, so $V^*=F=n+1$. 
+
+Similarly, there is a face on each vertex of  $N$, so  $F^*=V=n+1$. 
+
+ Each edge in $N$ corresponds to an edge in the dual $N^*$, so  $E^*=N=2n$. 
+
+ In fact,  $N^*$  has the same structure as $N$. 
+
+ The vertex in the face of the base $n$-gon in  $N$ is the apex in  $N^*$. 
+
+ The  $n$ vertices on triangular faces of $N$ form the vertices of the $n$-gon base in  $N^*$.
+
+ Thus,  $N\congN^* $ implies that an $n$-gonal pyramid is its own dual. 
+\end{proof}
+\begin{proof}[Proof of (b)]
+ By Problem 3, since the maximum degree in $N$ belongs to the apex vertex with  degree $n$, then $\chi(N)=n+1$. 
+\end{proof}
 \end{document}

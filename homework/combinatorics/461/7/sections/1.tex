@@ -1,9 +1,15 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}
+Modify Euler's formula so that it holds for any planar graph, not just connected planar graphs. Prove your formula.
+\end{problem}
+\begin{proof}
+	Since $G$ is planar and not connected, then $G$ has $k$ connected components.
+
+	We can connect align these components in a row and connect them with $k-1$ edges.
+
+	Now, the new graph is connected and planar, so $V-(E+(k-1))+F=2$ holds.
+
+	Hence, we have $V-E+F=3-k$ for a disconnected planar graph of  $k$ connected components.
+\end{proof}
 \end{document}

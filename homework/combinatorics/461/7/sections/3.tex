@@ -1,9 +1,34 @@
 \documentclass[../hw7]{subfiles}
 \begin{document}
-  \begin{problem}
-    
-  \end{problem}
-  \begin{proof}
-    
-  \end{proof}
+\begin{problem}
+\item Let $G$ be a simple graph (not necessarily planar). Let $d$ be the maximum degree of a vertex in $G$.
+\begin{enumerate}
+	\item Prove that $\chi(G) \le d+1$. \emph{Hint:} Use induction.
+	\item Find an infinite family of non-isomorphic graphs for which equality holds in the above inequality.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (a)]
+	We will prove the statement by induction on $d$.
+
+	For the base case, when $d=0$, the all vertices must have degree zero and must therefore be not connected. Hence  $\chi(G)=0+1=1$ color for each vertex.
+
+	Assume, that $\chi(G)=d$ for the maximum vertex degree in $G$ of $d-1$.
+
+	Now, for the maximum degree of $d$, we have by the inductive hypothesis that the chromatic number must be at least $d$.
+
+	Then, the vertex with degree $d$, call it $v$ is adjacent to  $d$ other vertices, each of which can be given one of  $d$ colors.
+
+	But, $v$ must have a different color from the other $d$ vertices;
+	hence the graph must be  $(d+1)$-colorable.
+
+	Therefore  $\chi(G)\le d+1$.
+\end{proof}
+\begin{proof}[Proof of (b)]
+	Consider the complete graphs $K_n$.
+	The degree of each vertex in  $K_n$ is  $n-1$, so $\chi(K_n)=n$.
+
+	Each $K_n$ is not isomorphic to  $K_{n-1}$ as these graphs have a different number of vertices.
+
+	So, for all $n$, we have that the infinite family of complete graphs has their chromatic number equal to one more than their maximum degree.
+\end{proof}
 \end{document}

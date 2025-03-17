@@ -22,11 +22,11 @@ Find the following limits.
 \begin{proof}[Proof of (ii)]
 	We have that $\sin^2{\lambda x} = \frac{1-\cos{2\lambda x} }{2} $. So, \[
 		\frac{1}{2} \lim_{\lambda \to \infty} \int_{-\pi}^{\pi} (1-\cos{2\lambda x} ) \,dx
-		= -\frac{1}{2}\lim_{\lambda \to \infty} \int_{-\pi}^{\pi} \cos{2\lambda x}\,dx
-	\] because 1 is an even function.
+		= \pi-\frac{1}{2}\lim_{\lambda \to \infty} \int_{-\pi}^{\pi} \cos{2\lambda x}\,dx
+		.\]
 
-	Since the unit function 1 is also integrable on $[-\pi,\pi]$, then the above vanishes by the Reimann-Lebesgue Lemma.
+	Since the unit function 1 is also integrable on $[-\pi,\pi]$, then the right summand vanishes by the Reimann-Lebesgue Lemma.
 
-	Hence, the limit in (ii) is zero.
+	Hence, the limit in (ii) is $\pi$.
 \end{proof}
 \end{document}

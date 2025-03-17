@@ -8,6 +8,44 @@ Prove \[
 	.\]
 \end{problem}
 \begin{proof}
+	Since $f$ is Reimann integrable on $[a,b]$, then, given any  $\epsilon>0$, there exists a step function $h$ such that \[
+		\int_{a}^{b} |f(x)-h(x)| \,dx < \epsilon
+		.\]
 
+	So, we have that \[
+		\int_{a}^{b} f(x)g(\lambda x) \,dx = \int_{a}^{b} h(x)g(\lambda x) \,dx + \int_{a}^{b} (f(x)-h(x))g(\lambda x) \,dx \tag{*}
+		.\]
+
+	Since $h$ is a step function, then we can write it as \[
+		h(x)=\sum_{i=0}^{n} c_i \chi_{[x_i,x_{i+1}]}(x)
+		,\] where $ \chi_{[x_i,x_{i+1}]}(x)$ is the indicator function of the interval $[x_i,x_{i+1}]$.\\
+	Note that $\int_{a}^{b} h(x) \,dx = \sum_{i=0}^{n} c_i (x_{i+1}-x_i)$.
+
+	Then, the left summand of (*) becomes, \[
+		\int_{a}^{b} h(x)g(\lambda x) \,dx = \sum_{i=0 }^{n} c_i \int_{x_i }^{x_{i+1}}g(\lambda x) \,dx
+		.\]
+
+	Since $g$ is continuous and $T$-periodic, then the integral of $g$ over large intervals approaches the average over $T$ as $\lambda$ grows large.
+	\[
+		\int_{x_i}^{x_{i+1}} g(\lambda x) \,dx
+		= \frac{1}{\lambda}\int_{\lambda x_i}^{\lambda x_{i+1}} g(u) \,du
+		\approx \frac{x_{i+1}-x_i}{T}\int_{0}^{T} g(u) \,du
+		.\]
+
+	Thus, summing over $i$ and for $\lambda$ large, \[
+		\int_{a}^{b} h(x)g(\lambda x) \,dx
+		\approx \frac{1}{T} \int_{0}^{T} g(x) \,dx \sum_{i=0}^{n} c_i (x_{i+1}-x_i)
+		\to \frac{1}{T} \int_{0}^{T} g(x) \,dx \int_{a}^{b} h(x) \,dx
+		.\]
+
+	Since $g$ is continuous and $T$-periodic, then it is bounded, and $M$. $|g(\lambda x)|\le$.
+	Hence, \[
+		\left| \int_{a}^{b} (f(x)-h(x))g(\lambda x) \,dx \right| \le M \int_{a}^{b} |f(x)-h(x)| \,dx < M\epsilon
+		.\] Since $\epsilon$ was arbitrary, then the right summand of (*) vanishes.
+
+	Thus, \[
+		\lim_{\lambda \to \infty} \int_{a}^{b} f(x)g(\lambda x) \,dx
+		= \frac{1}{T} \int_{0}^{T} g(x) \,dx \int_{a}^{b} h(x) \,dx
+		.\]
 \end{proof}
 \end{document}

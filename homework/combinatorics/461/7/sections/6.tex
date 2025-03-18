@@ -6,9 +6,77 @@
 	\item Prove that $\chi(G_3) = 4$ and $\chi(G_4) = 4$.
 	\item Prove that $\chi(G_n) \ge n$ for all positive integers $n$.
 \end{enumerate}
-
 \end{problem}
-\begin{proof}
+We have that the vertices of $G_n$ are $n$-bit binary strings.
 
+Define the parity of a binary string to be the number of ones modulo 2;
+i.e., strings with an even parity have an even number of ones,
+and those with an odd parity have an odd number of ones.
+
+Note that, if two binary strings differ by exactly one position, then the must have opposite parities.
+If two binary strings differ by exactly two positions, then they must have the same parity.
+
+\begin{proof}[Proof of (a)]
+	$G_3$ contains two connected components, each of which are $K_4$.
+	Since $K_4$ is 4-colorable, then $\chi(G_3)=4$ as well.
+
+	% We will partition the vertices of $G_4$ into four components such that each components has no edges between its vertices.
+	For $G_4$, we will split the 16 vertices into two sets, $S_0$ and $S_1$, by whether the first bit in the vertex binary string is 0 or 1.
+	Each set contains an isomorphic copy of $G_3$ where each vertex binary string is prefixed by either 0 or 1.
+
+	Since we already know $G_3$ to be 4-colorable, then $G_4$ must be at least 4 colorable as well.
+	Color the subgraph formed by $S_0$ with the same coloring $c_4$ that works for $G_3$.
+
+	Note that this coloring ensures that adjacent vertices with the same parity get different colors.
+
+	Now, we must connect the vertices between the subsets $S_0$ and $S_1$ of $G_4$.
+
+	Since the first vertex of each subset already differs by one position,
+	then we must place edges between $v_0 \in S_0$ and $v_1 \in  S_1$ where the last 3-bits of the binary strings differ by exactly one position.
+
+	So, we will connect vertices whose last 3-bits differ in parity.
+	This connects vertices in $S_0$ with vertices in $S_1$ with opposing parity.
+
+	Hence, each vertex of $S_0$ will be connected to a corresponding vertex in $S_1$ which it was not connected to in $S_0$, since vertices in $S_0$ are connected to those of the same parity in $S_0$.
+
+	Thus, we can take the coloring $c_4$ from  $S_0$ and swap the colors used for even and odd parity vertices (we have two choices for each parity because there are four colors).
+	This will ensure that the vertices connected between $S_0$ and $S_1$ have different colors.
+
+	Hence we still have a 4-coloring in $G_4$ and $\chi(G_4)=4$.
+\end{proof}
+\begin{proof}[Proof of (b)]
+	We will induct on $n$.
+	For the base case, we have that $\chi(G_1)=1$ as there are two disconnected vertices.
+
+	We have that $G_2$ is a 4-cycle, which is bipartite and hence 2-colorable; i.e., $\chi(G_2)=2$.
+
+	We also have that $\chi(G_3)=\chi(G_4)=4$ by part (a).
+
+	Now, assume that the statement holds for $n\ge 5$.
+
+	Consider a partition $\{S_0,S_1\} $ of the vertices of $G_{n+1}$ based on the first bit of the vertex binary string as before in part (a).
+
+	Now, $G_{n+1}$ contains two subgraphs, each of which are $n$-colorable by the inductive hypothesis.
+
+	Then, vertices are connected between the subgraphs if the tail $n$-bit binary strings differ by exactly one bit since these vertices already differ by the first bit.
+
+	So, the vertices in $S_0$ must be connected to vertices of the opposite tail parity in $S_1$, and they were not connected to the corresponding vertex in $S_0$.
+
+	Suppose that $G_{n+1}$ was only $n$-colorable, with $n$ colors for $S_{0}$ and $S_1$ each, possible permuting colors to avoid conflicts.
+
+	Suppose we assign a coloring $c_n$ to $S_0$ such that that all even-parity vertices use a subset of the $n$ colors and all odd-parity vertices use a different subset of the $n$ colors.
+
+	However, when we attempt to copy this coloring $c_n$ to $S_1$, we see that an even-parity vertex in $S_0$ must now be adjacent to an odd-parity vertex in $S_1$.
+
+	Since these two vertices were not adjacent in $S_0$, they may have been given the same color originally.
+
+	But now, they are forced to be adjacent in $G_{n+1}$, so they must have different colors.
+
+	Since this occurs for all pairs, we need an extra color.
+	% However, since the connections between $S_0$ and $S_1$ force opposite-parity vertices to have different colors, then this introduces at least one more distinct color.
+
+	Therefore, $G_{n+1}$ must require at least $n+1$ colors.
+
+	Thus, $\chi(G_{n+1})\ge n+1$.
 \end{proof}
 \end{document}

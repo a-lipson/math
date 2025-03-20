@@ -1,0 +1,28 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Prove the generalized Parseval identity:
+If $f,g$ are Reimann integrable with complex Fourier coefficients $c_n,d_n$, then  \[
+	\frac{1}{2\pi}\int_{-\pi}^{\pi} (f(x)\overline{g(x)}+\overline{f(x)}g(x)) \,dx
+	= \sum_{-\infty}^{\infty} (c_n \overline{d_n} + \overline{c_n} d_n)
+	.\]
+\end{problem}
+\begin{proof}
+	We will apply the Parseval identity to $f+g$ and  $f-g$.
+
+	We can begin considering both  $f \pm g$ at once,
+	\begin{align*}
+		\sum_{-\infty}^{\infty} |c_n|^2                               & = \frac{1}{2\pi}\int_{-\pi}^{\pi} |f|^2 \,dx                         \\
+		\sum_{-\infty}^{\infty} |c_n \pm d_n|^2                       & = \frac{1}{2\pi}\int_{-\pi}^{\pi} |f + g|^2 \,dx                     \\
+		\sum_{-\infty}^{\infty} (c_n \pm d_n)\overline{(c_n \pm d_n)} & = \frac{1}{2\pi}\int_{-\pi}^{\pi} (f \pm g)\overline{(f \pm g)} \,dx
+		.\end{align*}
+
+	Now, we will consider the difference of the addition and subtractions cases,
+	\begin{align*}
+		\sum_{-\infty}^{\infty} (c_n \overline{c_n} + c_n \overline{d_n} + \overline{c_n}d_n + d_n \overline{d_n}) & = \frac{1}{2\pi}\int_{-\infty}^{\infty} (f\overline{f}+\overline{f}g+f\overline{g}+g\overline{g}) \,dx \\
+		\sum_{-\infty}^{\infty} (c_n \overline{c_n} - c_n \overline{d_n} - \overline{c_n}d_n - d_n \overline{d_n}) & = \frac{1}{2\pi}\int_{-\infty}^{\infty} (f\overline{f}-\overline{f}g-f\overline{g}-g\overline{g}) \,dx \\
+		\implies 2 \sum_{-\infty}^{\infty} (c_n \overline{d_n} +  \overline{c_n}d_n)                               & = \frac{1}{\pi} \int_{-\pi}^{\pi} (\overline{f}g+f\overline{g}) \,dx                                   \\
+		\sum_{-\infty}^{\infty} (c_n \overline{d_n} + \overline{c_n}d_n)                                           & = \frac{1}{2\pi}\int_{-\pi}^{\pi}  (f(x)\overline{g(x)}+\overline{f(x)}g(x)) \,dx
+		.\end{align*}
+\end{proof}
+\end{document}

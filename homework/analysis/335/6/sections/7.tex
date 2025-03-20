@@ -1,0 +1,39 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Determine the constants $a,b,c$ so that the functions  \[
+	f_0(x)=1,\qquad f_1(x)=x+a, \qquad f_2(x)=x^2+bx+c
+\] form an orthogonal set on $[0,1]$.
+\end{problem}
+\begin{proof}
+	We must have $\inp{f}{g}=\int_{0}^{1} f(x)g(x) \,dx = 0$ for all pairs of $f_0,f_1,f_2$.
+
+	First, \[
+		0=\inp{f_0}{f_1} = \int_{0}^{1} (x+a) \,dx = \frac{1}{2}+a \implies a = -\frac{1}{2}
+		.\]
+
+	Next, \[
+		0=\inp{f_0}{f_2} = \int_{0}^{1} (x^2 + bx + c) \,dx = \frac{1}{3} + \frac{b}{2} + c
+		.\]
+
+	Now,
+	\begin{align*}
+		0 = \inp{f_1}{f_2} & = \int_{0}^{1} (x+a)(x^2+bx+c) \,dx                                               \\
+		                   & = \int_{0}^{1} (x^3+bx^2 + cx + ax^2 + abx + ac) \,dx                             \\
+		                   & = \frac{1}{4} + \frac{b+a}{3} + \frac{c+ab}{2}+ac                                 \\
+		                   & = \frac{1}{4} + \frac{b-\frac{1}{2}}{3} + \frac{c - \frac{b}{2}}{2} - \frac{c}{2} \\
+		                   & = \frac{1}{4}+\frac{4b-2}{12}-\frac{b}{4}                                         \\
+		                   & = \frac{3-3b+4b-2}{12}                                                            \\
+		                   & = \frac{1+b}{12}                                                                  \\
+		\implies b         & = -1
+		.\end{align*}
+
+	Lastly, \[
+		c=-\frac{1}{3}-\frac{b}{2}=-\frac{1}{3}+\frac{1}{2}=\frac{1}{6}
+		.\]
+
+	Thus, \[
+		f_0(x)=1,\qquad f_1(x)=x-\frac{1}{2}, \qquad f_2(x)=x^2-x+\frac{1}{6}
+		.\]
+\end{proof}
+\end{document}

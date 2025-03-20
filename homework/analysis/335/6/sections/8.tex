@@ -1,0 +1,29 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Evaluate $\sum_{n=1}^{\infty} \frac{1}{n^4}$ using Parseval's identity.
+\end{problem}
+\begin{proof}
+	For $f(x)=x^2$, we had that \[
+		a_n = \frac{4(-1)^n}{n^2} = c_n + c_{-n} \implies c_n = \frac{2(-1)^n}{n^2} \implies |c_n|^2 = \frac{4}{n^4}
+		.\]
+
+	Also, we have, $c_0=\frac{1}{2}a_0=\frac{\pi^2}{3} \implies |c_0|^2=\frac{\pi^4}{9}$.
+
+	So, by Parseval with $f$, we have that, \[
+		\sum_{-\infty}^{\infty} |c_n|^2
+		=\frac{1}{\pi}\int_{-\pi}^{\pi} |f(x)|^2 \,dx
+		=\frac{1}{2\pi}\int_{-\pi}^{\pi} x^4 \,dx
+		= \frac{\pi^4}{5}
+		.\]
+
+	Then, with $c_n=c_{-n}$,
+	\begin{align*}
+		\sum_{-\infty}^{\infty}|c_n|^2= |c_0|^2+2 \sum_{1}^{\infty} |c_n|^2 & = \frac{\pi^4}{5}                                           \\
+		\frac{\pi^4}{9} + 2 \sum_{1}^{\infty} \frac{4}{n^4}                 & = \frac{\pi^4}{5}                                           \\
+		\sum_{1}^{\infty} \frac{1}{n^4}                                     & = \frac{1}{2}\left( \frac{\pi^4}{5}-\frac{\pi^4}{9} \right) \\
+		\sum_{1}^{\infty} \frac{1}{n^4}                                     & = \frac{1}{2}\left( \frac{4\pi^4}{45} \right)               \\
+		\sum_{1}^{\infty} \frac{1}{n^4}                                     & = \frac{\pi^4}{90}
+		.\end{align*}
+\end{proof}
+\end{document}

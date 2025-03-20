@@ -1,0 +1,23 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+With the same conditions as in Problem 1, prove \[
+	\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)\overline{g(x)} \,dx = \sum_{-\infty}^{\infty} c_n \overline{d_n}
+	.\]
+\end{problem}
+\begin{proof}
+	Note that $f\overline{g}=\overline{f}g = 2\text{Re}(f\overline{g})$.
+
+	By Problem 1, \[
+		\sum_{-\infty}^{\infty} (c_n \overline{d_n} + \overline{c_n} d_n) = \frac{1}{2\pi}\int_{-\pi}^{\pi} 2\text{Re}(f\overline{g}) \,dx
+		.\]
+
+	Now, with $f=if$, we have \[
+		\sum_{-\infty}^{\infty} (c_n \overline{d_n}- \overline{c_n}d_n) = \frac{1}{2\pi}\int_{-\pi}^{\pi} 2i \text{Im}(f\overline{g}) \,dx
+		.\]
+
+	So, summing both of the above, we have \[
+		2 \sum_{-\infty}^{\infty} c_n \overline{d_n} = \frac{1}{\pi} \int_{-\pi}^{\pi} (\text{Re}(f\overline{g})+i\text{Im}(f\overline{g})) \,dx \implies \sum_{-\infty}^{\infty} c_n \overline{d_n} = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)\overline{g(x)} \,dx
+		.\]
+\end{proof}
+\end{document}

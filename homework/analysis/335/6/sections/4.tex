@@ -1,0 +1,24 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Find the sum of the following series using the series for $x^2$ and choosing the appropriate value of $x$.
+\begin{enumerate}
+	\item $\sum_{1}^{\infty} \frac{1}{n^2}$.
+	\item $\sum_{1}^{\infty} \frac{(-1)^{n+1}}{n^2}$.
+\end{enumerate}
+\end{problem}
+From Problem 2, we have that, on $x \in [-\pi,\pi]$, \[
+	f(x)=x^2=\frac{\pi^2}{3}+\sum_{1}^{\infty} \frac{4(-1)^n}{n^2}\cos{nx}
+	.\]
+\begin{proof}[Proof of (i)]
+	If $x=\pi$, then $\cos{nx}=(-1)^n$.
+	So, since $f$ is continuous at  $\pi$,  \[
+		f(\pi)=\pi^2=\frac{\pi^2}{3}+\sum_{1}^{\infty} \frac{4(-1)^n}{n^2}(-1)^n \implies \frac{\pi^2}{6} = \sum_{1}^{\infty} \frac{1}{n^2}
+		.\]
+\end{proof}
+\begin{proof}[Proof of (ii)]
+	Since $f$ is continuous at zero and $x=0\implies \cos{nx}=1$, then \[
+		f(0)=0 = \frac{\pi^2}{3}+\sum_{1}^{\infty} \frac{4(-1)^n}{n^3} \implies \frac{\pi^2}{12}=\sum_{1}^{\infty} \frac{(-1)^{n+1}}{n^2}
+		.\]
+\end{proof}
+\end{document}

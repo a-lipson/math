@@ -1,0 +1,27 @@
+\documentclass[../hw6]{subfiles}
+\begin{document}
+\begin{problem}
+Suppose $f$ is piecewise continuous on  $[0,2\ell]$, satisfies $f(x)=f(2\ell-x)$, and is symmetrical about $x=\ell$.
+Let $a_n,b_n$ be the Fourier coefficients of  $f$.
+Show that  $a_n=0$ for odd $n$, and  $b_n=0$ for even $n$.
+\end{problem}
+\begin{proof}
+	Note that $\cos{(n\pi - x)} = (-1)^n \cos{x}$ and $\sin{n \pi - x} = (-1)^{n+1}\sin{x} $.
+
+	We have that,
+	\begin{align*}
+		a_n & = \frac{1}{\ell} \int_{0}^{2\ell}f(x)\cos{\frac{n \pi x}{2\ell}}   \,dx                                                                                      \\
+		    & = \frac{1}{\ell}\left( \int_{0}^{\ell}f(x)\cos{\frac{n \pi x}{2\ell}} \,dx + \int_{\ell}^{2\ell} f(x)\cos{\frac{n \pi x}{2 \ell}} \,dx \right)               \\
+		    & = \frac{1}{\ell} \left( \int_{0}^{\ell} f(x)\cos{\frac{n \pi x }{2\ell}}  \,dx + \int_{0}^{\ell} f(2\ell-x) \cos{\frac{n \pi (2\ell-x)}{2\ell}} \,dx \right) \\
+		    & = \frac{1}{\ell}\int_{0}^{\ell} f(x)\left( \cos{\frac{n \pi x}{2\ell}}+ \cos{\left( n\pi - \frac{n \pi x}{2\ell} \right) }   \right)  \,dx                   \\
+		    & = \frac{1}{\ell}\int_{0}^{\ell} f(x)\left( \cos{\frac{n\pi x}{2\ell}}  \right)(1+(-1)^n)  \,dx
+		,\end{align*} which vanishes for odd $n$.
+
+	Similarly, we have,
+	\begin{align*}
+		b_n & = \frac{1}{\ell}\int_{0}^{2\ell}f(x)\sin{\frac{n \pi x}{2\ell}}   \,dx                                                     \\
+		    & = \frac{1}{\ell}\int_{0}^{\ell}f(x)\left( \sin{\frac{n \pi x}{2\ell}} + \sin{\frac{n \pi (2\ell-x)}{2\ell}} \right)   \,dx \\
+		    & = \frac{1}{\ell}\int_{0}^{\ell}f(x)\left( \sin{\frac{n \pi x}{2\ell}} \right) (1+(-1)^{n+1})  \,dx
+		,\end{align*} which vanishes for all even $n$.
+\end{proof}
+\end{document}

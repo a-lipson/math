@@ -7,3 +7,6 @@
 
 **/*.script
 **/*.dat
+
+# python env
+.*env/*

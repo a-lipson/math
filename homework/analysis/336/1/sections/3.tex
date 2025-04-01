@@ -1,0 +1,34 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}
+The family of mappings introduced here plays an important role in complex
+analysis.
+These mappings, sometimes called \textbf{Blaschke factors}, will reappear in
+various applications in later chapters.
+\begin{enumerate}[label = (\alph*)]
+	\item Let $z,w$ be two complex numbers such that  $\overline{z} w \neq 1$.
+	      Prove that \[
+		      \left| \frac{w-z}{1-\overline{w}z} \right| <1\quad \text{if } |z|<1 \text{ and } |w| < 1
+		      ,\] and also that \[
+		      \left| \frac{w-z}{1-\overline{w}z} \right| =1\quad \text{if } |z|=1 \text{ or } |w| = 1
+		      .\]
+	      [Hint: Why can one assume that $z$ is real?
+	      It then suffices to prove that  \[
+		      (r-w)(r-\overline{w})\le (1-rw)(1-r\overline{w})
+	      \] with equality appropriate for $r$ and  $|w|$.]
+\end{enumerate}
+\item Prove that for a fixed $w$ in the unit disc  $\D$, the mapping \[
+	F: z \mapsto \frac{w-z}{1-\overline{w}z}
+\] satisfies the following conditions:
+\begin{enumerate}[label = (\roman*)]
+	\item $F$ maps the unit disc to itself (that is, $F:\D \to \D$), and is holomorphic.
+	\item $F$ interchanges 0 and $w$, namely $F(0)=w$ and $F(w)=0$.
+	\item $|F(z)| = 1$ if $|z| = 1$.
+	\item $F:\D \to \D$ is bijective.
+		      [Hint: Calculate $F \circ F$]
+\end{enumerate}
+\end{problem}
+\begin{proof}
+
+\end{proof}
+\end{document}

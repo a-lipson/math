@@ -5,15 +5,43 @@ Describe geometrically the sets of points $z$ in the complex plane defined by th
 following relations:
 \begin{enumerate}[label=(\alph*)]
 	\item $|z-z_1| = |z-z_2|$ where $z_1,z_2\in \C$.
+
+	      Each $z$ is equidistant to both $z_1$ and $z_2$.
+	      So, these $z$ describe the perpendicular bisector to the line segment joining $z_1$ and $z_2$.
+
 	\item $1 / z = \overline{z}$.
+
+	      Since $|z|^2=z\overline{z}=\frac{z}{z}=1$, then $|z| = 1$.
+	      Then, $z=e^{it}$ and $\overline{z}=e^{-it}$ give ${\left( e^{it} \right)}^{-1}=e^{-it}$, which holds for all $t$.
+	      So, these $z$ contain all points on the unit circle.
+
 	\item $\re(z)=3$.
+
+	      These $z$ form a line parallel to the imaginary axis, intersecting the real axis at 3.
+
 	\item $\re(z)>c$, (resp., $\ge c$) where $c\in \R$.
+
+	      These $z$ describe the half-plane on $\C$ extending in the positive real direction with boundary parallel to the imaginary axis at $c$, either inclusive of $z$ with real part equal to $c$, or exclusive, respectively.
+
 	\item $\re(az+b)>0$ where $a,b \in \C$.
+
+	      We have that $\re(az)+\re(b)>0$.
+	      Let  $a=\alpha+i\beta$, $z=x+iy$, and  $\re(b)=\gamma$.
+
+	      Since $\re(az)=\alpha x-\beta y$, then $\alpha x - \beta y + \gamma > 0$,
+	      this gives the half plane with normal $\overline{a}$ pointing outwards of the region defined by $\{z\}$.
+
+	      This is the same as the region above the line $\alpha x - \beta y +\gamma = 0$ in  $\R^2$ superimposed on the complex plane.
+
 	\item $|z| =\re(z)+1$.
+
+	      Let $z=x+iy$.
+	      Then, $x^2+y^2=(x+1)^2\implies y^2=2x+1 \implies x=\frac{y^2-1}{2}$,
+	      which is a parabola opening the direction of the positive real axis with apex at $-\frac{i}{2}$.
+
 	\item $\im(z)=c$ with $c \in \R$.
+
+	      These $z$ describe a line parallel to the real axis, intersecting the imaginary axis $ic$.
 \end{enumerate}
 \end{problem}
-\begin{proof}
-
-\end{proof}
 \end{document}

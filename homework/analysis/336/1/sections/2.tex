@@ -5,6 +5,14 @@ With $\omega = se^{i\varphi}$, where $s\ge 0$ and $\varphi \in \R$, solve the eq
 How many solutions are there?
 \end{problem}
 \begin{proof}
+	Let $z=re^{i\theta}$.
+	Then, $z^n = r^n e^{in\theta} = se^{i\varphi}$.
+	So, we have $r^n = s$ and  $n\theta = \varphi+2\pi k,\, k\in \Z$.
 
+	WLOG, let $\varphi=0$ because we can rotate both vectors such that  $\omega$ lies on the positive real axis.
+	In any case, we are looking for solutions to $n\theta-\varphi=0$ with the following constraint on $\theta$: \[
+		\theta < 2\pi \implies \theta = \frac{\varphi+2\pi k}{n}<2\pi
+		.\]
+	Since this holds for $k=0,\ldots,n-1$ until $k=n \implies \theta = 2\pi \not< 2\pi$, then we have $n$ solutions of $\theta$.
 \end{proof}
 \end{document}

@@ -16,19 +16,105 @@ various applications in later chapters.
 	      It then suffices to prove that  \[
 		      (r-w)(r-\overline{w})\le (1-rw)(1-r\overline{w})
 	      \] with equality appropriate for $r$ and  $|w|$.]
-\end{enumerate}
-\item Prove that for a fixed $w$ in the unit disc  $\D$, the mapping \[
-	F: z \mapsto \frac{w-z}{1-\overline{w}z}
-\] satisfies the following conditions:
-\begin{enumerate}[label = (\roman*)]
-	\item $F$ maps the unit disc to itself (that is, $F:\D \to \D$), and is holomorphic.
-	\item $F$ interchanges 0 and $w$, namely $F(0)=w$ and $F(w)=0$.
-	\item $|F(z)| = 1$ if $|z| = 1$.
-	\item $F:\D \to \D$ is bijective.
-		      [Hint: Calculate $F \circ F$]
+	\item Prove that for a fixed $w$ in the unit disc  $\D$, the mapping \[
+		      F: z \mapsto \frac{w-z}{1-\overline{w}z}
+	      \] satisfies the following conditions:
+	      \begin{enumerate}[label = (\roman*)]
+		      \item $F$ maps the unit disk to itself (that is, $F:\D \to \D$), and is holomorphic.
+		      \item $F$ interchanges 0 and $w$, namely $F(0)=w$ and $F(w)=0$.
+		      \item $|F(z)| = 1$ if $|z| = 1$.
+		      \item $F:\D \to \D$ is bijective.
+			            [Hint: Calculate $F \circ F$]
+	      \end{enumerate}
 \end{enumerate}
 \end{problem}
-\begin{proof}
+\begin{proof}[Proof of (a)]
+	% idea
+	Since $z$ and $w$ are inside of the unit disk, then we may assume  $z$ is real by rotational symmetry.
 
+	% formalize 
+	Let $z' = |z|$ and  $w' = we^{-i\Arg(z)}$. Then, \[
+		1=\left| e^{-i\Arg(z)} \right|  \implies \left| \frac{e^{-i\Arg(z)}(w-z)}{1-\overline{w}z} \right| < 1
+		.\]
+
+	We have that \[
+		z = |z|e^{i\Arg(z)} \implies ze^{-i\Arg(z)}=|z|=z'
+		.\]
+	So, \[
+		e^{-i\Arg(z)}(w-z)=w'-z'
+		.\]
+
+	But,  \[
+		\overline{w'}z' = \overline{w}e^{i\Arg(z)}|z| = \overline{w}z
+		.\]
+
+	So, our substitution retains the original equality: \[
+		\left| \frac{w-z}{1-\overline{w}z} \right| = \left| \frac{w'-z'}{1-\overline{w'}z'}\right| < 1
+		.\]
+
+	Thus, we will now let $z\subset \C = r \in \R$.
+
+	Then,
+	\begin{align*}
+		\left| \frac{w-r}{1-\overline{w}r} \right| & \le 1                                             \\
+		|r-w|                                      & \le |1-\overline{w}r|                             \\
+		|r-w|^2                                    & \le |1-\overline{w}r|^2                           \\
+		(r-w)(\overline{r-w})                      & \le (1-\overline{w}r)(\overline{1-\overline{w}r}) \\
+		(r-w)(r-\overline{w})                      & \le (1-rw)(1-r\overline{w})
+		.\end{align*}
+	If $|z|=r=1$, then, clearly, equality holds.
+
+	Next, considering $r<1 \implies r^2-1 \neq 0$, we will reduce further
+	\begin{align*}
+		(r-w)(r-\overline{w})               & \le (1-rw)(1-r\overline{w})              \\
+		r^2-r(w+\overline{w})+w\overline{w} & \le 1-r(w+\overline{w})+r^2w\overline{w} \\
+		r^2+|w|^2                           & \le 1+r^2|w|^2                           \\
+		r^2-1                               & \le (r^2-1)|w|^2                         \\
+		|w|                                 & \le 1
+		,\end{align*}
+	which is indeed what we wished to show.
+\end{proof}
+\begin{proof}[Proof of b]
+	\begin{enumerate}[label=(\roman*)]
+		\item Since $\forall z\in \D$ and fixed $w$,  $\left| \frac{w-z}{1-\overline{w}z} \right| <1$ by part (a),
+		      then the image of $F$ on  $\D$ must be a subset of $\D$.
+
+		      Since the $F$ is a quotient of holomorphic functions, then $F$ is holomorphic except where the denominator is zero, where $\overline{w}z=1 \implies z=\frac{1}{\overline{w}}$.
+
+		      But, we had that $|w|=|\overline{w}|\le 1 \implies 1\le  \left| \frac{1}{\overline{w}} \right| = |z|$, which means that the singularities occur only outside of the unit disk $\D$.
+
+		      Thus, $F$ is holomorphic.
+
+		\item We have that \[
+			      F(0)=\frac{w-0}{1-\overline{w}(0)}=w
+			      ,\] and also \[
+			      F(w)=\frac{w-w}{1-\overline{w}w}=0
+			      .\]
+
+		\item By part (a), if $r=|z|=1$, then  $|F(z)|=1$.
+		\item We will show $(F\circ F)(z)=z$.
+		      We have that \[
+			      F(F(z)) = \frac{w-\frac{w-z}{1-\overline{w}z}}{1-\overline{w}\frac{w-z}{1-\overline{w}z}}
+			      .\]
+
+		      We will consider the numerator and denominator separately.
+		      First, for the numerator,
+		      \begin{align*}
+			      w-\frac{w-z}{1-\overline{w}z} & = \frac{ w(w-\overline{w}z)-(w-z) }{1-\overline{w}z} \\
+			                                    & = \frac{w-w\overline{w}z-w+z}{1-\overline{w}z}       \\
+			                                    & = \frac{z-w\overline{w}z}{1-\overline{w}z}           \\
+			                                    & = z\frac{1-|w|^2}{1-\overline{w}z}
+			      .\end{align*}
+		      Second, for the denominator,
+		      \begin{align*}
+			      1-\overline{w}\left( \frac{w-z}{1-\overline{w}z} \right) & = \frac{1-\overline{w}z-w\overline{w}+\overline{w}z}{1-\overline{w}z} \\
+			                                                               & = \frac{1-|w|^2}{1-\overline{w}z}
+			      .\end{align*}
+		      Hence, the quotient of the above is \[
+			      z\left( \frac{1-|w|^2}{1-\overline{w}z} \right) \left( \frac{1-\overline{w}z}{1-|w|^2} \right) = z
+			      .\]
+
+		      Thus, $F(F(z))=z$, which implies that $F \circ F$ is the identity function and that $F$ is bijective.
+	\end{enumerate}
 \end{proof}
 \end{document}

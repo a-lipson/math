@@ -7,6 +7,27 @@ Consider the function defined by \[
 Show that $f$ satisfies the Cauchy-Reimann equations at the origin, yet $f$ is not holomorphic at 0.
 \end{problem}
 \begin{proof}
+	Let $f=u+iv$.
+	Since $f=\sqrt{|x| |y|}\in \R$, then $f$ has no imaginary component.
+	So, $f=u$ and $f$ vanishes at the origin.
 
+	Hence, $v=0 \implies \partial_x v = \partial_y v = 0 $.
+	Then, for the real component, we have that,  \[
+		\partial_x f  = \frac{1}{2}\sqrt{\left| \frac{y}{x} \right| } ,\qquad
+		\partial_y f = \frac{1}{2}\sqrt{\left| \frac{x}{y} \right| }
+		.\]
+
+	We will consider the limit definition of the derivative along the real and imaginary axes: \[
+		\lim_{x \to 0} \frac{f(x,0)-f(0,0)}{x} = \lim_{x \to 0} \frac{\sqrt{|x||0|}-0}{x} = 0, \qquad
+		\lim_{y \to 0} \frac{f(0,y)-f(0,0)}{y} = \lim_{y \to 0} \frac{\sqrt{|0||y|}-0}{y} = 0
+		.\]
+
+	So, indeed, approaching the origin along the coordinate axes, the derivative of $f=u$ vanishes, so the Cauchy-Reimann conditions are trivially satisfied there.
+
+	But, for the path $x=y$, parametrized in $h>0$, \[
+		\lim_{h \to 0} \frac{f(h,h)-f(0,0)}{h} = \lim_{h \to 0} \frac{\sqrt{|h||h|}}{h} = \lim_{h \to 0} \frac{|h|}{h} = 1
+		.\]
+
+	So, the derivative of $f$ is not continuous at the origin, and hence $f\not\in C^1$ there.
 \end{proof}
 \end{document}

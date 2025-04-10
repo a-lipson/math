@@ -1,12 +1,47 @@
 \documentclass[../hw1]{subfiles}
 \begin{document}
 \begin{problem}
-Show that if $|a|<r|b|$, then  \[
+Show that if $|a| < r < |b|$, then  \[
 	\int_{\gamma}\frac{1}{(z-a)(z-b)}dz = \frac{2\pi i}{a-b}
 	,\] where $\gamma$ denotes the circle centered at the origin, of radius $r$, with the positive orientation.
 % note that the previous parts of this question in the textbook have that, for all integers n (except n=-1), the integral about a circular path anywhere in the complex plane is zero; at n=-1, the integral of a circular path about the origin is 2 pi i. 
 \end{problem}
 \begin{proof}
+	We will expand the integrand using partial fraction decomposition, \[
+		\frac{1}{(z-a)(z-b)} = \frac{1}{a-b}\left( \frac{1}{z-a}-\frac{1}{z-b} \right)
+		.\]
 
+	Then, we will represent each of the above functions by a geometric series which converges on in the given annulus of bounded by radii $r\in [|a|,|b|]$.
+
+	First, \[
+		\frac{1}{z-b} =
+		-\frac{1}{b}\left( \frac{1}{1-z / b} \right) =
+		-\frac{1}{b} \sum_{0}^{\infty} \left( \frac{z}{b} \right)^n =
+		- \sum_{0}^{\infty} b^{-n}z^{n}
+		,\] which converges for $|z / b| < 1 \implies |z| < b$.
+
+	Second, \[
+		\frac{1}{z-a} =
+		\frac{1}{z}\left( \frac{1}{1- a / z} \right) =
+		\frac{1}{z}\sum_{0}^{\infty} \left( \frac{a}{z} \right)^n =
+		\sum_{0}^{\infty} a^n z^{-(n+1)}
+		,\] which congers for $| a / z | < 1 \implies |a| < |z|$.
+
+
+	So, our integral becomes, \[
+		\frac{1}{a-b}\int_{\gamma} \left(
+		\sum_{0}^{\infty} a^n z^{-(n+1)} +
+		\sum_{0}^{\infty} b^{-n}z^{n}
+		\right)  \,dz
+		.\]
+
+	But, we have that, for all integers $k\neq -1$, $\int_{\gamma} z^k \,dz=0$.
+
+	So all terms in the right series vanish, and all terms in the left series vanish except for $n=0$.
+	Hence, we are left with $a^0 z^{-(0+1)} = \frac{1}{z}$.
+
+	Thus,  \[
+		\int_{\gamma}\frac{1}{(z-a)(z-b)}dz=  \frac{1}{a-b} \int_{\gamma} \frac{1}{z} \,dz = \frac{ 2\pi i }{a-b}
+		.\]
 \end{proof}
 \end{document}

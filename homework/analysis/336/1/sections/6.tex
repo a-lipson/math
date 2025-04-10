@@ -11,6 +11,57 @@ Prove that $f$ is indefinitely differentiable on $R$, and that $f^{(n)}(0)=0$ fo
 Conclude that $f$ does not have a converging power series expansion $\sum_{n=0}^{\infty} a_n x^n$ for $x$ near the origin.
 \end{problem}
 \begin{proof}
+	Since $f$ is the composition of infinitely differentiable functions, then  $f$ is also infinitely differentiable for  positive $x$.
 
+
+	We wish to find the derivatives $f^{(n)}(x)$ for $x > 0$.
+
+	By the chain rule, $f'(x)$ will the product of a polynomial in $\frac{1}{x}$ with $e^{-1 / x^2}$.
+	Indeed, we have $f'(x)=\frac{2}{x^3}e^{-1 / x^2}$.
+
+
+	By the chain and product rule, $f''(x)$ will also the product of a polynomial in $\frac{1}{x}$ with $e^{-1 / x^2}$.
+	Specifically, $f''(x)=\left( \frac{4}{x^6}-\frac{6}{x^4} \right)e^{-1 / x^2}$.
+
+	Thus, we can write \[
+		f^{(n)}(x) = q_{d}(1 / x)e^{-1 / x^2}
+		,\] where $q_d$ is a polynomial in $\frac{1}{x}$ of degree $d$;
+	in fact, we have $d=3n$ because the derivative will contribute a factor of $\frac{2}{x^3}$ to $q_d$.
+
+	Now, for the continuity of the derivative, we have that $\lim_{x \to 0^-} f^{(n)}(x)=0$, so we wish to show that $\lim_{x \to 0^+} f^{(n)}(x) =0$ as well.
+
+	For any polynomial $p$ of degree $d$, we have that $p$ is bounded: $|p|\le Nx^d$ for some $N$.
+
+	So, for the polynomial $q_d$ in $\frac{1}{x}$, we have that $|q_d(1 / x)|\le \frac{M}{x^d}$ for some $M$.
+
+	Hence,  \[
+		\lim_{x \to 0^+} |f^{(n)}(x)| =
+		\lim_{x \to 0^+} |q_d(1 / x)e^{-1 / x^2}| \le
+		\lim_{x \to 0}|Mx^{-d}e^{-1 / x^2}|
+		.\]
+
+	Then, with the substitution $t=x^{-2}$, we have $x\to 0 \implies t \to \infty$.
+	Since exponential functions grow faster than any polynomial function, then $\lim_{t \to \infty} M t^{\frac{d}{2}}e^{-t}=0$.
+
+	Hence, $\lim_{x \to 0^+} f^{(n)}(x) = 0$, and $f^{(n)}(x)=0$ for all $n$ at $x=0$.
+
+
+	% \begin{proposition}
+	% 	$\lim_{x \to 0}x^{-k}\exp(-x^{-2})=0$.
+	% \end{proposition}
+	% \begin{proof}[Proof of Proposition]
+	% 	Let $t=x^{-2}$.
+	% 	Then $x\to 0 \implies t \to \infty$.
+	% 	Since exponential functions grow faster than any polynomial function, then $\lim_{t \to \infty} t^{\frac{k}{2}}e^{-t}=0$.
+	% \end{proof}
+
+	So, we can produce a Taylor series expansion centered at zero, \[
+		f(x)=\sum_{0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n = 0
+		.\]
+
+	But, $e^{-1 / x^2}\neq 0$ for all $x>0$.
+	Thus,  $f$ cannot be represented by a Taylor series around  $x=0$ despite being infinitely differentiable there.
+
+	So, $f$ is smooth but not analytic at zero.
 \end{proof}
 \end{document}

@@ -1,0 +1,51 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f:\N\to \R$ satisfy a linear recurrence of the form \[
+	f(n+d)=\sum_{i=1}^{d} a_i f(n+d-i)
+\]      where each $a_i$ is either 0 or 1.
+Prove that  $f(n)=o(2^n)$.
+\end{problem}
+\begin{proof}
+	% By Problem 1 part (c), we have that \[
+	% 	\bf{f}(n)=
+	% 	{\begin{bmatrix}
+	% 		a_1     & \cdots & a_d     \\
+	% 		I_{d-1} &        & \vec{0}
+	% 	\end{bmatrix}}^n \bf{f}(0)
+	% 	.\]
+	By Problem 1 part (b), we have that \[
+		\bf{f}(n)\sim c_1\lambda_1^n \bf{v}_1
+		,\] where $\lambda_1$ is the eigenvalue with largest magnitude, $c_1$ is a complex constant, and $\bf{v}_1$ is an eigenvector, which is also constant.
+
+	Each $\lambda_i$, not necessarily distinct, is root of the characteristic polynomial.
+
+	The characteristic polynomial of the homogeneous linear occurrence gives \[
+		\lambda^d = \sum_{k=1}^{d-1} a_{d-k} \lambda^{k}
+		.\]
+	With all $a_i$ either 0 or 1, then we must have,  \[
+		\lambda^d \le \sum_{k=1}^{d-1} \lambda^{k}
+		.\]
+	By the triangle inequality, we have that,\[
+		|\lambda|^d \le \left|  \sum_{k=1}^{d-1} \lambda^{k} \right| \le \sum_{k=1}^{d-1} |\lambda|^{k} = \frac{1- |\lambda|^d}{1- |\lambda|}
+		.\]
+	Suppose, that $|\lambda|\ge 2 \implies 2|\lambda|^d \le |\lambda|^{d+1}$.
+	Then, \[
+		|\lambda|^{d+1}-{|\lambda|}^d \le {|\lambda|}^d-1 \implies {|\lambda|}^{d+1} \le 2|\lambda|^d -1 \le {|\lambda|}^{d+1}-1
+		,\] a contradiction.
+
+	Therefore, for all solutions $\lambda$ to the characteristic polynomial, we must have that $|\lambda|<2$.
+
+	% Let $m_i$ the multiplicity of each eigenvalue $\lambda_i$.
+	% Let $p_{m_i}(n)$ be a polynomial in $n$ of degree $m_i-1$.
+	%
+	%  So, we can write the characteristic polynomial as \[
+	%    p_{m_i}(n)\lambda_1^n +  
+	%  .\] 
+	Therefore,  \[
+		\bf{f}(n)\sim c_1 \lambda_1^n \bf{v}_1 \le c_1 2^n \bf{v}_1
+		.\]
+
+	Since $f(n)$ is the last component of this vector function, then $f(n)=o(2^n)$.
+\end{proof}
+\end{document}

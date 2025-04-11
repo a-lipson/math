@@ -1,0 +1,103 @@
+\documentclass[../hw1]{subfiles}
+\begin{document}
+\begin{problem}
+Solving systems of linear recurrences for single homogeneous linear recurrences.
+% Let $f_1,f_2,\ldots,f_d:\N\to \R$, and $a_{ij}\in \R$ where $i,j\in [1,d] \subset \N$ such that the following 
+
+Let $\bf{f}(n)=[f_1(n),\ldots,f_d(n)]^{T}$.
+Let $A$ be the  $d\times d$ matrix $(a_{ij})_{i,j=1}^{d}$ such tha;t, \[
+	\bf{f}(n+1)=A\,\bf{f}(n)
+	.\]
+\begin{enumerate}[label=(\alph*)]
+	\item Assume $A$ diagonalizable over $\C$ with $d$ eigenvalues $\lambda_1,\ldots,\lambda_d\in \C$, and $\C^d$ has eigenbasis $\bf{v}_1,\ldots,\bf{v}_d$ where $A\bf{v}_i = \lambda_i \bf{v}_i$ for all $i$.
+
+	      Let  $c_1,\ldots,c_d\in \C$ such that \[
+		      \bf{f}(0)=\sum_{i=1}^{d} c_i\bf{v}_i
+		      .\]
+	      Prove \[
+		      \bf{f}(n)=\sum_{i=1}^{d} c_i \lambda_i^n \bf{v}_i
+		      .\]
+
+	\item Suppose $|\lambda_i|\le |\lambda_1|$ for all $i$.
+	      Assume $c_1\neq 0$ and that every coordinate of $\bf{v}_1$ is nonzero.
+	      Prove that, as $n\to \infty$, \[
+		      \bf{f}(n)\sim c_1\lambda_1^n \bf{v}_1
+		      .\]
+	      % every coordinate of the vector on the LHS is asymptotically equivalent
+	      % to the corresponding coordinate of the RHS 
+
+	\item Suppose that $f:\N\to \R$ satisfies a homogeneous linear recurrence \[
+		      f(n+d)=\sum_{i=1}^{d} a_i f(n+d-i)
+	      \] for constants $a_i$.
+	      Explain how to use the above method with the functions $f_i(n)=f(n+d-i)$ to find a formula for $f(n)$.
+	      Assume that the matrices we obtain are diagonalizable.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (a)]
+	Let $P$ be the eigenbasis matrix with eigenvector columns.
+	Let $\bf{c}=[c_1,\ldots,c_d]^{T}$.
+
+	Since $A$ is diagonalizable, then we have that  $A=P \Lambda P^{-1}$ where $\Lambda$ is the eigenvalue diagonal matrix.
+	So,\[
+		A^n = P\Lambda^n P^{-1} \implies A^n P = P \Lambda^n
+		.\]
+
+	We will show that  $\bf{f}(n)=P \Lambda^n \bf{c}$.
+
+	By induction,  we have \[
+		\bf{f}(n+1)=A\,\bf{f}(n)  \implies \bf{f}(n)=A^n \bf{f}(0)
+		.\]
+
+	But, we have $A^n P = P \Lambda^n$, and we are given that $\bf{f}(0)=P \bf{c}$,
+	so $\bf{f}(n)= A^n P \bf{c} = P\Lambda^n \bf{c}$.
+\end{proof}
+\begin{proof}[Proof of (b)]
+	Since $|\lambda_i| < |\lambda_1|$ for all $i\neq 1$, then $\left| \frac{\lambda_i}{\lambda_1} \right| < 1$.
+
+	We will factor out $c_1 \lambda_1^n$ from $\bf{f}(n)$, \[
+		\mathbf{f}(n)=c_1 \lambda_1^n \left( \mathbf{v}_1 + \sum_{i=2}^{d} \frac{c_i}{c_1} \left( \frac{\lambda_i}{\lambda_1} \right)^n  \right)
+		.\]
+
+	Since  $\left| \frac{\lambda_i}{\lambda_1} \right| < 1$, then the terms of the finite sum will vanish as $n\to \infty$,
+	\begin{align*}
+		\lim_{n \to \infty} \bf{f}(n) & =
+		\lim_{n \to \infty} c_1 \lambda_1^n \left( \mathbf{v}_1 + \sum_{i=2}^{d} \frac{c_i}{c_1} \left( \frac{\lambda_i}{\lambda_1} \right)^n  \right)                                                                                                 \\
+		                              & = \lim_{n \to \infty} \left( c_1 \lambda_1^n \right)
+		\lim_{n \to \infty} \left( \mathbf{v}_1 + \sum_{i=2}^{d} \frac{c_i}{c_1} \left( \frac{\lambda_i}{\lambda_1} \right)^n \right)                                                                                                                  \\
+		                              & = \lim_{n \to \infty}c_1\lambda_1^n \bf{v}_1 +                                                                 \lim_{n \to \infty} \sum_{i=2}^{d} \frac{c_i}{c_1} \left( \frac{\lambda_i}{\lambda_1} \right)^n \\
+		                              & = \lim_{n \to \infty}c_1\lambda_1^n \bf{v}_1 + \sum_{i=2}^{d} \frac{c_i}{c_1} \lim_{n \to \infty} \left( \frac{\lambda_i}{\lambda_1} \right)^n                                                                 \\
+		                              & = \lim_{n \to \infty} c_1 \lambda_1^n \bf{v}_1
+		.\end{align*}
+	Hence, $f(n)\sim c_1\lambda_1^n \bf{v}_1$.
+\end{proof}
+\begin{proof}[Proof of (c)]
+	Let $f_i(n)=f(n+d-i)$.
+	In particular, $f_d(n)=f(n+d-d)=f(n)$.
+
+	Note that we have a relation between subsequent $f_i(n)$: \[
+		f_{i+1}(n+1)=f((n+1)+d-(i+1))=f(n+d-i)=f_i(n)
+		,\] where $i \in [1,d-1]$.
+
+	So, $f_i(n+1) = f_{i-1}(n)$ for $i \in [2,d]$.
+
+	Consider the case when $i=1$, \[
+		f_1(n+1)=
+		f(n+d)=
+		\sum_{i=1}^{d}a_i f(n+d-i) =
+		\sum_{i=1}^{d}a_i f_i(n)
+		.\]
+	Therefore we can write $\bf{f}(n+1)=A\, \bf{f}(n)$ using the diagonal matrix $A$ given by, \[
+		A_{d\times d}=\begin{bmatrix}
+			a_1     & \cdots & a_d     \\
+			I_{d-1} &        & \vec{0}
+		\end{bmatrix}.\]
+	So, by part (a), we have that $\bf{f}(n) = A^n \bf{f}(0)$ where $\bf{f}(0)=[f(d-1),\ldots,f(0)]^{T}$.
+	% So, to recover $f(n)$, we will consider the last component, $f_d$ of $\mathbf{f}(n)$ as above.
+
+	Since the last component of $\bf{f}(n)$, $f_d(n)=f(n)$, then, to recover $f(n)$, we must find $A^n$.
+
+	Since $A$ is diagonalizable by assumsption, then we diagonalize $A$ and exponentiation its diagonal matrix.
+
+	Then, we can multiply $A^n\bf{f}(0)$ and consider the last component of the result, which yields $f(n)$.
+\end{proof}
+\end{document}

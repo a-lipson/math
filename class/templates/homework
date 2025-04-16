@@ -1,0 +1,9 @@
+\documentclass{article}
+\input{../../../../class/preamble.tex}
+\input{../../../../class/${area}/preamble.tex}
+\title{Math ${code} Homework ${version}}
+\begin{document}
+\maketitle
+\setlist[enumerate,1]{label = (\roman*)}
+%sections
+\end{document}

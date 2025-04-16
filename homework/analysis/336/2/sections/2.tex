@@ -1,0 +1,45 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}
+Suppose $f:\D\to \C$ is holomorphic.
+Show that the diameter of the image of $f$,  $d=\sup_{z,w\in \D}|f(z)-f(w)|$ satisfies \[
+	2|f'(0)|\le d
+	,\] and that equality holds when $f$ is linear.
+\end{problem}
+\begin{proof}
+By the Cauchy integral formula, we have \[
+f'(z)=\frac{1}{2\pi i}\int_{C} \frac{f(\omega)}{(\omega-z)^2}\,d\omega
+\] for some circle $C\subset \D$ centered at $z$.
+
+Then, at $z=0$, we have  \[
+f'(0)=\frac{1}{2\pi i}\int_{|\omega| = r} \frac{f(\omega)}{\omega^2}\,d\omega, \quad \forall r\in (0,1)
+,\] which we can also substitute $\omega\mapsto -\omega$ to achieve the opposite of the above. 
+
+Note that $|f(\omega)-f(-\omega)|\le d$.
+
+Hence, $\forall r \in (0,1)$,
+\begin{align*}
+  2f'(0)&=\frac{1}{2\pi i}\int_{|\omega| = r} \frac{f(\omega)-f(-\omega)}{\omega^2} \,d\omega\\
+  2|f'(0)|&=\left|  \frac{1}{2\pi i}\int_{|\omega| = r} \frac{f(\omega)-f(-\omega)}{\omega^2} \,d\omega\right| \\
+          &\le \frac{1}{2\pi} \int_{|\omega| = r} \frac{d}{|\omega|^2} d\omega \\
+          &= \frac{1}{2\pi} \int_{0}^{2\pi} \frac{d}{r^2} r\,d\theta\\
+          &= \frac{d}{2\pi} \int_{0}^{2\pi} \frac{1}{r} \,d\theta\\
+          &= \frac{d}{r}
+.\end{align*}
+Since the above holds for all $r \in (0,1)$, then, considering the limit, \[
+\lim_{r \to 1^-} \frac{d}{r} = d \implies 2|f'(0)| \le d 
+,\] as desired.
+
+If $f$ is linear, then we can write  $f= a + bz$. 
+
+Then,  $|f(\omega)-f(-\omega)| = 2|b|$. 
+
+But, we also have that the diameter of the image $d$ is given by  \[
+|f(z)-f(\omega)| = |(a+bz)-(a+b\omega)| = |b| |z-\omega|
+\]  
+So, we have that  \[
+\sup_{z,\omega\in \D}|f(z)-f(\omega)| = |b| \sup_{z,\omega\in \D}|z-\omega| = 2|b|
+.\] 
+Thus, we have equality when proceeding as above.
+\end{proof}
+\end{document}

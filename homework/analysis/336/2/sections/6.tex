@@ -1,0 +1,26 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}
+Consider $f:\C\to \C$ of the form $f = u+iv$, where $u, v : \R^2\to \R$ are smooth functions.
+Assume that $f$ is a conformal map, i.e. the Jacobian is an orthogonal matrix.
+Prove that either $f$ or its conjugate $\overline{f}$ satisfies the Cauchy-Riemann equations.
+\end{problem}
+\begin{proof}
+	Since $f$ is conformal and has an orthogonal Jacobian matrix $J$, then  \[
+		% J = \begin{pmatrix}
+		% 	\frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\
+		% 	\frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} \\\end{pmatrix}
+		% \implies \begin{pmatrix} \frac{\partial u}{\partial x} \\ \frac{\partial v}{\partial x} \end{pmatrix}
+		% =  \pm \begin{pmatrix} \frac{\partial v}{\partial y} \\ -\frac{\partial u}{\partial y} \end{pmatrix}
+		J = \begin{pmatrix} u_x & u_y \\ v_x & v_y \end{pmatrix}
+		\implies \begin{pmatrix} u_x \\ v_x \end{pmatrix}
+		=  \pm \begin{pmatrix} v_y \\ -u_y \end{pmatrix}
+		.\]
+	So, we have that either \[
+		u_x = v_y \text{ and } v_x = -u_y, \quad \text{or}\quad u_x=-v_y \text{ and } v_x = u_y
+		.\]
+	We see that the first set of equations are the Cauchy-Riemann equations for $f=u+iv$.
+
+	Instead, if we consider $\overline{f}=u-iv$, then the second set of equations holds using substitution by $v(x,y)\mapsto -v(x,y)$.
+\end{proof}
+\end{document}

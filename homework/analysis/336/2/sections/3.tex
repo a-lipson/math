@@ -1,0 +1,58 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}
+Let $\Omega \subset \C$ be bounded and open, and $\varphi:\Omega\to \Omega$ a holomorphic function.
+Prove that if there exists $z_0\in \Omega$ such that $\varphi(z_0)=z_0$ and $\varphi'(z_0) = 1$, then $\varphi$ is linear.
+\end{problem}
+% Hint: why can one assume that z_0 = 0? 
+\begin{proof}
+Consider $f(z)=\varphi(z+z_0)-z_0$. 
+If $z_0=0$, then $f(z)=\varphi(z)$. 
+Otherwise, $f(0)=\varphi(z_0)-z_0=0$. 
+So, WLOG, assume $z_0=0$. 
+
+For a contradiction, assume $\varphi$ is not linear, so we can write it as  \[
+\varphi(z)=z+a_n z^n + O(z^{n+1})
+\] for $n\ge 2$ and $a_n\neq 0$. 
+
+Let $\varphi_k$ be the composition of $\varphi$ with itself $k$ times.
+We will show that $\varphi_k(z)=z+k a_n z^n + O(z^{n+1})$ by induction. 
+
+For the base case with $k=1$, we have that \[
+\varphi(z)=z+ a_n z^n + O(z^{n+1})=\varphi_1(z)
+.\] 
+
+Assume the result holds for $k$ and consider $k+1$, 
+ \begin{align*}
+  \varphi_{k+1}(z) &= \varphi(\varphi_k(z)) \\
+  &= \varphi_k(z) + k a_n (\varphi_k(z))^n + O((\varphi_k(z))^{n+1}) \\
+  &= z+a_n z^n + O(z^{n+1}) + k a_n (z+ a_n z^n + O(z^{n+1})) + O((z+ a_n z^n + O(z^{n+1}))^{n+1}) \\
+.\end{align*}
+By the binomial expansion, we have that \[
+  (z+ a_n z^n + O(z^{n+1}))^n = z^n + O(z^{n+1})
+.\] 
+Furthermore, we also can simplify the following, \[
+O((z+ a_n z^n + O(z^{n+1}))^{n+1})=O(z^{n+1})
+.\] 
+Therefore, \[
+\varphi_{k+1}(z)=z+ a_n z^n + k a_n (z^n + O(z^{n+1})) + O(z^{n+1})
+= z + (k+1) a_n z^n + O(z^{n+1})
+,\] as desired.
+
+Since $\Omega$ is bounded, then there exists an $R>0$ such that, for all $z\in \Omega$, $|z|<R$. 
+Since $\varphi_k(z)$ maps between  $\Omega$, then for all $k$ and $z \in \Omega$,  \[
+|\varphi_k(z)|<R
+.\] 
+
+But, for $\delta>0$ small and $0< |z| < \delta$, we have that \[
+  |\varphi_k(z)-z| = |k a_n z^n + O(z^{n+1})| \approx |k a_n z^n |
+.\] 
+So, there exists a $K>0$ such that for all $k>K$, \[
+|\varphi_k(z)| \approx |k a_n z^n | > R
+,\] which is a contradiction.
+
+Thus, $a_n = 0$ for all  $n \ge 2$, which implies that $\varphi(z)=z$, which is indeed linear. 
+
+Lastly, we also must have $\varphi(z)=1$, as any non-unit coefficient on $z$ in $\varphi$ would also result in an unbounded $\varphi_k$ as $k\to \infty$.
+\end{proof}
+\end{document}

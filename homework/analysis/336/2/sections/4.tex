@@ -13,7 +13,7 @@ Let $u: \D \to \R$. Suppose $u\in \C$ and $\Delta u(x,y)=0$ for all $(x,y)\in \D
 	      If $u$ is harmonic in the unit disk and continuous on its closure, then, with $z=re^{i\theta}$, \[
 		      u(z)=\frac{1}{2\pi}\int_{0}^{2\pi} P_r(\theta-\varphi)u(e^{i\varphi}) \,d\varphi
 	      \] where $P_r(\gamma)$ is the Poisson kernel for the unit disk given by  \[
-		      P_r(\gamma) = \frac{1-r^2}{1-2r\cos{\theta}+r^2}
+		      P_r(\gamma) = \frac{1-r^2}{1-2r\cos{\gamma}+r^2}
 		      .\]
 \end{enumerate}
 \end{problem}
@@ -43,8 +43,8 @@ Let $u: \D \to \R$. Suppose $u\in \C$ and $\Delta u(x,y)=0$ for all $(x,y)\in \D
 	We are given that, on the unit disk, \[
 		f(z)=\frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) P_z(\varphi) \,d\varphi
 		.\]
-	Since $\cos{\gamma}$ is even, then with the other given definition of $P_{\rho}(\gamma)$,  \[
-		P_{\rho}(-\gamma)=P_{\rho}(\gamma)= \re \left( \frac{ e^{i\gamma} + \rho }{e^{i\gamma} - \rho} \right)
+	Since $\cos{\gamma}$ is even, then with the other given definition of $P_{r}(\gamma)$,  \[
+		P_{r}(-\gamma)=P_{r}(\gamma)= \re \left( \frac{ e^{i\gamma} + r }{e^{i\gamma} - r} \right)
 		.\]
 
 	Then, substituting $z=re^{i\theta}$,

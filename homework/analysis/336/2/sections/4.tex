@@ -17,7 +17,45 @@ Let $u: \D \to \R$. Suppose $u\in \C$ and $\Delta u(x,y)=0$ for all $(x,y)\in \D
 		      .\]
 \end{enumerate}
 \end{problem}
-\begin{proof}
+\begin{proof}[Proof of (a)]
+	Let $f'=g=2 \partial_z u$.
+	We will show that $\partial_{\overline{z}} g = 0$, which implies that $g$ is holomorphic.
 
+	We have the following relation between the mixed Wirtinger derivatives and the Laplacian, \[
+		\partial_{\overline{z}}\partial_z = \frac{1}{4}\Delta
+		,\] note that the order of the derivatives may be switched.
+	So, \[
+		\partial_{\overline{z}} g = \partial_{\overline{z}}(2 \partial_z u) =  \frac{1}{2}\Delta u = 0
+		.\]
+	Hence $g$ is holomorphic on $\D$, and it has a primitive $G$ on  $\D$ such that $G' = g$.
+
+	Then, with $G' = g = 2u'$, integrating both sides gives, \[
+		G = 2 \int \frac{d}{dz} u \,dz = 2u + (a+bi)
+	\] where $a+bi$ is a complex constant of integration.
+	So, \[
+		\re(G)=2u+a \text{ and } \im(G) = b
+		.\]
+	Thus, let $f=\frac{1}{2}G$ and we have found $f$ which satisfies the required conditions.
+\end{proof}
+\begin{proof}[Proof of (b)]
+Note that we will show the result up to $u(e^{i\varphi})$ in place of $u(\varphi)$, as the latter representation is an equivalent notation.
+
+We are given that, on the unit disk, \[
+	f(z)=\frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) P_z(\varphi) \,d\varphi
+	.\]
+Since $\cos{\gamma}$ is even, then with the other given definition of $P_r(\gamma)$,  \[
+	P_r(-\gamma)=P_r(\gamma)= \re \left( \frac{ e^{i\gamma} + r }{e^{i\gamma} - r} \right)
+	.\]
+
+Then, substituting $z=re^{i\theta}$,
+\begin{align*}
+	f(re^{i\theta}) & = \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) \re \left( \frac{e^{i\varphi} + re^{i\theta}}{e^{i\varphi} - re^{i\theta}} \right) \,d\varphi \\
+	                & = \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) \re \left( \frac{e^{i(\varphi-\theta)} + r}{e^{i(\varphi-\theta)}-r} \right) \,d\varphi       \\
+	                & =  \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) P_r(\varphi-\theta) \,d\varphi
+	.\end{align*}
+
+Finally, taking the real part of $f$, \[
+	u(z)=u(re^{i\theta})=\frac{1}{2\pi}\int_{0}^{2\pi} u(e^{i\varphi}) P_r(\theta-\varphi)\,d \varphi
+	.\]
 \end{proof}
 \end{document}

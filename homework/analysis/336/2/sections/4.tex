@@ -11,7 +11,7 @@ Let $u: \D \to \R$. Suppose $u\in \C$ and $\Delta u(x,y)=0$ for all $(x,y)\in \D
 	      % Prove that Re(F) differs from u by a real constant. 
 	\item Deduce the Poisson integral representation formula from the Cauchy integral formula.
 	      If $u$ is harmonic in the unit disk and continuous on its closure, then, with $z=re^{i\theta}$, \[
-		      u(z)=\frac{1}{2\pi}\int_{0}^{2\pi} P_r(\theta-\varphi)u(\varphi) \,d\varphi
+		      u(z)=\frac{1}{2\pi}\int_{0}^{2\pi} P_r(\theta-\varphi)u(e^{i\varphi}) \,d\varphi
 	      \] where $P_r(\gamma)$ is the Poisson kernel for the unit disk given by  \[
 		      P_r(\gamma) = \frac{1-r^2}{1-2r\cos{\theta}+r^2}
 		      .\]
@@ -21,9 +21,10 @@ Let $u: \D \to \R$. Suppose $u\in \C$ and $\Delta u(x,y)=0$ for all $(x,y)\in \D
 	Let $f'=g=2 \partial_z u$.
 	We will show that $\partial_{\overline{z}} g = 0$, which implies that $g$ is holomorphic.
 
-	We have the following relation between the mixed Wirtinger derivatives and the Laplacian, \[
+	We have the following relation between the mixed Wirtinger derivatives and the Laplacian: \[
 		\partial_{\overline{z}}\partial_z = \frac{1}{4}\Delta
-		,\] note that the order of the derivatives may be switched.
+		.\]
+	Note that the order of the derivatives may be switched.
 	So, \[
 		\partial_{\overline{z}} g = \partial_{\overline{z}}(2 \partial_z u) =  \frac{1}{2}\Delta u = 0
 		.\]
@@ -38,24 +39,24 @@ Let $u: \D \to \R$. Suppose $u\in \C$ and $\Delta u(x,y)=0$ for all $(x,y)\in \D
 	Thus, let $f=\frac{1}{2}G$ and we have found $f$ which satisfies the required conditions.
 \end{proof}
 \begin{proof}[Proof of (b)]
-Note that we will show the result up to $u(e^{i\varphi})$ in place of $u(\varphi)$, as the latter representation is an equivalent notation.
+	% Note that we will show the result up to $u(e^{i\varphi})$ in place of $u(\varphi)$, as the latter representation is an equivalent notation.
+	We are given that, on the unit disk, \[
+		f(z)=\frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) P_z(\varphi) \,d\varphi
+		.\]
+	Since $\cos{\gamma}$ is even, then with the other given definition of $P_r(\gamma)$,  \[
+		P_r(-\gamma)=P_r(\gamma)= \re \left( \frac{ e^{i\gamma} + r }{e^{i\gamma} - r} \right)
+		.\]
 
-We are given that, on the unit disk, \[
-	f(z)=\frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) P_z(\varphi) \,d\varphi
-	.\]
-Since $\cos{\gamma}$ is even, then with the other given definition of $P_r(\gamma)$,  \[
-	P_r(-\gamma)=P_r(\gamma)= \re \left( \frac{ e^{i\gamma} + r }{e^{i\gamma} - r} \right)
-	.\]
+	Then, substituting $z=re^{i\theta}$,
+	\begin{align*}
+		f(re^{i\theta}) & = \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) \re \left( \frac{e^{i\varphi} + re^{i\theta}}{e^{i\varphi} - re^{i\theta}} \right) \,d\varphi \\
+		                & = \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) \re \left( \frac{e^{i(\varphi-\theta)} + r}{e^{i(\varphi-\theta)}-r} \right) \,d\varphi       \\
+		                & =  \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) P_r(\varphi-\theta) \,d\varphi
+		.\end{align*}
 
-Then, substituting $z=re^{i\theta}$,
-\begin{align*}
-	f(re^{i\theta}) & = \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) \re \left( \frac{e^{i\varphi} + re^{i\theta}}{e^{i\varphi} - re^{i\theta}} \right) \,d\varphi \\
-	                & = \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) \re \left( \frac{e^{i(\varphi-\theta)} + r}{e^{i(\varphi-\theta)}-r} \right) \,d\varphi       \\
-	                & =  \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{i\varphi}) P_r(\varphi-\theta) \,d\varphi
-	.\end{align*}
-
-Finally, taking the real part of $f$, \[
-	u(z)=u(re^{i\theta})=\frac{1}{2\pi}\int_{0}^{2\pi} u(e^{i\varphi}) P_r(\theta-\varphi)\,d \varphi
-	.\]
+	Finally, taking the real part of $f$ and considering that $P_r(\gamma)$ is even, \[
+		\re(f(z))=u(z)=u(re^{i\theta})=\frac{1}{2\pi}\int_{0}^{2\pi} u(e^{i\varphi}) P_r(\theta-\varphi)\,d \varphi
+		,\] as desired.
 \end{proof}
+\end{document}
 \end{document}

@@ -19,6 +19,28 @@ Show that $f$ cannot be analytically continued past the unit disk.
 % Let z = re^{iθ}; then |f(re^iθ)|→∞ as r → 1.
 \end{problem}
 \begin{proof}
+	\let\epsilon\varepsilon
+	Let $\theta=\frac{2\pi p}{2^k}$ for $p,k \in \Z^+$.
+	Let $z=re^{i\theta}$ such that \[
+		z^{2^n} = \left( re^{i\theta} \right)^{2^n} = r\exp{2\pi i p (2^{n-k})}
+		.\]
+	For all $n\ge k$, the above is $\exp{2\pi i p (2^{n-k})}=1$.
+	So, we can write \[
+		\sum_{0}^{\infty} z^{2^n} = \sum_{0}^{n-1} r\exp{2\pi i p (2^{n-k})} + \sum_{n}^{\infty} r
+		.\]
+	But, \[
+		\lim_{r \to 1^-} \sum_{n}^{\infty} r = \infty \implies \lim_{|z| \to 1} \left| \sum_{0}^{\infty} z^{2^n} \right| = \infty
+		.\]
+	Therefore $f$ has a singularity on the unit circle where  $\theta=2\pi \frac{p}{2^k}$.
 
+	However, we can use $\frac{p}{2^k}$ for positive integers $p$ and $k$ to produce the binary decimal representation of any number $\frac{\varphi}{2\pi} \in  [0,1] \subset \R$.
+
+	Hence, $\forall \epsilon>0, \exists p, k $ such that \[
+		\left|  \frac{\varphi}{2\pi}- \frac{p}{2^k}\right| < \frac{\epsilon}{2\pi}
+		\implies |\varphi-\theta| < \epsilon
+		.\]
+	Therefore $e^{i\theta}$ with the above assignment of $\theta$ will cover all angles in around the unit circle $C$.
+
+	Thus, there exist singularities at all points around the unit circle, so no points are regular on $C$, which means that $f$ cannot be analytically continued past $C$.
 \end{proof}
 \end{document}

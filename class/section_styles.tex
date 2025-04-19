@@ -37,19 +37,6 @@
 \newtheorem{intuition}{Intuition}
 \newtheorem{problem}{Problem}
 
-
-% lecture sub files
-\def\@lecture{}%
-\newcommand{\lecture}[3]{
-	\ifthenelse{\isempty{#3}}{%
-		\def\@lecture{Lecture #1}%
-	}{%
-		\def\@lecture{Lecture #1: #3}%
-	}%
-	\subsection*{\@lecture}
-	\marginpar{\small\textsf{\mbox{#2}}}
-}
-
 \newcommand{\exercise}[1]{%
 	\def\@exercise{#1}%
 	\subsection*{Exercise #1}
@@ -58,3 +45,32 @@
 \newcommand{\subexercise}[1]{%
 	\subsubsection*{Exercise \@exercise.#1}
 }
+
+% lecture sub files
+\def\@lecture{}
+\newcommand{\lecture}[3]{
+	\ifthenelse{\isempty{#3}}{
+		\def\@lecture{Lecture #1}
+	}{
+		\def\@lecture{Lecture #1: #3}
+	}
+	\subsection*{\@lecture}
+	\marginpar{\small\textsf{\mbox{#2}}}
+}
+
+
+% headers 
+% NOTE: overridden by page_frame
+% \pagestyle{fancy}
+% \makeatletter
+%
+% % L, C, R: left, center, right
+% % E, O: even, odd
+% % \fancyhead[LE,RO]{\@author}
+% \fancyhead[RO,LE]{\@lecture} % right odd,  left even
+% \fancyhead[RE,LO]{\rightmark}          % right even, left odd
+% \fancyfoot[RO,LE]{\thepage}  % right odd,  left even
+% \fancyfoot[RE,LO]{}          % right even, left odd
+% \fancyfoot[C]{\leftmark}     % center
+%
+% \makeatother

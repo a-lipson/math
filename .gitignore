@@ -3,7 +3,9 @@
 **/*.fls
 **/*.log
 **/*.out
+**/*.toc
 **/*.synctex.gz
+
 
 **/*.script
 **/*.dat

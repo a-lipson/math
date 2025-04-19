@@ -1,0 +1,43 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}
+Let $f:\N\to \R$ such that \[
+	f(n)=f(n-1)+2f(n-2)+2^n
+\] for $n\ge 2$, $f(0)=1$, and $f(1)=2$.
+\begin{enumerate}[label=(\alph*)]
+	\item Find a closed form expression for the generating function $F(x)$ of $f(n)$.
+	\item Prove that $f(n)\sim cn 2^n$ for some constant $c$.
+	      % Hint: use partial fraction decomposition without solving for numerator coefficients.
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (a)]
+	We will form a generating function using the recurrence relation,
+	\begin{align*}
+		\sum_{0}^{\infty} f(n+2)x^n                 & = \sum_{0}^{\infty} f(n+1)x^n + 2 \sum_{0}^{\infty} f(n)x^n + \sum_{0}^{\infty} 2^{n+2}x^n \\
+		\frac{1}{x^2}\left( F(x)-xf(1)-f(0) \right) & = \frac{1}{x}(F(x)-f(0))+2F(x)+\frac{4}{1-2x}                                              \\
+		F(x)-2x-1                                   & = xF(x)-x+2x^2F(x)+\frac{4x^2}{1-2x}                                                       \\
+		F(x)(1-x-2x^2)                              & =1+x+\frac{4x^2}{1-2x}                                                                     \\
+		F(x)(1+x)(1-2x)                             & = \frac{(1-2x)(1+x)+4x^2}{1-2x}                                                            \\
+		F(x)                                        & = \frac{1+x-2x+2x^2}{(1-2x)^2(1+x)}
+		,\end{align*} which is our closed form for $F(x)$.
+\end{proof}
+\begin{proof}[Proof of (b)]
+	Since the degree of the numerator of the closed form of $F$ is less than that of the denominator, then the quotient remainder of $F$ can be expressed using partial fractions with constant numerators.
+
+	So, we have \[
+		\frac{c_1}{1-2x}+\frac{c_2}{(1-2x)^2}+\frac{c_3}{1+x}
+		.\]
+	Note that \[
+		\frac{1}{(1-y)^2}=\frac{d}{dx}\left( \frac{1}{1-y} \right) = \frac{d}{dx}\sum_{n\ge 0} x^n = \sum_{n\ge 0} (n+1)x^n
+		.\]
+	Therefore, using the geometric power series expansion, we have
+	\begin{align*}
+		F(x) & = c_1 \sum_{n\ge 0} (2x)^n + c_2 \sum_{n\ge 0} (n+1)(2x)^n + c_3 \sum_{n\ge 0} c_3 \sum_{n\ge 0} (-x)^n \\
+		     & = \sum_{n\ge 0} \left( c_1 2^n + c_2(n+1) 2^n + c_3 (-1)^n \right) x^n                                  \\
+		     & = \sum_{n\ge 0} (c_2n + (c_1+c_2))2^n + c_3(-1)^n x^n
+		.\end{align*}
+	Thus,  \[
+		f(n)=(c_2n + (c_1+c_2))2^n + c_3(-1)^n \implies f(n) \sim cn 2^n
+		,\] as desired.
+\end{proof}
+\end{document}

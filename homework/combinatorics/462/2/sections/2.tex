@@ -1,0 +1,67 @@
+\documentclass[../hw2]{subfiles}
+\begin{document}
+\begin{problem}
+Let $F(x)=\sum_{n=0}^{\infty} a_n x^n$ be a power series such that $F(x)=P(x) / Q(x)$, where $P(x)$ and $Q(x)$ are polynomials, and $Q(0)\neq 0$.
+Let $r_1,\ldots r_k \in \C$ be the distinct roots of $Q(x)$,  and let $m_i$ be the multiplicity of the root  $r_i$.
+Assume  $|r_1|\le \ldots\le |r_k|$, and also if $|r_1| = |r_i|$ for some  $i\neq 1$, then $m_1>m_i$.
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that $a_n=O\left( \frac{n^{m_1-1}}{|r_1|^n} \right) $, where $a_n$ is the coefficient of  $x^n$ in  $F(x)$.
+	\item Let $c=\lim_{x \to r_1} \left( 1-\frac{x}{r_1} \right)^{m_1} F(x)$.
+	      Prove that if $c\neq 0$, then \[
+		      a_n \sim \frac{c}{(m_1-1)!}\frac{n^{m_1-1}}{r_1^n}
+		      .\]
+\end{enumerate}
+\end{problem}
+\begin{proof}[Proof of (a)]
+	We will consider the partial fraction decomposition with $k$ roots of $m_i$ multiplicity of $F = \frac{P}{Q}$, \[
+		F(x) = \frac{P(x)}{Q(x)} = h(x)+\sum_{i=1}^{k} \sum_{j=1}^{m_i} \frac{c_{ij}}{(r_i-x)^j}
+		,\] where $h(x)$ is a polynomial, zero if $\deg{P} < \deg{Q}$, and each $c_{ij}$ is constant.
+
+	By the general binomial expansion, we have \[
+		\frac{1}{(x-r_i)^j} = \frac{1}{r_i^j(1- x / r_i^j)} = \frac{1}{r_i^j}\sum_{0}^{\infty} \binom{n+j-1}{n} \left( \frac{x}{r_i} \right)^n
+		.\]
+
+	For $n$ large, \[
+		\binom{n+j-1}{n} = \frac{(n+j-1)}{n!(j-1)!}=\frac{(n+j-1)\cdots(n+1)}{(j-1)!}\sim \frac{n^{j-1}}{(j-1)!}
+		.\]
+
+	Since $h(x)$ has finite order, then for large $d=\deg{h}<n$, we have
+	\begin{align*}
+		F(x)=\sum_{d}^{\infty} a_n x^n = \sum_{i=1}^{k} \sum_{j=1}^{m_i} c_{ij} \sum_{0}^{\infty} \binom{n+j-1}{n} \frac{x^n}{r_i^{n+j}}
+		.\end{align*}
+	Since we only have one infinite sum, we can rearrange with the finite sums to extract the relationship with the $a_n$ coefficient.
+	So, for $n$ large, \[
+		a_n \sim c_{ij}\frac{n^{j-1}}{(j-1)!r_i^{n+j}}
+		.\]
+
+	This term is largest when $i=1$ because, for all $i$, $|r_1|\le |r_i|$, which is in the denominator.
+	Also, since we have $n^{j-1}$ in the numerator, then we must have the largest $j=m_1$ because for all $i\neq 1$, $m_1 > m_i$.
+	Thus, \[
+		a_n \sim c_{1m_1}\frac{n^{m_1-1}}{(m_1-1)!r_1^{n+m_1}} = O\left( \frac{n^{m_1-1}}{r_1^n} \right)
+		,\] which is what we wanted to show.
+\end{proof}
+\begin{proof}[Proof of (b)]
+	We have, from part (a), \[
+		\left( 1-\frac{x}{r_1} \right)^{m_1}F(x) = \tilde{h}(x) + \sum_{i=1}^{k}\sum_{j=1}^{m_i}c_{ij}\frac{\left( 1-\frac{x}{r_1} \right)^{m_1}}{(r_i-x)^j}
+		,\] where $\tilde{h}$ is a polynomial of degree $\tilde{d}$.
+
+	When $i=1$ and $j=m_1$, we have \[
+		c_{1m_1}\frac{\left( 1-\frac{x}{r_1} \right)^{m_1}}{(r_1-x)^{m_1}}=c_{1m_1}\frac{\left( 1-\frac{x}{r_1} \right)^{m_1}}{r_1^{m_1}\left( 1-\frac{x}{r_1} \right)^{m_1}} = \frac{c_{1m_1}}{r_1^{m_1}}
+		.\]
+
+	As $x \to r_1$, all other terms in the sum will approach 0.
+
+	For $1 < i$ and $j<m_1$, we have that  $|r_1| \le |r_i|$, so the numerator $(1 - x / r_1)^{m_1}$ will go to zero while the denominator $(r_i-x)^j$ will remain bounded if
+	we have strict inequality between  $|r_1|$ and $|r_i|$.
+	Otherwise, if the two terms are equal, then we have that $m_1>m_i$, which will give cancellation, and therefore the term will tend to zero as well.
+
+
+	Therefore \[
+		\lim_{x \to r_1} \left( 1-\frac{x}{r_1} \right)^{m_1}F(x) = \frac{c_{1m_1}}{r_1^{m_1}} = c
+		.\]
+
+	Substituting $c_{1m_1} = c r_1^{m_1}$ into the result from part (a), \[
+		a_n \sim c r_1^{m_1} \frac{n^{m_1-1}}{(m_1-1)!r_1^{n+m_1}} = \frac{c}{(m_1-1)!}\frac{n^{m_1-1}}{r_1^n}
+		,\] as desired.
+\end{proof}
+\end{document}

@@ -6,7 +6,7 @@
 
 #title(
   "Math 336 Homework 4",
-  author
+  author,
 )
 
 #include "sections/1.typ"

@@ -16,10 +16,11 @@
 
   We will consider the cases when $xi > 0$, $xi < 0$, and $xi = 0$.
 
-  First, for $xi > 0$, the exponential term $e^(-2 pi z xi)$ decays in the upper half-plane, so we can close a semicircular contour there.
-  Then, by the Residue theorem, we have
+  First, for $xi > 0$, the exponential term $|e^(-2 pi z i xi)| = e^(2 pi (im z) xi)$ decays in the lower half-plane, so we can close a semicircular contour there.
+
+  Since a positively oriented semicircular contour traverses the real axis in the negative direction, which is backwards of our integral, then, by the Residue theorem, we have
   $
-    I = limits(integral)_(RR) (e^(-2 pi i x xi)) / (Q(x)) dd x = 2 pi i sum_(z_i : im z_i > 0) res(z_i, (e^(-2 pi i z xi)) / (Q(z))).
+    I = limits(integral)_(RR) (e^(-2 pi i x xi)) / (Q(x)) dd x = - 2 pi i sum_(z_i : im z_i < 0) res(z_i, (e^(-2 pi i z xi)) / (Q(z))).
   $
 
   Since $z_i$ are all simple roots, then
@@ -29,18 +30,19 @@
 
   Thus,
   $
+    I = - 2 pi i sum_(z_i : im z_i < 0) (e^(-2 pi i z_i xi)) / (Q(z_i)).
+  $
+
+  Second, for $xi < 0$, the exponential term decays in the upper half-plane.
+  The corresponding contour traverses in the real line in the same direction as our integral.
+  Hence, by the Residue theorem and as is the first case, we have
+  $
     I = 2 pi i sum_(z_i : im z_i > 0) (e^(-2 pi i z_i xi)) / (Q(z_i)).
   $
 
-  Second, for $xi < 0$, the exponential term decays in the lower half-plane, but the positive orientation of a semicircular contour in the negative imaginary half-plane gives a backwards traversal of the real axis.
-  Hence, by the Residue theorem and as is the first case, we have
-  $
-    I = -2 pi i sum_(z_i : im z_i < 0) (e^(-2 pi i z_i xi)) / (Q(z_i)).
-  $
+  Third, when $xi = 0$, the integral becomes $limits(integral)_(RR) (d x) / (Q(x))$, which vanishes at a sufficient distance from the origin for all complex arguments.
 
-  Third, when $xi = 0$, the integral becomes $limits(integral)_(RR) (d x) / (Q(x))$.
-
-  We will consider the contour in the upper half-plane.
+  We will choose the semicircular contour contour in the upper half-plane.
   Since $deg Q >= 2$, then $1\/Q(z) = O(z^(-2))$, which will vanish for $abs(z)$ sufficiently large.
   For $abs(z) = R$,
   $

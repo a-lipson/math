@@ -15,7 +15,7 @@
   Let $f(x) = 1 / pi a / (a^2 + x^2)$.
   Let $g(x) = f(x)e^(-2 pi x xi)$.
 
-  Since $f$ has moderate decay and is holomorphic at poles $plus.minus i a$, then $f in cal(F)_c, a<c$, so we can write $|f(x+i y)| <= C / (1+x^2)$.
+  // Since $f$ has moderate decay and is holomorphic at poles $plus.minus i a$, then $f in cal(F)_c, a<c$, so we can write $|f(x+i y)| <= C / (1+x^2)$.
 
   WLOG let $xi > 0$.
   Otherwise, use $x |-> -x$ where $f(x)=f(-x)$ with $xi |-> -xi$ to yield, $ g(x) = f(x)e^(-2 pi i x xi) = f(-x)e^(-2 pi i (-x)(-xi)). $

@@ -6,6 +6,21 @@
 
 #title("336 Final Project Draft", author)
 
+#let todo-style(content) = {
+  show regex("^\[TODO:.*$"): txt => (
+    text(fill: green, txt)
+  )
+  show regex("^\[NOTE:.*$"): txt => (
+    text(fill: blue, txt)
+  )
+  content
+}
+
+// Apply the styling to your document content
+#show: todo-style
+
+[TODO: make small subsections not appear in TOC]
+
 #outline()
 
 #include "sections/abstract.typ"

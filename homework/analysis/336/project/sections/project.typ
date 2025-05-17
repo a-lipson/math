@@ -1,7 +1,5 @@
 #import "@local/tinyset:0.2.1": *
 
-#import "common.typ": *
-
 = Project for Peers
 
 
@@ -95,7 +93,7 @@ The circle method is aptly named by using Cauchy's theorem for series coefficien
 
 We will use the circle method to find the number of weak compositions of $n$ into $k$ parts.
 
-Begin with the case when $k=2$,
+Begin with the case where we have $k=2$ parts,
 $
   r_2(n) = \# {(a_1,a_2) | n=a_1+a_2, #h(0.5em) a_1,a_2 in A}.
   #footnote[The \# notation returns the size of the given set.]
@@ -169,9 +167,6 @@ where the last equality is given by a combinatorial identity.
 #footnote[This identity can be quickly shown by expressing both binomial coefficients in terms of falling factorials (Pochhammer symbols) and counting the appearances of -1.]
 
 
-
-
-
 == Hardy-Ramanujan Estimation Formula
 
 #theorem[Hardy-Ramanujan][
@@ -184,10 +179,13 @@ where the last equality is given by a combinatorial identity.
   $
     f(z) = sum_(n=0)^(infinity) p(n) z^n = product_(m=1)^(infinity) 1 / (1-z^m), #h(1em) |z| < 1.
   $
+
+  #proposition[
+
+  ]
+
+  [TODO: complete the proof]
 ]
 
-#proposition[
-
-]
 
 

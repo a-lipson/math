@@ -1,5 +1,3 @@
-#import "common.typ": *
-
 #heading(numbering: none)[Abstract]
 
 In this project, we plan to introduce the curious prospective mathematician to some introductory ideas in combinatorics.

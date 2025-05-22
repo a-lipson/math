@@ -1,7 +1,36 @@
 #import "@local/tinyset:0.2.1": *
 
 #problem[
-  Problem statement omitted for time.
+  A function and its Fourier transform cannot both be too small at infinity, this is illustrated by the following theorem by Hardy.
+  If the function $f$ on $RR$ satisfies
+  $
+    f(x) = O(e^(-pi x^2)) and hat(f)(xi) = O(e^(-pi xi^2)),
+  $
+  then $f = c e^(- pi x^2)$.
+  As a result, $f(x) = O(e^(-pi A x^2) )$ and $hat(f)(xi) = O(e^(- pi B xi^2))$.
+  When $A B > 1$ and $A,B > 0$, then $f$ is identically zero.
+
+  + Show that for $f$ even, $hat(f)$ extends to an even entire function.
+    Let $g(z) = hat(f)(z^(1\/2))$, which satisfies
+    $
+      |g(x)| <= c e^(-pi x) and |g(z)| <= c exp(pi R sin^2 theta \/ 2) <= c e^(pi |z|),
+    $
+    when $x, theta in RR$, $R >= 0$, and $z = R e^(i theta)$.
+
+  + Apply the Phragmén-Lindelöf principle to
+    $
+      F(z) = g(z)e^(gamma z) "where" gamma = i pi e^(-pi \/ (2 beta)) / (sin pi\/(2 beta))
+    $
+    and the sector $0 <= theta <= pi\/beta < pi$.
+
+    Let $beta -> 1$ to deduce $e^(pi z) g(z)$ is bounded in the closed upper half-plane, and the same in the lower half-plane.
+    By Liouville, $e^(pi z)g(z)$ is constant, as desired.
+
+
+  + If $f$ is odd, then $hat(f)(0) = 0$.
+    Apply the above argument to $(hat(f)(z)) / z$ to deduce $f = hat(f) = 0$.
+    Write $f$ as an appropriate sum of an even and odd function.
+
   Note that there is likely a typo in the suggested solution, the original erroneous statement was taking $beta -> pi$.
 ]
 

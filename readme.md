@@ -8,8 +8,8 @@ A repo for my typeset math content, mostly homework and some lecture notes.
 
 ## Configuration
 
-- Typst [neovim config](https://github.com/i-r-o-n/dotfiles/blob/dev/nvim/lua/plugins/lsp/latex.lua), [snippets](https://github.com/i-r-o-n/dotfiles/blob/dev/nvim/lua/snippets/typst/), and [style package](https://github.com/a-lipson/tinyset)
-- Nushell homework section management [neovim script](https://github.com/i-r-o-n/dotfiles/blob/dev/nvim/scripts/tex/new-section.nu)
+- Typst [neovim config](https://github.com/a-lipson/config/blob/dev/nvim/lua/plugins/lsp/latex.lua), [snippets](https://github.com/a-lipson/config/blob/dev/nvim/lua/snippets/typst/), and [style package](https://github.com/a-lipson/tinyset)
+- Nushell homework section management [neovim script](https://github.com/a-lipson/config/blob/dev/nvim/scripts/tex/new-section.nu)
 
 ## Acknowledgments
 

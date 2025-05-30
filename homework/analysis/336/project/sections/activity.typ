@@ -22,7 +22,7 @@ We see that there are two cases:
 -
 -
 
-#heading(numbering: none, level: 3)[Guiding Questions]
+#heading(numbering: none, outlined: false, level: 3)[Guiding Questions]
 
 Sketch a table of the space size $n$ and the corresponding number of tilings which fill that space.
 Do you recognize this sequence?
@@ -32,7 +32,7 @@ Do you recognize this sequence?
 
 Can you write down a relationship that describes how to get the next number of tilings in the sequence?
 
-#heading(numbering: none, level: 3)[Extension Questions]
+#heading(numbering: none, outlined: false, level: 3)[Extension Questions]
 
 What are some other ways that we can build this sequence?
 
@@ -97,7 +97,7 @@ How many ways are there to cut a polygon along its diagonals into triangles.
 Wooden block some with pegs as polygon vertices.
 Stretch rubber bands between pegs to create triangulations.
 
-#heading(numbering: none, level: 3)[Guiding Questions]
+#heading(numbering: none, outlined: false, level: 3)[Guiding Questions]
 
 How many triangles are in the triangulation of an polygon with $n$ sides ($n$-gon)?
 // The triangulation of an $n$-gon has $n-2$ triangles.
@@ -130,7 +130,7 @@ How many triangles are in the triangulation of an polygon with $n$ sides ($n$-go
   We can also construct a proof with a bijection to binary trees.
 ]
 
-#heading(numbering: none, level: 3)[Extension Questions]
+#heading(numbering: none, outlined: false, level: 3)[Extension Questions]
 
 Can you connect this problem to the previous one?
 Hint: what happens if we draw points (vertices of a tree) on each of the triangles in the triangulation.

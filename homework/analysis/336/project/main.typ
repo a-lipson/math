@@ -16,10 +16,7 @@
   content
 }
 
-// Apply the styling to your document content
 #show: todo-style
-
-[TODO: make small subsections not appear in TOC]
 
 #outline()
 
@@ -41,5 +38,4 @@ suitability for audience + extent of research
 
 3. Detailed paper (< 10 pages, single sided)
 depth + quality of analysis
-
 */

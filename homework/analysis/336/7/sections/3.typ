@@ -27,7 +27,7 @@
     abs(exp(-epsilon z^beta)) = exp(-epsilon r^beta cos beta theta).
   $
 
-  But, $|beta theta| < (pi) / (2 beta)$, so $|theta| < pi / 2$ and $cos theta > 1$.
+  But, $|beta theta| < (pi) / (2 beta)$, so $|theta| < pi / 2$ and $cos theta > 0$.
 
   Let $F_(epsilon)(z) = F(z)exp(-epsilon z^beta)$.
   So,

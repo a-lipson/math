@@ -1,4 +1,5 @@
 #import "@local/tinyset:0.2.1": *
+#import "@preview/cetz:0.3.4"
 
 = Discussion for Students <discussion>
 
@@ -118,8 +119,6 @@ How can we produce generating functions?
 
 === Constructing Generating Functions from Recurrence Relations
 
-[NOTE: do we wish to remain this level of detail? i think it might be excessive; the sequence rule is put in place for the color block tiling problem.]
-
 #theorem[Sequence Rule][
   Let $A$ be a set with a weight function and no elements of weight 0.
   Let $A^*$ be the set of all finite sequences of elements of $A$, including the empty sequence, where the weight of a sequence is given by the sum of the weights of its elements.
@@ -156,23 +155,91 @@ How can we produce generating functions?
 == Some Sequences
 
 #definition[
-  Fibonacci sequence
+  Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, dots$
+  #footnote[https://oeis.org/A000045]
   - recurrence relation $f(n+2) = f(n+1) + f(n)$.
   - generating function $1 / (1-x-x^2)$.
-  - closed form
-  - asymptotics
+  - closed form $(phi^n - psi^n) / (phi - psi)$, where $phi = (1+sqrt(5)) / 2$ is the golden ratio and $psi = (1-sqrt(5)) / 2$.
+  - asymptotics $f(n) ~ phi^n \/ sqrt(5)$.
 ]
-
-[TODO: expand upon the Catalan numbers.]
 
 #definition[
-  Catalan sequence,
-  - recurrence relation
-  - generating function
-  - closed form $1 / (n+1)binom(2n, n)$.
-  - asymptotics
+  Catalan sequence $1, 1, 2, 5, 14, 42, dots$
+  #footnote[https://oeis.org/A000108]
+  - recurrence relation $c(0) = 1$ and $c(n) = (2(2n-1)) / (n+1) c(n-1) = sum_(i=1)^n c(i-1)c(n-i)$
+  - generating function $(1-sqrt(1-4x)) / (2x)$
+  - closed form $1 / (n+1)binom(2n, n)$
+  - asymptotics $c_n ~ 4^n / (n^(3\/2) sqrt(pi))$
 ]
 
+#proof[Catalan closed form][
+  We will provide a combinatorial argument for $c_n = 1 / (n+1) binom(2n, n)$.
+
+  We have that $c_n$ counts the number of lattice paths from $(0,0)$ to $(2n,0)$ where each step is of the form $(1,1)$ or $(1,-1)$, and the path never crosses the $y=0$ line.
+
+  #figure(
+    cetz.canvas(length: 0.5cm, {
+      import cetz.draw: *
+
+      set-style(stroke: (thickness: 0.05))
+
+      let draw-dyck-path(steps) = {
+        let points = ((0, 0),)
+        let current = (0, 0)
+
+        for step in steps {
+          let next = if step == "U" {
+            (current.at(0) + 1, current.at(1) + 1)
+          } else { (current.at(0) + 1, current.at(1) - 1) }
+          points.push(next)
+          current = next
+        }
+
+        line(..points)
+
+        for point in points { circle(point, radius: 0.05, fill: black) }
+
+        line(
+          (0, 0),
+          (points.last().at(0), 0),
+          stroke: (paint: gray, dash: "dotted"),
+          name: "ground",
+        )
+      }
+
+      draw-dyck-path(("U", "U", "U", "D", "D", "U", "D", "D", "U", "D"))
+      content("ground.mid", [UUUDDUDDUD], anchor: "north", padding: .5)
+      content("ground.start", [0], anchor: "north", padding: .2)
+      content("ground.end", [$2n$], anchor: "north", padding: .2)
+    }),
+    caption: [Example lattice path.],
+  )
+
+  There are $binom(2n, n)$ lattice paths that never cross the $y=0$ line without any other restriction, that is $2n$ total steps, $n$ of which are up (or down).
+
+  Let $b_n$ be the number of "bad" paths which cross $y=0$.
+  Given a bad path, consider the first time it touches $y=-1$ and reflect all points to the right across $y=-1$.
+  The resulting lattice line is a path from $(0,0)$ to $(2n,-2)$.
+
+  Given a path from $(0,0)$ to $(2n,-2)$, we can go back to a bad path using the same process in reverse.
+  Therefore, there exists a bijection between the set of bad paths to the set of paths from $(0,0)$ to $(2n,-2)$;
+  there are $binom(2n, n-1)$ such paths, for all $2n$ steps, $n-1$ of these must be up steps.
+
+  Therefore,
+  $
+    c_n & = binom(2n, n)- binom(2n, n-1)            \
+        & = binom(2n, n)-(2n)! / ((n-1)!(n+1)!)     \
+        & = binom(2n, n) - n / (n+1) (2n)! / (n!n!) \
+        & = binom(2n, n)-n / (n+1)binom(2n, n)      \
+        & = 1 / (n+1)binom(2n, n),                  \
+  $
+  #w5 to show.
+]
+
+
+
+So, both the parentheses puzzle and polygonal triangulation activities produce the same count.
+#footnote[In fact, the number of binary trees of $n$ vertices is also the Catalan number.]
 
 == Integer Partitions
 
@@ -185,13 +252,6 @@ How can we produce generating functions?
 
 #definition[
   We can represent partitions with Young and Ferrers diagrams.
-]
-
-#theorem[
-  Let $P_(<= k)$ be the set of all partitions with all parts at most $k$, weighted by sum.
-  $
-    F_(P_(<= k))(x) = product_(j=1)^(k) 1 / (1-x^j).
-  $
 ]
 
 #proposition[
@@ -212,12 +272,24 @@ How can we produce generating functions?
   Thus, we have a bijection between the set of partitions with $k$ parts and the set of partitions with largest part $k$.
 ]
 
-If we let the maximum size of each part $k$ exceed any number, i.e., $k -> oo$, then we obtain the following theorem.
 #theorem[
+  Let $P_(<= k)$ be the set of all partitions with all parts at most $k$, weighted by sum.
+  $
+    F_(P_(<= k))(x) = product_(j=1)^(k) 1 / (1-x^j).
+  $
+]
+
+#proof[Theorem][
+
+]
+
+
+If we let the maximum size of each part $k$ exceed any number, i.e., $k -> oo$, then we obtain the following theorem.
+#theorem[Partitions Generating Function][
   Let $P$ be the set of all partitions weighted by sum.
   $
     F_(P)(x) = product_(k=1)^(infinity) 1 / (1-x^k).
-    #footnote[Be careful with infinite products; these objects can be very unwieldy.]
+    // #footnote[Be careful with infinite products; these objects can be very unwieldy.]
   $
 ]
 

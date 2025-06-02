@@ -9,33 +9,44 @@ In particular, we want to know how the size of sets change according to certain 
 
 Let $A_n$ be a set parametrized by some natural number $n$.
 // We place $n$ in the subscript position because...
-We write $f(n) = |A_n|$, assigning some function $f$ which capture the size of the set.
-
+We will assign a function $f$ to capture the size of the set and write $f(n) = |A_n|$.
 Now, we can understand how the size of the set changes by understanding the behavior of the function $f$.
 
-Note we have defined $f$ to agree with the size of $A_n$ only for integer values of $n$.
-What values might $f$ take on for non-integer arguments?
+Note that we have defined $f$ to agree with the size of $A_n$ only for integers $n$.
+However, if $f$ is a nice function, we can ask the question: what values might $f$ take on for non-integer arguments?
 
 There are several main cases for how we work with $f$:
-- We have an explicit formula for $f(n)$.
+- we have an explicit formula for $f(n)$,
 // number of permutations of $[n] = n!$.
-- We have an approximation or asymptotic estimate for $f(n)$ as $n->oo$.
-- We compare $f$ to another function which we understand.
-- We build a recurrence relation on the output of $f$.
-
-[TODO: ensure intro covers all topics which we decide to retain.]
+- we have an approximation or asymptotic estimate for $f(n)$ as $n->oo$,
+- we compare $f$ to another function which we already understand well, or
+- we build a recurrence relation on the output of $f$.
 
 == Asymptotic Behavior & Approximation
 
-Asymptotic analysis allows us to simplify complex problems by focusing on how functions behave toward infinity.
+Asymptotic analysis allows us to simplify complex problems by focusing on how functions behave for large inputs toward infinity.
+This is a form of abstraction #footnote[Abstraction is one of our most powerful tools in mathematics.] where we strip away less significant terms to expose the dominant behavior of the function.
+Oftentimes, we make comparisons with benchmarks, such as the logarithmic, linear, quadratic, and exponential functions.
 
-This is a form of abstraction #footnote[Abstraction is one of our most powerful tools in mathematics.] where we strip away less significant terms to reveal the behavior of the function.
+We write $f ~ g$ for asymptotic equivalence, that is when
+$
+  lim_(x -> infinity) f(x) / g(x) = 1,
+$
+meaning the functions grow at the same rate.
 
-Oftentimes, we make comparisons with benchmark functions, such as logarithmic, linear, quadratic, and exponential.
+A polynomial function is asymptotically equivalent to its highest degree term:
+$
+  a x^2 + b x + c ~ a x^2.
+$
 
-We write $f ~ g$ when $lim_(x -> infinity) f(x) \/ g(x) = 1$.
-
-We use big and little "O" notations to relate the behavior of a given function $f$ to these known functions.
+Exponential functions grow faster than linear functions:
+$
+  a^n + b^n + n^c ~ b^n " where " a < b " and " 1 < b,
+$
+which grow faster than logarithmic functions:
+$
+  a x^b + c log x ~ a x^b " with " c > 0.
+$
 
 
 === Stirling's Formula
@@ -49,7 +60,7 @@ We use big and little "O" notations to relate the behavior of a given function $
 #proposition[
   Factorial grows faster than any exponential function.
 ]
-#proof[Proposition 2][
+#proof[Proposition][
   Let $a b^n$ be an exponential function.
   $
     lim_(n -> infinity) n! / (a b^n) =
@@ -59,8 +70,13 @@ We use big and little "O" notations to relate the behavior of a given function $
   Since this limit diverges, then $n!$ grows faster than any $a b^n$.
 ]
 
+Note that asymptotic equivalence requires constant.
+We can make cruder comparisons with benchmark functions.
+We use big and little "O" notations to relate the behavior of a given function $f$ to known functions:
+$$
 
 [TODO: populate the definitions of the following sections.]
+
 
 == Generating Functions
 
@@ -117,59 +133,36 @@ What are generating functions used for? What can we do with them?
 
 How can we produce generating functions?
 
-=== Constructing Generating Functions from Recurrence Relations
-
-#theorem[Sequence Rule][
-  Let $A$ be a set with a weight function and no elements of weight 0.
-  Let $A^*$ be the set of all finite sequences of elements of $A$, including the empty sequence, where the weight of a sequence is given by the sum of the weights of its elements.
-  $
-    F_(A^*)(x) = 1 / (1 - F_A (x)).
-  $
-]
-
-#proof[
-  Every set in $A^*$ belongs to exactly one of the following cases:
-  - it is empty, or
-  - its first element is in $A$, followed by an elements of $A^*$.
-
-  So, we can construct a weight-preserving bijection,
-  $
-    A^* -> {(#h(0.25em))} union.sq A times A^*.
-  $
-
-  Hence, we have
-  $
-                 F_(A^*) (x) & = 1 + F_A (x) F_(A^*) (x) \
-    (1- F_A (x)) F_(A^*) (x) & = 1                       \
-                 F_(A^*) (x) & = 1 / (1 - F_A (x)).      \
-  $
-  Note that we can only divide formal power series with no constant term.
-  Since we had that $A$ had no elements with weight 0, then its power series
-]
-
-#remark[
-  If there were elements with weight zero, then we could create sequences with infinitely many zero-weighted elements.
-]
-
 
 == Some Sequences
 
 #definition[
   Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, dots$
   #footnote[https://oeis.org/A000045]
-  - recurrence relation $f(n+2) = f(n+1) + f(n)$.
-  - generating function $1 / (1-x-x^2)$.
-  - closed form $(phi^n - psi^n) / (phi - psi)$, where $phi = (1+sqrt(5)) / 2$ is the golden ratio and $psi = (1-sqrt(5)) / 2$.
-  - asymptotics $f(n) ~ phi^n \/ sqrt(5)$.
+  The sequence is defined by the recurrence relation:
+  $
+    f(n+2) = f(n+1) + f(n)
+  $
+  with closed form:
+  $ (phi^n - psi^n) / (phi - psi) ~ phi^n \/ sqrt(5) $, where $phi = (1+sqrt(5)) / 2$ is the golden ratio and $psi = (1-sqrt(5)) / 2$ is its conjugate.
+  The above is produced by the generating function: $(1-x-x^2)^(-1)$.
 ]
 
 #definition[
   Catalan sequence $1, 1, 2, 5, 14, 42, dots$
   #footnote[https://oeis.org/A000108]
-  - recurrence relation $c(0) = 1$ and $c(n) = (2(2n-1)) / (n+1) c(n-1) = sum_(i=1)^n c(i-1)c(n-i)$
-  - generating function $(1-sqrt(1-4x)) / (2x)$
-  - closed form $1 / (n+1)binom(2n, n)$
-  - asymptotics $c_n ~ 4^n / (n^(3\/2) sqrt(pi))$
+  The sequence is defined by the recurrence relation:
+  $
+    c(0) = 1 " and " c(n) = (2(2n-1)) / (n+1) c(n-1) = sum_(i=1)^n c(i-1)c(n-i)
+  $
+  with closed form:
+  $
+    1 / (n+1)binom(2n, n) ~ 4^n / (n^(3\/2) sqrt(pi))
+  $
+  produced by the generating function;
+  $
+    (1-sqrt(1-4x)) / (2x).
+  $
 ]
 
 #proof[Catalan closed form][
@@ -237,9 +230,135 @@ How can we produce generating functions?
 ]
 
 
+=== Constructing Generating Functions from Recurrence Relations
 
-So, both the parentheses puzzle and polygonal triangulation activities produce the same count.
-#footnote[In fact, the number of binary trees of $n$ vertices is also the Catalan number.]
+==== Binary Trees
+
+We can also acquire the Catalan numbers using binary trees and their generating function.
+
+#definition[
+  (Rooted) Binary trees are defined recursively as:
+  - The empty set is a binary tree.
+  - If $T_1$ and $T_2$ are binary trees, then $T_1 bullet T_2$ is binary tree.
+  #figure(
+    cetz.canvas(length: 0.5cm, {
+      import cetz.draw: *
+
+      let root = (0, 2)
+
+      circle(root, radius: 0.15, fill: black)
+      circle((-2, -1.5), radius: 1.5, name: "left")
+      circle((2, -1.5), radius: 1.5, name: "right")
+      line(root, "left.north")
+      line(root, "right.north")
+      content("left", [$T_1$])
+      content("right", [$T_2$])
+    }),
+    caption: [Binary tree.],
+  )
+]
+Each vertex of a binary tree can have a left child, a right child, neither, or both.
+
+#proposition[
+  The number of binary trees with $n$ vertices is $c_n$.
+]
+
+#proof[Proposition][
+  Let $B$ be the set of all binary trees weighted by the number of vertices.
+
+  Each binary tree is in exactly one of the following two cases:
+  - it is empty, or
+  - it has two children, $T_1,T_2 in B$.
+
+  So, there exists a weight-preserving bijection:
+  $
+    B -> emptyset union.sq {bullet} times B times B.
+  $
+
+  Therefore,
+  $
+    F_(B)(x) & = x^0 + x^1 F_(B)(x)^2              \
+           0 & = 1-F_(B)(x)+x F_(B)(x)^2           \
+    F_(B)(x) & = (1 plus.minus sqrt(1-4x)) / (2x), \
+  $
+  where we use the Quadratic Formula to solve for $F_(B)(x)$.
+
+  But, we need $F_(B)(x)$ to be a function with $F_(B)(0) = 1$ because there is one binary tree with zero vertices.
+
+  So, we will take the following limit:
+  $
+    lim_(x -> 0) F_(B)(x) = 1 ==> cases(
+      limits(lim)_(x -> 0) (1+sqrt(1-4x)) / (2x) & "DNE,",
+      limits(lim)_(x -> 0) (1-sqrt(1-4x)) / (2x) &= lim_(x -> 0) ((-1 / 2)(-4)(1-4x)^(-1\/2)) / 2 = 1.
+    )
+  $
+
+  Therefore $F_(B)(x) = (1 - sqrt(1-4x)) / (2x)$
+  // = 1 + x + 2x^2 + 5x^3 + 14x^4 + dots.h.c $
+
+  By the General Binomial Theorem, we have
+  $
+    (1-4x)^(1\/2) = sum_(n=0)^oo binom(1 \/ 2, n) (-4)^n x^n " where " binom(1 \/ 2, n) = cases(
+      (-1)^(n-1) 2 / (4^n n)binom(2n-2, n-1) " , " & n>0,
+      1 "," & n=0.
+    )
+  $
+
+  Hence, initially extracting the $n=0$ term from the sum, we have
+  $
+    F_(B)(x) & = 1 / (2x)(1 - (1 + sum_(n=1)^oo (-1)^(n-1) 2 / (4^n n) binom(2n-2, n-1)(-4)^n x^n)) \
+    &= 1 / (2x) sum_(n=1)^oo 2 / n binom(2(n-1), n-1) x^n \
+    &= 1 / (x) sum_(n=0)^oo 1 / (n+1) binom(2n, n)x^(n+1) \
+    &= sum_(n=0)^oo x^n / (n+1) binom(2n, n)
+    ==> |B_n| = 1 / (n+1)binom(2n, n), \
+  $
+  #w5 to show.
+]
+
+
+#example[
+  There are 14 binary trees with 4 vertices: $B_4 = 1 / 5 binom(8, 4) = 14$, find them all.
+]
+
+#remark[
+  Once we recognize the recurrence relationship $S -> emptyset union.sq {star} times S times S$, then we can immediately conclude that we have the Catalan numbers.
+  This fact is used to condense the proofs in the first section.
+]
+
+/*
+#lemma[Sequence Rule][
+  Let $A$ be a set with a weight function and no elements of weight 0.
+  Let $A^*$ be the set of all finite sequences of elements of $A$, including the empty sequence, where the weight of a sequence is given by the sum of the weights of its elements.
+  $
+    F_(A^*)(x) = 1 / (1 - F_A (x)).
+  $
+]
+// #footnote[A lemma is a proven result typically used to prove a theorem.]
+
+#proof[
+  Every set in $A^*$ belongs to exactly one of the following cases:
+  - it is empty, or
+  - its first element is in $A$, followed by an elements of $A^*$.
+
+  So, we can construct a weight-preserving bijection,
+  $
+    A^* -> {(#h(0.25em))} union.sq A times A^*.
+  $
+
+  Hence, we have
+  $
+                 F_(A^*) (x) & = 1 + F_A (x) F_(A^*) (x) \
+    (1- F_A (x)) F_(A^*) (x) & = 1                       \
+                 F_(A^*) (x) & = 1 / (1 - F_A (x)).      \
+  $
+  Note that we can only divide formal power series with no constant term.
+  Since we had that $A$ had no elements with weight 0, then its power series
+]
+
+#remark[
+  If there were elements with weight zero, then we could create sequences with infinitely many zero-weighted elements.
+]
+*/
 
 == Integer Partitions
 
@@ -258,7 +377,7 @@ So, both the parentheses puzzle and polygonal triangulation activities produce t
   The number of partitions of $n$ with at most $k$ parts equals the number of partitions with largest part at most $k$.
 ]
 
-#proof[Proposition 1][
+#proof[Proposition][
   Consider the Ferrers diagram of the partition.
 
   If a partition has $k$ parts, then there are $k$ rows in its diagram.

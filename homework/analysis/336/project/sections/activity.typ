@@ -3,17 +3,17 @@
 
 = Showcase Activity
 
-We will present some problems for the reader can begin to ponder to build some intuition behind recurrence relations.
+We will present some problems for the reader to ponder and build some intuition behind recurrence relations.
 These problems are intended to be accompanied by physical artifacts with the showcase.
 
-We will also provide the solutions, but we encouraged the reader to first turn to the @discussion[#text("Discussion Section")] to obtain the tools necessary for tackling the problems.
+We will also provide the solutions, but the reader in encouraged to first turn to the @discussion[#text("Discussion Section")] to obtain the tools necessary for tackling the problems.
 
 == Domino Tiling
 
-How many ways we can tile a $2 times n$ space with $1 times 2$ tiles?
+How many ways we can tile a $2 times n$ rectangular space with $1 times 2$ tiles?
 
 *Materials & Setup:*
-We can use dominoes as our tiles and a narrow box for our space.
+We can use dominoes as our tiles.
 
 #figure(
   grid(
@@ -44,30 +44,34 @@ We can use dominoes as our tiles and a narrow box for our space.
     }),
   ),
   caption: [Domino tiling cases.],
-)
-
-We see that there are two cases:
--
--
+) <fib-tilings>
 
 #heading(numbering: none, outlined: false, level: 3)[Guiding Questions]
 
 - Sketch a table of the space size $n$ and the corresponding number of tilings which fill that space.
-  Do you recognize this sequence? #footnote[
+  Do we recognize this sequence? #footnote[
     If you are ever working with a sequence in the wild, try seeing if it is documented in The On-Line Encyclopedia of Integer Sequences (OEIS). https://oeis.org/
   ]
-
-- Can you write down a relationship that describes how to get the next number of tilings in the sequence?
+- Can we write down a relationship that describes how to get the next number of tilings in the sequence?
+  Does this relationship match the possible cases in the above @fib-tilings?
+- If we have a tiling of a $2 times (n-1)$ space, in how many ways can you extend it to tile a $2 times n$ space?
+  What about starting from a $2 times (n-2)$ space?
+  Could we have written down this relationship by building a recursive definition of the tilings?
 
 #heading(numbering: none, outlined: false, level: 3)[Extension Questions]
 
 - What are some other ways that we can build this sequence?
+- If the dominoes come in $k$ different colors, how many ways can we tile a $2 times n$ space?
+- What happens with a $3 times n$ space using the same $1 times 2$ dominoes? \
+  (This is tricky; explore small cases.)
+- More generally, what happens if we change the shape of our dominoes? \
+  What about if we change the size of our tiling space?
 
 #proposition[
   The number of tiles follows the Fibonacci sequence.
 ]
 
-
+/*
 == Color Block Tiling
 
 Let $h(n)$ be the number of ways to tile a $1 times n$ space with
@@ -89,16 +93,19 @@ Find the number of ways to tile the space with the given tiles.
 
 #heading(numbering: none, outlined: false, level: 3)[Guiding Questions]
 
+How can we define a set of the tiles?
+
 #heading(numbering: none, outlined: false, level: 3)[Extension Questions]
 
 - How can we work with more complex shapes and arrangements?
   Perhaps natural curiosity might lead us to next explore the combinatorial possibilities of a Tetris game.
+*/
 
 == Parentheses Puzzle
 
 How many ways are there to arrange sequences of nested and matched parentheses?
 
-For any prefix of the string of parentheses, the number of left opening parentheses is at least the number of closing right parentheses.
+For any prefix of the string of parentheses, the number of left parentheses is at least the number of right parentheses.
 In the entire string, the number of left parentheses must be equal to the number of right parentheses.
 These are sequences are known as Dyck words.
 
@@ -113,9 +120,35 @@ These are sequences are known as Dyck words.
 )
 
 *Materials & Setup:*
-Note cards with parentheses, colored red and blue.
+Notecards with parentheses, colored with two colors, e.g. red and blue.
 Set one color as the left parentheses, and one color as the right.
 Arrange the cards to form Dyck words.
+
+#heading(numbering: none, outlined: false, level: 3)[Guiding Questions]
+
+- Let's start small: how many valid arrangements are there with 1, 2, or 3 pairs of parentheses?
+  Create a systematic list for each case using your colored cards.
+- Use the cards to build all possible arrangements for 3 pairs.
+  Can we group them by some common structure?
+- What makes a sequence "invalid"?
+  Try to construct some invalid sequences and identify exactly where they break the rules.
+- For any valid sequence, what happens if we remove the first left parenthesis and its matching right parenthesis?
+- Can we find a pattern: if we know the number of valid sequences for smaller cases,
+  how might we build up to larger cases? (This is tricky.)
+
+#heading(numbering: none, outlined: false, level: 3)[Extension Questions]
+
+- *Mountain ranges*: Draw each parenthesis sequence as a path where "(" means "go up" and ")" means "go down."
+  What do valid sequences look like as paths?
+- *Ballot problem*: In an election, candidate A receives $n$ votes and candidate B receives $n$ votes.
+  If votes are counted one by one, in how many ways can A always be ahead or tied throughout the counting?
+- *Binary trees*: Can we connect Dyck words to binary trees?
+  How might parentheses represent the structure of a tree?
+- *Stack operations*: If "(" represents "push" and ")" represents "pop" on a stack,
+  what do valid sequences represent in terms of stack behavior?
+- *Generalizations*: What if we had more types of brackets, e.g. (), [], {}? \
+  What if we required that () must be nested within [] which must be nested within {}?
+
 
 #proposition[
   The number of Dyck words is the $n$-th Catalan number.
@@ -129,14 +162,10 @@ Arrange the cards to form Dyck words.
   Let $D$ be the set of all Dyck words, weighted by half the length of the string.
   Then, we have have weight-preserving bijection
   $
-    D -> {} union.sq {()} times D times D.
+    D -> {} union.sq {()} times D times D,
   $
-
-  So,
-  $
-    F_D (x) = 1 + x F_D (x)^2 ==> F_D (x) = (1-sqrt(1-4x)) / (2x) = sum_0^oo c_n x^n,
-  $
-  where $c_n$ is the $n$-th Catalan number.
+  and we can conclude by the proof of Proposition 5.
+  // NOTE: hard-coded environment reference number!
 ]
 
 
@@ -191,9 +220,10 @@ Stretch rubber bands around the pegs to create triangulations.
 
 #heading(numbering: none, outlined: false, level: 3)[Guiding Questions]
 
-How many triangles are in the triangulation of an polygon with $n$ sides ($n$-gon)?
+- How many triangles are in the triangulation of an polygon with $n$ sides ($n$-gon)?
 // The triangulation of an $n$-gon has $n-2$ triangles.
-
+- Pick one vertex of your polygon. In any triangulation, how many triangles must include this vertex?
+  What does this tell us about the structure?
 #heading(numbering: none, outlined: false, level: 3)[Extension Questions]
 
 - What if we do not label the pegs, that is consider rotations to be indistinguishable?
@@ -201,7 +231,8 @@ How many triangles are in the triangulation of an polygon with $n$ sides ($n$-go
   Label the pegs so as to consider rotations to be distinct from one another. These are called non-crossing partitions.
 - Can we connect these points to form a binary tree? \
   Hint: what happens if we draw points (vertices of a tree) on each of the triangles in the triangulation.
-- Can we do this for any triangulation?
+  Can we do this for any triangulation?
+- *Associativity*: Can you connect polygon triangulations to different ways of associating the product $a_1 dot a_2 dot a_3 dots.c a_n$, that is placing parentheses around the terms?
 
 
 #proposition[
@@ -217,15 +248,10 @@ How many triangles are in the triangulation of an polygon with $n$ sides ($n$-go
 
   Hence, there exists a weight-preserving bijection:
   $
-    T -> {emptyset} union.sq {triangle} times T times T.
+    T -> emptyset union.sq {triangle} times T times T,
   $
-
-  Therefore
-  $
-    F_(T)(x) = sum_(n=0)^(infinity) 1 / (n+1)binom(2n, n) x^n.
-  $
-
-  Thus, $|T_n| = c_n$, the $n$-th Catalan number.
+  and we can conclude by the proof of Proposition 5.
+  // NOTE: hard-coded environment reference number!
 ]
 
 /*

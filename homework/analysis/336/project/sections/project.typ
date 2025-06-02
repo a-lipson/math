@@ -4,14 +4,14 @@
 = Explanation for Peers
 
 We will build on material from previous section, so the reader is recommended to ensure familiarity with the ideas presented there.
-We will begin with a brief exploration of a kind of problems which, at first glance, does not appear to be related to complex analysis which we have been studying this quarter.
-Then, we will draw a connection between Number Theory problems and analysis techniques, in particular with demonstrating the Circle Method.
+We will begin with a brief exploration of a kind of problem which, at first glance, does not appear to be related to the complex analysis that we have been studying this quarter.
+Then, we will draw a connection between Number Theory problems and analysis techniques, in particular by demonstrating the Circle Method.
 
 
 == Additive Number Theory
 
 Additive Number Theory is a branch concerned with the behavior of subsets of integers under addition.
-We have already seen an object of interest, integer partitions.
+We have already seen one such object of interest, integer partitions.
 
 More generally, we consider $k$ subsets of the nonnegative integers ${A_i}_(i=1)^k$ where $A_i subset NN$.
 We are interested in the number of solutions $r_(k)(n)$ to the following equation with $n in NN$:
@@ -49,6 +49,7 @@ Now, we will see a few examples of additive problems.
   $
     r_(k)(n) = binom(n+k-1, k-1).
   $
+  // Consider, for a concrete example, lending money to friends. Here, order matters, and we can give nothing, that is zero dollars. The total sum of the lending must be equal to the sum of all lent amounts.
 ]
 
 #example[
@@ -91,7 +92,7 @@ Now, we will see a few examples of additive problems.
 
 == Circle Method
 
-The Hardy Ramanujan Littlewood Circle method is a technique in additive number theory.
+The Hardy-Ramanujan-Littlewood Circle Method is a technique in additive number theory.
 Our goal is to transform additive and combinatorics problems into complex analysis problems to use the tools of analysis. @circle-method-video
 Quoting Hardy and Ramanujan's original paper, "This idea [studying integrals from generating functions] has dominated nine-tenths of modern research in analytic theory of numbers." @hardy-ramanujan1918
 
@@ -154,7 +155,7 @@ for a circular closed loop $C_rho$ of radius $rho$ centered at the origin.
 
 Now, we can express the number of solutions $r_(k)(n)$ in terms of the residues of this integral.
 
-// NOTE: hard coded example number
+// NOTE: hard-coded environment reference number!
 From Example 2 above with $A = NN$, we already know that $r_(k)(n) = binom(n+k-1, k-1)$.
 We will verify this using the Circle method.
 

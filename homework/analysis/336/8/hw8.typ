@@ -4,7 +4,7 @@
 
 #show: style(author)
 
-#title("Math 336 Homework 6", author)
+#title("Math 336 Homework 8", author)
 
 #include "sections/1.typ"
 #include "sections/2.typ"

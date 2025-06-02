@@ -1,7 +1,7 @@
 #import "@local/tinyset:0.2.1": *
 #import "@preview/cetz:0.3.4"
 
-= Showcase Activity
+= Showcase Activity <activity>
 
 We will present some problems for the reader to ponder and build some intuition behind recurrence relations.
 These problems are intended to be accompanied by physical artifacts with the showcase.
@@ -252,6 +252,49 @@ Stretch rubber bands around the pegs to create triangulations.
   $
   and we can conclude by the proof of Proposition 5.
   // NOTE: hard-coded environment reference number!
+]
+
+
+== Young Diagrams
+
+In how many ways can we arrange $n$ identical squares into left-justified rows, where each row has no more squares than the row above it?
+These arrangements are known as Young diagrams.
+#footnote[If we did this with points instead of boxes, we would have a Ferrers diagram.]
+
+*Materials & Setup:*
+We can use small square tiles (like Scrabble tiles, square counters, or cut paper squares),
+to arrange into Young diagrams.
+
+#figure(
+  [
+    ```
+    □ □ □ □     □ □ □     □ □     □ □     □
+                □         □ □     □       □
+                                  □       □
+                                          □
+    ```
+  ],
+  caption: [Young diagrams for $n=4$.],
+)
+
+#heading(numbering: none, outlined: false, level: 3)[Guiding Questions]
+
+- Start with small numbers $(n=1,2,3,4,5)$ and systematically build all possible arrangements with the tiles; can we reuse previous diagrams for when creating larger diagrams?
+- What's the connection between these diagrams and writing $n$ as a sum?
+  (e.g., $4 = 4 = 3+1 = 2+2 = 2+1+1 = 1+1+1+1$)
+- If we flip a diagram along its diagonal (transpose), what do we get? \
+  How does this relate to partitions into distinct vs. repeated parts?
+
+#heading(numbering: none, outlined: false, level: 3)[Extension Questions]
+
+- *Restricted partitions*: What if we limit the maximum row length to k squares?
+- *Odd partitions*: What if we only allow rows with odd lengths?
+- *Self-conjugate*: Which arrangements look the same when flipped along the diagonal?
+- *Hook lengths*: Can we find a pattern in the "hook" shapes (the squares extending below and to the right) extending from each square?
+
+#remark[
+  The number of partitions of size $n$ is given by the partitions function $p(n)$, the approximation of which is given by the Theorem in the last section.
+  There is no known closed form for $p(n)$.
 ]
 
 /*

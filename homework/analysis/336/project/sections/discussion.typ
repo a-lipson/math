@@ -1,5 +1,6 @@
 #import "@local/tinyset:0.2.1": *
 #import "@preview/cetz:0.3.4"
+#import "@preview/commute:0.3.0": *
 
 = Discussion for Students <discussion>
 
@@ -47,9 +48,19 @@ which grow faster than logarithmic functions:
 $
   a x^b + c log x ~ a x^b " with " c > 0.
 $
-
+Note that asymptotic equivalence requires constant.
+// We can make cruder comparisons with benchmark functions.
+// We use big and little "O" notations to relate the behavior of a given function $f$ to known functions:
 
 === Stirling's Formula
+
+In fact, we have the following proposition that factorials grow faster than any of the above functions.
+
+#proposition[
+  Factorial grows faster than any exponential function.
+]
+
+We will need the following Theorem to prove the result.
 
 #theorem[Stirling's Formula][
   $
@@ -57,11 +68,8 @@ $
   $
 ]
 
-#proposition[
-  Factorial grows faster than any exponential function.
-]
 #proof[Proposition][
-  Let $a b^n$ be an exponential function.
+  Let $a b^n$ be an exponential function. With Stirling's Formula, we have:
   $
     lim_(n -> infinity) n! / (a b^n) =
     lim_(n -> infinity) (sqrt(2pi n)(n / e)^n) / (a b^n) =
@@ -70,40 +78,75 @@ $
   Since this limit diverges, then $n!$ grows faster than any $a b^n$.
 ]
 
-Note that asymptotic equivalence requires constant.
-We can make cruder comparisons with benchmark functions.
-We use big and little "O" notations to relate the behavior of a given function $f$ to known functions:
-$$
-
-[TODO: populate the definitions of the following sections.]
-
 
 == Generating Functions
-
-#definition[
-  recurrence relations
-]
-
-[NOTE: it would be beneficial to cut down on extra topics, so maybe we won't retain the following definition.]
-#definition[
-  homogeneous linear recurrence
-  characteristic polynomial
-]
-
-#definition[
-  Suppose $f:NN -> CC$.
-  The generating function of $f$ is defined as follows:
-  $
-    F(x) = sum_(n=0)^(infinity) f(n) x^n = underbrace(f(0) + f(1)x + f(2)x^2 + #sym.dots.h.c, "contains all information from" f)
-  $
-]
 
 Generating functions are objects known as formal power series, they are a formal sum--which means we are not actually performing any addition--that does not have to converge for all $x$.
 #footnote[Generating functions are neither generating, nor functions.]
 // So, moving forward, we will not be concerned with convergence.
 // Formal power series invertible iff its constant term is invertible.
 
+We have already seen how to capture combinatorial information using functions; now we will extend these functions to build generating functions.
 We use generating functions to encode combinatorial rules as algebraic relations.
+
+=== Uses for Generating Functions
+
+Generating functions serve as a "mathematical machine" that transforms counting problems into algebraic problems.
+Instead of working directly with sequences like $1, 1, 2, 5, 14, 42, ...$, we encode them as coefficients in a power series and use algebra to find patterns.
+
+Some key uses are as follows:
+- *Finding closed forms*: Turn recurrence relations into algebraic equations we can solve.
+- *Proving identities*: Show that two different counting problems give the same answer.
+- *Asymptotic analysis*: Extract growth rates of sequences.
+- *Solving complex recurrences*: Handle cases where direct methods fail.
+
+=== How weights become coefficients
+
+This is the core idea: if an object has weight $w$, it contributes $x^w$ to the generating function.
+
+Method:
+#set enum(numbering: "1.", indent: 0em, spacing: 1em)
+1. Each object gets a numerical weight (often size, but could be any property)
+2. An object of weight $w$ becomes the monomial $x^w$
+3. Objects with the same weight are collected; if there are $k$ objects of weight $n$, they contribute $k dot x^n$ total
+4. The generating function is then
+$
+  sum_("all objects") x^("weight of object") = sum_(n=0)^oo "count of weight-"n "objecst" dot x^n
+$
+
+=== Producing Generating Functions
+
+- *Direct counting*: Count objects by weight and write down the series.
+- *Combinatorial constructions*: Use union and product rules (like the $S -> emptyset union.sq {star} times S times S$ pattern).
+- *Recurrence relations*: Transform recursive formulas into generating function equations.
+- *Known series*: Recognize patterns that match geometric series, binomial series, etc.
+
+We will now transition into the technical construction of generation functions.
+
+#definition[
+  A recurrence relation is an equation that expresses each element of a sequence as a function of the preceding ones.
+  For our purposes, a function $f$ satisfies a recurrence relation if we can expression $f$ on some input $n$ in terms of the value of $f$ on "previous" inputs.
+  For example,
+  $
+    forall n, f(n+2) = f(n+1) + f(n)
+  $
+  is the recurrence relation for the Fibonacci sequence.
+]
+
+// #definition[
+//   homogeneous linear recurrence
+//   characteristic polynomial
+// ]
+
+#definition[
+  Suppose $f$ is a function on the natural numbers.
+  The generating function of $f$ is defined as follows:
+  $
+    F(x) = sum_(n=0)^(infinity) f(n) x^n = underbrace(f(0) + f(1)x + f(2)x^2 + dots.c, "contains all information from" f)
+  $
+  where the values of $f$ at $n$ are paired with the coefficients of $x^n$.
+]
+
 
 If ${A_n}$ is a sequence of finite sets, then we can define a generating function on the size of these sets
 $
@@ -111,7 +154,7 @@ $
 $
 
 We can view the size of a set as a function that takes a set and returns the number of elements inside of the set.
-More generally, we can consider a weight function $w : A -> NN$ that takes a set and produces a given value $n$ for each element in $A$.
+More generally, we can consider a weight function $w : A -> NN$ that takes a set $A$ and produces a given natural value for each element in $A$.
 
 With a set $A$, possibly infinite, and a weight function $w$ on $A$, we can construct the generating function
 $
@@ -127,14 +170,10 @@ $
   using the geometric series $sum x^n = 1 / (1-x)$.
 ]
 
-[TODO: answer the following questions; they are prompts for writing.]
-
-What are generating functions used for? What can we do with them?
-
-How can we produce generating functions?
-
 
 == Some Sequences
+
+We will now define in detail the sequences we have previously seen in @activity[Activity Section].
 
 #definition[
   Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, dots$
@@ -232,6 +271,20 @@ How can we produce generating functions?
 
 === Constructing Generating Functions from Recurrence Relations
 
+Given a functional recurrence relation on some function $f(n)$, we can perform the generating function transform to collapse the recursive equation into a direct relationship for a generating function $F(x)$. If we are lucky, we can then invert the transform to acquire a closed form for $f(n)$.
+
+#figure(
+  commutative-diagram(
+    node((0, 0), $f(n)$),
+    node((0, 1), $F(x)$),
+    arr($f(n)$, $F(x)$, $cal(G)$, curve: 20deg),
+    arr($F(x)$, $f(n)$, $cal(G)^(-1)$, curve: 20deg),
+  ),
+  caption: [Generation function transform ($cal(G)$) diagram.],
+)
+
+#align(center)[]
+
 ==== Binary Trees
 
 We can also acquire the Catalan numbers using binary trees and their generating function.
@@ -315,6 +368,16 @@ Each vertex of a binary tree can have a left child, a right child, neither, or b
   #w5 to show.
 ]
 
+#remark[
+  This proof uses several techniques. The key ideas are:
+  #set enum(numbering: "1.", indent: 0em, spacing: 1em)
+  1. Every binary tree is either empty or has exactly two subtrees.
+  2. This recursive structure translates to the equation $F(x) = 1 + x F(x)^2$.
+  3. Solving this quadratic gives us the Catalan numbers.
+
+  Don't worry if the algebraic details are challenging; focus on understanding the recursive structure!
+]
+
 
 #example[
   There are 14 binary trees with 4 vertices: $B_4 = 1 / 5 binom(8, 4) = 14$, find them all.
@@ -362,15 +425,12 @@ Each vertex of a binary tree can have a left child, a right child, neither, or b
 
 == Integer Partitions
 
-[TODO: expand the section on integer partitions, and perhaps give some applications of the object.]
+We will now turn to another
 
 #definition[
   For $n in NN$, a partition of $n$ is a way to write $n$ as the sum of positive integers where the order of summation does not matter.
   #footnote[If the order of summation matters, then we have a strong composition.]
-]
-
-#definition[
-  We can represent partitions with Young and Ferrers diagrams.
+  As seen in @activity[Activity Section], partitions can be represented using Young diagrams.
 ]
 
 #proposition[
@@ -378,14 +438,11 @@ Each vertex of a binary tree can have a left child, a right child, neither, or b
 ]
 
 #proof[Proposition][
-  Consider the Ferrers diagram of the partition.
-
+  Consider the Young diagram of the partition.
   If a partition has $k$ parts, then there are $k$ rows in its diagram.
-
   If the largest part of a partitions is $k$, then there are $k$ columns in its partition.
 
-  Transpose the Ferrers diagram by flipping it across its central diagonal, swapping the number of rows and columns while maintaining the number of dots.
-
+  Transpose the Young diagram by flipping it across its central diagonal, swapping the number of rows and columns while maintaining the number of dots.
   This flipped partition is known as the conjugate partition.
 
   Thus, we have a bijection between the set of partitions with $k$ parts and the set of partitions with largest part $k$.
@@ -399,9 +456,39 @@ Each vertex of a binary tree can have a left child, a right child, neither, or b
 ]
 
 #proof[Theorem][
+  We can specify any partition in $P_(<= k)$ uniquely by the number of $k$'s, $k-1$'s, ... , and 1's.
 
+  Therefore, we have a weight-preserving bijection:
+  $
+    P_(<= k) -> underbrace(NN times NN times dots.c times NN, k "times"),
+  $
+  where the weight of each partition $(a_1,dots,a_k) = sum_(n=1)^k n a_n$ with the $a_n$ representing the number of $n$'s in the partition.
+
+  Equivalently, we have a weight-preserving bijection:
+  $
+    P_(<= k) -> NN times 2NN times 3NN times dots.c times k NN
+  $
+  where $i NN = {0, i, 2i, 3i, dots}$ and the weight of $x in i NN$ is itself.
+
+  So,
+  $
+    F_(P_(<= k))(x) = F_(NN)(x) F_(2NN)(x) dots.c F_(k NN)(x).
+  $
+
+  Then, we can obtain the generating function for each $F_(i NN)(x)$ using the geometric series:
+  $
+          F_(NN)(x) = sum_0^oo x^n & = 1 / (1-x)    \
+      F_(2NN)(x) = sum_0^oo x^(2n) & = 1 / (1-x^2)  \
+                                   & dots.v         \
+    F_(k NN)(x) = sum_0^oo x^(k n) & = 1 / (1-x^k). \
+  $
+
+  Thus,
+  $
+    F_(P_(<= k))(x) = product_(j=1)^k 1 / (1-x^j),
+  $
+  #w5 to show.
 ]
-
 
 If we let the maximum size of each part $k$ exceed any number, i.e., $k -> oo$, then we obtain the following theorem.
 #theorem[Partitions Generating Function][

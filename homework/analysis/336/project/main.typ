@@ -4,7 +4,7 @@
 
 #show: style(author)
 
-#title("336 Final Project", author)
+#title("336 Final Project: Combinatorics", author)
 
 #let todo-style(content) = {
   show regex("^\[TODO:.*$"): txt => (

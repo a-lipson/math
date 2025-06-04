@@ -4,10 +4,22 @@
 // TODO: move to tinyset
 
 
+
 #let point(location, radius: 0.1, name: none) = {
   import draw: *
   circle(location, radius: radius, fill: black, name: name)
 }
+
+// #let place-arrow(position, rotation: 0deg, scale: 1, ..style) = {
+//   import draw: *
+//
+//   group({
+//     rotate(rotation)
+//     scale(scale)
+//
+//     line((0, 0), (0, 0.2), (0.3, 0.1), close: true, ..style)
+//   })
+// }
 
 #let equals-line(start, end, gap: 0.1, coverage: 0.6, name: none) = {
   import draw: *
@@ -40,21 +52,21 @@
   })
 }
 
-#let arc-between(start, end, ..style) = {
-  import draw: *
-
-  let dir = vector.sub(end, start)
-  point(dir)
-  let t = calc.atan2(dir.at(1), dir.at(0))
-
-  arc(
-    start,
-    start: 180deg,
-    stop: t + 90deg,
-    radius: vector.dist(start, end) / 2,
-    ..style,
-  )
-}
+// #let arc-between(start, end, ..style) = {
+//   import draw: *
+//
+//   let dir = vector.sub(end, start)
+//   point(dir)
+//   let t = calc.atan2(dir.at(1), dir.at(0))
+//
+//   arc(
+//     start,
+//     start: 180deg,
+//     stop: t + 90deg,
+//     radius: vector.dist(start, end) / 2,
+//     ..style,
+//   )
+// }
 
 
 #let curved-line(start, end, curve: 0.5, ..style) = {

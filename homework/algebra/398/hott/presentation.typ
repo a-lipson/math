@@ -17,12 +17,13 @@
 
 #show: simple-theme.with(aspect-ratio: "16-9")
 
-= Some Visualizations
+= Homotopy Type Theory
+// some visualizations
+// break down two parts: homotopy & type theory
 
-Homotopy Type Theory
+_identifications are paths_
 
-// TODO: improve thesis statement.
-_pictures are good_
+a lipson
 
 == Types vs. Sets
 
@@ -51,6 +52,8 @@ _pictures are good_
     // caveat: empty type
 
     Terms inhabit types via typing (:).
+    // (:) is the only bit of HoTT notation we will share,
+    // when you go off to read the literature, the notation can be dense.
     #v(1.35em)
     Terms have exactly one type.
     #v(1.35em)
@@ -75,6 +78,8 @@ _pictures are good_
   pause,
   [identity], [$x =_A y$], [depends],
   // for some type A.
+  // we call terms of the identity type identifications.
+  // reflexive identity types always have a term, we will get to this later.
 ))
 
 #pause
@@ -85,7 +90,11 @@ _pictures are good_
 
 == Curry Howard
 
-//
+// constructive mathematics: must construct an object to prove its existence
+// classical mathematics: existence proof, but we don't necessarily need to construct the object.
+// two kinds of equality:
+// - judgemental/definitional equality: terms were built in the same way (sequences of constructors).
+// - propositional/observational equality: what we use the identity types for.
 #text(
   size: 32pt,
   $
@@ -143,6 +152,7 @@ $
   content("id.mid", [#text(size: 16pt, $x = y$)], anchor: "south", padding: 0.3)
 }))
 
+// identifications = paths.
 Terms of the identity type $x = y$ are paths from $x$ to $y$.
 // notice directionality!
 
@@ -199,14 +209,16 @@ Terms of the identity type $x = y$ are paths from $x$ to $y$.
   content("r.center", [$r$], anchor: "south", padding: 0.15)
 }))
 
+
 // homotopies between paths?
 
 
 == Identity Type
 
-The identity type has one constructor:
+// remember when we said that the number of terms in the identity type depends on the type?
+The identity type at a fixed point $a : A$ has one constructor:
 $
-  "refl"_a : a =_A a " where " a : A.
+  "refl"_a : a =_A a.
 $
 #align(center, cetz-canvas(length: 0.8cm, {
   import draw: *
@@ -232,8 +244,12 @@ $
 
 == Path Induction
 
+// a is base point
+// like reeling in paths
+
 #align(center, cetz-canvas({
   import draw: *
+
 
   circle((0, 0), radius: (4, 3.5), name: "circle")
   content("circle.north", [$A$], anchor: "south", padding: 0.5)
@@ -242,40 +258,71 @@ $
   point(center, name: "a")
   content("a", [$a$], anchor: "east", padding: .3)
 
-  arc("a", start: 180deg, stop: -180deg, radius: 0.3)
-  for value in (0.5, 1, 1.6, 2.4) {
-    arc(
-      "a",
-      start: 180deg,
-      stop: -180deg,
-      radius: value,
-      stroke: (
-        dash: "dotted",
-      ),
-      name: "arc" + str(calc.ceil(value)),
-    )
-  }
+  let x = (1.5, 2)
+  let y = (1.5, -2)
 
-  point((name: "arc3", anchor: 35%), radius: 0.1, name: "x")
-  content("x", [$x$], anchor: "north-east", padding: .1)
-  (pause,)
-  arc(
-    "a",
-    start: 180deg,
-    // why isn't this quite 35%?
-    stop: 180deg * .3,
-    radius: 2.4,
-    mark: (end: ">"),
+  bezier(center, x, (-1.5, 2), (1, 0.5), mark: (end: ">"), name: "ax")
+  bezier(center, y, (-1.5, -2), (1, -0.5), mark: (end: ">"), name: "ay")
+
+  content(
+    "ax.mid",
+    [#text(size: 18pt, $a =_A x$)],
+    anchor: "south",
+    padding: .2,
   )
+  content(
+    "ay.mid",
+    [#text(size: 18pt, $a =_A y$)],
+    anchor: "north",
+    padding: .2,
+  )
+
+  content(x, [$x$], anchor: "west", padding: .3)
+  content(y, [$y$], anchor: "west", padding: .3)
+
+  point(x)
+  point(y)
 }))
 
-== Simply Connectedness
+== Path Induction
+
+// a is base point
+// like reeling in paths
 
 #align(center, cetz-canvas({
   import draw: *
 
-  circle((0, 0), radius: (4, 3.5), fill: gray.lighten(70%), name: "circle")
+
+  circle((0, 0), radius: (4, 3.5), name: "circle")
   content("circle.north", [$A$], anchor: "south", padding: 0.5)
+
+  let center = (-.1, 0)
+  point(center, name: "a")
+  content("a", [$a$], anchor: "east", padding: .3)
+
+  let x = (.1, 0.3)
+  let y = (.1, -0.3)
+
+  line(center, x)
+  line(center, y)
+
+  point(x)
+  point(y)
+
+  content(x, [$x$], anchor: "south-west", padding: .2)
+  content(y, [$y$], anchor: "north-west", padding: .1)
+}))
+Any type that looks like this is contractible.
+// if familiar with topology, simply connected.
+
+// one more
+== Circle Type
+
+#align(center, cetz-canvas(length: 0.8cm, {
+  import draw: *
+
+  circle((0, 0), radius: 4, fill: gray.lighten(70%), name: "circle")
+  content("circle.north", [$bold(S)^1$], anchor: "south", padding: 0.5)
 
   circle((0, 0), radius: 1.5, fill: white)
 
@@ -284,39 +331,158 @@ $
 
   point(x)
   point(y)
-  line(x, y, stroke: (paint: red), mark: (end: ">"))
-  arc(x, start: 180deg, stop: 0deg, radius: vector.dist(x, y) / 2, mark: (
-    end: ">",
-  ))
+
+  line(x, y, stroke: (paint: red, dash: "dashed"), mark: (end: "x"))
+
+  arc(
+    x,
+    start: 180deg,
+    stop: 0deg,
+    radius: vector.dist(x, y) / 2,
+    mark: (
+      end: ">",
+    ),
+    name: "p",
+  )
+  arc(
+    x,
+    start: -180deg,
+    stop: 0deg,
+    radius: vector.dist(x, y) / 2,
+    mark: (
+      end: ">",
+    ),
+    name: "q",
+  )
+
+  content("p.mid", [#text(size: 18pt, $p$)], anchor: "south", padding: .2)
+  content("q.mid", [#text(size: 18pt, $q$)], anchor: "north", padding: .1)
+}))
+$
+  p != q
+$
+
+== Circle Type
+
+#align(center, cetz-canvas(length: 0.8cm, {
+  import draw: *
+  group({
+    circle((0, 0), radius: 4, fill: gray.lighten(70%), name: "circle")
+    content("circle.north", [$bold(S)^1$], anchor: "south", padding: 0.5)
+
+    circle((0, 0), radius: 1.5, fill: white)
+
+    let x = (-2.75, 0)
+
+    point(x)
+    content(x, [#text(size: 18pt, $b$)], anchor: "east", padding: .3)
+
+    arc(x, start: 180deg, stop: -180deg, radius: 2.75, mark: (
+      end: ">",
+    ))
+  })
+
+
+  group({
+    translate((10, 0))
+    circle((0, 0), radius: 4, fill: gray.lighten(70%), name: "circle")
+    content("circle.north", [$bold(S)^1$], anchor: "south", padding: 0.5)
+
+    circle((0, 0), radius: 1.5, fill: white)
+
+    let x = (-2.75, 0)
+
+    point(x)
+    content(x, [#text(size: 18pt, $b$)], anchor: "east", padding: .3)
+
+    arc(x, start: 180deg, stop: 7deg, radius: 2.75, name: "top-out")
+    arc(
+      x,
+      start: -180deg,
+      stop: -7deg,
+      radius: 2.75,
+      mark: (
+        start: ">",
+      ),
+      name: "bot-out",
+    )
+    arc((-2.5, 0), start: 180deg, stop: 8deg, radius: 2.5, name: "top-in")
+    arc((-2.5, 0), start: -180deg, stop: -8deg, radius: 2.5, name: "bot-in")
+
+    line("bot-in.end", "top-out.end", name: "top-conn")
+    circle(
+      "top-conn.mid",
+      radius: 0.1,
+      stroke: (thickness: 0pt),
+      fill: gray.lighten(70%),
+    )
+    line("bot-out.end", "top-in.end")
+  })
+
+
+  // arc(x, start: -180deg, stop: 0deg, radius: 2.8, name: "1")
+  // arc("1.end", start: 0deg, stop: 180deg, radius: 2.6, name: "1")
+  // arc("1.end", start: -180deg, stop: 0deg, radius: 2.4, name: "1")
+  // arc("1.end", start: 0deg, stop: 180deg, radius: 2.6, name: "1", mark: (
+  //   end: ">",
+  // ))
 }))
 
+Distinct identifications between base $b$.
 
-== Action on Paths
+// distinct identifications by winding.
 
-// #align(center, cetz-canvas({ }))
+// == Action on Paths
 
 // == Commuting Diagrams
 
-== Sections & Retractions
+// == Sections & Retractions
 
+// == Fibers
 
-#align(center, cetz-canvas({
-  import draw: *
-  circle((0, 0))
-}))
-
-== Fibers
-
-== Transports
+// == Transports
 
 // == Pairs
 
 == Truncation Levels
 
-Separate types by their equalities.
+We separate types by their equalities:
 
--2. Contractible $tilde.equiv bb(1)$ \
--1. Propositions $tilde.equiv "Eq"_NN$ \
-#h(0.5em)\0. Sets $tilde.equiv NN$ \
-#h(0.6em)$dots.v$
+#align(center, grid(
+  columns: 2,
+  table(
+    columns: 2,
+    align: left,
+    stroke: 0pt,
+    row-gutter: 0.2em,
+    column-gutter: 1em,
+    [-2. Contractible], [$bb(1)$],
+    [-1. Propositions], [$"Eq"_NN$],
+    [#h(0.5em) 0. Sets], [$NN$],
+    [#h(0.5em) 1. 1-types], [$bold(S)^1$],
+    [#h(0.6em)$dots.v$], [],
+  ),
+  cetz-canvas({
+    import draw: *
+    circle((0, 0), radius: 0)
+    for value in (3, 2, 1) {
+      arc(
+        (0.5, -(1.3 * value)),
+        start: -45deg,
+        stop: 45deg,
+        radius: 0.7,
+        mark: (end: ">"),
+        name: "eq1",
+      )
+    }
+
+    content(
+      "eq1.mid",
+      [#text(size: 20pt, "has identity type")],
+      anchor: "west",
+      padding: .3,
+    )
+  }),
+))
+
 

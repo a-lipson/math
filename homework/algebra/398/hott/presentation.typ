@@ -155,6 +155,8 @@ $
 // identifications = paths.
 Terms of the identity type $x = y$ are paths from $x$ to $y$.
 // notice directionality!
+// from homotopy perspective: can deform the paths anywhere, provided A is a nice space
+// will see an example of different space at the end of the presentation
 
 == Concatenate Paths
 
